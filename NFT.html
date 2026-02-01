@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisbət, Faiz, Tənasüb</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+
+        }
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black ;
+            padding: 10px;
+
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+
+
+        }
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        .cedvel{
+            border:  3px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .cedvel th, .cedvel td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .ustuxet{
+            text-decoration: overline;
+            margin-left: 30px;
+        }
+        .m2arginp{
+            margin-left: 60px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Cambria Math', serif;
+            font-size: 18px;
+        }
+        .example-box {
+            background: #e8f4f8;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .important-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .definition-box {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .kinds-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .conversion-box {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .kesr-yazisi {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .kesr-line {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+        .kesr-numerator {
+            display: block;
+            border-bottom: 1px solid black;
+            padding: 0 10px;
+        }
+        .kesr-denominator {
+            display: block;
+            padding: 0 10px;
+        }
+        .nisbet-sembol {
+            color: #d63384;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .faiz-sembol {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .tenasub-sembol {
+            color: #17a2b8;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="naturedivbasliq">
+        <p>Nisbət, Faiz, Tənasüb</p>
+        <h6 style="color: grey;">
+        Nisbət, faiz və tənasübə aid bütün qaydalar, düsturlar və əməllər
+        </h6>
+    </div>
+<div class="sualdiv">
+
+<div class="definition-box">
+<p><strong>1. Nisbət (Ratio):</strong></p>
+    <p class="marginp"><strong>Nisbət</strong> — iki və ya daha çox kəmiyyətin bir-birinə olan münasibətidir.</p>
+    <div class="formula-box">
+        <p style="text-align: center; font-size: 24px;">
+            a : b və ya <span class="kesr-line">
+                <span class="kesr-numerator">a</span>
+                <span class="kesr-denominator">b</span>
+            </span>
+        </p>
+    </div>
+    <p class="marginp">• a birinci hədd (antecedent)</p>
+    <p class="marginp">• b ikinci hədd (consequent)</p>
+    <p class="marginp">• Nisbət xətti (:) və ya kəsr kimi yazılır</p>
+</div>
+
+<p><strong>2. Nisbətin Xassələri:</strong></p>
+<div class="formula-box">
+<p>1. Nisbətin qiyməti dəyişmir: a:b = ka:kb (k ≠ 0)</p>
+<p>2. Nisbətin hədlərini eyni ədədə vurmaq/bölmək qiymətini dəyişmir</p>
+<p>3. Nisbətin hədləri sıfırdan fərqli olmalıdır</p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong> 4:6 nisbətini ən sadə şəkildə yazın:</p>
+<p class="marginp">4:6 = (4÷2):(6÷2) = 2:3</p>
+</div>
+
+<div class="kinds-box">
+<p><strong>3. Nisbət Növləri:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel">
+            <tr>
+                <th>Nisbət növü</th>
+                <th>Tərifi</th>
+                <th>Nümunə</th>
+            </tr>
+            <tr>
+                <td>Sadə nisbət</td>
+                <td>İki kəmiyyət arasında</td>
+                <td>3:5, 2:7</td>
+            </tr>
+            <tr>
+                <td>Mürəkkəb nisbət</td>
+                <td>İkidən çox kəmiyyət arasında</td>
+                <td>2:3:5, 1:4:7</td>
+            </tr>
+            <tr>
+                <td>Tərs nisbət</td>
+                <td>Nisbətin tərsi</td>
+                <td>a:b tərsi → b:a</td>
+            </tr>
+            <tr>
+                <td>Davamlı nisbət</td>
+                <td>a:b = b:c olarsa</td>
+                <td>2:4 = 4:8</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<p><strong>4. Nisbətin Əsas Qaydaları:</strong></p>
+<div class="formula-box">
+<p>1. a:b = <span class="kesr-line">
+    <span class="kesr-numerator">a</span>
+    <span class="kesr-denominator">b</span>
+</span></p>
+<p>2. a:b = c:d ↔ ad = bc (çarpaz vurma)</p>
+<p>3. a:b = c:d = e:f olarsa, a:c:e = b:d:f</p>
+</div>
+
+<div class="definition-box">
+<p><strong>5. Faiz (Percentage):</strong></p>
+    <p class="marginp"><strong>Faiz</strong> — hər yüzdən bir hissəni ifadə edən ölçü vahididir. % işarəsi ilə göstərilir.</p>
+    <div class="formula-box">
+        <p style="text-align: center; font-size: 24px;">
+            1% = <span class="kesr-line">
+                <span class="kesr-numerator">1</span>
+                <span class="kesr-denominator">100</span>
+            </span> = 0.01
+        </p>
+    </div>
+    <p class="marginp">• Faiz — latınca "per centum" (yüzdən) sözündən</p>
+    <p class="marginp">• 100% = 1 (tam)</p>
+    <p class="marginp">• 50% = 0.5 (yarım)</p>
+    <p class="marginp">• 25% = 0.25 (dörddə bir)</p>
+</div>
+
+<p style="color: red"><strong>6. Faiz Hesablanması Düsturları:</strong></p>
+<div class="formula-box">
+<p><strong>1. Ədədin faizini tapmaq:</strong></p>
+<p>a-nın p% = a × <span class="kesr-line">
+    <span class="kesr-numerator">p</span>
+    <span class="kesr-denominator">100</span>
+</span> = a × 0.01p</p>
+
+<p><strong>2. Faizə görə ədədi tapmaq:</strong></p>
+<p>p%-i b olan ədəd = b ÷ <span class="kesr-line">
+    <span class="kesr-numerator">p</span>
+    <span class="kesr-denominator">100</span>
+</span> = b × <span class="kesr-line">
+    <span class="kesr-numerator">100</span>
+    <span class="kesr-denominator">p</span>
+</span></p>
+
+<p><strong>3. Faiz nisbətini tapmaq:</strong></p>
+<p>a-nın b faizi = <span class="kesr-line">
+    <span class="kesr-numerator">b</span>
+    <span class="kesr-denominator">a</span>
+</span> × 100%</p>
+</div>
+
+<div class="example-box">
+<p><strong>Misallar:</strong></p>
+<p class="marginp"><strong>1.</strong> 200-nın 25%-i = 200 × 0.25 = 50</p>
+<p class="marginp"><strong>2.</strong> 50-si 200-nın 25%-idir → (50 ÷ 200) × 100% = 25%</p>
+<p class="marginp"><strong>3.</strong> 25%-i 50 olan ədəd = 50 ÷ 0.25 = 200</p>
+</div>
+
+<p style="color: red"><strong>7. Faiz Artım və Azalma:</strong></p>
+<div class="formula-box">
+<p><strong>Artım:</strong> Yeni dəyər = Köhnə dəyər × (1 + <span class="kesr-line">
+    <span class="kesr-numerator">p</span>
+    <span class="kesr-denominator">100</span>
+</span>)</p>
+
+<p><strong>Azalma:</strong> Yeni dəyər = Köhnə dəyər × (1 - <span class="kesr-line">
+    <span class="kesr-numerator">p</span>
+    <span class="kesr-denominator">100</span>
+</span>)</p>
+
+<p><strong>Artım faizi:</strong> Artım % = <span class="kesr-line">
+    <span class="kesr-numerator">Yeni - Köhnə</span>
+    <span class="kesr-denominator">Köhnə</span>
+</span> × 100%</p>
+</div>
+
+<div class="example-box">
+<p><strong>Misal:</strong> 80 manatlıq məhsul 20% bahalaşdı:</p>
+<p class="marginp">Yeni qiymət = 80 × (1 + 0.20) = 80 × 1.20 = 96 manat</p>
+</div>
+
+<div class="definition-box">
+<p><strong>8. Tənasüb (Proportion):</strong></p>
+    <p class="marginp"><strong>Tənasüb</strong> — iki nisbətin bərabərliyidir.</p>
+    <div class="formula-box">
+        <p style="text-align: center; font-size: 24px;">
+            a : b = c : d   və ya   <span class="kesr-line">
+                <span class="kesr-numerator">a</span>
+                <span class="kesr-denominator">b</span>
+            </span> = <span class="kesr-line">
+                <span class="kesr-numerator">c</span>
+                <span class="kesr-denominator">d</span>
+            </span>
+        </p>
+    </div>
+    <p class="marginp">• a və d — kənar hədlər</p>
+    <p class="marginp">• b və c — orta hədlər</p>
+    <p class="marginp">• Tənasübün əsas xassəsi: ad = bc</p>
+</div>
+
+<p><strong>9. Tənasüb Növləri:</strong></p>
+<div class="tablediv">
+    <table class="cedvel">
+        <tr>
+            <th>Tənasüb növü</th>
+            <th>Şərti</th>
+            <th>Nümunə</th>
+        </tr>
+        <tr>
+            <td>Birbaşa mütənasib</td>
+            <td>y = kx (k sabit)</td>
+            <td>Məsafə = Sürət × Zaman</td>
+        </tr>
+        <tr>
+            <td>Tərs mütənasib</td>
+            <td>y = <span class="kesr-line">
+                <span class="kesr-numerator">k</span>
+                <span class="kesr-denominator">x</span>
+            </span> (k sabit)</td>
+            <td>İşçi sayı artdıqca vaxt azalır</td>
+        </tr>
+        <tr>
+            <td>Davamlı tənasüb</td>
+            <td>a:b = b:c</td>
+            <td>2:4 = 4:8</td>
+        </tr>
+    </table>
+</div>
+
+<p style="color: red"><strong>10. Tənasübün Əsas Xassələri:</strong></p>
+<div class="formula-box">
+<p><strong>1. Çarpaz vurma (əsas xassə):</strong> a:b = c:d → ad = bc</p>
+<p><strong>2. Hədlərin yeri dəyişə bilər:</strong></p>
+<p>a:b = c:d → b:a = d:c (tərsinə)</p>
+<p>a:b = c:d → a:c = b:d (orta hədləri dəyiş)</p>
+<p><strong>3. Hədləri toplama/çıxma:</strong></p>
+<p>a:b = c:d → <span class="kesr-line">
+    <span class="kesr-numerator">a + b</span>
+    <span class="kesr-denominator">b</span>
+</span> = <span class="kesr-line">
+    <span class="kesr-numerator">c + d</span>
+    <span class="kesr-denominator">d</span>
+</span></p>
+<p><strong>4. Komponendo və dividendo:</strong></p>
+<p>a:b = c:d → <span class="kesr-line">
+    <span class="kesr-numerator">a + b</span>
+    <span class="kesr-denominator">a - b</span>
+</span> = <span class="kesr-line">
+    <span class="kesr-numerator">c + d</span>
+    <span class="kesr-denominator">c - d</span>
+</span></p>
+</div>
+
+<div class="conversion-box">
+<p><strong>11. Bir-birinə Çevirmələr:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel">
+            <tr>
+                <th>Növ</th>
+                <th>Nisbətə</th>
+                <th>Faizə</th>
+                <th>Onluğa</th>
+            </tr>
+            <tr>
+                <td>1/4</td>
+                <td>1:4</td>
+                <td>25%</td>
+                <td>0.25</td>
+            </tr>
+            <tr>
+                <td>1/2</td>
+                <td>1:2</td>
+                <td>50%</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <td>3/4</td>
+                <td>3:4</td>
+                <td>75%</td>
+                <td>0.75</td>
+            </tr>
+            <tr>
+                <td>1/5</td>
+                <td>1:5</td>
+                <td>20%</td>
+                <td>0.2</td>
+            </tr>
+            <tr>
+                <td>2/3</td>
+                <td>2:3</td>
+                <td>66.67%</td>
+                <td>0.666...</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<p style="color: red"><strong>12. Praktik Düsturlar:</strong></p>
+<div class="formula-box">
+<p><strong>1. Faiz artımı:</strong></p>
+<p>İlkin: A, Son: B → Artım % = <span class="kesr-line">
+    <span class="kesr-numerator">B - A</span>
+    <span class="kesr-denominator">A</span>
+</span> × 100%</p>
+
+<p><strong>2. Endirim (Diskont):</strong></p>
+<p>Qiymət: P, Endirim %: d → Yeni qiymət = P × (1 - <span class="kesr-line">
+    <span class="kesr-numerator">d</span>
+    <span class="kesr-denominator">100</span>
+</span>)</p>
+
+<p><strong>3. Mürəkkəb faiz:</strong></p>
+<p>S = P(1 + <span class="kesr-line">
+    <span class="kesr-numerator">r</span>
+    <span class="kesr-denominator">100</span>
+</span>)ⁿ</p>
+<p>S - son məbləğ, P - əsas məbləğ, r - illik faiz, n - illərin sayı</p>
+
+<p><strong>4. Orta nisbət:</strong></p>
+<p>a:b və c:d verilmişdirsə, orta nisbət = <span class="kesr-line">
+    <span class="kesr-numerator">a + c</span>
+    <span class="kesr-denominator">b + d</span>
+</span></p>
+</div>
+
+<div class="example-box">
+<p><strong>Praktik Məsələ:</strong> Bir məhsulun qiyməti 120 manatdan 150 manata qalxdı. Faiz artımı neçədir?</p>
+<p class="marginp">Həlli: Artım % = <span class="kesr-line">
+    <span class="kesr-numerator">150 - 120</span>
+    <span class="kesr-denominator">120</span>
+</span> × 100% = <span class="kesr-line">
+    <span class="kesr-numerator">30</span>
+    <span class="kesr-denominator">120</span>
+</span> × 100% = 0.25 × 100% = 25%</p>
+</div>
+
+<p style="color: red"><strong>13. Üç məchullu tənasüb:</strong></p>
+<div class="formula-box">
+<p>a:b = c:d = e:f = k (sabit) olarsa:</p>
+<p>a = bk, c = dk, e = fk</p>
+<p>a + c + e = k(b + d + f)</p>
+<p>k = <span class="kesr-line">
+    <span class="kesr-numerator">a + c + e</span>
+    <span class="kesr-denominator">b + d + f</span>
+</span></p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong> a:b:c = 2:3:5 və a + b + c = 100 olarsa, a, b, c neçədir?</p>
+<p class="marginp">Həlli: a = 2k, b = 3k, c = 5k</p>
+<p class="marginp">2k + 3k + 5k = 100 → 10k = 100 → k = 10</p>
+<p class="marginp">a = 20, b = 30, c = 50</p>
+</div>
+
+<div class="important-note">
+<p><strong>14. ƏHƏMİYYƏTLİ QEYDLƏR:</strong></p>
+<p class="marginp">1. Nisbətin hədləri sıfırdan fərqli olmalıdır</p>
+<p class="marginp">2. Faiz həmişə 100-ə nisbətdir</p>
+<p class="marginp">3. Tənasübdə çarpaz vurma əsas xassədir</p>
+<p class="marginp">4. Birbaşa mütənasibdə kəmiyyətlər eyni istiqamətdə dəyişir</p>
+<p class="marginp">5. Tərs mütənasibdə kəmiyyətlər əks istiqamətdə dəyişir</p>
+<p class="marginp">6. Faiz hesablamalarında vahidlərin eyni olmasına diqqət</p>
+<p class="marginp">7. Artım və azalma faizlərini qarışdırmamaq</p>
+</div>
+
+<p style="color: red"><strong>15. Xatırlama Üsulları:</strong></p>
+<div class="formula-box">
+<p><strong>1. Nisbət:</strong> "a-nın b-yə nisbəti" → a:b</p>
+<p><strong>2. Faiz:</strong> "hər yüzdən" → % = /100</p>
+<p><strong>3. Tənasüb:</strong> "nisbətlərin bərabərliyi" → a:b = c:d</p>
+<p><strong>4. Çarpaz vurma:</strong> "x" formasında vur → ad = bc</p>
+<p><strong>5. Faiz tapmaq:</strong> "(hissə/tam) × 100%"</p>
+</div>
+
+<button class="download-btn" onclick="downloadNisbetFaizTenasub()">
+    📥 Nisbət, Faiz, Tənasüb Qaydalarını Yüklə
+</button>
+
+<p style="margin-left: auto;margin-right: auto; text-align: center; margin-top: 40px;">
+    <i>Hazırlayan: MathGen Komandası | Mənbələr: Riyaziyyat Dərslikləri | İqtisadi Hesablamalar</i>
+</p>
+
+    <p class="p1">Biliklərinizi sınayın!</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='deneme.html'">Testə Başla</button>
+    </div>
+</div>
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Nisbət, Faiz, Tənasüb — gündəlik həyatda ən çox istifadə olunan anlayışlar
+    </p>
+</footer>
+
+<script>
+    function downloadNisbetFaizTenasub() {
+        const rulesContent = `NİSBƏT, FAİZ, TƏNASÜB - BÜTÜN QAYDALAR VƏ DÜSTURLAR
+
+1. NİSBƏT (Ratio):
+   • Tərif: İki və ya daha çox kəmiyyətin bir-birinə olan münasibəti
+   • Yazılış: a:b və ya a/b
+   • a - birinci hədd (antecedent)
+   • b - ikinci hədd (consequent)
+
+2. NİSBƏTİN XASSƏLƏRİ:
+   • a:b = ka:kb (k ≠ 0) - qiymət dəyişmir
+   • Nisbətin hədləri sıfırdan fərqli olmalıdır
+   • Ən sadə şəkildə yazmaq üçün hədləri ƏBOB-a bölmək
+
+3. NİSBƏT NÖVLƏRİ:
+   • Sadə nisbət: İki kəmiyyət (3:5)
+   • Mürəkkəb nisbət: İkidən çox kəmiyyət (2:3:5)
+   • Tərs nisbət: a:b tərsi → b:a
+   • Davamlı nisbət: a:b = b:c (2:4 = 4:8)
+
+4. FAİZ (Percentage):
+   • Tərif: Hər yüzdən bir hissə
+   • İşarə: %
+   • 1% = 1/100 = 0.01
+   • 100% = 1 (tam)
+   • 50% = 0.5 (yarım)
+   • 25% = 0.25 (dörddə bir)
+
+5. FAİZ HESABLANMASI DÜSTURLARI:
+   a) Ədədin faizini tapmaq:
+      a-nın p% = a × (p/100) = a × 0.01p
+   
+   b) Faizə görə ədədi tapmaq:
+      p%-i b olan ədəd = b ÷ (p/100) = b × (100/p)
+   
+   c) Faiz nisbətini tapmaq:
+      a-nın b faizi = (b/a) × 100%
+
+6. FAİZ ARTIM VƏ AZALMA:
+   • Artım: Yeni = Köhnə × (1 + p/100)
+   • Azalma: Yeni = Köhnə × (1 - p/100)
+   • Artım % = [(Yeni - Köhnə) / Köhnə] × 100%
+
+7. TƏNASÜB (Proportion):
+   • Tərif: İki nisbətin bərabərliyi
+   • Yazılış: a:b = c:d və ya a/b = c/d
+   • a və d - kənar hədlər
+   • b və c - orta hədlər
+   • Əsas xassə: ad = bc (çarpaz vurma)
+
+8. TƏNASÜB NÖVLƏRİ:
+   • Birbaşa mütənasib: y = kx (k sabit)
+   • Tərs mütənasib: y = k/x (k sabit)
+   • Davamlı tənasüb: a:b = b:c
+
+9. TƏNASÜBÜN XASSƏLƏRİ:
+   1. Çarpaz vurma: a:b = c:d → ad = bc
+   2. Hədlərin yeri dəyişə bilər:
+      • b:a = d:c (tərsinə)
+      • a:c = b:d (orta hədləri dəyiş)
+   3. Hədləri toplama/çıxma:
+      (a+b)/b = (c+d)/d
+   4. Komponendo və dividendo:
+      (a+b)/(a-b) = (c+d)/(c-d)
+
+10. ÇEVİRMƏLƏR:
+    • Kəsr → Nisbət → Faiz → Onluq
+    1/4 → 1:4 → 25% → 0.25
+    1/2 → 1:2 → 50% → 0.5
+    3/4 → 3:4 → 75% → 0.75
+    1/5 → 1:5 → 20% → 0.2
+    2/3 → 2:3 → 66.67% → 0.666...
+
+11. PRAKTİK DÜSTURLAR:
+    • Endirim (Diskont):
+      Yeni qiymət = Köhnə qiymət × (1 - d/100)
+    
+    • Mürəkkəb faiz:
+      S = P(1 + r/100)ⁿ
+      S - son məbləğ, P - əsas, r - illik faiz, n - illər
+    
+    • Orta nisbət:
+      a:b və c:d → orta nisbət = (a+c)/(b+d)
+    
+    • Üç məchullu:
+      a:b:c = x:y:z və a+b+c = T
+      k = T/(x+y+z)
+      a = kx, b = ky, c = kz
+
+12. ƏHƏMİYYƏTLİ QEYDLƏR:
+    1. Nisbətin hədləri sıfırdan fərqli olmalıdır
+    2. Faiz həmişə 100-ə nisbətdir
+    3. Tənasübdə çarpaz vurma əsas xassədir
+    4. Birbaşa mütənasibdə kəmiyyətlər eyni istiqamətdə dəyişir
+    5. Tərs mütənasibdə kəmiyyətlər əks istiqamətdə dəyişir
+    6. Faiz hesablamalarında vahidlərin eyni olmasına diqqət
+    7. Artım və azalma faizlərini qarışdırmamaq
+
+13. XATIRLAMA ÜSULLARI:
+    • Nisbət: "a-nın b-yə nisbəti" → a:b
+    • Faiz: "hər yüzdən" → % = /100
+    • Tənasüb: "nisbətlərin bərabərliyi" → a:b = c:d
+    • Çarpaz vurma: "x" formasında vur → ad = bc
+    • Faiz tapmaq: "(hissə/tam) × 100%"
+
+PRAKTİK MƏSƏLƏ NÜMUNƏSİ:
+   Məsələ: Məhsul 80 manatdan 100 manata qalxdı. Faiz artımı neçədir?
+   Həll: Artım % = [(100-80)/80] × 100% = (20/80)×100% = 0.25×100% = 25%
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'nisbet-faiz-tenasub-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Nisbət, Faiz, Tənasüb qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

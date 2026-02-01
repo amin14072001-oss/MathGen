@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triqonometrik Nisbətlər - 9-cu sinif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .download-button {
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: 20px auto;
+            display: block;
+            font-weight: bold;
+        }
+        
+        .download-button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+            background-color: #45a049;
+        }
+        
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        
+        .marginp{
+            margin-left: 30px;
+        }
+        
+        .m2arginp{
+            margin-left: 60px;
+        }
+        
+        .sualdiv{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+            line-height: 1.6;
+        }
+        
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            min-height: 200px;
+        }
+        
+        .formula-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #2ecc71;
+        }
+        
+        .definition {
+            background-color: #fffde7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .example {
+            background-color: #e8f6f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #16a085;
+            font-style: italic;
+        }
+        
+        .important {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .symbol {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border: 2px dashed #4CAF50;
+        }
+        
+        .formula-large {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .image-placeholder {
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #e0e0e0;
+            border: 2px dashed #666;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .table-box {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        
+        .table-box th, .table-box td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .table-box th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .table-box tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .trig-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .trig-item {
+            text-align: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        .triangle-diagram {
+            text-align: center;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        
+        .unit-circle {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            border: 2px solid #4682b4;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Triqonometrik Nisbətlər - 9-cu sinif</p>
+    <h6 style="color: grey;">
+        9-cu sinif üçün triqonometrik nisbətlərə aid bütün qaydalar və düsturlar
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <h2 class="section-title">1. DÜZBUCAQLI ÜÇBUCAQ VƏ ƏSAS ANLAYIŞLAR</h2>
+    
+    <div class="definition">
+        <p><strong>Düzbucaqlı üçbucaq:</strong> Bir bucağı 90° olan üçbucaq.</p>
+        
+        <!-- ŞƏKİL YERİ 1: Düzbucaqlı üçbucaq -->
+        <div class="image-placeholder">
+            DÜZBUCAQLI ÜÇBUCAQ ŞƏKLİ<br>
+            (α, β - iti bucaqlar, c - hipotenuz, a,b - katetlər)
+        </div>
+        
+        <p><strong>Elementlər:</strong></p>
+        <p class="marginp">• <strong>Hipotenuz (c):</strong> Düz bucağın qarşısındakı tərəf (ən uzun tərəf)</p>
+        <p class="marginp">• <strong>Katetlər (a, b):</strong> Düz bucağı təşkil edən tərəflər</p>
+        <p class="marginp">• <strong>İti bucaqlar (α, β):</strong> 90°-dən kiçik olan bucaqlar (α + β = 90°)</p>
+        
+        <div class="important">
+            <p><strong>Pifaqor teoremi:</strong></p>
+            <div class="formula-large">
+                c² = a² + b²
+            </div>
+            <p class="marginp">• Hipotenuzun kvadratı katetlərin kvadratları cəminə bərabərdir</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">2. ƏSAS TRİQONOMETRİK NİSBƏTLƏR</h2>
+    
+    <div class="definition">
+        <p><strong>Düzbucaqlı üçbucaqda α iti bucağı üçün:</strong></p>
+        
+        <!-- ŞƏKİL YERİ 2: Triqonometrik nisbətlər şəkli -->
+        <div class="image-placeholder">
+            TRİQONOMETRİK NİSBƏTLƏR ŞƏKLİ<br>
+            (sin, cos, tan, cot təriflərinin göstərilməsi)
+        </div>
+        
+        <div class="trig-grid">
+            <div class="trig-item">
+                <p><strong>Sinus (sin):</strong></p>
+                <div class="formula-large">
+                    sin α = qarşı katet / hipotenuz
+                </div>
+                <p>sin α = a/c</p>
+                <!-- ŞƏKİL YERİ 3: Sinus -->
+                <div class="image-placeholder" style="height: 100px; margin: 10px auto;">
+                    SİNUS: qarşı/hipotenuz
+                </div>
+            </div>
+            
+            <div class="trig-item">
+                <p><strong>Kosinus (cos):</strong></p>
+                <div class="formula-large">
+                    cos α = bitişik katet / hipotenuz
+                </div>
+                <p>cos α = b/c</p>
+                <!-- ŞƏKİL YERİ 4: Kosinus -->
+                <div class="image-placeholder" style="height: 100px; margin: 10px auto;">
+                    KOSİNUS: bitişik/hipotenuz
+                </div>
+            </div>
+            
+            <div class="trig-item">
+                <p><strong>Tangens (tan):</strong></p>
+                <div class="formula-large">
+                    tan α = qarşı katet / bitişik katet
+                </div>
+                <p>tan α = a/b</p>
+                <!-- ŞƏKİL YERİ 5: Tangens -->
+                <div class="image-placeholder" style="height: 100px; margin: 10px auto;">
+                    TANGENS: qarşı/bitişik
+                </div>
+            </div>
+        </div>
+        
+        <div class="trig-grid">
+            <div class="trig-item">
+                <p><strong>Kotangens (cot):</strong></p>
+                <div class="formula-large">
+                    cot α = bitişik katet / qarşı katet
+                </div>
+                <p>cot α = b/a</p>
+                <!-- ŞƏKİL YERİ 6: Kotangens -->
+                <div class="image-placeholder" style="height: 100px; margin: 10px auto;">
+                    KOTANGENS: bitişik/qarşı
+                </div>
+            </div>
+            
+            <div class="trig-item">
+                <p><strong>Sekans (sec):</strong></p>
+                <div class="formula-large">
+                    sec α = hipotenuz / bitişik katet
+                </div>
+                <p>sec α = c/b = 1/cos α</p>
+            </div>
+            
+            <div class="trig-item">
+                <p><strong>Kosekans (csc):</strong></p>
+                <div class="formula-large">
+                    csc α = hipotenuz / qarşı katet
+                </div>
+                <p>csc α = c/a = 1/sin α</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>Qarşı və bitişik katetin təyini:</strong></p>
+        <p class="marginp">• <strong>Qarşı katet:</strong> Nəzərdə tutulan bucağın qarşısında yerləşən katet</p>
+        <p class="marginp">• <strong>Bitişik katet:</strong> Nəzərdə tutulan bucağa bitişik olan katet (hipotenuzdan başqa)</p>
+        
+        <div class="triangle-diagram">
+            <pre>
+                C
+                /\
+               /  \
+              /    \
+             /______\
+            A    α    B
+            </pre>
+            <p>α bucağı üçün:</p>
+            <p>• Qarşı katet: BC (a)</p>
+            <p>• Bitişik katet: AB (b)</p>
+            <p>• Hipotenuz: AC (c)</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">3. ƏSAS TRİQONOMETRİK EYNİLİKLƏR</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Pifaqor eyniliyi:</strong></p>
+        <div class="formula-large">
+            sin²α + cos²α = 1
+        </div>
+        
+        <p><strong>2. Tangens və kotangens tərifləri:</strong></p>
+        <div class="formula-large">
+            tan α = sin α / cos α
+        </div>
+        <div class="formula-large">
+            cot α = cos α / sin α = 1 / tan α
+        </div>
+        
+        <p><strong>3. Qarşılıqlı tərs nisbətlər:</strong></p>
+        <div class="formula-large">
+            sec α = 1 / cos α
+        </div>
+        <div class="formula-large">
+            csc α = 1 / sin α
+        </div>
+        <div class="formula-large">
+            cot α = 1 / tan α
+        </div>
+        
+        <p><strong>4. Tangens və kotangens arasında əlaqə:</strong></p>
+        <div class="formula-large">
+            tan α × cot α = 1
+        </div>
+    </div>
+    
+    <h2 class="section-title">4. XÜSUSİ BUCАQLАRIN TRİQONOMETRİK QİYMƏTLƏRİ</h2>
+    
+    <table class="table-box">
+        <tr>
+            <th>Bucaq (α)</th>
+            <th>sin α</th>
+            <th>cos α</th>
+            <th>tan α</th>
+            <th>cot α</th>
+        </tr>
+        <tr>
+            <td>0°</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>∞ (müəyyən deyil)</td>
+        </tr>
+        <tr>
+            <td>30°</td>
+            <td>1/2</td>
+            <td>√3/2</td>
+            <td>1/√3</td>
+            <td>√3</td>
+        </tr>
+        <tr>
+            <td>45°</td>
+            <td>√2/2</td>
+            <td>√2/2</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>60°</td>
+            <td>√3/2</td>
+            <td>1/2</td>
+            <td>√3</td>
+            <td>1/√3</td>
+        </tr>
+        <tr>
+            <td>90°</td>
+            <td>1</td>
+            <td>0</td>
+            <td>∞ (müəyyən deyil)</td>
+            <td>0</td>
+        </tr>
+    </table>
+    
+    <div class="important">
+        <p><strong>XÜSUSİ ÜÇBUCAQLAR:</strong></p>
+        <p class="marginp"><strong>30°-60°-90° üçbucağı:</strong> Tərəflər nisbəti 1 : √3 : 2</p>
+        <p class="marginp"><strong>45°-45°-90° üçbucağı:</strong> Tərəflər nisbəti 1 : 1 : √2 (ikibucaqlı düzbucaqlı)</p>
+    </div>
+    
+    <!-- ŞƏKİL YERİ 7: Xüsusi bucaqlar üçbucaqları -->
+    <div class="image-placeholder">
+        XÜSUSİ BUCAQLAR ÜÇBUCAQLARI<br>
+        (30-60-90 və 45-45-90 üçbucaqlarının şəkilləri)
+    </div>
+    
+    <h2 class="section-title">5. QİYMƏTLƏR ARASINDA ƏLAQƏLƏR</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Tamamlayıcı bucaqlar (α + β = 90°):</strong></p>
+        <div class="formula-large">
+            sin(90° - α) = cos α
+        </div>
+        <div class="formula-large">
+            cos(90° - α) = sin α
+        </div>
+        <div class="formula-large">
+            tan(90° - α) = cot α
+        </div>
+        <div class="formula-large">
+            cot(90° - α) = tan α
+        </div>
+        
+        <div class="example">
+            <p><strong>Nümunələr:</strong></p>
+            <p class="marginp">• sin 30° = cos 60° = 1/2</p>
+            <p class="marginp">• cos 45° = sin 45° = √2/2</p>
+            <p class="marginp">• tan 60° = cot 30° = √3</p>
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Mənfi bucaqlar:</strong></p>
+        <div class="formula-large">
+            sin(-α) = -sin α
+        </div>
+        <div class="formula-large">
+            cos(-α) = cos α
+        </div>
+        <div class="formula-large">
+            tan(-α) = -tan α
+        </div>
+        <div class="formula-large">
+            cot(-α) = -cot α
+        </div>
+    </div>
+    
+    <h2 class="section-title">6. VAHİD ÇEVRƏ VƏ TRİQONOMETRİK FUNKSİYALAR</h2>
+    
+    <div class="definition">
+        <p><strong>Vahid çevrə:</strong> Radiusu 1 vahid olan çevrə.</p>
+        
+        <!-- ŞƏKİL YERİ 8: Vahid çevrə -->
+        <div class="image-placeholder">
+            VAHİD ÇEVRƏ ŞƏKLİ<br>
+            (Koordinat müstəvisində vahid çevrə)
+        </div>
+        
+        <div class="unit-circle">
+            <p><strong>Vahid çevrədə triqonometrik funksiyalar:</strong></p>
+            <p class="marginp">• İstənilən α bucağı üçün vahid çevrə üzərində nöqtə: (cos α, sin α)</p>
+            <p class="marginp">• x = cos α (nöqtənin x koordinatı)</p>
+            <p class="marginp">• y = sin α (nöqtənin y koordinatı)</p>
+            <p class="marginp">• tan α = sin α / cos α = y/x (x ≠ 0)</p>
+            
+            <div class="formula-large">
+                x² + y² = 1  →  cos²α + sin²α = 1
+            </div>
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>Rüblərə görə işarələr:</strong></p>
+        
+        <table class="table-box">
+            <tr>
+                <th>Rüb</th>
+                <th>Bucaqlar</th>
+                <th>sin</th>
+                <th>cos</th>
+                <th>tan</th>
+                <th>cot</th>
+            </tr>
+            <tr>
+                <td>I</td>
+                <td>0°-90°</td>
+                <td>+</td>
+                <td>+</td>
+                <td>+</td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <td>II</td>
+                <td>90°-180°</td>
+                <td>+</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>III</td>
+                <td>180°-270°</td>
+                <td>-</td>
+                <td>-</td>
+                <td>+</td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <td>IV</td>
+                <td>270°-360°</td>
+                <td>-</td>
+                <td>+</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        </table>
+        
+        <div class="important">
+            <p><strong>Yadda saxlama qaydası: "All Students Take Calculus"</strong></p>
+            <p class="marginp">A - All (hamısı müsbət) - I rüb</p>
+            <p class="marginp">S - Sinus (sin müsbət) - II rüb</p>
+            <p class="marginp">T - Tangens (tan müsbət) - III rüb</p>
+            <p class="marginp">C - Kosinus (cos müsbət) - IV rüb</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">7. RADİAN ÖLÇÜSÜ</h2>
+    
+    <div class="definition">
+        <p><strong>Radian:</strong> Uzunluğu radiusa bərabər olan qövsə söykənən mərkəzi bucağın ölçüsü.</p>
+        
+        <!-- ŞƏKİL YERİ 9: Radian ölçüsü -->
+        <div class="image-placeholder">
+            RADİAN ÖLÇÜSÜ ŞƏKLİ<br>
+            (Radius uzunluğunda qövs)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Çevirmə düsturları:</strong></p>
+            <div class="formula-large">
+                180° = π radian
+            </div>
+            <p class="marginp">1 radian = 180°/π ≈ 57.3°</p>
+            <p class="marginp">1° = π/180 radian ≈ 0.01745 radian</p>
+            
+            <p><strong>Çevirmə qaydası:</strong></p>
+            <div class="formula-large">
+                α (radian) = [α (°) × π] / 180
+            </div>
+            <div class="formula-large">
+                α (°) = [α (radian) × 180] / π
+            </div>
+        </div>
+        
+        <table class="table-box">
+            <tr>
+                <th>Dərəcə</th>
+                <th>Radian</th>
+                <th>sin</th>
+                <th>cos</th>
+            </tr>
+            <tr>
+                <td>0°</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>30°</td>
+                <td>π/6</td>
+                <td>1/2</td>
+                <td>√3/2</td>
+            </tr>
+            <tr>
+                <td>45°</td>
+                <td>π/4</td>
+                <td>√2/2</td>
+                <td>√2/2</td>
+            </tr>
+            <tr>
+                <td>60°</td>
+                <td>π/3</td>
+                <td>√3/2</td>
+                <td>1/2</td>
+            </tr>
+            <tr>
+                <td>90°</td>
+                <td>π/2</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>180°</td>
+                <td>π</td>
+                <td>0</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>270°</td>
+                <td>3π/2</td>
+                <td>-1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>360°</td>
+                <td>2π</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </div>
+    
+    <h2 class="section-title">8. TRİQONOMETRİK MƏSƏLƏLƏRİN HƏLLİ</h2>
+    
+    <div class="problem-box">
+        <p><strong>Məsələ 1:</strong> Düzbucaqlı üçbucaqda α = 30°, hipotenuz c = 10 sm olarsa, katetləri tapın.</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>sin 30° = qarşı katet / hipotenuz = 1/2</p>
+            <div class="math-formula">
+                a = c × sin 30° = 10 × 1/2 = 5 sm
+            </div>
+            <p>cos 30° = bitişik katet / hipotenuz = √3/2</p>
+            <div class="math-formula">
+                b = c × cos 30° = 10 × √3/2 = 5√3 ≈ 8.66 sm
+            </div>
+            <p><strong>Cavab:</strong> a = 5 sm, b = 5√3 ≈ 8.66 sm</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>Məsələ 2:</strong> Düzbucaqlı üçbucaqda a = 6 sm, b = 8 sm olarsa, α bucağının sinusunu tapın.</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Əvvəlcə hipotenuzu tapırıq (Pifaqor teoremi):</p>
+            <div class="math-formula">
+                c² = a² + b² = 6² + 8² = 36 + 64 = 100
+                c = √100 = 10 sm
+            </div>
+            <p>sin α = qarşı katet / hipotenuz = a/c = 6/10 = 3/5 = 0.6</p>
+            <p><strong>Cavab:</strong> sin α = 3/5 = 0.6</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>Məsələ 3:</strong> sin α = 3/5 olarsa, cos α, tan α və cot α tapın.</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Pifaqor eyniliyi: sin²α + cos²α = 1</p>
+            <div class="math-formula">
+                (3/5)² + cos²α = 1
+                9/25 + cos²α = 1
+                cos²α = 1 - 9/25 = 16/25
+                cos α = √(16/25) = 4/5 (α iti bucaq olduğundan +)
+            </div>
+            <p>tan α = sin α / cos α = (3/5) ÷ (4/5) = 3/4</p>
+            <p>cot α = 1 / tan α = 4/3</p>
+            <p><strong>Cavab:</strong> cos α = 4/5, tan α = 3/4, cot α = 4/3</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">9. ƏSAS TRİQONOMETRİK DÜSTURLAR VƏ QAYDALAR</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Əsas təriflər:</strong></p>
+        <p class="marginp">• sin α = qarşı/hipotenuz</p>
+        <p class="marginp">• cos α = bitişik/hipotenuz</p>
+        <p class="marginp">• tan α = qarşı/bitişik = sin α/cos α</p>
+        <p class="marginp">• cot α = bitişik/qarşı = cos α/sin α</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Əsas eyniliklər:</strong></p>
+        <p class="marginp">• sin²α + cos²α = 1 (Pifaqor eyniliyi)</p>
+        <p class="marginp">• 1 + tan²α = sec²α</p>
+        <p class="marginp">• 1 + cot²α = csc²α</p>
+        <p class="marginp">• tan α × cot α = 1</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>3. Tamamlayıcı bucaqlar:</strong></p>
+        <p class="marginp">• sin(90° - α) = cos α</p>
+        <p class="marginp">• cos(90° - α) = sin α</p>
+        <p class="marginp">• tan(90° - α) = cot α</p>
+        <p class="marginp">• cot(90° - α) = tan α</p>
+    </div>
+    
+    <div class="important">
+        <p><strong>YADDA SAXLAYIN:</strong></p>
+        <p class="marginp">1. Triqonometrik nisbətlər yalnız düzbucaqlı üçbucaqda müəyyən olunur</p>
+        <p class="marginp">2. sin α və cos α həmişə -1 ilə 1 arasında olur (|sin α| ≤ 1, |cos α| ≤ 1)</p>
+        <p class="marginp">3. tan α və cot α istənilən həqiqi qiymət ala bilər</p>
+        <p class="marginp">4. Xüsusi bucaqların (30°, 45°, 60°) qiymətlərini əzbər bilmək lazımdır</p>
+        <p class="marginp">5. 180° = π radian</p>
+        <p class="marginp">6. Pifaqor eyniliyi (sin²α + cos²α = 1) ən vacib eynilikdir</p>
+        <p class="marginp">7. Rüblərdə işarələri yadda saxlamaq vacibdir</p>
+        <p class="marginp">8. Triqonometrik məsələləri həll edərkən həmişə üçbucaq çəkmək faydalıdır</p>
+    </div>
+    
+    <!-- DOWNLOAD SECTION -->
+    <div class="download-section">
+        <h3>📥 Triqonometrik Nisbətlər Qaydalarını Yükləyin</h3>
+        <p>9-cu sinif üçün triqonometrik nisbətlərə aid bütün qaydaları kompüterinizə yükləyin.</p>
+        <button class="download-button" onclick="downloadTrigonometryRules()">
+            ⬇️ Qaydaları Yüklə (TXT)
+        </button>
+        <p><small>Fayl .txt formatında yüklənəcək</small></p>
+    </div>
+    
+    <p style="margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px;">
+        <i>Hazırlayan: Amin Xudizade | Mənbələr: 9-cu sinif dərslikləri | Azərbaycan məktəb proqramı</i>
+    </p>
+    
+    <p class="p1">Hazırsınızsa, quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='triqonometriya-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        9-cu sinif: Triqonometrik Nisbətlər
+    </p>
+</footer>
+
+<script>
+    function downloadTrigonometryRules() {
+        const rulesContent = `TRİQONOMETRİK NİSBƏTLƏR - 9-CU SİNİF
+=======================================
+
+1. DÜZBUCAQLI ÜÇBUCAQ VƏ ƏSAS ANLAYIŞLAR:
+
+1.1 DÜZBUCAQLI ÜÇBUCAQ:
+• Bir bucağı 90° olan üçbucaq
+
+1.2 ELEMENTLƏR:
+• Hipotenuz (c): Düz bucağın qarşısındakı tərəf (ən uzun)
+• Katetlər (a, b): Düz bucağı təşkil edən tərəflər
+• İti bucaqlar (α, β): α + β = 90°
+
+1.3 PİFAQOR TEOREMİ:
+c² = a² + b²
+• Hipotenuzun kvadratı = katetlərin kvadratları cəmi
+
+2. ƏSAS TRİQONOMETRİK NİSBƏTLƏR:
+
+Düzbucaqlı üçbucaqda α iti bucağı üçün:
+
+2.1 SİNUS (sin):
+sin α = qarşı katet / hipotenuz = a/c
+
+2.2 KOSİNUS (cos):
+cos α = bitişik katet / hipotenuz = b/c
+
+2.3 TANGENS (tan):
+tan α = qarşı katet / bitişik katet = a/b
+
+2.4 KOTANGENS (cot):
+cot α = bitişik katet / qarşı katet = b/a
+
+2.5 QEYD:
+• Qarşı katet: Nəzərdə tutulan bucağın qarşısında yerləşən katet
+• Bitişik katet: Nəzərdə tutulan bucağa bitişik katet (hipotenuzdan başqa)
+
+3. ƏSAS TRİQONOMETRİK EYNİLİKLƏR:
+
+3.1 PİFAQOR EYNİLİYİ:
+sin²α + cos²α = 1
+
+3.2 TƏRİF EYNİLİKLƏRİ:
+tan α = sin α / cos α
+cot α = cos α / sin α = 1 / tan α
+
+3.3 QARŞILIQLI TƏRS NİSBƏTLƏR:
+sec α = 1 / cos α
+csc α = 1 / sin α
+cot α = 1 / tan α
+
+3.4 TANGENS VƏ KOTANGENS:
+tan α × cot α = 1
+
+4. XÜSUSİ BUCAQLARIN TRİQONOMETRİK QİYMƏTLƏRİ:
+
++--------+--------+--------+--------+--------+
+| Bucaq  |  sin   |  cos   |  tan   |  cot   |
++--------+--------+--------+--------+--------+
+|  0°    |   0    |   1    |   0    |   ∞    |
+|  30°   |  1/2   | √3/2   | 1/√3   |  √3    |
+|  45°   | √2/2   | √2/2   |   1    |   1    |
+|  60°   | √3/2   |  1/2   |  √3    | 1/√3   |
+|  90°   |   1    |   0    |   ∞    |   0    |
++--------+--------+--------+--------+--------+
+
+XÜSUSİ ÜÇBUCAQLAR:
+• 30°-60°-90° üçbucağı: Tərəflər 1 : √3 : 2
+• 45°-45°-90° üçbucağı: Tərəflər 1 : 1 : √2
+
+5. TAMAMLAYICI BUCAQLAR (α + β = 90°):
+
+sin(90° - α) = cos α
+cos(90° - α) = sin α
+tan(90° - α) = cot α
+cot(90° - α) = tan α
+
+NÜMUNƏLƏR:
+sin 30° = cos 60° = 1/2
+cos 45° = sin 45° = √2/2
+tan 60° = cot 30° = √3
+
+6. MƏNFİ BUCAQLAR:
+
+sin(-α) = -sin α
+cos(-α) = cos α
+tan(-α) = -tan α
+cot(-α) = -cot α
+
+7. VAHİD ÇEVRƏ VƏ KOORDİNAT MÜSTƏVİSİ:
+
+7.1 VAHİD ÇEVRƏ:
+• Radiusu 1 olan çevrə
+• İstənilən α bucağı üçün nöqtə: (cos α, sin α)
+
+7.2 ƏLAQƏLƏR:
+x = cos α, y = sin α
+x² + y² = 1 → cos²α + sin²α = 1
+tan α = y/x (x ≠ 0)
+
+7.3 RÜBLƏR VƏ İŞARƏLƏR:
+
++--------+-----------+-----+-----+-----+-----+
+|  Rüb   |  Bucaqlar | sin | cos | tan | cot |
++--------+-----------+-----+-----+-----+-----+
+|   I    |  0°-90°   |  +  |  +  |  +  |  +  |
+|   II   | 90°-180°  |  +  |  -  |  -  |  -  |
+|   III  | 180°-270° |  -  |  -  |  +  |  +  |
+|   IV   | 270°-360° |  -  |  +  |  -  |  -  |
++--------+-----------+-----+-----+-----+-----+
+
+Yadda saxlama qaydası: "All Students Take Calculus"
+A - All (hamısı +) - I rüb
+S - Sinus (sin +) - II rüb
+T - Tangens (tan +) - III rüb
+C - Kosinus (cos +) - IV rüb
+
+8. RADİAN ÖLÇÜSÜ:
+
+8.1 RADİAN:
+• Uzunluğu radiusa bərabər qövsə söykənən mərkəzi bucaq
+
+8.2 ÇEVİRMƏ DÜSTURLARI:
+180° = π radian
+1 radian = 180°/π ≈ 57.3°
+1° = π/180 radian ≈ 0.01745 radian
+
+8.3 ÇEVİRMƏ QAYDASI:
+α (radian) = [α (°) × π] / 180
+α (°) = [α (radian) × 180] / π
+
+8.4 XÜSUSİ BUCAQLAR RADİANLA:
+0° = 0 rad
+30° = π/6 rad
+45° = π/4 rad
+60° = π/3 rad
+90° = π/2 rad
+180° = π rad
+270° = 3π/2 rad
+360° = 2π rad
+
+9. MƏSƏLƏ HƏLLİ NÜMUNƏLƏRİ:
+
+9.1 MƏSƏLƏ 1:
+α = 30°, c = 10 sm → katetləri tapın
+Həlli: sin 30° = 1/2, cos 30° = √3/2
+a = c × sin 30° = 10 × 1/2 = 5 sm
+b = c × cos 30° = 10 × √3/2 = 5√3 ≈ 8.66 sm
+
+9.2 MƏSƏLƏ 2:
+a = 6 sm, b = 8 sm → sin α tapın
+Həlli: c² = 6² + 8² = 100 → c = 10 sm
+sin α = a/c = 6/10 = 3/5 = 0.6
+
+9.3 MƏSƏLƏ 3:
+sin α = 3/5 → digər nisbətləri tapın
+Həlli: sin²α + cos²α = 1 → (9/25) + cos²α = 1
+cos²α = 16/25 → cos α = 4/5 (α iti olduğundan +)
+tan α = sin α/cos α = (3/5)/(4/5) = 3/4
+cot α = 1/tan α = 4/3
+
+10. ƏSAS DÜSTURLAR VƏ QAYDALAR:
+
+10.1 ƏSAS TƏRİFLƏR:
+sin α = qarşı/hipotenuz
+cos α = bitişik/hipotenuz
+tan α = qarşı/bitişik = sin α/cos α
+cot α = bitişik/qarşı = cos α/sin α
+
+10.2 ƏSAS EYNİLİKLƏR:
+1. sin²α + cos²α = 1
+2. 1 + tan²α = sec²α
+3. 1 + cot²α = csc²α
+4. tan α × cot α = 1
+
+10.3 TAMAMLAYICI BUCAQLAR:
+sin(90° - α) = cos α
+cos(90° - α) = sin α
+tan(90° - α) = cot α
+cot(90° - α) = tan α
+
+11. ƏHƏMİYYƏTLİ QAYDALAR:
+
+1. Triqonometrik nisbətlər yalnız DÜZBUCAQLI üçbucaqda ✓
+2. sin α və cos α həmişə -1 ≤ x ≤ 1 aralığında ✓
+3. tan α və cot α istənilən həqiqi qiymət ala bilər ✓
+4. 30°, 45°, 60° bucaqlarının qiymətlərini ƏZBƏR bil ✓
+5. 180° = π radian ✓
+6. sin²α + cos²α = 1 (ən vacib eynilik) ✓
+7. Rüblərdə işarələri yadda saxla ✓
+8. Məsələ həllində üçbucaq ÇƏK ✓
+9. Pifaqor teoremi triqonometriyanın əsasıdır ✓
+10. Tamamlayıcı bucaqların qiymətlərini bilmək çox vacibdir ✓
+
+12. TİPİK SƏHVLƏR:
+
+SƏHV: İti olmayan bucaq üçün triqonometrik nisbət hesablamaq
+DOĞRU: Yalnız iti bucaq üçün (0°-90°)
+
+SƏHV: sin α > 1 və ya cos α > 1 olduğunu düşünmək
+DOĞRU: sin α və cos α həmişə -1 ilə 1 arasında
+
+SƏHV: 30°, 45°, 60° qiymətlərini qarışdırmaq
+DOĞRU: Cədvəli əzbər bilmək lazımdır
+
+SƏHV: Dərəcə ilə radianı qarışdırmaq
+DOĞRU: 180° = π radian
+
+SƏHV: Qarşı və bitişik kateti səhv müəyyən etmək
+DOĞRU: Həmişə hansı bucağa nəzərən olduğunu yadda saxla
+
+=======================================
+© 2024 MathGen - Riyaziyyat Platforması
+9-cu sinif: Triqonometrik Nisbətlər
+Hazırlayan: Amin Xudizade`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'triqonometrik-nisbetler-9-sinif.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('9-cu sinif triqonometrik nisbətlər qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

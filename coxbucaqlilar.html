@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çoxbucaqlılar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+
+        }
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black ;
+            padding: 10px;
+
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+
+
+        }
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        .cedvel{
+            border:  3px solid black;
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .ustuxet{
+            text-decoration: overline;
+            margin-left: 30px;
+        }
+        .m2arginp{
+            margin-left: 60px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        .download-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            width: 1000px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .download-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .download-button:hover {
+            background-color: #3e8e41;
+            color: white;
+        }
+        .formula {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-left: 4px solid #2196F3;
+            margin: 10px 0;
+            font-family: "Courier New", monospace;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #f0f0f0;
+            border: 3px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            color: #666;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Çoxbucaqlılar</p>
+    <h6 style="color: grey;">
+        Çoxbucaqlılara aid bütün qaydalar və düsturlar səhifəmizdə yer alır.
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <p><strong>1. Çoxbucaqlının tərifi:</strong></p>
+    <p class="marginp">Müstəvidə bir-birinə birləşmiş, ümumi nöqtələri yalnız ucları olan qapalı sınıq xəttə çoxbucaqlı deyilir. Çoxbucaqlını təşkil edən parçalara onun tərəfləri, tərəflərin birləşdiyi nöqtələrə isə təpələr deyilir.</p>
+    
+    <div class="image-placeholder">
+        ÇOXBUCAQLI NÜMUNƏSİ - ŞƏKİL QOYULACAQ
+    </div>
+    
+    <p><strong>2. Çoxbucaqlıların növləri:</strong></p>
+    <p class="marginp"><strong>a) Tərəflərinə görə:</strong></p>
+    <p class="m2arginp">• 3 tərəfli - Üçbucaq</p>
+    <p class="m2arginp">• 4 tərəfli - Dördbucaqlı</p>
+    <p class="m2arginp">• 5 tərəfli - Beşbucaqlı</p>
+    <p class="m2arginp">• 6 tərəfli - Altıbucaqlı</p>
+    <p class="m2arginp">• n tərəfli - n-bucaqlı</p>
+    
+    <p class="marginp"><strong>b) Bucaqlarına görə:</strong></p>
+    <p class="m2arginp">• Qabarıq çoxbucaqlı - bütün daxili bucaqları 180°-dən kiçik olan</p>
+    <p class="m2arginp">• Qabarıq olmayan çoxbucaqlı - ən azı bir daxili bucağı 180°-dən böyük olan</p>
+    
+    <p><strong>3. Çoxbucaqlıların əsas elementləri:</strong></p>
+    <p class="marginp">• Tərəf - çoxbucaqlının tərəfləri</p>
+    <p class="marginp">• Təpə - tərəflərin birləşdiyi nöqtə</p>
+    <p class="marginp">• Daxili bucaq - iki qonşu tərəfin əmələ gətirdiyi bucaq</p>
+    <p class="marginp">• Xarici bucaq - daxili bucağa qonşu və onun birləşməsindən 180° alınan bucaq</p>
+    <p class="marginp">• Diaqonal - qonşu olmayan iki təpəni birləşdirən parça</p>
+    
+    <p><strong>4. Çoxbucaqlıların əsas xassələri:</strong></p>
+    <p class="marginp"><strong>a) Qabarıq n-bucaqlının:</strong></p>
+    <p class="m2arginp">• Daxili bucaqlarının cəmi: S = (n-2) × 180°</p>
+    <p class="m2arginp">• Xarici bucaqlarının cəmi: 360° (həmişə!)</p>
+    <p class="m2arginp">• Diaqonallarının sayı: D = n(n-3)/2</p>
+    
+    <p><strong>5. Müntəzəm çoxbucaqlılar:</strong></p>
+    <p class="marginp">Bütün tərəfləri və bucaqları bərabər olan çoxbucaqlıya müntəzəm çoxbucaqlı deyilir.</p>
+    <p class="marginp"><strong>Müntəzəm n-bucaqlının hər bir daxili bucağı:</strong></p>
+    <p class="m2arginp formula">α = (n-2) × 180° / n</p>
+    <p class="marginp"><strong>Müntəzəm n-bucaqlının hər bir xarici bucağı:</strong></p>
+    <p class="m2arginp formula">β = 360° / n</p>
+    
+    <p><strong>6. Üçbucaqlar (xüsusi çoxbucaqlı):</strong></p>
+    <p class="marginp"><strong>a) Tərəflərinə görə:</strong></p>
+    <p class="m2arginp">• Müxtəliftərəfli - bütün tərəfləri müxtəlif</p>
+    <p class="m2arginp">• Bərabəryanlı - iki tərəfi bərabər</p>
+    <p class="m2arginp">• Bərabərtərəfli - bütün tərəfləri bərabər</p>
+    
+    <p class="marginp"><strong>b) Bucaqlarına görə:</strong></p>
+    <p class="m2arginp">• Düzbucaqlı - bir bucağı 90°</p>
+    <p class="m2arginp">• İtbucaqlı - bütün bucaqları 90°-dən kiçik</p>
+    <p class="m2arginp">• Korbucaqlı - bir bucağı 90°-dən böyük</p>
+    
+    <p><strong>7. Dördbucaqlılar (xüsusi çoxbucaqlı):</strong></p>
+    <p class="marginp">• Daxili bucaqlarının cəmi: 360°</p>
+    <p class="marginp">• Diaqonallarının sayı: 2</p>
+    
+    <p class="marginp"><strong>Dördbucaqlı növləri:</strong></p>
+    <p class="m2arginp">• Paraleloqram - qarşı tərəfləri paralel</p>
+    <p class="m2arginp">• Düzbucaqlı - bütün bucaqları 90° olan paraleloqram</p>
+    <p class="m2arginp">• Romb - bütün tərəfləri bərabər olan paraleloqram</p>
+    <p class="m2arginp">• Kvadrat - həm düzbucaqlı, həm də romb</p>
+    <p class="m2arginp">• Trapesiya - yalnız iki qarşı tərəfi paralel</p>
+    <p class="m2arginp">• Dəltoid - iki qonşu tərəfi bərabər olan iki cüt tərəfi var</p>
+    
+    <p><strong>8. Çevrəyə çəkilmiş və daxil edilmiş çoxbucaqlılar:</strong></p>
+    <p class="marginp"><strong>a) Çevrəyə daxil edilmiş çoxbucaqlı:</strong></p>
+    <p class="m2arginp">Bütün təpələri çevrə üzərində olan çoxbucaqlı. Bütün müntəzəm çoxbucaqlılar çevrəyə daxil edilə bilər.</p>
+    
+    <p class="marginp"><strong>b) Çevrəyə çəkilmiş çoxbucaqlı:</strong></p>
+    <p class="m2arginp">Bütün tərəfləri çevrəyə toxunan çoxbucaqlı. Bütün müntəzəm çoxbucaqlılar çevrəyə çəkilə bilər.</p>
+    
+    <p><strong>9. Çoxbucaqlının sahəsi:</strong></p>
+    <p class="marginp"><strong>a) Ümumi düstur (koordinatları məlumdursa):</strong></p>
+    <p class="m2arginp formula">S = ½|Σ(xᵢyᵢ₊₁ - xᵢ₊₁yᵢ)|</p>
+    
+    <p class="marginp"><strong>b) Müntəzəm n-bucaqlının sahəsi (tərəfi a olarsa):</strong></p>
+    <p class="m2arginp formula">S = (n × a²) / (4 × tan(180°/n))</p>
+    
+    <p class="marginp"><strong>c) Müntəzəm n-bucaqlının sahəsi (daxilə çəkilmiş çevrənin radiusu r olarsa):</strong></p>
+    <p class="m2arginp formula">S = ½ × n × r² × sin(360°/n)</p>
+    
+    <p><strong>10. Çoxbucaqlıların oxşarlığı:</strong></p>
+    <p class="marginp">İki çoxbucaqlı oxşardır, əgər:</p>
+    <p class="m2arginp">1. Uyğun bucaqları bərabərdir</p>
+    <p class="m2arginp">2. Uyğun tərəfləri mütənasibdir</p>
+    <p class="m2arginp"><strong>Oxşarlıq əmsalı k olarsa:</strong></p>
+    <p class="m2arginp">• Perimetrlər nisbəti: k</p>
+    <p class="m2arginp">• Sahələr nisbəti: k²</p>
+    
+    <p><strong>11. Qabarıq çoxbucaqlının bucaqlarının cəmi üçün ümumi düstur:</strong></p>
+    <p class="marginp formula">Σα = (n - 2) × 180°</p>
+    <p class="marginp">burada n - tərəflərin (bucaqların) sayı</p>
+    
+    <p><strong>12. Çoxbucaqlıların simmetriya xassələri:</strong></p>
+    <p class="marginp"><strong>a) Müntəzəm n-bucaqlının:</strong></p>
+    <p class="m2arginp">• Fırlanma simmetriyası: n dərəcəli (360°/n fırlandıqda öz üzərinə düşür)</p>
+    <p class="m2arginp">• Əks etmə simmetriyası: n sayda simmetriya oxu (n cüt olarsa)</p>
+    
+    <div class="download-section">
+        <h3>Qaydaları Yüklə</h3>
+        <p>Aşağıdakı düymələrə klikləyərək çoxbucaqlılara aid qaydaları yükləyə bilərsiniz:</p>
+        <button class="download-button" onclick="downloadCoxbucaqlilarQaydalari()">
+            Bütün Qaydaları Yüklə (TXT)
+        </button>
+        <button class="download-button" onclick="downloadCoxbucaqlilarDusturlari()">
+            Düsturları Yüklə (TXT)
+        </button>
+        <button class="download-button" onclick="downloadCoxbucaqlilarNumuneleri()">
+            Nümunələri Yüklə (TXT)
+        </button>
+    </div>
+    
+    <p style="margin-left: auto;margin-right: auto; text-align: center;">
+        <i>Hazırlayan: Amin Xudizadə | Mənbələr: Azərbaycan məktəb proqramı | Güvən nəşriyyatı | DIM proqramı</i>
+    </p>
+
+    <p class="p1">Hazırsınızsa quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='polygonquiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Bizimlə öyrən, bizimlə inkişaf et.
+    </p>
+</footer>
+
+<script>
+    function downloadCoxbucaqlilarQaydalari() {
+        const rulesContent = `ÇOXBUCAQLILAR - BÜTÜN QAYDALAR VƏ DÜSTURLAR
+
+1. ÇOXBUCAQLININ TƏRİFİ:
+   • Müstəvidə bir-birinə birləşmiş, ümumi nöqtələri yalnız ucları olan qapalı sınıq xətt
+   • Tərəf: Çoxbucaqlını təşkil edən parçalar
+   • Təpə: Tərəflərin birləşdiyi nöqtə
+   • Daxili bucaq: İki qonşu tərəfin əmələ gətirdiyi bucaq
+   • Diaqonal: Qonşu olmayan iki təpəni birləşdirən parça
+
+2. ÇOXBUCAQLILARIN NÖVLƏRİ:
+   a) Tərəflərinə görə:
+      • 3 tərəfli - Üçbucaq
+      • 4 tərəfli - Dördbucaqlı
+      • 5 tərəfli - Beşbucaqlı
+      • 6 tərəfli - Altıbucaqlı
+      • n tərəfli - n-bucaqlı
+   
+   b) Bucaqlarına görə:
+      • Qabarıq çoxbucaqlı: Bütün daxili bucaqları 180°-dən kiçik
+      • Qabarıq olmayan çoxbucaqlı: Ən azı bir daxili bucağı 180°-dən böyük
+
+3. ÇOXBUCAQLILARIN ƏSAS XASSƏLƏRİ:
+   • Qabarıq n-bucaqlının daxili bucaqlarının cəmi:
+     S = (n-2) × 180°
+   
+   • Xarici bucaqlarının cəmi:
+     360° (həmişə!)
+   
+   • Diaqonallarının sayı:
+     D = n(n-3)/2
+   
+   • Hər bir təpədən çıxan diaqonalların sayı:
+     n-3
+
+4. MÜNTƏZƏM ÇOXBUCAQLILAR:
+   • Tərif: Bütün tərəfləri və bucaqları bərabər olan çoxbucaqlı
+   • Hər bir daxili bucaq:
+     α = (n-2) × 180° / n
+   • Hər bir xarici bucaq:
+     β = 360° / n
+   • Mərkəzə görə mərkəzi bucaq:
+     γ = 360° / n
+
+5. ÜÇBUCAQLAR (Xüsusi çoxbucaqlı):
+   a) Tərəflərinə görə:
+      • Müxtəliftərəfli: Bütün tərəfləri müxtəlif
+      • Bərabəryanlı: İki tərəfi bərabər
+      • Bərabərtərəfli: Bütün tərəfləri bərabər
+   
+   b) Bucaqlarına görə:
+      • Düzbucaqlı: Bir bucağı 90°
+      • İtbucaqlı: Bütün bucaqları 90°-dən kiçik
+      • Korbucaqlı: Bir bucağı 90°-dən böyük
+   
+   c) Üçbucağın xassələri:
+      • Daxili bucaqlarının cəmi: 180°
+      • Xarici bucaqlarının cəmi: 360°
+      • Tərəflər arası münasibət: İki tərəfin cəmi üçüncü tərəfdən böyükdür
+
+6. DÖRDBUCAQLILAR (Xüsusi çoxbucaqlı):
+   • Daxili bucaqlarının cəmi: 360°
+   • Diaqonallarının sayı: 2
+   
+   a) Paraleloqram:
+      • Qarşı tərəfləri paralel və bərabər
+      • Qarşı bucaqları bərabər
+      • Qonşu bucaqlarının cəmi 180°
+      • Diaqonalları kəsişmə nöqtəsində yarı bölünür
+   
+   b) Düzbucaqlı:
+      • Paraleloqramın bütün xassələri
+      • Bütün bucaqları 90°
+      • Diaqonalları bərabərdir
+   
+   c) Romb:
+      • Paraleloqramın bütün xassələri
+      • Bütün tərəfləri bərabər
+      • Diaqonalları perpendikulyardır
+   
+   d) Kvadrat:
+      • Həm düzbucaqlı, həm də romb xassələri
+   
+   e) Trapesiya:
+      • Yalnız iki qarşı tərəfi paralel
+   
+   f) Dəltoid:
+      • İki qonşu tərəfi bərabər olan iki cüt tərəfi var
+      • Diaqonalları perpendikulyardır
+
+7. ÇOXBUCAQLININ SAHƏSİ:
+   a) Ümumi düstur (koordinatları məlumdursa):
+      S = ½|Σ(xᵢyᵢ₊₁ - xᵢ₊₁yᵢ)|
+   
+   b) Müntəzəm n-bucaqlı (tərəfi a):
+      S = (n × a²) / (4 × tan(180°/n))
+   
+   c) Müntəzəm n-bucaqlı (daxili çevrənin radiusu r):
+      S = ½ × n × r² × sin(360°/n)
+   
+   d) Müntəzəm n-bucaqlı (xarici çevrənin radiusu R):
+      S = ½ × n × R² × sin(360°/n)
+
+8. ÇEVƏRƏYƏ DAXİL EDİLMİŞ VƏ ÇƏKİLMİŞ ÇOXBUCAQLILAR:
+   a) Çevrəyə daxil edilmiş çoxbucaqlı:
+      • Bütün təpələri çevrə üzərində olan
+      • Bütün müntəzəm çoxbucaqlılar daxil edilə bilər
+   
+   b) Çevrəyə çəkilmiş çoxbucaqlı:
+      • Bütün tərəfləri çevrəyə toxunan
+      • Bütün müntəzəm çoxbucaqlılar çəkilə bilər
+
+9. OXŞAR ÇOXBUCAQLILAR:
+   • İki çoxbucaqlı oxşardır, əgər:
+     1. Uyğun bucaqları bərabərdir
+     2. Uyğun tərəfləri mütənasibdir
+   
+   • Oxşarlıq əmsalı k olarsa:
+     • Perimetrlər nisbəti: k
+     • Sahələr nisbəti: k²
+     • Həcmlər nisbəti: k³ (3 ölçülü olarsa)
+
+10. SİMMETRİYA:
+    • Müntəzəm n-bucaqlının:
+      • Fırlanma simmetriyası: n dərəcəli
+      • Əks etmə simmetriyası: n sayda simmetriya oxu (n cüt olarsa)
+    
+    • Simmetriya oxu: Fiquru iki bərabər hissəyə ayıran xətt
+    • Simmetriya mərkəzi: Fiquru 180° fırlandıqda öz üzərinə düşən nöqtə
+
+11. ƏHƏMİYYƏTLİ DÜSTURLAR:
+    • Perimetr: P = tərəflərin cəmi
+    • Sahə vahidləri: mm², sm², dm², m²
+    • 1 m² = 10,000 sm²
+    • 1 sm² = 100 mm²
+
+12. XATIRLAMA ÜSULLARI:
+    • Daxili bucaqlar cəmi: "n-2 dəfə 180"
+    • Xarici bucaqlar cəmi: "həmişə 360 dərəcə"
+    • Diaqonallar sayı: "n(n-3) böl 2-yə"
+    • Müntəzəm bucaq: "180 dəfə n-2 böl n-ə"
+    • Sahə: "tərəf kvadratı çarp n böl 4 tan(180/n)"
+
+PRAKTİK MƏSƏLƏ NÜMUNƏSİ:
+   Məsələ: Müntəzəm altıbucaqlının bir daxili bucağını tapın.
+   Həll: α = (n-2) × 180° / n = (6-2) × 180° / 6 = 4 × 180° / 6 = 720° / 6 = 120°
+
+MƏŞHUR ÇOXBUCAQLILAR:
+   • Üçbucaq (3 tərəf)
+   • Kvadrat (4 bərabər tərəf, 4 düz bucaq)
+   • Düzbucaqlı (4 düz bucaq)
+   • Beşbucaqlı (pentaqon)
+   • Altıbucaqlı (heksaqon)
+   • Səkkizbucaqlı (oktaqon)
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'coxbucaqlilar-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Çoxbucaqlılar qaydaları uğurla yükləndi! 📥');
+    }
+
+    function downloadCoxbucaqlilarDusturlari() {
+        const formulasContent = `ÇOXBUCAQLILAR - ƏSAS DÜSTURLAR
+
+1. DAXİLİ BUCAQLARIN CƏMİ:
+   • Qabarıq n-bucaqlı: S = (n - 2) × 180°
+   • Üçbucaq (n=3): 180°
+   • Dördbucaqlı (n=4): 360°
+   • Beşbucaqlı (n=5): 540°
+   • Altıbucaqlı (n=6): 720°
+
+2. XARİCİ BUCAQLARIN CƏMİ:
+   • İstənilən qabarıq çoxbucaqlı: 360°
+
+3. DİAQONALLARIN SAYI:
+   • D = n(n - 3) / 2
+   • Üçbucaq (n=3): 0
+   • Dördbucaqlı (n=4): 2
+   • Beşbucaqlı (n=5): 5
+   • Altıbucaqlı (n=6): 9
+
+4. MÜNTƏZƏM ÇOXBUCAQLI BUCAQLARI:
+   • Hər bir daxili bucaq: α = (n-2) × 180° / n
+   • Hər bir xarici bucaq: β = 360° / n
+   • Mərkəzi bucaq: γ = 360° / n
+
+5. MÜNTƏZƏM ÇOXBUCAQLININ SAHƏSİ:
+   a) Tərəfi a olarsa:
+      S = (n × a²) / (4 × tan(180°/n))
+   
+   b) Daxili çevrənin radiusu r olarsa:
+      S = ½ × n × r² × sin(360°/n)
+   
+   c) Xarici çevrənin radiusu R olarsa:
+      S = ½ × n × R² × sin(360°/n)
+
+6. XÜSUSİ ÇOXBUCAQLILARIN SAHƏ DÜSTURLARI:
+   • Üçbucaq: S = ½ × a × h
+   • Düzbucaqlı: S = a × b
+   • Kvadrat: S = a²
+   • Paraleloqram: S = a × h
+   • Romb: S = ½ × d₁ × d₂
+   • Trapesiya: S = ½ × (a+b) × h
+
+7. PERİMETR DÜSTURLARI:
+   • Üçbucaq: P = a + b + c
+   • Dördbucaqlı: P = a + b + c + d
+   • Müntəzəm n-bucaqlı: P = n × a
+
+8. OXŞARLIQ DÜSTURLARI:
+   • Oxşarlıq əmsalı: k
+   • Perimetrlər nisbəti: k
+   • Sahələr nisbəti: k²
+   • Həcmlər nisbəti: k³
+
+9. ÇEVƏRƏYƏ DAXİL EDİLMİŞ ÇOXBUCAQLI:
+   • Daxili çevrənin radiusu: r = S / p (p - yarımperimetr)
+
+10. ÇEVƏRƏYƏ ÇƏKİLMİŞ ÇOXBUCAQLI:
+    • Xarici çevrənin radiusu: R = a / (2 × sin(180°/n))
+
+MƏŞHUR ÇOXBUCAQLILARIN DÜSTURLARI:
+
+A) ÜÇBUCAQ:
+   • Sahə: S = ½ × a × h
+   • Sahə (Heron): S = √[p(p-a)(p-b)(p-c)], p = (a+b+c)/2
+   • Daxili çevrə radiusu: r = S/p
+   • Xarici çevrə radiusu: R = abc/(4S)
+
+B) DÖRDBUCAQLI:
+   • Düzbucaqlı sahə: S = a × b
+   • Kvadrat sahə: S = a²
+   • Paraleloqram sahə: S = a × h
+   • Romb sahə: S = ½ × d₁ × d₂
+   • Trapesiya sahə: S = ½ × (a+b) × h
+
+ƏSAS TRİQONOMETRİK ƏLAQƏLƏR:
+   • tan(θ) = sin(θ)/cos(θ)
+   • sin²(θ) + cos²(θ) = 1
+   • sin(180°/n) - müntəzəm çoxbucaqlı düsturlarında istifadə olunur
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([formulasContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'coxbucaqlilar-dusturlari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Çoxbucaqlılar düsturları uğurla yükləndi! 📥');
+    }
+
+    function downloadCoxbucaqlilarNumuneleri() {
+        const examplesContent = `ÇOXBUCAQLILAR - PRAKTİK NÜMUNƏLƏR VƏ MƏSƏLƏLƏR
+
+NÜMUNƏ 1: Daxili bucaqların cəmi
+Məsələ: Beşbucaqlının daxili bucaqlarının cəmini tapın.
+Həll: n = 5
+S = (n-2) × 180° = (5-2) × 180° = 3 × 180° = 540°
+Cavab: 540°
+
+NÜMUNƏ 2: Müntəzəm çoxbucaqlının bir bucağı
+Məsələ: Müntəzəm səkkizbucaqlının bir daxili bucağını tapın.
+Həll: n = 8
+α = (n-2) × 180° / n = (8-2) × 180° / 8 = 6 × 180° / 8 = 1080° / 8 = 135°
+Cavab: 135°
+
+NÜMUNƏ 3: Diaqonalların sayı
+Məsələ: Altıbucaqlının neçə diaqonalı var?
+Həll: n = 6
+D = n(n-3)/2 = 6(6-3)/2 = 6×3/2 = 18/2 = 9
+Cavab: 9 diaqonal
+
+NÜMUNƏ 4: Sahə hesablanması
+Məsələ: Tərəfi 6 sm olan kvadratın sahəsini tapın.
+Həll: Kvadratın sahəsi S = a²
+S = 6² = 36 sm²
+Cavab: 36 sm²
+
+NÜMUNƏ 5: Trapesiyanın sahəsi
+Məsələ: Paralel tərəfləri 8 sm və 12 sm, hündürlüyü 5 sm olan trapesiyanın sahəsini tapın.
+Həll: S = ½ × (a+b) × h
+S = ½ × (8+12) × 5 = ½ × 20 × 5 = 10 × 5 = 50 sm²
+Cavab: 50 sm²
+
+NÜMUNƏ 6: Üçbucağın sahəsi
+Məsələ: Tərəfi 10 sm, hündürlüyü 6 sm olan üçbucağın sahəsini tapın.
+Həll: S = ½ × a × h
+S = ½ × 10 × 6 = 5 × 6 = 30 sm²
+Cavab: 30 sm²
+
+NÜMUNƏ 7: Rombun sahəsi
+Məsələ: Diaqonalları 8 sm və 6 sm olan rombun sahəsini tapın.
+Həll: S = ½ × d₁ × d₂
+S = ½ × 8 × 6 = 4 × 6 = 24 sm²
+Cavab: 24 sm²
+
+NÜMUNƏ 8: Müntəzəm altıbucaqlının sahəsi
+Məsələ: Tərəfi 4 sm olan müntəzəm altıbucaqlının sahəsini tapın.
+Həll: n = 6, a = 4 sm
+S = (n × a²) / (4 × tan(180°/n))
+S = (6 × 4²) / (4 × tan(30°))
+tan(30°) = 1/√3 ≈ 0.577
+S = (6 × 16) / (4 × 0.577) = 96 / 2.308 ≈ 41.57 sm²
+Cavab: ≈ 41.57 sm²
+
+NÜMUNƏ 9: Çoxbucaqlının tərəflərinin sayı
+Məsələ: Daxili bucaqlarının cəmi 900° olan çoxbucaqlının neçə tərəfi var?
+Həll: S = (n-2) × 180° = 900°
+n-2 = 900°/180° = 5
+n = 5 + 2 = 7
+Cavab: 7 tərəfli (yeddi bucaqlı)
+
+NÜMUNƏ 10: Xarici bucağa görə tərəflərin sayı
+Məsələ: Bir xarici bucağı 45° olan müntəzəm çoxbucaqlının neçə tərəfi var?
+Həll: β = 360°/n = 45°
+n = 360°/45° = 8
+Cavab: 8 tərəfli (səkkizbucaqlı)
+
+NÜMUNƏ 11: Perimetr hesablanması
+Məsələ: Bərabərtərəfli üçbucağın tərəfi 12 sm-dirsə, perimetrini tapın.
+Həll: P = 3 × a = 3 × 12 = 36 sm
+Cavab: 36 sm
+
+NÜMUNƏ 12: Oxşar çoxbucaqlılar
+Məsələ: İki oxşar çoxbucaqlının perimetrləri 20 sm və 30 sm-dir. Sahələrinin nisbətini tapın.
+Həll: k = 30/20 = 1.5
+Sahələr nisbəti = k² = (1.5)² = 2.25
+Cavab: 2.25
+
+NÜMUNƏ 13: Daxili və xarici bucaqlar
+Məsələ: Müntəzəm çoxbucaqlının daxili bucağı xarici bucağından 120° böyükdür. Tərəflərin sayını tapın.
+Həll: α - β = 120°
+[(n-2)×180°/n] - [360°/n] = 120°
+(180n - 360 - 360)/n = 120
+(180n - 720)/n = 120
+180n - 720 = 120n
+60n = 720
+n = 12
+Cavab: 12 tərəfli
+
+NÜMUNƏ 14: Diaqonalların kəsişməsi
+Məsələ: Qabarıq beşbucaqlının neçə diaqonallarının kəsişmə nöqtəsi var?
+Həll: Beşbucaqlıda 5 diaqonal var.
+Hər diaqonal digər diaqonallarla kəsişə bilər.
+Ümumi kəsişmə nöqtələri = C(5,4) = 5 (mərkəzi nöqtə)
+Cavab: 5 kəsişmə nöqtəsi
+
+NÜMUNƏ 15: Paraleloqramın xassələri
+Məsələ: Paraleloqramın bir bucağı 60°-dir. Digər bucaqlarını tapın.
+Həll: Paraleloqramda qarşı bucaqlar bərabərdir.
+Birinci bucaq = 60°
+Qarşı bucaq = 60°
+Qonşu bucaqların cəmi = 180°
+Digər bucaq = 180° - 60° = 120°
+Qarşı bucaq = 120°
+Cavab: 60°, 120°, 60°, 120°
+
+TƏLİM ÜÇÜN MƏSƏLƏLƏR:
+1. Daxili bucaqlarının cəmi 1440° olan çoxbucaqlının tərəflərinin sayı?
+2. Tərəfi 5 sm olan kvadratın sahəsi və perimetri?
+3. Bir daxili bucağı 150° olan müntəzəm çoxbucaqlının tərəflərinin sayı?
+4. Diaqonallarının sayı 14 olan çoxbucaqlının tərəflərinin sayı?
+5. Sahələri 36 sm² və 64 sm² olan iki oxşar çoxbucaqlının perimetrləri nisbəti?
+
+CAVABLAR:
+1. n = 10
+2. S = 25 sm², P = 20 sm
+3. n = 12
+4. n = 7
+5. k = 6/8 = 0.75
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([examplesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'coxbucaqlilar-numuneleri.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Çoxbucaqlılar nümunələri uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiqurların Sahəsi - 9-cu sinif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .download-button {
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: 20px auto;
+            display: block;
+            font-weight: bold;
+        }
+        
+        .download-button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+            background-color: #45a049;
+        }
+        
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        
+        .marginp{
+            margin-left: 30px;
+        }
+        
+        .m2arginp{
+            margin-left: 60px;
+        }
+        
+        .sualdiv{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+            line-height: 1.6;
+        }
+        
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            min-height: 200px;
+        }
+        
+        .formula-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #2ecc71;
+        }
+        
+        .definition {
+            background-color: #fffde7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .example {
+            background-color: #e8f6f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #16a085;
+            font-style: italic;
+        }
+        
+        .important {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .symbol {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border: 2px dashed #4CAF50;
+        }
+        
+        .formula-large {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .image-placeholder {
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #e0e0e0;
+            border: 2px dashed #666;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .table-box {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        
+        .table-box th, .table-box td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .table-box th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .table-box tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .problem-box {
+            background-color: #e8f6f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #16a085;
+            border: 2px solid #16a085;
+        }
+        
+        .solution-box {
+            background-color: #fef9e7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #f39c12;
+            border: 2px solid #f39c12;
+        }
+        
+        .figure-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .figure-item {
+            text-align: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Fiqurların Sahəsi - 9-cu sinif</p>
+    <h6 style="color: grey;">
+        9-cu sinif üçün fiqurların sahəsinə aid bütün qaydalar və düsturlar
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <h2 class="section-title">1. SAHƏ ANLAYIŞI VƏ ÖLÇÜ VAHİDLƏRİ</h2>
+    
+    <div class="definition">
+        <p><strong>1. Sahə:</strong> Müstəvi fiqurun səthinin ölçüsünə onun sahəsi deyilir.</p>
+        
+        <!-- ŞƏKİL YERİ 1: Sahə anlayışı -->
+        <div class="image-placeholder">
+            SAHƏ ANLAYIŞI ŞƏKLİ<br>
+            (Fərqli fiqurların sahələrinin müqayisəsi)
+        </div>
+        
+        <p><strong>2. Sahə vahidləri:</strong></p>
+        
+        <table class="table-box">
+            <tr>
+                <th>Vahid</th>
+                <th>Simvol</th>
+                <th>1 vahidin tərəfi</th>
+                <th>Çevrilmə</th>
+            </tr>
+            <tr>
+                <td>Kvadrat millimetr</td>
+                <td>mm²</td>
+                <td>1 mm</td>
+                <td>1 mm² = 0.01 cm²</td>
+            </tr>
+            <tr>
+                <td>Kvadrat santimetr</td>
+                <td>cm²</td>
+                <td>1 cm</td>
+                <td>1 cm² = 100 mm²</td>
+            </tr>
+            <tr>
+                <td>Kvadrat desimetr</td>
+                <td>dm²</td>
+                <td>1 dm</td>
+                <td>1 dm² = 100 cm²</td>
+            </tr>
+            <tr>
+                <td>Kvadrat metr</td>
+                <td>m²</td>
+                <td>1 m</td>
+                <td>1 m² = 100 dm²</td>
+            </tr>
+            <tr>
+                <td>Ar</td>
+                <td>a</td>
+                <td>10 m</td>
+                <td>1 a = 100 m²</td>
+            </tr>
+            <tr>
+                <td>Hektar</td>
+                <td>ha</td>
+                <td>100 m</td>
+                <td>1 ha = 100 a = 10,000 m²</td>
+            </tr>
+            <tr>
+                <td>Kvadrat kilometr</td>
+                <td>km²</td>
+                <td>1 km</td>
+                <td>1 km² = 100 ha = 1,000,000 m²</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>3. Sahə vahidlərinin çevrilməsi:</strong></p>
+        
+        <div class="formula-large">
+            1 m² = 100 dm² = 10,000 cm² = 1,000,000 mm²
+        </div>
+        
+        <div class="formula-large">
+            1 km² = 100 ha = 10,000 a = 1,000,000 m²
+        </div>
+        
+        <div class="example">
+            <p><strong>Nümunələr:</strong></p>
+            <p class="marginp">• 5 m² = 5 × 100 = 500 dm²</p>
+            <p class="marginp">• 2.5 ha = 2.5 × 10,000 = 25,000 m²</p>
+            <p class="marginp">• 800 cm² = 800 ÷ 10,000 = 0.08 m²</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">2. DÜZBUCAQLI VƏ KVADRAT</h2>
+    
+    <div class="definition">
+        <p><strong>1. Düzbucaqlı:</strong> Bütün bucaqları düz bucaq olan dördbucaqlı.</p>
+        
+        <!-- ŞƏKİL YERİ 2: Düzbucaqlı -->
+        <div class="image-placeholder">
+            DÜZBUCAQLI ŞƏKLİ<br>
+            (a - uzunluq, b - en, sahə = a × b)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Düzbucaqlının sahəsi:</strong></p>
+            <div class="formula-large">
+                S = a × b
+            </div>
+            <p class="marginp">• a - uzunluq</p>
+            <p class="marginp">• b - en</p>
+            
+            <p><strong>Düzbucaqlının perimetri:</strong></p>
+            <div class="formula-large">
+                P = 2(a + b)
+            </div>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Kvadrat:</strong> Bütün tərəfləri bərabər olan düzbucaqlı.</p>
+        
+        <!-- ŞƏKİL YERİ 3: Kvadrat -->
+        <div class="image-placeholder">
+            KVADRAT ŞƏKLİ<br>
+            (a - tərəf, sahə = a²)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Kvadratın sahəsi:</strong></p>
+            <div class="formula-large">
+                S = a²
+            </div>
+            <p class="marginp">• a - kvadratın tərəfi</p>
+            
+            <p><strong>Kvadratın perimetri:</strong></p>
+            <div class="formula-large">
+                P = 4a
+            </div>
+        </div>
+    </div>
+    
+    <div class="example">
+        <p><strong>Nümunələr:</strong></p>
+        <p class="marginp"><strong>Düzbucaqlı:</strong> Uzunluğu 8 sm, eni 5 sm olan düzbucaqlının sahəsi:</p>
+        <p class="m2arginp">S = 8 × 5 = 40 sm²</p>
+        
+        <p class="marginp"><strong>Kvadrat:</strong> Tərəfi 6 sm olan kvadratın sahəsi:</p>
+        <p class="m2arginp">S = 6² = 36 sm²</p>
+    </div>
+    
+    <h2 class="section-title">3. PARALELOQRAM VƏ ROMB</h2>
+    
+    <div class="definition">
+        <p><strong>1. Paraleloqram:</strong> Qarşı tərəfləri paralel olan dördbucaqlı.</p>
+        
+        <!-- ŞƏKİL YERİ 4: Paraleloqram -->
+        <div class="image-placeholder">
+            PARALELOQRAM ŞƏKLİ<br>
+            (a - əsas, h - hündürlük)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Paraleloqramın sahəsi:</strong></p>
+            <div class="formula-large">
+                S = a × h
+            </div>
+            <p class="marginp">• a - əsas (hər hansı tərəf)</p>
+            <p class="marginp">• h - həmin tərəfə çəkilmiş hündürlük</p>
+            
+            <p><strong>Paraleloqramın perimetri:</strong></p>
+            <div class="formula-large">
+                P = 2(a + b)
+            </div>
+            <p class="marginp">• a və b - bitişik tərəflər</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Romb:</strong> Bütün tərəfləri bərabər olan paraleloqram.</p>
+        
+        <!-- ŞƏKİL YERİ 5: Romb -->
+        <div class="image-placeholder">
+            ROMB ŞƏKLİ<br>
+            (d₁ və d₂ - diaqonallar)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Rombun sahəsi (2 üsul):</strong></p>
+            <p><strong>1. Hündürlüklə:</strong></p>
+            <div class="formula-large">
+                S = a × h
+            </div>
+            <p class="marginp">• a - tərəf, h - hündürlük</p>
+            
+            <p><strong>2. Diaqonallarla:</strong></p>
+            <div class="formula-large">
+                S = (d₁ × d₂) ÷ 2
+            </div>
+            <p class="marginp">• d₁ və d₂ - diaqonallar</p>
+            
+            <p><strong>Rombun perimetri:</strong></p>
+            <div class="formula-large">
+                P = 4a
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">4. ÜÇBUCAQ</h2>
+    
+    <div class="definition">
+        <p><strong>Üçbucaq:</strong> Üç tərəfi və üç bucağı olan çoxbucaqlı.</p>
+        
+        <!-- ŞƏKİL YERİ 6: Üçbucaq -->
+        <div class="image-placeholder">
+            ÜÇBUCAQ ŞƏKLİ<br>
+            (a - əsas, h - hündürlük)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Üçbucağın sahəsi (3 əsas üsul):</strong></p>
+            
+            <p><strong>1. Hündürlüklə (əsas düstur):</strong></p>
+            <div class="formula-large">
+                S = (a × h) ÷ 2
+            </div>
+            <p class="marginp">• a - istənilən tərəf</p>
+            <p class="marginp">• h - həmin tərəfə çəkilmiş hündürlük</p>
+            
+            <p><strong>2. İki tərəf və aralarındakı bucaqla:</strong></p>
+            <div class="formula-large">
+                S = (a × b × sinγ) ÷ 2
+            </div>
+            <p class="marginp">• a, b - tərəflər</p>
+            <p class="marginp">• γ - onların arasındakı bucaq</p>
+            
+            <p><strong>3. Heron düsturu (üç tərəflə):</strong></p>
+            <div class="formula-large">
+                S = √[p(p-a)(p-b)(p-c)]
+            </div>
+            <p class="marginp">• a, b, c - tərəflər</p>
+            <p class="marginp">• p = (a+b+c)/2 (yarımperimetr)</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>Xüsusi üçbucaqların sahəsi:</strong></p>
+        
+        <div class="figure-grid">
+            <div class="figure-item">
+                <p><strong>Düzbucaqlı üçbucaq:</strong></p>
+                <div class="formula-large">
+                    S = (a × b) ÷ 2
+                </div>
+                <p>a və b - katetlər</p>
+                <!-- ŞƏKİL YERİ 7: Düzbucaqlı üçbucaq -->
+                <div class="image-placeholder" style="height: 100px; margin: 10px auto;">
+                    DÜZBUCAQLI ÜÇBUCAQ
+                </div>
+            </div>
+            
+            <div class="figure-item">
+                <p><strong>Bərabərtərəfli üçbucaq:</strong></p>
+                <div class="formula-large">
+                    S = (a²√3) ÷ 4
+                </div>
+                <p>a - tərəf</p>
+                <!-- ŞƏKİL YERİ 8: Bərabərtərəfli üçbucaq -->
+                <div class="image-placeholder" style="height: 100px; margin: 10px auto;">
+                    BƏRABƏRTƏRƏFLİ ÜÇBUCAQ
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">5. TRAPEsiYA</h2>
+    
+    <div class="definition">
+        <p><strong>Trapesiya:</strong> Yalnız iki tərəfi paralel olan dördbucaqlı.</p>
+        
+        <!-- ŞƏKİL YERİ 9: Trapesiya -->
+        <div class="image-placeholder">
+            TRAPESİYA ŞƏKLİ<br>
+            (a, b - əsaslar, h - hündürlük)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Trapesiyanın sahəsi:</strong></p>
+            <div class="formula-large">
+                S = [(a + b) × h] ÷ 2
+            </div>
+            <p class="marginp">• a və b - paralel tərəflər (əsaslar)</p>
+            <p class="marginp">• h - əsaslar arasındakı məsafə (hündürlük)</p>
+            
+            <p><strong>Trapesiyanın perimetri:</strong></p>
+            <div class="formula-large">
+                P = a + b + c + d
+            </div>
+            <p class="marginp">• a, b, c, d - bütün tərəflər</p>
+        </div>
+    </div>
+    
+    <div class="important">
+        <p><strong>Xüsusi trapesiyalar:</strong></p>
+        <p class="marginp"><strong>Bərabəryanlı trapesiya:</strong> Yan tərəfləri bərabərdir</p>
+        <p class="marginp"><strong>Düzbucaqlı trapesiya:</strong> Bir yan tərəfi əsaslara perpendikulyardır</p>
+    </div>
+    
+    <h2 class="section-title">6. DAİRƏ VƏ ÇEVRƏ</h2>
+    
+    <div class="definition">
+        <p><strong>Dairə:</strong> Çevrə ilə onun daxilində qalan hissənin birləşməsi.</p>
+        
+        <!-- ŞƏKİL YERİ 10: Dairə -->
+        <div class="image-placeholder">
+            DAİRƏ ŞƏKLİ<br>
+            (r - radius, d - diametr)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Dairənin sahəsi:</strong></p>
+            <div class="formula-large">
+                S = πr²
+            </div>
+            <p class="marginp">• r - radius</p>
+            <p class="marginp">• π ≈ 3.14 (pi ədədi)</p>
+            
+            <p><strong>Çevrənin uzunluğu (perimetri):</strong></p>
+            <div class="formula-large">
+                L = 2πr = πd
+            </div>
+            <p class="marginp">• d - diametr (d = 2r)</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>Dairəvi sektor:</strong> İki radius və qövs ilə məhdudlaşan dairə hissəsi.</p>
+        
+        <!-- ŞƏKİL YERİ 11: Dairəvi sektor -->
+        <div class="image-placeholder">
+            DAİRƏVİ SEKTOR<br>
+            (α - mərkəzi bucaq, r - radius)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Sektorun sahəsi:</strong></p>
+            <div class="formula-large">
+                S = (α ÷ 360°) × πr²
+            </div>
+            <p class="marginp">• α - mərkəzi bucaq (dərəcə ilə)</p>
+            <p class="marginp">• r - radius</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">7. MÜRƏKKƏB FİQURLARIN SAHƏSİ</h2>
+    
+    <div class="definition">
+        <p><strong>Mürəkkəb fiqurların sahəsi:</strong> Sadə fiqurlara ayırmaqla hesablanır.</p>
+        
+        <!-- ŞƏKİL YERİ 12: Mürəkkəb fiqur -->
+        <div class="image-placeholder">
+            MÜRƏKKƏB FİQUR NÜMUNƏSİ<br>
+            (Düzbucaqlı, üçbucaq, yarımdairə birləşməsi)
+        </div>
+        
+        <div class="step-box">
+            <p><strong>Mürəkkəb fiqurun sahəsini tapmaq addımları:</strong></p>
+            <p><strong>Addım 1:</strong> Fiquru sadə hissələrə böl (düzbucaqlı, üçbucaq, dairə və s.)</p>
+            <p><strong>Addım 2:</strong> Hər bir hissənin sahəsini ayrı-ayrılıqda hesabla</p>
+            <p><strong>Addım 3:</strong> Bütün hissələrin sahələrini topla</p>
+            <p><strong>Addım 4:</strong> Lazım olduqda, boşluqların sahəsini çıx</p>
+        </div>
+    </div>
+    
+    <div class="example">
+        <p><strong>Nümunə:</strong> Aşağıdakı fiqurun sahəsini tapın:</p>
+        <div class="image-placeholder">
+            NÜMUNƏ FİQUR<br>
+            (Üzərində düzbucaqlı və yarımdairə olan fiqur)
+        </div>
+        <p><strong>Həlli:</strong></p>
+        <p class="marginp">1. Düzbucaqlının sahəsi: S₁ = 10 × 6 = 60 sm²</p>
+        <p class="marginp">2. Yarımdairənin sahəsi: S₂ = (π × 3²) ÷ 2 ≈ (3.14 × 9) ÷ 2 ≈ 14.13 sm²</p>
+        <p class="marginp">3. Ümumi sahə: S = S₁ + S₂ ≈ 60 + 14.13 = 74.13 sm²</p>
+    </div>
+    
+    <h2 class="section-title">8. SAHƏNİN XASSƏLƏRİ</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Bərabərlik xassəsi:</strong> Bərabər fiqurların sahələri də bərabərdir.</p>
+        <p class="marginp">• Əgər F₁ = F₂ olarsa, S(F₁) = S(F₂)</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Toplama xassəsi:</strong> Fiqur iki hissəyə bölünərsə, bütövün sahəsi hissələrin sahələri cəminə bərabərdir.</p>
+        <div class="formula-large">
+            S(F₁ ∪ F₂) = S(F₁) + S(F₂) - S(F₁ ∩ F₂)
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>3. Bircinslik xassəsi:</strong> Hər iki tərəfi eyni ədədə vurduqda sahə kvadrat şəklində dəyişir.</p>
+        <div class="formula-large">
+            Əgər tərəflər k dəfə artarsa, sahə k² dəfə artar
+        </div>
+        <p class="marginp"><strong>Nümunə:</strong> Kvadratın tərəfini 3 dəfə artırsaq, sahəsi 9 dəfə artar (3² = 9)</p>
+    </div>
+    
+    <h2 class="section-title">9. PRAKTİK MƏSƏLƏLƏR VƏ NÜMUNƏ HƏLLƏR</h2>
+    
+    <div class="problem-box">
+        <p><strong>Məsələ 1:</strong> Düzbucaqlının uzunluğu enindən 5 sm böyükdür. Perimetri 30 sm olarsa, sahəsini tapın.</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Tutaq ki, eni x sm, uzunluğu x+5 sm</p>
+            <div class="math-formula">
+                P = 2(eni + uzunluq) = 30
+                2(x + x+5) = 30
+                2(2x+5) = 30
+                4x+10 = 30
+                4x = 20
+                x = 5 (eni)
+                x+5 = 10 (uzunluq)
+                S = eni × uzunluq = 5 × 10 = 50 sm²
+            </div>
+            <p><strong>Cavab:</strong> 50 sm²</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>Məsələ 2:</strong> Kvadrat və düzbucaqlının sahələri bərabərdir. Kvadratın tərəfi 8 sm, düzbucaqlının eni 4 sm-dir. Düzbucaqlının uzunluğunu tapın.</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Kvadratın sahəsi: S = 8² = 64 sm²</p>
+            <p>Düzbucaqlının sahəsi də 64 sm² olmalıdır</p>
+            <div class="math-formula">
+                S = eni × uzunluq
+                64 = 4 × uzunluq
+                uzunluq = 64 ÷ 4 = 16 sm
+            </div>
+            <p><strong>Cavab:</strong> 16 sm</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>Məsələ 3:</strong> Radiusu 14 sm olan dairənin sahəsini tapın.</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <div class="math-formula">
+                S = πr² = π × 14² = π × 196
+                π ≈ 3.14 qəbul etsək:
+                S ≈ 3.14 × 196 = 615.44 sm²
+            </div>
+            <p><strong>Cavab:</strong> 196π sm² ≈ 615.44 sm²</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">10. ƏSAS DÜSTURLAR CƏDVƏLİ</h2>
+    
+    <table class="table-box">
+        <tr>
+            <th>Fiqur</th>
+            <th>Sahə düsturu</th>
+            <th>Perimetr düsturu</th>
+            <th>Elementlər</th>
+        </tr>
+        <tr>
+            <td>Kvadrat</td>
+            <td>S = a²</td>
+            <td>P = 4a</td>
+            <td>a - tərəf</td>
+        </tr>
+        <tr>
+            <td>Düzbucaqlı</td>
+            <td>S = a × b</td>
+            <td>P = 2(a+b)</td>
+            <td>a - uzunluq, b - en</td>
+        </tr>
+        <tr>
+            <td>Paraleloqram</td>
+            <td>S = a × h</td>
+            <td>P = 2(a+b)</td>
+            <td>a - əsas, h - hündürlük</td>
+        </tr>
+        <tr>
+            <td>Romb</td>
+            <td>S = a × h<br>və ya<br>S = (d₁×d₂)/2</td>
+            <td>P = 4a</td>
+            <td>a - tərəf, d₁,d₂ - diaqonallar</td>
+        </tr>
+        <tr>
+            <td>Üçbucaq</td>
+            <td>S = (a×h)/2</td>
+            <td>P = a+b+c</td>
+            <td>a - əsas, h - hündürlük</td>
+        </tr>
+        <tr>
+            <td>Trapesiya</td>
+            <td>S = [(a+b)×h]/2</td>
+            <td>P = a+b+c+d</td>
+            <td>a,b - əsaslar, h - hündürlük</td>
+        </tr>
+        <tr>
+            <td>Dairə</td>
+            <td>S = πr²</td>
+            <td>L = 2πr</td>
+            <td>r - radius</td>
+        </tr>
+    </table>
+    
+    <div class="important">
+        <p><strong>YADDA SAXLAYIN:</strong></p>
+        <p class="marginp">1. Sahə həmişə KVADRAT vahidlərlə ölçülür (sm², m², km²)</p>
+        <p class="marginp">2. Perimetr XƏTTİ vahidlərlə ölçülür (sm, m, km)</p>
+        <p class="marginp">3. Üçbucağın sahəsi = (tərəf × hündürlük) ÷ 2</p>
+        <p class="marginp">4. Trapesiyanın sahəsi = (əsaslar cəmi × hündürlük) ÷ 2</p>
+        <p class="marginp">5. Dairənin sahəsi = π × radius²</p>
+        <p class="marginp">6. Mürəkkəb fiqurların sahəsini hissələrə bölüb hesablamaq lazımdır</p>
+        <p class="marginp">7. π (pi) ≈ 3.14 (dəqiq: 3.1415926535...)</p>
+        <p class="marginp">8. Tərəfləri k dəfə artırdıqda sahə k² dəfə artır</p>
+    </div>
+    
+    <!-- DOWNLOAD SECTION -->
+    <div class="download-section">
+        <h3>📥 Fiqurların Sahəsi Qaydalarını Yükləyin</h3>
+        <p>9-cu sinif üçün fiqurların sahəsinə aid bütün qaydaları kompüterinizə yükləyin.</p>
+        <button class="download-button" onclick="downloadAreaRules()">
+            ⬇️ Qaydaları Yüklə (TXT)
+        </button>
+        <p><small>Fayl .txt formatında yüklənəcək</small></p>
+    </div>
+    
+    <p style="margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px;">
+        <i>Hazırlayan: Amin Xudizade | Mənbələr: 9-cu sinif dərslikləri | Azərbaycan məktəb proqramı</i>
+    </p>
+    
+    <p class="p1">Hazırsınızsa, quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='sahe-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        9-cu sinif: Fiqurların Sahəsi
+    </p>
+</footer>
+
+<script>
+    function downloadAreaRules() {
+        const rulesContent = `FİQURLARIN SAHƏSİ - 9-CU SİNİF
+===================================
+
+1. SAHƏ ANLAYIŞI VƏ ÖLÇÜ VAHİDLƏRİ:
+
+1.1 SAHƏ:
+• Müstəvi fiqurun səthinin ölçüsü
+• KVADRAT vahidlərlə ölçülür
+
+1.2 SAHƏ VAHİDLƏRİ:
+• mm² (kvadrat millimetr) - tərəfi 1 mm
+• cm² (kvadrat santimetr) - tərəfi 1 cm
+• dm² (kvadrat desimetr) - tərəfi 1 dm
+• m² (kvadrat metr) - tərəfi 1 m
+• a (ar) - 100 m²
+• ha (hektar) - 10,000 m²
+• km² (kvadrat kilometr) - 1,000,000 m²
+
+1.3 ÇEVİRMƏ DÜSTURLARI:
+1 m² = 100 dm² = 10,000 cm² = 1,000,000 mm²
+1 km² = 100 ha = 10,000 a = 1,000,000 m²
+
+2. DÜZBUCAQLI VƏ KVADRAT:
+
+2.1 DÜZBUCAQLI:
+• Bütün bucaqları 90° (düz bucaq)
+
+SAHƏ: S = a × b
+• a - uzunluq
+• b - en
+
+PERİMETR: P = 2(a + b)
+
+NÜMUNƏ: a = 8 sm, b = 5 sm → S = 8×5 = 40 sm²
+
+2.2 KVADRAT:
+• Bütün tərəfləri bərabər olan düzbucaqlı
+
+SAHƏ: S = a²
+• a - tərəf
+
+PERİMETR: P = 4a
+
+NÜMUNƏ: a = 6 sm → S = 6² = 36 sm²
+
+3. PARALELOQRAM VƏ ROMB:
+
+3.1 PARALELOQRAM:
+• Qarşı tərəfləri paralel
+
+SAHƏ: S = a × h
+• a - istənilən tərəf (əsas)
+• h - həmin tərəfə çəkilmiş hündürlük
+
+PERİMETR: P = 2(a + b)
+
+3.2 ROMB:
+• Bütün tərəfləri bərabər olan paraleloqram
+
+SAHƏ (2 ÜSUL):
+1) S = a × h (hündürlüklə)
+2) S = (d₁ × d₂) ÷ 2 (diaqonallarla)
+
+PERİMETR: P = 4a
+
+4. ÜÇBUCAQ:
+
+4.1 ÜÇBUCAĞIN SAHƏSİ (3 ÜSUL):
+
+1) HÜNDÜRLÜKLƏ (ƏSAS DÜSTUR):
+S = (a × h) ÷ 2
+• a - istənilən tərəf
+• h - həmin tərəfə çəkilmiş hündürlük
+
+2) İKİ TƏRƏF VƏ ARALARINDAKİ BUCAQLA:
+S = (a × b × sinγ) ÷ 2
+• a, b - tərəflər
+• γ - onların arasındakı bucaq
+
+3) HERON DÜSTURU (ÜÇ TƏRƏFLƏ):
+S = √[p(p-a)(p-b)(p-c)]
+• a, b, c - tərəflər
+• p = (a+b+c)/2 (yarımperimetr)
+
+4.2 XÜSUSİ ÜÇBUCAQLAR:
+
+DÜZBUCAQLI ÜÇBUCAQ:
+S = (a × b) ÷ 2
+• a və b - katetlər
+
+BƏRABƏRTƏRƏFLİ ÜÇBUCAQ:
+S = (a²√3) ÷ 4
+• a - tərəf
+
+5. TRAPESİYA:
+
+5.1 TRAPESİYA:
+• Yalnız iki tərəfi paralel olan dördbucaqlı
+
+SAHƏ: S = [(a + b) × h] ÷ 2
+• a və b - paralel tərəflər (əsaslar)
+• h - əsaslar arası məsafə (hündürlük)
+
+PERİMETR: P = a + b + c + d
+
+5.2 XÜSUSİ TRAPESİYALAR:
+• Bərabəryanlı trapesiya: Yan tərəfləri bərabər
+• Düzbucaqlı trapesiya: Bir yan tərəfi əsaslara perpendikulyar
+
+6. DAİRƏ VƏ ÇEVRƏ:
+
+6.1 DAİRƏNİN SAHƏSİ:
+S = πr²
+• r - radius
+• π ≈ 3.14 (pi ədədi)
+
+6.2 ÇEVRƏNİN UZUNLUĞU (PERİMETRİ):
+L = 2πr = πd
+• d - diametr (d = 2r)
+
+6.3 DAİRƏVİ SEKTOR:
+• İki radius və qövs ilə məhdudlaşan hissə
+
+SEKTORUN SAHƏSİ: S = (α ÷ 360°) × πr²
+• α - mərkəzi bucaq (dərəcə ilə)
+• r - radius
+
+7. MÜRƏKKƏB FİQURLARIN SAHƏSİ:
+
+7.1 HESABLAMA ÜSULU:
+1. Fiquru sadə hissələrə böl (düzbucaqlı, üçbucaq, dairə)
+2. Hər hissənin sahəsini ayrı-ayrılıqda hesabla
+3. Bütün hissələrin sahələrini topla
+4. Lazım olduqda, boşluqların sahəsini çıx
+
+7.2 NÜMUNƏ:
+Fərz edək: düzbucaqlı + yarımdairə
+1) Düzbucaqlı: S₁ = 10×6 = 60 sm²
+2) Yarımdairə: S₂ = (π×3²)÷2 ≈ 14.13 sm²
+3) Ümumi: S = 60 + 14.13 = 74.13 sm²
+
+8. SAHƏNİN XASSƏLƏRİ:
+
+8.1 BƏRABƏRLİK XASSƏSİ:
+• Bərabər fiqurların sahələri bərabərdir
+• Əgər F₁ = F₂ olarsa, S(F₁) = S(F₂)
+
+8.2 TOPLAMA XASSƏSİ:
+• Fiqur hissələrə bölünərsə, bütövün sahəsi hissələrin sahələri cəminə bərabərdir
+• S(F₁ ∪ F₂) = S(F₁) + S(F₂) - S(F₁ ∩ F₂)
+
+8.3 BİRCİNSLİK XASSƏSİ:
+• Tərəfləri k dəfə artırdıqda sahə k² dəfə artır
+• Nümunə: Kvadratın tərəfini 3 dəfə artırsaq, sahəsi 9 dəfə artar (3² = 9)
+
+9. PRAKTİK MƏSƏLƏLƏR:
+
+9.1 MƏSƏLƏ 1:
+Düzbucaqlının uzunluğu enindən 5 sm böyük, perimetri 30 sm.
+Həlli: Eni x, uzunluğu x+5
+2(x + x+5) = 30 → 4x+10=30 → x=5
+S = 5×10 = 50 sm²
+
+9.2 MƏSƏLƏ 2:
+Kvadrat və düzbucaqlının sahələri bərabər.
+Kvadratın tərəfi 8 sm, düzbucaqlının eni 4 sm.
+Həlli: Kvadratın sahəsi = 8² = 64 sm²
+Düzbucaqlı: 64 = 4×uzunluq → uzunluq = 16 sm
+
+9.3 MƏSƏLƏ 3:
+Radiusu 14 sm olan dairənin sahəsi.
+Həlli: S = π×14² = 196π ≈ 615.44 sm²
+
+10. ƏSAS DÜSTURLAR CƏDVƏLİ:
+
+1. Kvadrat: S = a², P = 4a
+2. Düzbucaqlı: S = a×b, P = 2(a+b)
+3. Paraleloqram: S = a×h, P = 2(a+b)
+4. Romb: S = a×h və ya S = (d₁×d₂)/2, P = 4a
+5. Üçbucaq: S = (a×h)/2, P = a+b+c
+6. Trapesiya: S = [(a+b)×h]/2, P = a+b+c+d
+7. Dairə: S = πr², L = 2πr
+
+11. ƏHƏMİYYƏTLİ QAYDALAR:
+
+1. Sahə KVADRAT vahidlərlə ölçülür ✓
+2. Perimetr XƏTTİ vahidlərlə ölçülür ✓
+3. Üçbucaq sahəsi = (tərəf × hündürlük) ÷ 2 ✓
+4. Trapesiya sahəsi = (əsaslar cəmi × hündürlük) ÷ 2 ✓
+5. Dairə sahəsi = π × radius² ✓
+6. π ≈ 3.14 (dəqiq: 3.1415926535...) ✓
+7. Tərəfləri k dəfə artırdıqda sahə k² dəfə artır ✓
+8. Mürəkkəb fiqurları sadə hissələrə bölüb hesablamalı ✓
+9. Hər düsturda ölçü vahidlərini YAZMAYI UNUTMA! ✓
+10. Məsələ həllində həmişə YOXLAMA et ✓
+
+12. TİPİK SƏHVLƏR:
+
+SƏHV: Sahəni xətti vahidlərlə ölçmək (m əvəzinə m²)
+DOĞRU: Sahə həmişə kvadrat vahidlərlə ölçülür
+
+SƏHV: Üçbucaq sahəsini (tərəf × hündürlük) kimi hesablamaq
+DOĞRU: Üçbucaq sahəsi = (tərəf × hündürlük) ÷ 2
+
+SƏHV: Trapesiya sahəsini (əsaslar cəmi) × hündürlük kimi hesablamaq
+DOĞRU: Trapesiya sahəsi = [(əsaslar cəmi) × hündürlük] ÷ 2
+
+SƏHV: π = 3 olduğunu düşünmək
+DOĞRU: π ≈ 3.14 (daha dəqiq: 3.14159)
+
+===================================
+© 2024 MathGen - Riyaziyyat Platforması
+9-cu sinif: Fiqurların Sahəsi
+Hazırlayan: Amin Xudizade`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'fiqurlarin-sahesi-9-sinif.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('9-cu sinif fiqurların sahəsi qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+        <h2>Toplam Skor</h2>
+        <p id="skorGoster">0</p>
+        <button onclick="scor()">Skoru Yenilə</button>
+    <button onclick="window.location.href='Suallar.html'">Nəticəni Gör</button>
+
+
+
+    <script>
+        function scor(){
+            let skors =localStorage.getItem("toplamSkor") || 0;
+            skors = Number(skors) + 5;
+            localStorage.setItem("toplamSkor", skors);
+
+
+        }
+
+
+
+
+    </script>
+</body>
+</html>

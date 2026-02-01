@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bir Məchullu Tənliklər və Məsələlər - 9-cu sinif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .download-button {
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: 20px auto;
+            display: block;
+            font-weight: bold;
+        }
+        
+        .download-button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+            background-color: #45a049;
+        }
+        
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        
+        .marginp{
+            margin-left: 30px;
+        }
+        
+        .m2arginp{
+            margin-left: 60px;
+        }
+        
+        .sualdiv{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+            line-height: 1.6;
+        }
+        
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .formula-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #2ecc71;
+        }
+        
+        .definition {
+            background-color: #fffde7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .example {
+            background-color: #e8f6f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #16a085;
+            font-style: italic;
+        }
+        
+        .important {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .symbol {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border: 2px dashed #4CAF50;
+        }
+        
+        .math-formula {
+            font-family: "Cambria Math", serif;
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .step-box {
+            background-color: #f0f8ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #4682b4;
+        }
+        
+        .operation-box {
+            background-color: #fff0f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #da70d6;
+        }
+        
+        .warning-box {
+            background-color: #fffacd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #ffa500;
+            border: 2px solid #ffa500;
+        }
+        
+        .table-box {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        
+        .table-box th, .table-box td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .table-box th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .table-box tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .problem-box {
+            background-color: #e8f6f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #16a085;
+            border: 2px solid #16a085;
+        }
+        
+        .solution-box {
+            background-color: #fef9e7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #f39c12;
+            border: 2px solid #f39c12;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Qeydiyyat Modalı -->
+    <div class="modal-overlay" id="kayitModal">
+        <div class="kayit-modal">
+            <div class="modal-baslik">
+                <h2>👤 Qeydiyyat</h2>
+                <p>MathGen-də öyrənməyə başla!</p>
+            </div>
+
+            <form id="kayitFormu">
+                <div class="form-grubu">
+                    <label for="kullaniciAdi">Ad və Soyad:</label>
+                    <input type="text" id="kullaniciAdi" class="form-kontrol" placeholder="Adınızı və soyadınızı daxil edin" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitEmail">E-poçt:</label>
+                    <input type="email" id="kayitEmail" class="form-kontrol" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitSifre">Şifrə:</label>
+                    <input type="password" id="kayitSifre" class="form-kontrol" placeholder="Ən az 6 simvol" required minlength="6">
+                </div>
+
+                <div class="form-grubu">
+                    <label for="sifreTekrar">Şifrəni təsdiqlə:</label>
+                    <input type="password" id="sifreTekrar" class="form-kontrol" placeholder="Şifrəni yenidən daxil edin" required>
+                    <div id="kayitSifreHatasi" class="sifre-hatasi"></div>
+                </div>
+
+                <div class="form-aksiyonlari">
+                    <button type="submit" class="dugme dugme-primer">Qeydiyyatdan Keç</button>
+                    <button type="button" class="dugme dugme-sekonder" onclick="kapatKayitModal()">Bağla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.hrml" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Bir Məchullu Tənliklər və Məsələlər - 9-cu sinif</p>
+    <h6 style="color: grey;">
+        9-cu sinif üçün bir məchullu tənliklər və məsələlərə aid bütün qaydalar və üsullar
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <h2 class="section-title">1. TƏNLİK ANLAYIŞI VƏ ƏSAS TƏRİMLƏR</h2>
+    
+    <div class="definition">
+        <p><strong>1. Tənlik:</strong> Dəyişən (məchul) iştirak edən və bərabərlik şəklində verilmiş riyazi ifadəyə deyilir.</p>
+        
+        <div class="math-formula">
+            ax + b = 0
+        </div>
+        
+        <p class="marginp"><strong>Elementlər:</strong></p>
+        <p class="m2arginp">• <strong>Məchul (dəyişən):</strong> Tənlikdə qiyməti tapılacaq hərf (adətən x, y, z)</p>
+        <p class="m2arginp">• <strong>Əmsal:</strong> Məchulun qarşısındakı ədəd (a, b, c)</p>
+        <p class="m2arginp">• <strong>Sərbəst hədd:</strong> Məchulsuz ədəd</p>
+        <p class="m2arginp">• <strong>Tənliyin tərəfləri:</strong> Bərabər işarəsinin sağı və solu</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Tənliyin həlli (kökü):</strong> Tənliyi doğru bərabərliyə çevirən məchulun qiymətinə deyilir.</p>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> 2x + 4 = 10 tənliyi</p>
+            <p class="marginp">x = 3 olduqda: 2×3 + 4 = 6 + 4 = 10 (doğru)</p>
+            <p class="marginp">Deməli, x = 3 tənliyin həllidir (köküdür)</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>3. Tənliyin çoxluğu:</strong> Tənliyin bütün həllərinin çoxluğuna deyilir.</p>
+        
+        <div class="important">
+            <p><strong>Tənliyin növləri həllərinə görə:</strong></p>
+            <p class="marginp">• <strong>Müəyyən tənlik:</strong> Yalnız bir həlli var</p>
+            <p class="marginp">• <strong>Qeyri-müəyyən tənlik:</strong> Sonsuz sayda həlli var</p>
+            <p class="marginp">• <strong>Uyğunsuz tənlik:</strong> Heç bir həlli yoxdur</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">2. TƏNLİKLƏRİN ƏSAS XASSƏLƏRİ (EKVİVALENT ÇEVİRMƏLƏR)</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Eynilik xassəsi:</strong> Tənliyin hər iki tərəfinə eyni ədədi əlavə etsək və ya çıxsaq, tənliyin həlli dəyişmir.</p>
+        
+        <div class="math-formula">
+            Əgər a = b olarsa, a + c = b + c
+        </div>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> x - 5 = 3</p>
+            <p class="marginp">Hər iki tərəfə 5 əlavə edirik: x - 5 + 5 = 3 + 5 → x = 8</p>
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Vurma xassəsi:</strong> Tənliyin hər iki tərəfini sıfırdan fərqli eyni ədədə vursaq, tənliyin həlli dəyişmir.</p>
+        
+        <div class="math-formula">
+            Əgər a = b olarsa, a × c = b × c (c ≠ 0)
+        </div>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> x/2 = 4</p>
+            <p class="marginp">Hər iki tərəfi 2-yə vururuq: (x/2) × 2 = 4 × 2 → x = 8</p>
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>3. Köçürmə qaydası:</strong> Tənliyin bir tərəfindən digər tərəfinə keçərkən işarəni əksinə dəyişirik.</p>
+        
+        <div class="math-formula">
+            • Toplama → çıxma
+            • Çıxma → toplama
+            • Vurma → bölmə
+            • Bölmə → vurma
+        </div>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> 2x + 3 = 7</p>
+            <p class="marginp">3-ü digər tərəfə keçirik: 2x = 7 - 3 → 2x = 4</p>
+            <p class="marginp">2-ni digər tərəfə keçirik: x = 4 ÷ 2 → x = 2</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">3. BİR MƏCHULLU XƏTTİ TƏNLİKLƏR</h2>
+    
+    <div class="definition">
+        <p><strong>1. Ümumi şəkli:</strong></p>
+        
+        <div class="math-formula">
+            ax + b = 0 (a ≠ 0)
+        </div>
+        
+        <p class="marginp">• a və b - verilmiş ədədlər (a ≠ 0)</p>
+        <p class="marginp">• x - məchul</p>
+    </div>
+    
+    <div class="step-box">
+        <p><strong>Bir məchullu xətti tənliyi həll etmə addımları:</strong></p>
+        
+        <p><strong>Addım 1:</strong> Məchulu olan hədləri bir tərəfə, sərbəst hədləri digər tərəfə topla</p>
+        <p><strong>Addım 2:</strong> Hər tərəfdə oxşar hədləri topla (birləşdir)</p>
+        <p><strong>Addım 3:</strong> Məchulun əmsalına böl</p>
+        <p><strong>Addım 4:</strong> Yoxla (tapdığın kökü tənlikdə yerinə yaz)</p>
+    </div>
+    
+    <div class="example">
+        <p><strong>Nümunə 1:</strong> 3x + 7 = 19</p>
+        <div class="math-formula">
+            3x + 7 = 19
+            3x = 19 - 7
+            3x = 12
+            x = 12 ÷ 3
+            x = 4
+        </div>
+        <p class="marginp"><strong>Yoxlama:</strong> 3×4 + 7 = 12 + 7 = 19 ✓</p>
+    </div>
+    
+    <div class="example">
+        <p><strong>Nümunə 2:</strong> 5(x - 2) = 3x + 4</p>
+        <div class="math-formula">
+            5(x - 2) = 3x + 4
+            5x - 10 = 3x + 4
+            5x - 3x = 4 + 10
+            2x = 14
+            x = 7
+        </div>
+        <p class="marginp"><strong>Yoxlama:</strong> 5(7-2) = 5×5 = 25, 3×7+4 = 21+4 = 25 ✓</p>
+    </div>
+    
+    <div class="example">
+        <p><strong>Nümunə 3:</strong> (2x + 1)/3 = (x - 4)/2</p>
+        <div class="math-formula">
+            (2x + 1)/3 = (x - 4)/2
+            2(2x + 1) = 3(x - 4)  (məxrəcləri ləğv etmək)
+            4x + 2 = 3x - 12
+            4x - 3x = -12 - 2
+            x = -14
+        </div>
+    </div>
+    
+    <h2 class="section-title">4. XÜSUSİ HALLAR VƏ QEYDİ-ŞƏRTLİ TƏNLİKLƏR</h2>
+    
+    <div class="important">
+        <p><strong>1. a = 0 olduqda:</strong></p>
+        <div class="math-formula">
+            ax + b = 0
+        </div>
+        <p class="marginp">• Əgər a = 0 və b = 0 olarsa → sonsuz sayda həll (qeyri-müəyyən)</p>
+        <p class="marginp">• Əgər a = 0 və b ≠ 0 olarsa → heç bir həll yoxdur (uyğunsuz)</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Mütləq qiymətli tənliklər:</strong></p>
+        
+        <div class="math-formula">
+            |ax + b| = c
+        </div>
+        
+        <p class="marginp"><strong>Həll qaydası:</strong></p>
+        <p class="m2arginp">1. Əgər c < 0 olarsa → heç bir həll yoxdur</p>
+        <p class="m2arginp">2. Əgər c = 0 olarsa → ax + b = 0</p>
+        <p class="m2arginp">3. Əgər c > 0 olarsa → ax + b = c və ya ax + b = -c</p>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> |2x - 3| = 5</p>
+            <div class="math-formula">
+                2x - 3 = 5   və ya   2x - 3 = -5
+                2x = 8         2x = -2
+                x = 4          x = -1
+            </div>
+            <p class="marginp">Həllər: x = 4 və x = -1</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>3. Parametrli tənliklər:</strong> Tənlikdə məchulla yanaşı parametr də iştirak edir.</p>
+        
+        <div class="math-formula">
+            ax + b = 0 (burada a parametrdir)
+        </div>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> (m - 2)x + 3 = 0 tənliyini həll edin.</p>
+            <div class="math-formula">
+                • Əgər m - 2 ≠ 0 (m ≠ 2) → x = -3/(m - 2)
+                • Əgər m - 2 = 0 (m = 2) → 0·x + 3 = 0 → 3 = 0 (uyğunsuz)
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">5. TƏNLİQ QURMA VƏ MƏSƏLƏ HƏLL ETMƏ ÜSULLARI</h2>
+    
+    <div class="step-box">
+        <p><strong>Məsələ həll etmə addımları:</strong></p>
+        
+        <p><strong>Addım 1:</strong> Məsələni diqqətlə oxu və başa düş</p>
+        <p><strong>Addım 2:</strong> Məchulu müəyyən et və işarələ (məsələn: x)</p>
+        <p><strong>Addım 3:</strong> Şərtə uyğun tənlik qur</p>
+        <p><strong>Addım 4:</strong> Tənliyi həll et</p>
+        <p><strong>Addım 5:</strong> Tapdığın cavabı məsələnin şərti ilə yoxla</p>
+        <p><strong>Addım 6:</strong> Cavabı yaz</p>
+    </div>
+    
+    <h2 class="section-title">6. TƏNLİK QURMA NÜMUNƏLƏRİ VƏ MƏSƏLƏ NÖVLƏRİ</h2>
+    
+    <div class="problem-box">
+        <p><strong>1. SAY MƏSƏLƏLƏRİ:</strong></p>
+        
+        <p><strong>Məsələ:</strong> Bir ədədin 3 qatı ilə 5-in cəmi 20-dir. Bu ədədi tapın.</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Tutaq ki, axtarılan ədəd x-dir.</p>
+            <div class="math-formula">
+                3x + 5 = 20
+                3x = 20 - 5
+                3x = 15
+                x = 5
+            </div>
+            <p><strong>Cavab:</strong> 5</p>
+            <p><strong>Yoxlama:</strong> 5-in 3 qatı 15, 15 + 5 = 20 ✓</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>2. YAŞ MƏSƏLƏLƏRİ:</strong></p>
+        
+        <p><strong>Məsələ:</strong> Ana 36 yaşında, qızı 12 yaşındadır. Neçə il sonra ananın yaşı qızının yaşının 2 qatı olar?</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Tutaq ki, x il sonra.</p>
+            <div class="math-formula">
+                Ana: 36 + x
+                Qız: 12 + x
+                Şərt: 36 + x = 2(12 + x)
+                36 + x = 24 + 2x
+                36 - 24 = 2x - x
+                12 = x
+            </div>
+            <p><strong>Cavab:</strong> 12 il sonra</p>
+            <p><strong>Yoxlama:</strong> 12 il sonra ana 48, qız 24 yaşında olar. 48 = 2 × 24 ✓</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>3. HƏRƏKƏT MƏSƏLƏLƏRİ:</strong></p>
+        
+        <p><strong>Məsələ:</strong> İki şəhər arası 300 km-dir. İki avtomobil eyni anda bir-birinə doğru yola çıxır. Birinci avtomobilin sürəti 60 km/saat, ikincininki 40 km/saatdır. Neçə saatdan sonra qarşılaşarlar?</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Tutaq ki, x saatdan sonra qarşılaşarlar.</p>
+            <div class="math-formula">
+                Birinci avtomobilin getdiyi yol: 60x
+                İkinci avtomobilin getdiyi yol: 40x
+                Cəmi yol: 60x + 40x = 300
+                100x = 300
+                x = 3
+            </div>
+            <p><strong>Cavab:</strong> 3 saat sonra</p>
+            <p><strong>Yoxlama:</strong> 3 saatda birinci 180 km, ikinci 120 km yol gedər. 180 + 120 = 300 ✓</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>4. İŞ MƏSƏLƏLƏRİ:</strong></p>
+        
+        <p><strong>Məsələ:</strong> Bir işi Əli tək başına 6 saatda, Vəli tək başına 4 saatda görür. İkisi birlikdə bu işi neçə saatda görər?</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Tam iş 1 vahid qəbul edək.</p>
+            <div class="math-formula">
+                Əlinin saatda etdiyi iş: 1/6
+                Vəlinin saatda etdiyi iş: 1/4
+                Birlikdə saatda: 1/6 + 1/4 = 2/12 + 3/12 = 5/12
+                Tutaq ki, x saatda bitirirlər: (5/12)x = 1
+                x = 12/5 = 2.4 saat = 2 saat 24 dəqiqə
+            </div>
+            <p><strong>Cavab:</strong> 2 saat 24 dəqiqə</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>5. FAİZ MƏSƏLƏLƏRİ:</strong></p>
+        
+        <p><strong>Məsələ:</strong> Hansı ədədin 20%-i 40-a bərabərdir?</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Tutaq ki, axtarılan ədəd x-dir.</p>
+            <div class="math-formula">
+                x-in 20%-i = x × 20/100 = x × 0.2
+                Şərt: 0.2x = 40
+                x = 40 ÷ 0.2 = 200
+            </div>
+            <p><strong>Cavab:</strong> 200</p>
+            <p><strong>Yoxlama:</strong> 200-ün 20%-i = 200 × 0.2 = 40 ✓</p>
+        </div>
+    </div>
+    
+    <div class="problem-box">
+        <p><strong>6. HƏNDƏSİ MƏSƏLƏLƏR:</strong></p>
+        
+        <p><strong>Məsələ:</strong> Düzbucaqlının uzunluğu enindən 5 sm böyükdür. Perimetri 30 sm olarsa, düzbucaqlının tərəflərini tapın.</p>
+        
+        <div class="solution-box">
+            <p><strong>Həlli:</strong></p>
+            <p>Tutaq ki, eni x sm, uzunluğu x+5 sm-dir.</p>
+            <div class="math-formula">
+                Perimetr = 2(eni + uzunluq) = 30
+                2(x + x + 5) = 30
+                2(2x + 5) = 30
+                4x + 10 = 30
+                4x = 20
+                x = 5 (eni)
+                x + 5 = 10 (uzunluq)
+            </div>
+            <p><strong>Cavab:</strong> Eni 5 sm, uzunluğu 10 sm</p>
+            <p><strong>Yoxlama:</strong> Perimetr = 2(5+10) = 2×15 = 30 ✓</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">7. TƏNLİKLƏR SİSTEMİ (9-CU SİNİF ÜÇÜN)</h2>
+    
+    <div class="definition">
+        <p><strong>İki məchullu xətti tənliklər sistemi:</strong></p>
+        
+        <div class="math-formula">
+            a₁x + b₁y = c₁
+            a₂x + b₂y = c₂
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>Əvəzetmə üsulu:</strong></p>
+        
+        <div class="step-box">
+            <p><strong>Addımlar:</strong></p>
+            <p>1. Bir tənlikdən bir məchulu digəri ilə ifadə et</p>
+            <p>2. Tapdığın ifadəni digər tənlikdə yerinə yaz</p>
+            <p>3. Alınan bir məchullu tənliyi həll et</p>
+            <p>4. Tapdığın qiyməti ilk ifadədə yerinə yazaraq digər məchulu tap</p>
+            <p>5. Yoxla</p>
+        </div>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong></p>
+            <div class="math-formula">
+                x + y = 7
+                2x - y = 2
+            </div>
+            <p>Birinci tənlikdən: y = 7 - x</p>
+            <p>İkinci tənlikdə: 2x - (7 - x) = 2 → 2x - 7 + x = 2 → 3x = 9 → x = 3</p>
+            <p>y = 7 - 3 = 4</p>
+            <p><strong>Həll:</strong> x = 3, y = 4</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">8. 9-CU SİNİF ÜÇÜN ƏHƏMİYYƏTLİ QAYDALAR VƏ DÜSTURLAR</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Tənlik həllinin əsas prinsipləri:</strong></p>
+        <p class="marginp">• Tənliyin hər iki tərəfinə eyni ədədi əlavə et/çıx → həll dəyişmir</p>
+        <p class="marginp">• Tənliyin hər iki tərəfini sıfırdan fərqli eyni ədədə vur/böl → həll dəyişmir</p>
+        <p class="marginp">• Tərəflər arasında köçürmə: işarəni əksinə dəyiş</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Tənliyin həllərinin sayı:</strong></p>
+        <p class="marginp">• ax + b = 0 (a ≠ 0) → tək həll: x = -b/a</p>
+        <p class="marginp">• 0·x + 0 = 0 → sonsuz sayda həll</p>
+        <p class="marginp">• 0·x + c = 0 (c ≠ 0) → heç bir həll yoxdur</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>3. Məsələ həllində istifadə olunan düsturlar:</strong></p>
+        <p class="marginp">• Məsafə = Sürət × Zaman (s = v × t)</p>
+        <p class="marginp">• İş = Məhsuldarlıq × Zaman</p>
+        <p class="marginp">• Faiz = (Ədəd × faiz)/100</p>
+        <p class="marginp">• Düzbucaqlının perimetri = 2(uzunluq + en)</p>
+        <p class="marginp">• Kvadratın perimetri = 4 × tərəf</p>
+    </div>
+    
+    <div class="important">
+        <p><strong>YADDA SAXLAYIN:</strong></p>
+        <p class="marginp">1. Hər tənliyi həll etdikdən sonra YOXLAMA etmək vacibdir</p>
+        <p class="marginp">2. Məsələ həllində əvvəlcə məchulu MÜƏYYƏN ET</p>
+        <p class="marginp">3. Mütləq qiymətli tənliklərdə c ≥ 0 olmalıdır</p>
+        <p class="marginp">4. Parametrli tənliklərdə parametrin bütün hallarını nəzərə al</p>
+        <p class="marginp">5. Tənlikdə məxrəc varsa, məxrəci sıfır edən kökləri atmaq lazımdır</p>
+        <p class="marginp">6. Tənliyin həlli dedikdə məchulun tənliyi doğru edən qiyməti nəzərdə tutulur</p>
+        <p class="marginp">7. Məsələ həllində həmişə ölçü vahidlərini yaz</p>
+    </div>
+    
+    <div class="warning-box">
+        <p><strong>TİPİK SƏHVLƏR:</strong></p>
+        <p class="marginp"><strong>Səhv:</strong> 2(x + 3) = 2x + 3 (səhv!)</p>
+        <p class="marginp"><strong>Doğru:</strong> 2(x + 3) = 2x + 6</p>
+        
+        <p class="marginp"><strong>Səhv:</strong> (x + 2)/2 = x + 1 (səhv!)</p>
+        <p class="marginp"><strong>Doğru:</strong> (x + 2)/2 = x/2 + 1</p>
+        
+        <p class="marginp"><strong>Səhv:</strong> Tənliyi həll etdikdən sonra yoxlamamaq</p>
+        <p class="marginp"><strong>Doğru:</strong> HƏMİŞƏ yoxlamaq lazımdır</p>
+    </div>
+    
+    <!-- DOWNLOAD SECTION -->
+    <div class="download-section">
+        <h3>📥 Bir Məchullu Tənliklər və Məsələlər Qaydalarını Yükləyin</h3>
+        <p>9-cu sinif üçün bir məchullu tənliklər və məsələlərin bütün qaydalarını kompüterinizə yükləyin.</p>
+        <button class="download-button" onclick="downloadEquationsRules()">
+            ⬇️ Qaydaları Yüklə (TXT)
+        </button>
+        <p><small>Fayl .txt formatında yüklənəcək</small></p>
+    </div>
+    
+    <p style="margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px;">
+        <i>Hazırlayan: Amin Xudizade | Mənbələr: 9-cu sinif dərslikləri | Azərbaycan məktəb proqramı</i>
+    </p>
+    
+    <p class="p1">Hazırsınızsa, quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='tenlikler-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        9-cu sinif: Bir Məchullu Tənliklər və Məsələlər
+    </p>
+</footer>
+
+<script>
+    function downloadEquationsRules() {
+        const rulesContent = `BİR MƏCHULLU TƏNLİKLƏR VƏ MƏSƏLƏLƏR - 9-CU SİNİF
+=====================================================
+
+1. TƏNLİK ANLAYIŞI VƏ ƏSAS TƏRİMLƏR:
+
+1.1 TƏNLİK:
+• Dəyişən (məchul) iştirak edən və bərabərlik şəklində verilmiş riyazi ifadə
+
+ÜMUMİ ŞƏKLİ: ax + b = 0
+• a, b - verilmiş ədədlər (a ≠ 0)
+• x - məchul (dəyişən)
+
+1.2 ELEMENTLƏR:
+• Məchul (dəyişən): Qiyməti tapılacaq hərf (x, y, z)
+• Əmsal: Məchulun qarşısındakı ədəd (a, b, c)
+• Sərbəst hədd: Məchulsuz ədəd
+• Tənliyin tərəfləri: Bərabər işarəsinin sağı və solu
+
+1.3 TƏNLİYİN HƏLLİ (KÖKÜ):
+• Tənliyi doğru bərabərliyə çevirən məchulun qiyməti
+
+NÜMUNƏ: 2x + 4 = 10
+x = 3 olduqda: 2×3 + 4 = 10 (doğru) → x = 3 həlldir
+
+1.4 TƏNLİYİN ÇOXLUĞU:
+• Tənliyin bütün həllərinin çoxluğu
+
+TƏNLİK NÖVLƏRİ HƏLLİNƏ GÖRƏ:
+1. Müəyyən tənlik: Yalnız bir həlli var
+2. Qeyri-müəyyən tənlik: Sonsuz sayda həlli var
+3. Uyğunsuz tənlik: Heç bir həlli yoxdur
+
+2. TƏNLİKLƏRİN ƏSAS XASSƏLƏRİ (EKVİVALENT ÇEVİRMƏLƏR):
+
+2.1 EYNİLİK XASSƏSİ:
+• Tənliyin hər iki tərəfinə eyni ədədi əlavə etsək/çıxsaq, həll dəyişmir
+• a = b → a + c = b + c
+
+NÜMUNƏ: x - 5 = 3 → x - 5 + 5 = 3 + 5 → x = 8
+
+2.2 VURMA XASSƏSİ:
+• Tənliyin hər iki tərəfini sıfırdan fərqli eyni ədədə vursaq/bölsək, həll dəyişmir
+• a = b → a × c = b × c (c ≠ 0)
+
+NÜMUNƏ: x/2 = 4 → (x/2) × 2 = 4 × 2 → x = 8
+
+2.3 KÖÇÜRMƏ QAYDASI:
+• Tənliyin bir tərəfindən digərinə keçərkən işarəni əksinə dəyişirik
+• Toplama ↔ Çıxma
+• Vurma ↔ Bölmə
+
+NÜMUNƏ: 2x + 3 = 7 → 2x = 7 - 3 → 2x = 4 → x = 4 ÷ 2 → x = 2
+
+3. BİR MƏCHULLU XƏTTİ TƏNLİKLƏRİN HƏLLİ:
+
+3.1 ÜMUMİ ŞƏKLİ: ax + b = 0 (a ≠ 0)
+Həlli: x = -b/a
+
+3.2 HƏLL ADDIMLARI:
+1. Məchullu hədləri bir tərəfə, sərbəst hədləri digər tərəfə topla
+2. Hər tərəfdə oxşar hədləri birləşdir
+3. Məchulun əmsalına böl
+4. YOXLA (tapdığın kökü tənlikdə yerinə yaz)
+
+3.3 NÜMUNƏLƏR:
+
+NÜMUNƏ 1: 3x + 7 = 19
+3x = 19 - 7
+3x = 12
+x = 4
+Yoxlama: 3×4 + 7 = 12 + 7 = 19 ✓
+
+NÜMUNƏ 2: 5(x - 2) = 3x + 4
+5x - 10 = 3x + 4
+5x - 3x = 4 + 10
+2x = 14
+x = 7
+Yoxlama: 5(7-2) = 5×5 = 25, 3×7+4 = 21+4 = 25 ✓
+
+NÜMUNƏ 3: (2x + 1)/3 = (x - 4)/2
+2(2x + 1) = 3(x - 4)
+4x + 2 = 3x - 12
+4x - 3x = -12 - 2
+x = -14
+
+4. XÜSUSİ HALLAR:
+
+4.1 a = 0 OLDUQDA:
+ax + b = 0
+• a = 0, b = 0 → sonsuz həll (qeyri-müəyyən)
+• a = 0, b ≠ 0 → heç bir həll yoxdur (uyğunsuz)
+
+4.2 MÜTLƏQ QİYMƏTLİ TƏNLİKLƏR: |ax + b| = c
+HƏLL QAYDASI:
+1. c < 0 → heç bir həll yoxdur
+2. c = 0 → ax + b = 0
+3. c > 0 → ax + b = c və ya ax + b = -c
+
+NÜMUNƏ: |2x - 3| = 5
+2x - 3 = 5 → 2x = 8 → x = 4
+2x - 3 = -5 → 2x = -2 → x = -1
+Həllər: x = 4, x = -1
+
+4.3 PARAMETRLİ TƏNLİKLƏR:
+NÜMUNƏ: (m - 2)x + 3 = 0
+• m - 2 ≠ 0 (m ≠ 2) → x = -3/(m - 2)
+• m - 2 = 0 (m = 2) → uyğunsuz (3 = 0)
+
+5. MƏSƏLƏ HƏLL ETMƏ ÜSULLARI:
+
+5.1 ADDIMLAR:
+1. Məsələni diqqətlə oxu və başa düş
+2. Məchulu müəyyən et və işarələ (x)
+3. Şərtə uyğun tənlik qur
+4. Tənliyi həll et
+5. Cavabı məsələnin şərti ilə yoxla
+6. Cavabı yaz
+
+6. MƏSƏLƏ NÖVLƏRİ VƏ NÜMUNƏ HƏLLƏRİ:
+
+6.1 SAY MƏSƏLƏLƏRİ:
+Məsələ: Bir ədədin 3 qatı ilə 5-in cəmi 20-dir.
+Həlli: 3x + 5 = 20 → 3x = 15 → x = 5
+
+6.2 YAŞ MƏSƏLƏLƏRİ:
+Məsələ: Ana 36, qızı 12 yaşında. Neçə il sonra ananın yaşı qızının 2 qatı olar?
+Həlli: 36 + x = 2(12 + x) → 36 + x = 24 + 2x → 12 = x → 12 il sonra
+
+6.3 HƏRƏKƏT MƏSƏLƏLƏRİ:
+Məsələ: 300 km məsafə, sürətlər: 60 km/saat və 40 km/saat. Neçə saatdan sonra qarşılaşarlar?
+Həlli: 60x + 40x = 300 → 100x = 300 → x = 3 saat
+
+6.4 İŞ MƏSƏLƏLƏRİ:
+Məsələ: Əli işi 6 saatda, Vəli 4 saatda görür. Birlikdə neçə saatda görərlər?
+Həlli: (1/6 + 1/4)x = 1 → (5/12)x = 1 → x = 12/5 = 2.4 saat = 2 saat 24 dəq
+
+6.5 FAİZ MƏSƏLƏLƏRİ:
+Məsələ: Hansı ədədin 20%-i 40-dır?
+Həlli: 0.2x = 40 → x = 40 ÷ 0.2 = 200
+
+6.6 HƏNDƏSİ MƏSƏLƏLƏR:
+Məsələ: Düzbucaqlının uzunluğu enindən 5 sm böyük, perimetri 30 sm. Tərəfləri tapın.
+Həlli: Eni x, uzunluğu x+5 → 2(x + x+5) = 30 → 4x + 10 = 30 → x = 5 (eni), x+5 = 10 (uzunluq)
+
+7. TƏNLİKLƏR SİSTEMİ (9-CU SİNİF ÜÇÜN):
+
+7.1 ÜMUMİ ŞƏKLİ:
+a₁x + b₁y = c₁
+a₂x + b₂y = c₂
+
+7.2 ƏVƏZETMƏ ÜSULU:
+1. Bir tənlikdən bir məchulu digəri ilə ifadə et
+2. Tapdığın ifadəni digər tənlikdə yerinə yaz
+3. Alınan bir məchullu tənliyi həll et
+4. Tapdığın qiyməti ilk ifadədə yerinə yazaraq digər məchulu tap
+5. Yoxla
+
+NÜMUNƏ:
+x + y = 7
+2x - y = 2
+Birinci tənlikdən: y = 7 - x
+İkinci tənlikdə: 2x - (7 - x) = 2 → 3x = 9 → x = 3
+y = 7 - 3 = 4
+Həll: x = 3, y = 4
+
+8. ƏSAS DÜSTURLAR VƏ QAYDALAR:
+
+8.1 TƏNLİK HƏLLİ PRİNSİPLƏRİ:
+• Hər iki tərəfə eyni ədədi əlavə et/çıx → həll dəyişmir
+• Hər iki tərəfi sıfırdan fərqli eyni ədədə vur/böl → həll dəyişmir
+• Köçürmə: işarəni əksinə dəyiş
+
+8.2 TƏNLİYİN HƏLLƏRİNİN SAYI:
+• ax + b = 0 (a ≠ 0) → tək həll: x = -b/a
+• 0·x + 0 = 0 → sonsuz həll
+• 0·x + c = 0 (c ≠ 0) → heç bir həll yoxdur
+
+8.3 MƏSƏLƏ HƏLLİ DÜSTURLARI:
+• Məsafə = Sürət × Zaman: s = v × t
+• İş = Məhsuldarlıq × Zaman
+• Faiz = (Ədəd × faiz)/100
+• Düzbucaqlı perimetri = 2(uzunluq + en)
+• Kvadrat perimetri = 4 × tərəf
+
+9. ƏHƏMİYYƏTLİ QAYDALAR:
+
+1. Hər tənliyi həll etdikdən sonra YOXLAMA etmək VACİBdir ✓
+2. Məsələ həllində əvvəlcə məchulu MÜƏYYƏN ET ✓
+3. Mütləq qiymətli tənliklərdə c ≥ 0 olmalıdır ✓
+4. Parametrli tənliklərdə parametrin bütün hallarını nəzərə al ✓
+5. Məxrəc varsa, məxrəci sıfır edən kökləri ATMAQ lazımdır ✓
+6. Tənliyin həlli = məchulun tənliyi doğru edən qiyməti ✓
+7. Məsələ həllində ölçü vahidlərini YAZ ✓
+
+10. TİPİK SƏHVLƏR:
+
+SƏHV: 2(x + 3) = 2x + 3
+DOĞRU: 2(x + 3) = 2x + 6
+
+SƏHV: (x + 2)/2 = x + 1
+DOĞRU: (x + 2)/2 = x/2 + 1
+
+SƏHV: Tənliyi həll etdikdən sonra yoxlamamaq
+DOĞRU: HƏMİŞƏ yoxlamaq lazımdır
+
+11. TƏNLİK HƏLLİ NÜMUNƏLƏRİ:
+
+1) 4x - 8 = 12
+   4x = 20
+   x = 5
+
+2) 3(x - 4) = 2x + 5
+   3x - 12 = 2x + 5
+   x = 17
+
+3) (x + 3)/2 = (2x - 1)/3
+   3(x + 3) = 2(2x - 1)
+   3x + 9 = 4x - 2
+   x = 11
+
+4) |3x - 6| = 9
+   3x - 6 = 9 → 3x = 15 → x = 5
+   3x - 6 = -9 → 3x = -3 → x = -1
+
+=====================================================
+© 2024 MathGen - Riyaziyyat Platforması
+9-cu sinif: Bir Məchullu Tənliklər və Məsələlər
+Hazırlayan: Amin Xudizade`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'bir-mechullu-tenlikler-9-sinif.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('9-cu sinif bir məchullu tənliklər və məsələlər qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

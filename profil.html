@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: gray;
+        }
+        .birinci{
+            width: 150px;
+            margin-left:10px ;
+            height: 600px;
+            border: black solid 1px;
+            
+        }
+        .ikinci{
+            width: 1500px;
+            border: black solid 1px;
+            height: 600px
+            ;
+            margin-left: 3px;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: white;
+        }
+        .anadiv{
+            display: flex;
+            flex-direction: row;
+            margin: 20px;
+        }
+        .ic{
+            width: 150px;
+            height: 100px;
+            background-color: gray;
+            margin-top: 10px;
+        }
+        .daire{
+            width: 20px;
+            height: 20px;
+            background-color: green;
+            border-radius: 100%;
+            margin-left: 10px;
+        }
+        .cevrimci{
+            display: flex;
+            margin-right: 10px;
+        }
+        .ad{
+            margin-left: 10px;
+        }
+        .Reyting{
+            margin-left: 10px;
+            margin-top: 10px;
+            padding: 5px 10px;
+            color: black;
+            border: none;
+            background-color: gray;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.6s;
+        }
+        .Reyting:hover{
+            transform: translateY(-2px);
+            transition: 0.6s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .rt{
+            margin-left: 10px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="anadiv">
+    <div class="birinci">
+        <div class="ic">
+
+        </div>
+        <div class="ic">
+
+        </div>
+        <div class="ic">
+
+        </div>
+    </div>
+    <div class="ikinci">
+        <h2>İstifadəçi Profili</h2>
+        <div class="cevrimci"><span><div class="daire"></div></span><span class="ad"></span></div>
+        <span class="rt">Reyting:</span><span id="skorGoster">0</span><br>
+        <button onclick="skoruYenile()" class="Reyting">Reytinqi Yenilə</button>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    function skoruYenile() {
+        let skor = localStorage.getItem("toplamSkor") || 0;
+        document.getElementById("skorGoster").innerHTML = skor;
+    }
+    
+    // Sayfa yüklendiğinde otomatik göster
+    window.onload = skoruYenile;
+    const adSpan = document.querySelector('.ad');
+    const kullaniciAdi = localStorage.getItem('kullaniciAdi') || 'İstifadəçi';
+    adSpan.textContent = kullaniciAdi;
+
+
+
+    // Kullanıcı verilerini oluştur
+            kullaniciVerisi = {
+                kullaniciAdi: kullaniciAdi,
+                email: email,
+                sifre: sifre, // Şifreyi kaydediyoruz
+                puan: 0,
+                seviye: 1,
+                reytinq: 'Yeni',
+                ilerleme: 0,
+                kayitTarihi: new Date().toISOString()
+            };  
+
+            // localStorage'a kaydet
+            localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+            // Başarı mesajı göster
+            mesajGoster('Qeydiyyat uğurla tamamlandı! E-poçt ünvanınıza təsdiq mesajı göndərildi.', 'basarili');
+
+            // Modalı kapat
+            kapatKayitModal();
+
+            // Profili güncelle
+            kullaniciDurumunuKontrolEt();
+
+        
+</script>
+</body>
+</html>

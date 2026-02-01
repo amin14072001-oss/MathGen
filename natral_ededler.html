@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Numbers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: 0.7s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+            transition: 0.7s;
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;                /*salam*/
+        }
+        .cedvel{
+            border:  3px solid black;
+
+
+
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .ustuxet{
+            text-decoration: overline;
+            margin-left: 30px;
+        }
+        .m2arginp{
+            margin-left: 60px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+            margin-top: 20px;
+
+        }
+        .butt{
+            width: 100px;
+            height: 40px;
+            font-size: 18px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: 0.6s;
+        }
+        #buttDiv{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            background: linear-gradient( to right, red,rgb(149, 78, 90), rgb(11, 176, 232));
+        }
+        .butt:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+            transition: 0.6s;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="ana_hisse ">
+    <!-- Qeydiyyat Modalı -->
+    <div class="modal-overlay" id="kayitModal">
+        <div class="kayit-modal">
+            <div class="modal-baslik">
+                <h2>👤 Qeydiyyat</h2>
+                <p>MathGen-də öyrənməyə başla!</p>
+            </div>
+
+            <form id="kayitFormu">
+                <div class="form-grubu">
+                    <label for="kullaniciAdi">Ad və Soyad:</label>
+                    <input type="text" id="kullaniciAdi" class="form-kontrol" placeholder="Adınızı və soyadınızı daxil edin" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitEmail">E-poçt:</label>
+                    <input type="email" id="kayitEmail" class="form-kontrol" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitSifre">Şifrə:</label>
+                    <input type="password" id="kayitSifre" class="form-kontrol" placeholder="Ən az 6 simvol" required minlength="6">
+                </div>
+
+                <div class="form-grubu">
+                    <label for="sifreTekrar">Şifrəni təsdiqlə:</label>
+                    <input type="password" id="sifreTekrar" class="form-kontrol" placeholder="Şifrəni yenidən daxil edin" required>
+                    <div id="kayitSifreHatasi" class="sifre-hatasi"></div>
+                </div>
+
+                <div class="form-aksiyonlari">
+                    <button type="submit" class="dugme dugme-primer">Qeydiyyatdan Keç</button>
+                    <button type="button" class="dugme dugme-sekonder" onclick="kapatKayitModal()">Bağla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="#" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Quiz</a>
+                <a href="#" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="#" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="#" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="naturedivbasliq">
+            <p>Natural ededler</p>
+            <h6 style =" color: grey;">
+            Natural ededlere aid butun qaydalar sehifemizde yer alir.
+            </h6>
+        </div>
+    <div class="sualdiv">
+    <p><strong>1.Natural ededlerin terifi:</strong></p>
+        <p class="marginp">Sayma neticesinde elde etdiyimiz ededlere natural ededler deyilir.Meselen:1,2,3,4,5 ve.s</p>
+
+    <p>2.Naturla ededler coxlugu <strong>"N"</strong> herfi ile isare olunur</p>
+    <p class="marginp">N={1,2,3,4,...,n,...}</p>
+
+    <p>3.Natural ededler sonsuzdur.</p>
+    <p>4.En kicik natural eded "1"-dir.</p>
+    <p>5."0"-Natural eded deyil!</p>
+    <p>6.Natural ededlerin cemi,hasili,quvveti naturaldir.</p>
+    <p>7.Natural ededlerin ferqi ve nisbeti natural eded ola da biler,olmayada biler. </p>
+    <p>8.Mertebeler ve Sinifler</p>
+        <div class="tablediv">
+            <table class="cedvel">
+                <tr class="cedvel">
+                <th class="cedvel">Teklikler</th>
+                <th class="cedvel">Minlikler</th>
+                <th class="cedvel">Milyonluqlar</th>
+                <th class="cedvel">Milyardliqlar</th>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Teklikler<br>Onluqlar<br>Yuzlukler</td>
+                <td class="cedvel">Minlikler<br>Onminlikler<br>Yuzminlikler</td>
+                <td class="cedvel">Milyonluqlar<br>Onmilyonluqlar<br>Yuzmilyonlualqr</td>
+                <td class="cedvel">Milyardliqlar<br>Onmilyardliqlar<br>Yuzmilyarliqlar</td>
+            </tr>
+            </table>
+        </div>
+    <p><strong>9.Natural ededlerin onluq yazilisi(Mertebe toplananlarinin cemi seklinde yazilsi)</strong></p>
+        <br>
+        <span class="ustuxet" >abcd</span><span>=1000a+100b+10c+d</span>
+        <span class="ustuxet">abc</span><span>=100a+10b+c</span>
+        <span class="ustuxet">ab</span><span>=10a+b</span>
+    <p style="color:red;">10.Araliqdaki tam ededlerin sayi:(K)</p>
+            <p class="marginp">a ve b natural ededleri m ededine bolunerse,<br>[a;b] intervalindaki m-e bolunen natural ededlerin<br> sayi K=((b-a)/m)+1 dusturu ile tapilir.</p>
+        <p><strong>11.Cut ve tek ededler:</strong></p>
+            <p class="marginp"><strong>I.Cut ededler</strong></p>
+                <p class="m2arginp">1.Sonu 0,2,4,6,8 ile biten butun ededler cut ededlerdir!</p>
+                <p class="m2arginp">2.En kicik cut eded 2-dir.</p>
+                <p class="m2arginp">3.Sonsuz saydadir.</p>
+                <p class="m2arginp">4.Cut ededlerin umumi sekli:C=2n;(n=Natural eded)</p>
+            <p class="marginp"><strong>II.Tek ededler</strong></p>
+                <p class="m2arginp">1.Sonu 1,3,5,7,9 reqemlerinden biri ile biten natural ededlere tek ededler deyilir.</p>
+                <p class="m2arginp">2.Tek ededler 2-ye qaliqsiz bolunmur.</p>
+                <p class="m2arginp">3.Tek ededlerin en kiciyi 1-dir.</p>
+                <p class="m2arginp">4.Sonsuz saydadirlar.</p>
+                <p class="m2arginp">5.Tek ededin umumi sekli:T=2n+1 ve ya T=2n-1</p>
+        <p><strong>12.Ededin bolenleri ve bolunenleri</strong></p>
+            <p class="marginp">1.n-natural ededin bolunduyu her bir natural eded n-in boleni adlanir.</p>
+                <p class="m2arginp"><strong>Meselen:</strong>12-nin bolenleri-->1,2,3,4,6,12</p>
+            <p class="marginp">2.n-natural ededine qaliqsiz bolunen her bir natural eded n-in boluneni adlanir.</p>
+                <p class="m2arginp"><strong>Meselen:</strong>15-in bolunenleri-->15,30,45,60,...</p>
+        <p><strong>13.Bolunme elametleri</strong></p>
+            <p class="marginp">1.Sonu "0" yaxud cut reqemle biten natural ededler 2-ye bolunur.</p>
+            <p class="marginp">2.Reqemleri cemi 3-e bolunen natural ededler 3-e bolunur.</p>
+            <p class="marginp">3.Natural ededin son iki reqemi sifirdisa,ve ya son iki reqeminin emeele getirdiyi eded 4-e bolunurse,bu eded 4-e bolunur.</p>
+            <p class="marginp">4.Sonu "0"-la yaxud "5"-le biten natural ededler 5-e bolunur.</p>
+            <p class="marginp">5.Eyni zamanda 2-ye hem de 3-e bolunen natural ededler 6-ya da bolunur.</p>
+            <p class="marginp">6.Natural ededin son uc reqemi sifirdisa,ve ya son uc reqeminin emele getirdiyi eded 8-e bolunurse bu eded 8-e bolunur.</p>
+            <p class="marginp">7.Reqemleri cemi 9-a bolunen natural ededler 9-a bolunur.</p>
+            <p class="marginp">8.Sonu "0"-la biten butun natural ededler 10-a bolunur.</p>
+        <p style="color: red">14.Qaliqsiz ve qaliqli bolme</p>
+            <p class="marginp"><strong>I.Qaliqsiz bolme</strong></p>
+                <p class="m2arginp">a:b=c --> a=b*c,(a=>b)</p>
+                <p class="m2arginp">a-bolunen<br>b-bolen<br>c-qismet</p>
+            <p class="marginp"><strong>II.Qaliqli bolme</strong></p>
+                <p class="m2arginp">a:b=c (r) -->a=b*c+r</p>
+                <p class="m2arginp">a-bolunen<br>b-bolen<br>c-qismet<br>r-qismet</p>
+        <p style="color: red">15.Sade ve murekkeb ededler </p>
+            <p class="marginp">1.Yalniz 1-e ve ozune bolunen ededlere sade ededler deyilir</p>
+                <p class="m2arginp"><strong>Meselen:</strong>2,3,5,7,11,13,...</p>
+            <p class="marginp">2.2-den cox boleni olan ededlere murekkeb ededler deyilir.</p>
+                <p class="m2arginp"><strong>Meselem:</strong>4,6,8,9,10,12,...</p>
+            <p class="marginp" style="color: darkred">3.1 Ne sade ededdir, ne de murekkeb ededdir.</p>
+            <p class="marginp">4.Murekkeb ededleri sade vuruqlar seklinde gosterilmesi <i>sade vuruqlara ayrilma</i> adlanir.</p>
+                <p class="m2arginp"><strong>Meselen:</strong>120=2*2*2*3*5</p>
+            <p class="marginp"> A murekkeb ededi ucun:</p>
+            <p class="marginp">A=a^k*b^n*c^m</p>
+                <p class="m2arginp">I.Sade vuruqlarin sayi:k+n+m</p>
+                <p class="m2arginp">II.Muxtelif sade vuruqlarin sayi:Nece muxtelif eded varsa o qederdir</p>
+                <p class="m2arginp">III.Sade bolenlerin sayi:II-ci qayda</p>
+                <p class="m2arginp">IV.Muxtelif sade bolenlerin sayi:II-ci qayda</p>
+        <p style="color: red">16.Qarsiliqli sade ededler</p>
+            <p class="marginp">Ortaq sade vuruqlari olmayan ededlere qarsiliqli sade ededler deyilir.</p>
+                <p class="m2arginp">I.Ardicil iki natural eded qarsiliqli sade ededdir.</p>
+                <p class="m2arginp">II.Ardicil iki tek natural eded qarsiliqli sadedir.</p>
+                <p class="m2arginp">III.1 istenilen ededle qarsiliqli sadedir.</p>
+        <p style="color: red">En boyuk ortaq bolen (EBOB) ve en kicik ortaq bolunen (EKOB)</p>
+            <p class="marginp">a ve b natural ededlerinin her ikisinin bolunduyu en boyuk edede EBOB deyilir ve EBOB(a,b) kimi isare olunur.</p>
+                <p class="m2arginp">EBOB-u tapmaq ucun:</p>
+                <p class="m2arginp">I.a ve b sade vuruqlarina qyirib quvvet kimi gosterilir.</p>
+                <p class="m2arginp">II.Ortaq vuruqlardan quvveti kicik olanlar secilir.</p>
+                <p class="m2arginp">III.Onlarin hasili tapilir</p>
+            <p class="marginp"> a ve b ededlerinin her ikisine bolunen en kicik edede EKOB deyilir.EKOB(a,b) kimi gosterilir.</p>
+                <p class="m2arginp">EKOB(a,b) ni tapmaq ucun:</p>
+                <p class="m2arginp">I.a ve b sade vuruqlarina ayrilib quvvet kimi gosterilir.</p>
+                <p class="m2arginp">II.Butun sade vuruqlarda quvveti boyuk olanlar secilir.</p>
+                <p class="m2arginp">III.Onlarin hasili tapilir.</p>
+        <div style="background: yellow">
+            <p style="color: red">17.a ve b natural ededleri ucun asagidaki dusturlar dogrudur.</p>
+            <p class="marginp">1.EKOB(a,b)*EBOB(a,b)=ab</p>
+            <p class="marginp">2.EKOB(a,b):EBOB(a,b)=c</p>
+            <p class="marginp">3.(EBOB(a,b))^2=a*b/c</p>
+            <p class="marginp">4.(EKOB(a,b))^2=a*b*c</p>
+            <p class="marginp">5.a ve b qarsiliqli sade ededirse,<br>EBOB(a,b)=1,<br>EKOB(a,b)=a*b</p>
+            <p>6.a ededi b-ye bolunurse,</p>
+            <p class="marginp"></p>
+        </div>
+    <p style="margin-left: auto;margin-right: auto; text-align: center;"><i>Hazırlayan: Amin Xudizade  | Mənbələr: Azərbaycan məktəb proqramı | Guven nesriyyati | Dim proqrami</i></p>
+
+        <p class="p1">Hazirsaniz  quize baslayin.</p>
+        <div class="buttonn">
+            <button class="button" onclick="hid()">Basla</button>
+        </div>
+    </div>
+    <footer style="
+        width: 100%;
+        background: linear-gradient(blue, rgb(40,40,210));
+        padding: 20px 0;
+        margin-top: 60px;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+        ">
+        <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+            © 2026 MathGen — Riyaziyyatı asan öyrən!
+        </p>
+        <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+            Bizimlə öyrən, bizimlə inkişaf et.
+        </p>
+    </footer>
+</div>
+<div id="questions" class="hidden">
+    <div  class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual" id="sehv"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual" id="duz"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual" id="sehv"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual" id="sehv"></label><br>
+    </div>   
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual1" id="sehv1"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual1" id="sehv1"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual1" id="duz1"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual1" id="sehv1"></label><br>
+    </div>
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual2" id="duz2"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual2" id="sehv2"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual2" id="sehv2"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual2" id="sehv2"></label><br>
+    </div>
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual3" id="sehv3"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual3" id="duz3"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual3" id="sehv3"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual3" id="sehv3"></label><br>
+    </div>
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual4" id="sehv4"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual4" id="sehv4"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual4" id="duz4"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual4" id="sehv4"></label><br> 
+    </div>
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual5" id="duz5"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual5" id="sehv5"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual5" id="sehv5"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual5" id="sehv5"></label><br>
+    </div>    
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual6" id="duz6"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual6" id="sehv6"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual6" id="sehv6"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual6" id="sehv6"></label><br>
+    </div>
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual7" id="duz7"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual7" id="sehv7"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual7" id="sehv7"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual7" id="sehv7"></label><br>
+    </div>
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual8" id="duz8"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual8" id="sehv8"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual8" id="sehv8"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual8" id="sehv8"></label><br>
+    </div>
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual9" id="duz9"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual9" id="sehv9"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual9" id="sehv9"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual9" id="sehv9"></label><br>
+    </div>
+    <div class="sualdiv">
+        <p>Sual</p>
+        <label for="answer">Cavab A<input type="radio" name="sual10" id="duz10"></label><br>
+        <label for="answer">Cavab B<input type="radio" name="sual10" id="sehv10"></label><br>
+        <label for="answer">Cavab C<input type="radio" name="sual10" id="sehv10"></label><br>
+        <label for="answer">Cavab D<input type="radio" name="sual10" id="sehv10"></label><br>
+    </div>
+    <div class="sualdiv" id="buttDiv">
+        <button onclick="submitQuiz()" class="butt">Yoxla</button>
+        <div id="quizResult"></div>
+
+    </div>   
+</div>
+<script> 
+    function submitQuiz() {
+        let score = 0;
+        const totalQuestions = 10;
+        const inputs = document.querySelectorAll('input[type="radio"]');
+        for (let i = 1; i <= totalQuestions; i++) {
+            const correctAnswer = document.getElementById(`duz${i}`);
+            if (correctAnswer.checked) {
+                score++;
+            }
+        }
+        const resultDiv = document.getElementById("quizResult");
+        resultDiv.innerHTML = `Sizin baliniz: ${score} / ${totalQuestions}`;
+        inputs.forEach(input => input.disabled = true);
+        a = document.createElement("div");
+        a.innerHTML = `Tesekkurler! Quiz bitdi.<br>Sizin baliniz: ${score} / 11`;
+        a.style = `
+            width: 300px;
+            height: 50px;
+            background-color: lightgreen;
+            margin: auto;
+            text-align: center;
+            font-size: 20px;
+            position: fixed;  /* <-- absolute deyil, fixed olsun */
+            top: 20px;
+            left: 0;
+            right: 0;
+            z-index: 999999;  /* <-- ən vacib hissə */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        `;
+        document.body.appendChild(a);
+            setTimeout(() => {
+            a.remove();   
+            }, 5000);
+        const butt = document.getElementsByClassName('butt');
+        butt.disabled = true;  
+        const sual1 = document.getElementsByClassName('sualdiv')[1];
+    }
+    function hid(){
+        document.getElementById("questions").classList.remove("hidden");
+        document.getElementsByClassName("ana_hisse")[0].classList.add("hidden");
+        const sual1 = document.getElementsByClassName('sualdiv')[0];
+        window.scrollTo(0, sual1.offsetTop);
+    }
+        
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+        // Demo məlumatları əlavə etmək üçün funksiya (test üçün)
+        function demoQeydiyyatEkle() {
+            const demoKullanici = {
+                kullaniciAdi: "Nümunə İstifadəçi",
+                email: "numune@email.com",
+                sifre: "123456",
+                puan: 50,
+                seviye: 1,
+                reytinq: "Başlayan",
+                ilerleme: 50,
+                kayitTarihi: new Date().toISOString()
+            };
+            
+            localStorage.setItem('mathgenKullanici', JSON.stringify(demoKullanici));
+            kullaniciVerisi = demoKullanici;
+            kullaniciDurumunuKontrolEt();
+            bildiriGoster('Demo qeydiyyat əlavə edildi!', 'basarili');
+        }
+
+        // Demo məlumatları silmək üçün funksiya
+        function demoQeydiyyatSil() {
+            localStorage.removeItem('mathgenKullanici');
+            kullaniciVerisi = null;
+            kullaniciDurumunuKontrolEt();
+            bildiriGoster('Demo qeydiyyat silindi!', 'bilgi');
+        }
+
+        // İndiki istifadəçi məlumatlarını göstər
+        function kullaniciBilgileriniGoster() {
+            if (kullaniciVerisi) {
+                alert(
+                    `İstifadəçi Məlumatları:\n\n` +
+                    `Ad: ${kullaniciVerisi.kullaniciAdi}\n` +
+                    `Email: ${kullaniciVerisi.email}\n` +
+                    `Xal: ${kullaniciVerisi.puan}\n` +
+                    `Səviyyə: ${kullaniciVerisi.seviye}\n` +
+                    `Reytinq: ${kullaniciVerisi.reytinq}`
+                );
+            } else {
+                alert('Heç bir istifadəçi giriş etməyib.');
+            }
+        }
+    
+</script>
+</body>
+</html>
+
+ 

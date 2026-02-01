@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="az" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>MathGen quizleri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    
+        .esasdiv{
+            width: 800px;
+            height: 55px;
+            border-radius: 10px;
+            box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.3);
+            padding-top: 10px;
+            margin: 7px;
+            transition: 1s;
+            padding-left: 5px;
+            padding-right: 5px;
+            background: linear-gradient(deepskyblue, #28b9e9, #2793b6);
+            border-left:5px solid orange ;
+        }
+
+        .esasdiv button{
+            float: right;
+        }
+        .esasdiv:hover{
+            transition: 1s;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+        .esas{
+            margin: 20px;
+        }
+        .esas1{
+            margin: 20px;
+        }
+        .esas2{
+            margin: 20px;
+        }
+        .esas3{
+            margin: 20px;
+        }
+        .esas4{
+            margin: 20px;
+        }
+        .button{
+            color: white;
+            background-color: purple;
+            width: 120px;
+            height: 35px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: 0.6s;
+            margin-right: auto;
+        }
+        .button:hover{
+            transition: 0.6s;
+            transform: translateY(-3px);
+        }
+        .anadiv{
+            display: flex;
+        }
+        .reklam{
+            border-radius: 20px;
+            width: 260px;
+            height: 620px;
+            margin: 20px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+            align-items: center;
+            text-align: center;
+            transition: 0.6s;
+        }
+        .reklam:hover{
+            transition: 0.6s;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.7);
+        }
+        .ikinci_ana_div{
+            margin-left:auto;
+            margin-right: auto;
+        }
+        .reklamsekil{
+            width: 260px;
+            height: 150px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .reklamsekil2{
+            width: 260px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Qeydiyyat Modalı -->
+    <div class="modal-overlay" id="kayitModal">
+        <div class="kayit-modal">
+            <div class="modal-baslik">
+                <h2>👤 Qeydiyyat</h2>
+                <p>MathGen-də öyrənməyə başla!</p>
+            </div>
+
+            <form id="kayitFormu">
+                <div class="form-grubu">
+                    <label for="kullaniciAdi">Ad və Soyad:</label>
+                    <input type="text" id="kullaniciAdi" class="form-kontrol" placeholder="Adınızı və soyadınızı daxil edin" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitEmail">E-poçt:</label>
+                    <input type="email" id="kayitEmail" class="form-kontrol" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitSifre">Şifrə:</label>
+                    <input type="password" id="kayitSifre" class="form-kontrol" placeholder="Ən az 6 simvol" required minlength="6">
+                </div>
+
+                <div class="form-grubu">
+                    <label for="sifreTekrar">Şifrəni təsdiqlə:</label>
+                    <input type="password" id="sifreTekrar" class="form-kontrol" placeholder="Şifrəni yenidən daxil edin" required>
+                    <div id="kayitSifreHatasi" class="sifre-hatasi"></div>
+                </div>
+
+                <div class="form-aksiyonlari">
+                    <button type="submit" class="dugme dugme-primer">Qeydiyyatdan Keç</button>
+                    <button type="button" class="dugme dugme-sekonder" onclick="kapatKayitModal()">Bağla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="#" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Quiz</a>
+                <a href="#" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="#" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="anadiv">
+    <div class="reklam">
+        <img src="Screenshot%202025-11-30%20175642.png" class="reklamsekil">
+        <img src="Screenshot%202025-11-30%20181312.png" class="reklamsekil2">
+        <p>MalMath ile butun suallarinizin hellini tapin. </p>
+        <a href="https://malmath.com/">Indirme sitesi</a>
+    </div>
+    <div class="ikinci_ana_div">
+        <div class="esas">
+            <div class="esasdiv">
+                <span>Natural ededler</span>
+                <button class="button" onclick="window.document.location.href='natral_ededler.html'">See all regular ></button>
+            </div>
+            <div>
+                <div class="esasdiv">
+                    <span>Tam edeler</span>
+                    <button class="button" onclick="document.location.href='tam_ededler.html'">See all regular ></button>
+                </div>
+            </div>
+            <div class="esasdiv">
+                <span>Coxluqlar</span><span></span>
+                <button class="button" onclick="document.location.href='coxluqlar.html'">See all regular ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Adi ve onluq kesrler</span>
+                <button class="button" onclick="document.location.href='adi_onluq.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Nisbet,Faiz,Tenasub</span>
+                <button class="button" onclick="document.location.href='NFT.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Hendesenin esas anlayislari</span>
+                <button class="button" onclick="document.location.href='HEA.html'">See all regulars ></button>
+            </div>
+        </div>
+        <div class="esas1">
+            <div class="esasdiv">
+                <span>Heqiqi ededler</span>
+                <button class="button" onclick="document.location.href='heqiqii_ededler.html'">See all regulars ></button>
+            </div>
+
+            <div class="esasdiv">
+                <span>Ucbucaqlar</span>
+                <button class="button" onclick="document.location.href='ucbucaqlar.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Rasional ifadeler</span>
+                <button class="button" onclick="document.location.href='rasional_ifadeler.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Cevre</span>
+                <button class="button" onclick="document.location.href='cevre.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Kvadrat kokler.Rasional ustlu quvvet</span>
+                <button class="button" onclick="document.location.href='kvadrat_ustlu.html'">See all regulars ></button>
+            </div>
+        </div>
+        <div class="esas2">
+            <div class="esasdiv">
+                <span>Birmechullu tenlikler ve meseleler</span>
+                <button class="button" onclick="document.location.href='birmechullu.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+               <span>Tenlikler sistemi</span>
+                <button class="button" onclick="document.location.href='tenlikler_sistemi.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Dordbucaqlilar</span>
+                <button class="button" onclick="document.location.href='dordbucaqlilar.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Coxbucaqlilar</span>
+                <button class="button" onclick="document.location.href='coxbucaqlilar.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Berabersizlikler</span>
+                <button class="button" onclick="document.location.href='berabersizlikler.html'">See all regulars ></button>
+            </div>
+        </div>
+        <div class="esas3">
+            <div class="esasdiv">
+                <span>Fiqurlarin sahesi</span>
+                <button class="button" onclick="document.location.href='fiqurlarin_sahesi.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Hereket.Fiqurlarin oxsarligi</span>
+                <button class="button" onclick="document.location.href='hereket.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Funksiyalar ve qrafikler</span>
+                <button class="button" onclick="document.location.href='funksiyalar.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Koordiantlar.Vektorlar</span>
+                <button class="button" onclick="document.location.href='koordinatlar.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Silsileler</span>
+                <button class="button" onclick="document.location.href='silsileler.html'">See all regulars ></button>
+            </div>
+        </div>
+        <div class="esas4">
+            <div class="esasdiv">
+                <span>Triqonometrik nisbetler</span>
+                <button class="button" onclick="document.location.href='tri.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Feza fiqurlari</span>
+                <button class="button" onclick="document.location.href='feza.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Statistika</span>
+                <button class="button" onclick="document.location.href='Statistika.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Permutasiya.Kombinezon</span>
+                <button class="button" onclick="document.location.href='Kombinezon.html'">See all regulars ></button>
+            </div>
+            <div class="esasdiv">
+                <span>Ehtimal</span>
+                <button class="button" onclick="document.location.href='ehtimal.html'">See all regulars ></button>
+            </div>
+        </div>
+    </div>
+    <div class="reklam">
+        <p>Reklam yoxdur.<br>
+           Eger reklam qoymaq isteyirsinizse zeng edin.
+        </p>
+    </div>
+</div>
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Bizimlə öyrən, bizimlə inkişaf et.
+    </p>
+</footer>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+        // Demo məlumatları əlavə etmək üçün funksiya (test üçün)
+        function demoQeydiyyatEkle() {
+            const demoKullanici = {
+                kullaniciAdi: "Nümunə İstifadəçi",
+                email: "numune@email.com",
+                sifre: "123456",
+                puan: 50,
+                seviye: 1,
+                reytinq: "Başlayan",
+                ilerleme: 50,
+                kayitTarihi: new Date().toISOString()
+            };
+            
+            localStorage.setItem('mathgenKullanici', JSON.stringify(demoKullanici));
+            kullaniciVerisi = demoKullanici;
+            kullaniciDurumunuKontrolEt();
+            bildiriGoster('Demo qeydiyyat əlavə edildi!', 'basarili');
+        }
+
+        // Demo məlumatları silmək üçün funksiya
+        function demoQeydiyyatSil() {
+            localStorage.removeItem('mathgenKullanici');
+            kullaniciVerisi = null;
+            kullaniciDurumunuKontrolEt();
+            bildiriGoster('Demo qeydiyyat silindi!', 'bilgi');
+        }
+
+        // İndiki istifadəçi məlumatlarını göstər
+        function kullaniciBilgileriniGoster() {
+            if (kullaniciVerisi) {
+                alert(
+                    `İstifadəçi Məlumatları:\n\n` +
+                    `Ad: ${kullaniciVerisi.kullaniciAdi}\n` +
+                    `Email: ${kullaniciVerisi.email}\n` +
+                    `Xal: ${kullaniciVerisi.puan}\n` +
+                    `Səviyyə: ${kullaniciVerisi.seviye}\n` +
+                    `Reytinq: ${kullaniciVerisi.reytinq}`
+                );
+            } else {
+                alert('Heç bir istifadəçi giriş etməyib.');
+            }
+        }
+    </script>
+</body>
+</html>

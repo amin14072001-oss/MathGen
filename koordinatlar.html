@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koordinatlar və Vektorlar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+
+        }
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black ;
+            padding: 10px;
+
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+
+
+        }
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        .cedvel{
+            border:  3px solid black;
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .ustuxet{
+            text-decoration: overline;
+            margin-left: 30px;
+        }
+        .m2arginp{
+            margin-left: 60px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        .download-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            width: 1000px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .download-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .download-button:hover {
+            background-color: #3e8e41;
+            color: white;
+        }
+        .formula {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-left: 4px solid #2196F3;
+            margin: 10px 0;
+            font-family: "Courier New", monospace;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #f0f0f0;
+            border: 3px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            color: #666;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .image-box {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            border: 2px dashed #999;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-weight: bold;
+        }
+        .diagram-container {
+            width: 100%;
+            height: 300px;
+            background-color: #f5f5f5;
+            border: 3px dotted #888;
+            border-radius: 10px;
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .col {
+            width: 48%;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Koordinatlar və Vektorlar</p>
+    <h6 style="color: grey;">
+        Koordinat sistemi, nöqtələr, vektorlar və bütün qaydalar səhifəmizdə yer alır.
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <!-- BÖLMƏ 1: KOORDİNAT SİSTEMİ -->
+    <h2>I HİSSƏ: KOORDİNAT SİSTEMİ</h2>
+    
+    <p><strong>1. Dekart Koordinat Sistemi:</strong></p>
+    <p class="marginp">Müstəvidə iki qarşılıqlı perpendikulyar koordinat oxlarının (X oxu və Y oxu) kəsişməsindən əmələ gələn sistemdir.</p>
+    
+    <div class="image-placeholder">
+        DEKART KOORDİNAT SİSTEMİ - ŞƏKİL QOYULACAQ<br>
+        (X oxu, Y oxu, başlanğıc nöqtəsi, kvadrantlar)
+    </div>
+    
+    <p><strong>2. Koordinat Oxları:</strong></p>
+    <p class="marginp"><strong>a) Absis oxu (X oxu):</strong> Üfüqi ox</p>
+    <p class="marginp"><strong>b) Ordinat oxu (Y oxu):</strong> Şaquli ox</p>
+    <p class="marginp"><strong>c) Başlanğıc nöqtəsi (O):</strong> Oxların kəsişdiyi nöqtə (0,0)</p>
+    
+    <p><strong>3. Kvadrantlar:</strong></p>
+    <p class="marginp">Koordinat oxları müstəvini 4 bölgəyə (kvadranta) ayırır:</p>
+    
+    <div class="image-container">
+        <div class="image-box">
+            I KVADRANT<br>ŞƏKİL QOYULACAQ<br>(+, +)
+        </div>
+        <div class="image-box">
+            II KVADRANT<br>ŞƏKİL QOYULACAQ<br>(-, +)
+        </div>
+        <div class="image-box">
+            III KVADRANT<br>ŞƏKİL QOYULACAQ<br>(-, -)
+        </div>
+        <div class="image-box">
+            IV KVADRANT<br>ŞƏKİL QOYULACAQ<br>(+, -)
+        </div>
+    </div>
+    
+    <p><strong>4. Nöqtənin Koordinatları:</strong></p>
+    <p class="marginp">Müstəvidə hər bir A nöqtəsi (x, y) cütü ilə ifadə olunur:</p>
+    <p class="m2arginp">• x - absis (X oxundakı qiymət)</p>
+    <p class="m2arginp">• y - ordinat (Y oxundakı qiymət)</p>
+    <p class="m2arginp formula">A(x₁, y₁) - A nöqtəsinin koordinatları</p>
+    
+    <div class="image-placeholder">
+        NÖQTƏNİN KOORDİNATLARI - ŞƏKİL QOYULACAQ<br>
+        (A(x,y) nöqtəsinin göstərilməsi)
+    </div>
+    
+    <p><strong>5. İki Nöqtə Arasındakı Məsafə:</strong></p>
+    <p class="marginp">A(x₁, y₁) və B(x₂, y₂) nöqtələri arasındakı məsafə:</p>
+    <p class="m2arginp formula">d = √[(x₂ - x₁)² + (y₂ - y₁)²]</p>
+    
+    <div class="image-placeholder">
+        İKİ NÖQTƏ ARASI MƏSAFƏ - ŞƏKİL QOYULACAQ<br>
+        (A və B nöqtələri arasındakı məsafənin göstərilməsi)
+    </div>
+    
+    <p><strong>6. Parçanın Orta Nöqtəsi:</strong></p>
+    <p class="marginp">A(x₁, y₁) və B(x₂, y₂) nöqtələrini birləşdirən parçanın orta nöqtəsi:</p>
+    <p class="m2arginp formula">M( (x₁ + x₂)/2 , (y₁ + y₂)/2 )</p>
+    
+    <p><strong>7. Üçbucağın Ağırlıq Mərkəzi:</strong></p>
+    <p class="marginp">A(x₁, y₁), B(x₂, y₂), C(x₃, y₃) təpələri olan üçbucağın ağırlıq mərkəzi:</p>
+    <p class="m2arginp formula">G( (x₁ + x₂ + x₃)/3 , (y₁ + y₂ + y₃)/3 )</p>
+    
+    <p><strong>8. Doğrunun Tənliyi:</strong></p>
+    <p class="marginp"><strong>a) Ümumi tənlik:</strong></p>
+    <p class="m2arginp formula">Ax + By + C = 0</p>
+    
+    <p class="marginp"><strong>b) Bucaq əmsallı tənlik:</strong></p>
+    <p class="m2arginp formula">y = kx + b</p>
+    <p class="m2arginp">k - bucaq əmsalı (mailiyyət)</p>
+    <p class="m2arginp">b - Y oxunu kəsdiyi nöqtə</p>
+    
+    <div class="image-placeholder">
+        DOĞRUNUN TƏNLİYİ - ŞƏKİL QOYULACAQ<br>
+        (y = kx + b düz xəttinin göstərilməsi)
+    </div>
+    
+    <p class="marginp"><strong>c) İki nöqtədən keçən düz xətt:</strong></p>
+    <p class="m2arginp">A(x₁, y₁) və B(x₂, y₂) nöqtələrindən keçən düz xətt:</p>
+    <p class="m2arginp formula">(y - y₁)/(y₂ - y₁) = (x - x₁)/(x₂ - x₁)</p>
+    
+    <p><strong>9. Paralel və Perpendikulyar Doğrular:</strong></p>
+    
+    <div class="two-col">
+        <div class="col">
+            <p><strong>Paralel doğrular:</strong></p>
+            <p class="marginp">y = k₁x + b₁ və y = k₂x + b₂</p>
+            <p class="marginp formula">k₁ = k₂</p>
+            <div class="image-box" style="height: 150px;">
+                PARALEL DOĞRULAR<br>ŞƏKİL QOYULACAQ
+            </div>
+        </div>
+        <div class="col">
+            <p><strong>Perpendikulyar doğrular:</strong></p>
+            <p class="marginp">y = k₁x + b₁ və y = k₂x + b₂</p>
+            <p class="marginp formula">k₁ × k₂ = -1</p>
+            <div class="image-box" style="height: 150px;">
+                PERPENDİKULYAR DOĞRULAR<br>ŞƏKİL QOYULACAQ
+            </div>
+        </div>
+    </div>
+    
+    <p><strong>10. Çevrənin Tənliyi:</strong></p>
+    <p class="marginp">Mərkəzi M(a, b) nöqtəsində və radiusu r olan çevrə:</p>
+    <p class="m2arginp formula">(x - a)² + (y - b)² = r²</p>
+    
+    <div class="image-placeholder">
+        ÇEVRƏNİN TƏNLİYİ - ŞƏKİL QOYULACAQ<br>
+        (Mərkəzi və radiusu olan çevrə)
+    </div>
+    
+    <!-- BÖLMƏ 2: VEKTORLAR -->
+    <h2 style="margin-top: 40px;">II HİSSƏ: VEKTORLAR</h2>
+    
+    <p><strong>1. Vektorun Tərifi:</strong></p>
+    <p class="marginp">Uzunluğu, istiqaməti və yönü olan istiqamətlənmiş parçaya vektor deyilir.</p>
+    
+    <div class="image-placeholder">
+        VEKTOR - ŞƏKİL QOYULACAQ<br>
+        (Başlanğıc nöqtəsi, son nöqtəsi, uzunluğu, istiqaməti)
+    </div>
+    
+    <p><strong>2. Vektorların İşarələnməsi:</strong></p>
+    <p class="marginp">• \(\vec{AB}\) - A başlanğıc, B son nöqtə</p>
+    <p class="marginp">• \(\vec{a}\) - kiçik hərflə</p>
+    <p class="marginp">• \(\mathbf{a}\) - qalın hərflə</p>
+    
+    <p><strong>3. Vektorun Koordinatları:</strong></p>
+    <p class="marginp">A(x₁, y₁) və B(x₂, y₂) nöqtələri üçün \(\vec{AB}\) vektoru:</p>
+    <p class="m2arginp formula">\(\vec{AB} = (x₂ - x₁, y₂ - y₁)\)</p>
+    
+    <div class="image-placeholder">
+        VEKTORUN KOORDİNATLARI - ŞƏKİL QOYULACAQ<br>
+        (A və B nöqtələrindən vektor)
+    </div>
+    
+    <p><strong>4. Vektorun Uzunluğu (Modulu):</strong></p>
+    <p class="marginp">\(\vec{a} = (a₁, a₂)\) vektorunun uzunluğu:</p>
+    <p class="m2arginp formula">\(|\vec{a}| = \sqrt{a₁² + a₂²}\)</p>
+    
+    <p><strong>5. Vektorların Bərabərliyi:</strong></p>
+    <p class="marginp">İki vektor bərabərdir, əgər:</p>
+    <p class="m2arginp">• Uzunluqları bərabərdir</p>
+    <p class="m2arginp">• İstiqamətləri eynidir</p>
+    <p class="m2arginp">• Yönləri eynidir</p>
+    
+    <p><strong>6. Vektorlar Üzərində Əməllər:</strong></p>
+    
+    <div class="two-col">
+        <div class="col">
+            <p><strong>a) Vektorların cəmi:</strong></p>
+            <p class="marginp">\(\vec{a} = (a₁, a₂)\) və \(\vec{b} = (b₁, b₂)\)</p>
+            <p class="marginp formula">\(\vec{a} + \vec{b} = (a₁ + b₁, a₂ + b₂)\)</p>
+            <div class="image-box" style="height: 150px;">
+                VEKTORLARIN CƏMİ<br>ŞƏKİL QOYULACAQ<br>(Paraleloqram qaydası)
+            </div>
+        </div>
+        <div class="col">
+            <p><strong>b) Vektorların fərqi:</strong></p>
+            <p class="marginp">\(\vec{a} = (a₁, a₂)\) və \(\vec{b} = (b₁, b₂)\)</p>
+            <p class="marginp formula">\(\vec{a} - \vec{b} = (a₁ - b₁, a₂ - b₂)\)</p>
+            <div class="image-box" style="height: 150px;">
+                VEKTORLARIN FƏRQİ<br>ŞƏKİL QOYULACAQ
+            </div>
+        </div>
+    </div>
+    
+    <p><strong>c) Vektorun ədədə vurulması:</strong></p>
+    <p class="marginp">\(\vec{a} = (a₁, a₂)\) və k ədədi</p>
+    <p class="m2arginp formula">\(k\vec{a} = (ka₁, ka₂)\)</p>
+    
+    <div class="image-placeholder" style="height: 200px;">
+        VEKTORUN ƏDƏDƏ VURULMASI - ŞƏKİL QOYULACAQ<br>
+        (k > 1, 0 < k < 1, k < 0 halları)
+    </div>
+    
+    <p><strong>7. Skalyar Hasil (Nöqtə Hasili):</strong></p>
+    <p class="marginp">\(\vec{a} = (a₁, a₂)\) və \(\vec{b} = (b₁, b₂)\) vektorlarının skalyar hasili:</p>
+    <p class="m2arginp formula">\(\vec{a} \cdot \vec{b} = a₁b₁ + a₂b₂\)</p>
+    <p class="m2arginp formula">\(\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cdot \cos\theta\)</p>
+    
+    <p><strong>8. Vektorlar Arasındakı Bucaq:</strong></p>
+    <p class="marginp">\(\vec{a}\) və \(\vec{b}\) vektorları arasındakı bucaq:</p>
+    <p class="m2arginp formula">\(\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| \cdot |\vec{b}|}\)</p>
+    
+    <div class="image-placeholder">
+        VEKTORLAR ARASI BUCAQ - ŞƏKİL QOYULACAQ<br>
+        (İki vektor arasındakı bucağın göstərilməsi)
+    </div>
+    
+    <p><strong>9. Vektorların Paralelliyi:</strong></p>
+    <p class="marginp">\(\vec{a}\) və \(\vec{b}\) vektorları paraleldir, əgər:</p>
+    <p class="m2arginp formula">\(\vec{a} = k\vec{b}\) (k ≠ 0)</p>
+    <p class="m2arginp">və ya</p>
+    <p class="m2arginp formula">\(\frac{a₁}{b₁} = \frac{a₂}{b₂}\) (b₁, b₂ ≠ 0)</p>
+    
+    <p><strong>10. Vektorların Perpendikulyarlığı:</strong></p>
+    <p class="marginp">\(\vec{a}\) və \(\vec{b}\) vektorları perpendikulyardır, əgər:</p>
+    <p class="m2arginp formula">\(\vec{a} \cdot \vec{b} = 0\)</p>
+    
+    <p><strong>11. Vektorların Kollinearlığı:</strong></p>
+    <p class="marginp">İki vektor kollineardır (eyni düz xətt üzərindədir), əgər:</p>
+    <p class="m2arginp">\(\vec{a} = k\vec{b}\) (hər hansı k üçün)</p>
+    
+    <p><strong>12. Vektorların Komplanarlığı:</strong></p>
+    <p class="marginp">Üç vektor komplanardır (eyni müstəvidədir), əgər:</p>
+    <p class="m2arginp">\(\vec{c} = m\vec{a} + n\vec{b}\) (hər hansı m, n üçün)</p>
+    
+    <p><strong>13. Baza Vektorları:</strong></p>
+    <p class="marginp">\(\vec{i} = (1, 0)\) - X oxu üzrə vahid vektor</p>
+    <p class="marginp">\(\vec{j} = (0, 1)\) - Y oxu üzrə vahid vektor</p>
+    <p class="marginp">İstənilən \(\vec{a} = (a₁, a₂)\) vektoru:</p>
+    <p class="m2arginp formula">\(\vec{a} = a₁\vec{i} + a₂\vec{j}\)</p>
+    
+    <div class="image-placeholder">
+        BAZA VEKTORLARI - ŞƏKİL QOYULACAQ<br>
+        (i və j vahid vektorlarının göstərilməsi)
+    </div>
+    
+    <p><strong>14. Vektorların Xətti Asılılığı:</strong></p>
+    <p class="marginp">\(\vec{a}\) və \(\vec{b}\) vektorları xətti asılıdır, əgər:</p>
+    <p class="m2arginp">\(k₁\vec{a} + k₂\vec{b} = \vec{0}\) (k₁, k₂ eyni zamanda sıfır deyil)</p>
+    
+    <p><strong>15. Vektorların Xətti Müstəqilliyi:</strong></p>
+    <p class="marginp">\(\vec{a}\) və \(\vec{b}\) vektorları xətti müstəqildir, əgər:</p>
+    <p class="m2arginp">\(k₁\vec{a} + k₂\vec{b} = \vec{0}\) yalnız \(k₁ = k₂ = 0\) olduqda</p>
+    
+    <p><strong>16. Vektorun Oxa Proyeksiyası:</strong></p>
+    <p class="marginp">\(\vec{a}\) vektorunun X oxuna proyeksiyası:</p>
+    <p class="m2arginp formula">\(proj_x \vec{a} = |\vec{a}| \cdot \cos\alpha\)</p>
+    <p class="marginp">\(\alpha\) - vektorla X oxu arasındakı bucaq</p>
+    
+    <div class="image-placeholder">
+        VEKTORUN PROYEKSİYASI - ŞƏKİL QOYULACAQ<br>
+        (Vektorun oxlara proyeksiyaları)
+    </div>
+    
+    <p><strong>17. Vektor Hasili (3D):</strong></p>
+    <p class="marginp">\(\vec{a} = (a₁, a₂, a₃)\) və \(\vec{b} = (b₁, b₂, b₃)\)</p>
+    <p class="m2arginp formula">\(\vec{a} \times \vec{b} = (a₂b₃ - a₃b₂, a₃b₁ - a₁b₃, a₁b₂ - a₂b₁)\)</p>
+    
+    <p><strong>18. Qarışıq Hasil (3D):</strong></p>
+    <p class="marginp">\(\vec{a}\), \(\vec{b}\), \(\vec{c}\) vektorları üçün:</p>
+    <p class="m2arginp formula">\((\vec{a} \times \vec{b}) \cdot \vec{c}\)</p>
+    
+    <!-- YÜKLƏMƏ BÖLMƏSİ -->
+    <div class="download-section">
+        <h3>Qaydaları Yüklə</h3>
+        <p>Aşağıdakı düymələrə klikləyərək koordinatlar və vektorlara aid qaydaları yükləyə bilərsiniz:</p>
+        <button class="download-button" onclick="downloadKoordinatVektorQaydalari()">
+            Bütün Qaydaları Yüklə (TXT)
+        </button>
+        <button class="download-button" onclick="downloadKoordinatDusturlari()">
+            Koordinat Düsturları (TXT)
+        </button>
+        <button class="download-button" onclick="downloadVektorDusturlari()">
+            Vektor Düsturları (TXT)
+        </button>
+        <button class="download-button" onclick="downloadKoordinatVektorNumuneleri()">
+            Nümunələr və Məsələlər (TXT)
+        </button>
+    </div>
+    
+    <p style="margin-left: auto;margin-right: auto; text-align: center;">
+        <i>Hazırlayan: Amin Xudizadə | Mənbələr: Azərbaycan məktəb proqramı | Güvən nəşriyyatı | DIM proqramı</i>
+    </p>
+
+    <p class="p1">Hazırsınızsa quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='koordinat-vektor-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Bizimlə öyrən, bizimlə inkişaf et.
+    </p>
+</footer>
+
+<script>
+    function downloadKoordinatVektorQaydalari() {
+        const content = `KOORDİNATLAR VE VEKTORLAR - BÜTÜN QAYDALAR
+
+I HİSSƏ: KOORDİNAT SİSTEMİ
+
+1. DEKART KOORDİNAT SİSTEMİ:
+   • Tərif: İki qarşılıqlı perpendikulyar oxun kəsişməsindən əmələ gələn sistem
+   • X oxu (Absis oxu): Üfüqi ox
+   • Y oxu (Ordinat oxu): Şaquli ox
+   • Başlanğıc nöqtəsi O(0,0): Oxların kəsişmə nöqtəsi
+
+2. KVADRANTLAR:
+   • I Kvadrant: (+, +)
+   • II Kvadrant: (-, +)
+   • III Kvadrant: (-, -)
+   • IV Kvadrant: (+, -)
+
+3. NÖQTƏNİN KOORDİNATLARI:
+   • A(x, y) - x absis, y ordinat
+   • X oxu üzərində nöqtə: (x, 0)
+   • Y oxu üzərində nöqtə: (0, y)
+
+4. İKİ NÖQTƏ ARASINDAKİ MƏSAFƏ:
+   • A(x₁, y₁) və B(x₂, y₂) nöqtələri
+   • d = √[(x₂ - x₁)² + (y₂ - y₁)²]
+
+5. PARÇANIN ORTA NÖQTƏSİ:
+   • A(x₁, y₁) və B(x₂, y₂) nöqtələri
+   • M( (x₁ + x₂)/2 , (y₁ + y₂)/2 )
+
+6. ÜÇBUCAĞIN AĞIRLIQ MƏRKƏZİ:
+   • A(x₁, y₁), B(x₂, y₂), C(x₃, y₃) təpələri
+   • G( (x₁ + x₂ + x₃)/3 , (y₁ + y₂ + y₃)/3 )
+
+7. DOĞRUNUN TƏNLİKLƏRİ:
+   a) Ümumi tənlik: Ax + By + C = 0
+   b) Bucaq əmsallı: y = kx + b
+      • k - bucaq əmsalı (mailiyyət)
+      • b - Y oxunu kəsdiyi nöqtə
+   c) İki nöqtədən keçən:
+      (y - y₁)/(y₂ - y₁) = (x - x₁)/(x₂ - x₁)
+
+8. PARALEL VƏ PERPENDİKULYAR DOĞRULAR:
+   • Paralel doğrular: k₁ = k₂
+   • Perpendikulyar doğrular: k₁ × k₂ = -1
+
+9. ÇEVRƏNİN TƏNLİYİ:
+   • Mərkəzi M(a, b), radiusu r
+   • (x - a)² + (y - b)² = r²
+
+II HİSSƏ: VEKTORLAR
+
+1. VEKTORUN TƏRİFİ:
+   • Uzunluğu, istiqaməti və yönü olan istiqamətlənmiş parça
+   • İşarələmə: \(\vec{AB}\), \(\vec{a}\), \(\mathbf{a}\)
+
+2. VEKTORUN KOORDİNATLARI:
+   • A(x₁, y₁) və B(x₂, y₂) nöqtələri
+   • \(\vec{AB} = (x₂ - x₁, y₂ - y₁)\)
+
+3. VEKTORUN UZUNLUĞU (MODULU):
+   • \(\vec{a} = (a₁, a₂)\)
+   • \(|\vec{a}| = \sqrt{a₁² + a₂²}\)
+
+4. VEKTORLARIN BƏRABƏRLİYİ:
+   • Uzunluqları bərabər
+   • İstiqamətləri eyni
+   • Yönləri eyni
+
+5. VEKTORLAR ÜZƏRİNDƏ ƏMƏLLƏR:
+   a) Cəmi: \(\vec{a} + \vec{b} = (a₁ + b₁, a₂ + b₂)\)
+   b) Fərqi: \(\vec{a} - \vec{b} = (a₁ - b₁, a₂ - b₂)\)
+   c) Ədədə vurma: \(k\vec{a} = (ka₁, ka₂)\)
+
+6. SKALYAR HASİL (NÖQTƏ HASİLİ):
+   • \(\vec{a} \cdot \vec{b} = a₁b₁ + a₂b₂\)
+   • \(\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cdot \cos\theta\)
+
+7. VEKTORLAR ARASINDAKİ BUCAQ:
+   • \(\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| \cdot |\vec{b}|}\)
+
+8. PARALEL VEKTORLAR:
+   • \(\vec{a} = k\vec{b}\) (k ≠ 0)
+   • \(\frac{a₁}{b₁} = \frac{a₂}{b₂}\) (b₁, b₂ ≠ 0)
+
+9. PERPENDİKULYAR VEKTORLAR:
+   • \(\vec{a} \cdot \vec{b} = 0\)
+
+10. KOLLİNEAR VEKTORLAR:
+    • \(\vec{a} = k\vec{b}\) (hər hansı k üçün)
+
+11. KOMPLANAR VEKTORLAR:
+    • \(\vec{c} = m\vec{a} + n\vec{b}\) (hər hansı m, n üçün)
+
+12. BAZA VEKTORLARI:
+    • \(\vec{i} = (1, 0)\) - X oxu üzrə vahid vektor
+    • \(\vec{j} = (0, 1)\) - Y oxu üzrə vahid vektor
+    • \(\vec{a} = a₁\vec{i} + a₂\vec{j}\)
+
+13. XƏTTİ ASILI VƏ MÜSTƏQİL VEKTORLAR:
+    • Xətti asılı: \(k₁\vec{a} + k₂\vec{b} = \vec{0}\) (k₁, k₂ eyni zamanda sıfır deyil)
+    • Xətti müstəqil: \(k₁\vec{a} + k₂\vec{b} = \vec{0}\) yalnız \(k₁ = k₂ = 0\) olduqda
+
+14. VEKTORUN OXA PROYEKSİYASI:
+    • X oxuna: \(proj_x \vec{a} = |\vec{a}| \cdot \cos\alpha\)
+    • α - vektorla X oxu arasındakı bucaq
+
+15. VEKTOR HASİLİ (3D):
+    • \(\vec{a} \times \vec{b} = (a₂b₃ - a₃b₂, a₃b₁ - a₁b₃, a₁b₂ - a₂b₁)\)
+
+16. QARIŞIQ HASİL (3D):
+    • \((\vec{a} \times \vec{b}) \cdot \vec{c}\)
+
+ƏHƏMİYYƏTLİ QEYDLƏR:
+1. Koordinat sistemində hər nöqtə unikal (x,y) cütü ilə ifadə olunur
+2. Məsafə düsturu Pifaqor teoremindən alınır
+3. Vektorun modulu həmişə mənfi olmayan ədəddir
+4. Skalyar hasil kommutativdir: \(\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a}\)
+5. Vektor hasil antikommutativdir: \(\vec{a} \times \vec{b} = -\vec{b} \times \vec{a}\)
+6. İki vektor perpendikulyardırsa, skalyar hasil sıfırdır
+7. İki vektor paraleldirsə, vektor hasil sıfırdır
+
+PRATİK TƏTBİQLƏR:
+1. Haritada məsafə hesablanması
+2. Fizikada qüvvələrin toplanması
+3. Kompüter qrafikasında obyektlərin yerləşdirilməsi
+4. İqtisadiyyatda istiqamətli dəyişikliklərin təsviri
+5. Mühəndislikdə struktur hesablamaları
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'koordinat-vektor-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Koordinat və Vektor qaydaları uğurla yükləndi! 📥');
+    }
+
+    function downloadKoordinatDusturlari() {
+        const content = `KOORDİNAT SİSTEMİ - ƏSAS DÜSTURLAR
+
+1. İKİ NÖQTƏ ARASI MƏSAFƏ:
+   • A(x₁, y₁) və B(x₂, y₂)
+   • d = √[(x₂ - x₁)² + (y₂ - y₁)²]
+
+2. PARÇANIN ORTA NÖQTƏSİ:
+   • M( (x₁ + x₂)/2 , (y₁ + y₂)/2 )
+
+3. ÜÇ NÖQTƏNİN DOĞRU ÜZƏRİNDƏ OLMASI:
+   • A, B, C nöqtələri eyni düz xətt üzərindədirsə:
+   • (y₂ - y₁)/(x₂ - x₁) = (y₃ - y₁)/(x₃ - x₁)
+
+4. ÜÇBUCAĞIN AĞIRLIQ MƏRKƏZİ:
+   • A(x₁, y₁), B(x₂, y₂), C(x₃, y₃)
+   • G( (x₁ + x₂ + x₃)/3 , (y₁ + y₂ + y₃)/3 )
+
+5. ÜÇBUCAĞIN SAHƏSİ (KOORDİNATLA):
+   • S = ½|(x₁(y₂ - y₃) + x₂(y₃ - y₁) + x₃(y₁ - y₂))|
+
+6. DOĞRUNUN TƏNLİKLƏRİ:
+   a) Ümumi tənlik: Ax + By + C = 0
+   b) Bucaq əmsallı: y = kx + b
+      • k = -A/B (B ≠ 0)
+      • b = -C/B (B ≠ 0)
+   c) Seqmentlərlə: x/a + y/b = 1
+      • a - X oxunu kəsdiyi nöqtə
+      • b - Y oxunu kəsdiyi nöqtə
+
+7. İKİ DOĞRUNUN KƏSİŞMƏ NOQTƏSİ:
+   • A₁x + B₁y + C₁ = 0
+   • A₂x + B₂y + C₂ = 0
+   • X = (B₁C₂ - B₂C₁)/(A₁B₂ - A₂B₁)
+   • Y = (C₁A₂ - C₂A₁)/(A₁B₂ - A₂B₁)
+
+8. NOQTƏNİN DOĞRUYA OLAN MƏSAFƏSİ:
+   • P(x₀, y₀) nöqtəsi, Ax + By + C = 0 düz xətti
+   • d = |Ax₀ + By₀ + C|/√(A² + B²)
+
+9. İKİ DOĞRU ARASINDAKİ BUCAQ:
+   • y = k₁x + b₁ və y = k₂x + b₂
+   • tanθ = |(k₂ - k₁)/(1 + k₁k₂)|
+
+10. DOĞRUNUN MAİL BUCASI:
+    • k = tanα
+    • α - düz xəttin X oxu ilə əmələ gətirdiyi bucaq
+
+11. ÇEVRƏNİN TƏNLİYİ:
+    • Mərkəzi (a, b), radiusu r
+    • (x - a)² + (y - b)² = r²
+    • Ümumi tənlik: x² + y² + Dx + Ey + F = 0
+      • a = -D/2, b = -E/2, r = √(D²/4 + E²/4 - F)
+
+12. ELLİPSİN TƏNLİYİ:
+    • Mərkəzi (h, k), yarımoxları a və b
+    • (x-h)²/a² + (y-k)²/b² = 1
+
+13. PARABOLANIN TƏNLİYİ:
+    • Təpəsi (h, k), fokus parametri p
+    • (y-k)² = 4p(x-h) (üfüqi)
+    • (x-h)² = 4p(y-k) (şaquli)
+
+14. HİPERBOLANIN TƏNLİYİ:
+    • Mərkəzi (h, k), yarımoxları a və b
+    • (x-h)²/a² - (y-k)²/b² = 1 (üfüqi)
+    • (y-k)²/a² - (x-h)²/b² = 1 (şaquli)
+
+15. KOORDİNAT ÇEVİRMƏLƏRİ:
+    • Ötürmə: x' = x - h, y' = y - k
+    • Fırlanma: 
+      x' = x cosθ + y sinθ
+      y' = -x sinθ + y cosθ
+
+16. POLYAR KOORDİNATLAR:
+    • Dekart koordinatları: x = r cosθ, y = r sinθ
+    • Polyar koordinatlar: r = √(x² + y²), θ = arctan(y/x)
+
+17. ƏRAZİ HESABLANMASI:
+    • Çoxbucaqlının sahəsi (n nöqtə):
+      S = ½|Σ(xᵢyᵢ₊₁ - xᵢ₊₁yᵢ)|
+
+18. PARAMETRİK TƏNLİKLƏR:
+    • Düz xətt: x = x₀ + at, y = y₀ + bt
+    • Çevrə: x = a + r cos t, y = b + r sin t
+
+XƏTTİ FUNKSİYALARIN XASSƏLƏRİ:
+1. k > 0: Artan funksiya
+2. k < 0: Azalan funksiya
+3. k = 0: Sabit funksiya (y = b)
+4. b = 0: Başlanğıcdan keçir
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'koordinat-dusturlari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Koordinat düsturları uğurla yükləndi! 📥');
+    }
+
+    function downloadVektorDusturlari() {
+        const content = `VEKTORLAR - ƏSAS DÜSTURLAR
+
+1. VEKTORUN KOORDİNATLARI:
+   • \(\vec{AB} = (x₂ - x₁, y₂ - y₁)\)
+   • A(x₁, y₁) başlanğıc, B(x₂, y₂) son nöqtə
+
+2. VEKTORUN MODULU:
+   • \(\vec{a} = (a₁, a₂)\)
+   • \(|\vec{a}| = \sqrt{a₁² + a₂²}\)
+   • 3D: \(\vec{a} = (a₁, a₂, a₃)\)
+   • \(|\vec{a}| = \sqrt{a₁² + a₂² + a₃²}\)
+
+3. VAHİD VEKTOR:
+   • \(\vec{e_a} = \frac{\vec{a}}{|\vec{a}|}\)
+   • Uzunluğu 1 olan vektor
+
+4. VEKTORLARIN CƏMİ:
+   • \(\vec{a} + \vec{b} = (a₁ + b₁, a₂ + b₂)\)
+   • Paraleloqram qaydası: \(\vec{a} + \vec{b}\) = paraleloqramın diaqonalı
+
+5. VEKTORLARIN FƏRQİ:
+   • \(\vec{a} - \vec{b} = (a₁ - b₁, a₂ - b₂)\)
+   • Üçbucaq qaydası: \(\vec{a} - \vec{b} = \vec{a} + (-\vec{b})\)
+
+6. VEKTORUN ƏDƏDƏ VURULMASI:
+   • \(k\vec{a} = (ka₁, ka₂)\)
+   • Xassələri:
+     1. \(k(\vec{a} + \vec{b}) = k\vec{a} + k\vec{b}\)
+     2. \((k + m)\vec{a} = k\vec{a} + m\vec{a}\)
+     3. \(k(m\vec{a}) = (km)\vec{a}\)
+
+7. SKALYAR HASİL:
+   • \(\vec{a} \cdot \vec{b} = a₁b₁ + a₂b₂\)
+   • \(\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cdot \cos\theta\)
+   • Xassələri:
+     1. Kommutativ: \(\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a}\)
+     2. Distributiv: \(\vec{a} \cdot (\vec{b} + \vec{c}) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}\)
+     3. \(k(\vec{a} \cdot \vec{b}) = (k\vec{a}) \cdot \vec{b} = \vec{a} \cdot (k\vec{b})\)
+
+8. VEKTORLAR ARASINDAKİ BUCAQ:
+   • \(\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| \cdot |\vec{b}|}\)
+   • \(\theta = \arccos\left(\frac{a₁b₁ + a₂b₂}{\sqrt{a₁² + a₂²} \cdot \sqrt{b₁² + b₂²}}\right)\)
+
+9. VEKTOR HASİLİ (3D):
+   • \(\vec{a} \times \vec{b} = (a₂b₃ - a₃b₂, a₃b₁ - a₁b₃, a₁b₂ - a₂b₁)\)
+   • \(|\vec{a} \times \vec{b}| = |\vec{a}| \cdot |\vec{b}| \cdot \sin\theta\)
+   • İstiqamət: Sağ əl qaydası ilə
+
+10. QARIŞIQ HASİL:
+    • \((\vec{a} \times \vec{b}) \cdot \vec{c}\)
+    • Üç vektorun yaratdığı paralelepipedin həcmini verir
+    • Həcm = \(|(\vec{a} \times \vec{b}) \cdot \vec{c}|\)
+
+11. VEKTORUN PROYEKSİYASI:
+    • \(\vec{a}\) vektorunun \(\vec{b}\) vektoru üzərinə proyeksiyası:
+    • \(proj_{\vec{b}} \vec{a} = \frac{\vec{a} \cdot \vec{b}}{|\vec{b}|²} \vec{b}\)
+
+12. KOMPONENTLƏRƏ AYRILMA:
+    • \(\vec{a} = (\vec{a} \cdot \vec{e_x})\vec{e_x} + (\vec{a} \cdot \vec{e_y})\vec{e_y}\)
+    • \(\vec{e_x}\), \(\vec{e_y}\) - vahid vektorlar
+
+13. VEKTORLARIN XƏTTİ ASILIĞI:
+    • İki vektor: \(\vec{a} = k\vec{b}\)
+    • Üç vektor: \(\vec{c} = m\vec{a} + n\vec{b}\)
+    • Determinant testi:
+      |a₁ a₂|
+      |b₁ b₂| = 0 → xətti asılı
+
+14. ORTOQONAL KOMPONENTLƏR:
+    • \(\vec{a} = \vec{a_∥} + \vec{a_⊥}\)
+    • \(\vec{a_∥} = proj_{\vec{b}} \vec{a}\)
+    • \(\vec{a_⊥} = \vec{a} - \vec{a_∥}\)
+
+15. KOSİNUSLAR QANUNU:
+    • \(|\vec{a} + \vec{b}|² = |\vec{a}|² + |\vec{b}|² + 2|\vec{a}||\vec{b}|\cos\theta\)
+    • \(|\vec{a} - \vec{b}|² = |\vec{a}|² + |\vec{b}|² - 2|\vec{a}||\vec{b}|\cos\theta\)
+
+16. BÜNYANİ DÜSTURLARI:
+    • \(\vec{a} \cdot (\vec{b} \times \vec{c}) = \vec{b} \cdot (\vec{c} \times \vec{a}) = \vec{c} \cdot (\vec{a} \times \vec{b})\)
+    • \(\vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a} \cdot \vec{c})\vec{b} - (\vec{a} \cdot \vec{b})\vec{c}\)
+
+17. VEKTORLARIN XƏTTİ KOMBİNASİYASI:
+    • \(\vec{r} = \vec{a} + t\vec{b}\) - düz xəttin vektor tənliyi
+    • t - parametr
+
+18. MÜSTƏVİNİN VEKTOR TƏNLİYİ:
+    • \((\vec{r} - \vec{r₀}) \cdot \vec{n} = 0\)
+    • \(\vec{n}\) - normal vektor
+    • \(\vec{r₀}\) - müstəvidə bir nöqtə
+
+ƏSAS XASSƏLƏR:
+1. Vektorun modulu həmişə mənfi olmayan ədəddir
+2. Sıfır vektorun uzunluğu 0-dır
+3. Eyni vektor özünə paralel və perpendikulyardır
+4. Skalyar hasilin işarəsi bucağın növündən asılıdır:
+   • θ < 90°: Müsbət
+   • θ = 90°: Sıfır
+   • θ > 90°: Mənfi
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'vektor-dusturlari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Vektor düsturları uğurla yükləndi! 📥');
+    }
+
+    function downloadKoordinatVektorNumuneleri() {
+        const content = `KOORDİNATLAR VE VEKTORLAR - NÜMUNƏLƏR VƏ MƏSƏLƏLƏR
+
+NÜMUNƏ 1: İki nöqtə arası məsafə
+Məsələ: A(2, 3) və B(5, 7) nöqtələri arasındakı məsafəni tapın.
+Həll: d = √[(5-2)² + (7-3)²] = √[3² + 4²] = √[9 + 16] = √25 = 5
+Cavab: 5 vahid
+
+NÜMUNƏ 2: Parçanın orta nöqtəsi
+Məsələ: A(1, 4) və B(9, 10) nöqtələrini birləşdirən parçanın orta nöqtəsini tapın.
+Həll: M( (1+9)/2 , (4+10)/2 ) = M(10/2, 14/2) = M(5, 7)
+Cavab: M(5, 7)
+
+NÜMUNƏ 3: Üçbucağın ağırlıq mərkəzi
+Məsələ: A(2, 1), B(6, 5), C(4, 9) təpələri olan üçbucağın ağırlıq mərkəzini tapın.
+Həll: G( (2+6+4)/3 , (1+5+9)/3 ) = G(12/3, 15/3) = G(4, 5)
+Cavab: G(4, 5)
+
+NÜMUNƏ 4: Vektorun koordinatları
+Məsələ: A(3, 2) və B(7, 5) nöqtələri üçün \(\vec{AB}\) vektorunu tapın.
+Həll: \(\vec{AB} = (7-3, 5-2) = (4, 3)\)
+Cavab: \(\vec{AB} = (4, 3)\)
+
+NÜMUNƏ 5: Vektorun modulu
+Məsələ: \(\vec{a} = (3, 4)\) vektorunun uzunluğunu tapın.
+Həll: \(|\vec{a}| = \sqrt{3² + 4²} = \sqrt{9 + 16} = \sqrt{25} = 5\)
+Cavab: 5
+
+NÜMUNƏ 6: Vektorların cəmi
+Məsələ: \(\vec{a} = (2, 3)\) və \(\vec{b} = (4, -1)\) vektorlarının cəmini tapın.
+Həll: \(\vec{a} + \vec{b} = (2+4, 3+(-1)) = (6, 2)\)
+Cavab: (6, 2)
+
+NÜMUNƏ 7: Skalyar hasil
+Məsələ: \(\vec{a} = (2, 3)\) və \(\vec{b} = (4, 5)\) vektorlarının skalyar hasilini tapın.
+Həll: \(\vec{a} \cdot \vec{b} = 2×4 + 3×5 = 8 + 15 = 23\)
+Cavab: 23
+
+NÜMUNƏ 8: Vektorlar arasındakı bucaq
+Məsələ: \(\vec{a} = (1, 0)\) və \(\vec{b} = (0, 1)\) vektorları arasındakı bucağı tapın.
+Həll: 
+\(|\vec{a}| = \sqrt{1² + 0²} = 1\)
+\(|\vec{b}| = \sqrt{0² + 1²} = 1\)
+\(\vec{a} \cdot \vec{b} = 1×0 + 0×1 = 0\)
+\(\cos\theta = 0/(1×1) = 0\)
+\(\theta = \arccos(0) = 90°\)
+Cavab: 90°
+
+NÜMUNƏ 9: Doğrunun tənliyi
+Məsələ: A(1, 2) və B(3, 4) nöqtələrindən keçən düz xəttin tənliyini tapın.
+Həll: Mail əmsalı k = (4-2)/(3-1) = 2/2 = 1
+Tənlik: y - 2 = 1(x - 1) → y = x + 1
+Cavab: y = x + 1
+
+NÜMUNƏ 10: Paralel doğrular
+Məsələ: y = 2x + 3 düz xəttinə paralel və (4, 5) nöqtəsindən keçən düz xəttin tənliyini tapın.
+Həll: Paralel olduğu üçün k = 2
+y - 5 = 2(x - 4) → y = 2x - 8 + 5 → y = 2x - 3
+Cavab: y = 2x - 3
+
+NÜMUNƏ 11: Perpendikulyar doğrular
+Məsələ: y = 2x + 1 düz xəttinə perpendikulyar və (3, 4) nöqtəsindən keçən düz xəttin tənliyini tapın.
+Həll: k₁ = 2, perpendikulyar üçün k₂ = -1/k₁ = -1/2
+y - 4 = -1/2(x - 3) → y = -1/2x + 3/2 + 4 → y = -1/2x + 11/2
+Cavab: y = -0.5x + 5.5
+
+NÜMUNƏ 12: Çevrənin tənliyi
+Məsələ: Mərkəzi M(2, 3) nöqtəsində və radiusu 4 olan çevrənin tənliyini tapın.
+Həll: (x - 2)² + (y - 3)² = 4² → (x - 2)² + (y - 3)² = 16
+Cavab: (x - 2)² + (y - 3)² = 16
+
+NÜMUNƏ 13: Vektor hasil (3D)
+Məsələ: \(\vec{a} = (1, 2, 3)\) və \(\vec{b} = (4, 5, 6)\) vektorlarının vektor hasilini tapın.
+Həll:
+\(\vec{a} \times \vec{b} = (2×6 - 3×5, 3×4 - 1×6, 1×5 - 2×4)\)
+= (12 - 15, 12 - 6, 5 - 8)
+= (-3, 6, -3)
+Cavab: (-3, 6, -3)
+
+NÜMUNƏ 14: Vektorun proyeksiyası
+Məsələ: \(\vec{a} = (3, 4)\) vektorunun \(\vec{b} = (1, 0)\) vektoru üzərinə proyeksiyasını tapın.
+Həll: 
+\(\vec{a} \cdot \vec{b} = 3×1 + 4×0 = 3\)
+\(|\vec{b}|² = 1² + 0² = 1\)
+\(proj_{\vec{b}} \vec{a} = (3/1) × (1, 0) = (3, 0)\)
+Cavab: (3, 0)
+
+NÜMUNƏ 15: Üçbucağın sahəsi
+Məsələ: A(0, 0), B(4, 0), C(0, 3) təpələri olan üçbucağın sahəsini tapın.
+Həll: S = ½|(0×(0-3) + 4×(3-0) + 0×(0-0))| = ½|(0 + 12 + 0)| = ½×12 = 6
+Cavab: 6 vahid²
+
+TƏLİM ÜÇÜN MƏSƏLƏLƏR:
+1. A(1, 2) və B(4, 6) nöqtələri arasındakı məsafə?
+2. \(\vec{a} = (2, -1)\) vektorunun uzunluğu?
+3. A(2, 3), B(5, 7), C(1, 4) üçbucağının ağırlıq mərkəzi?
+4. \(\vec{a} = (3, 2)\) və \(\vec{b} = (-1, 4)\) vektorlarının skalyar hasil?
+5. Mərkəzi (0, 0), radiusu 5 olan çevrənin tənliyi?
+6. y = 3x - 2 düz xəttinə paralel və (1, 1) nöqtəsindən keçən düz xəttin tənliyi?
+7. \(\vec{a} = (2, 1)\) və \(\vec{b} = (1, -2)\) vektorları perpendikulyardırmı?
+8. A(0, 0), B(3, 0), C(3, 4) düzbucaqlısının sahəsi?
+
+CAVABLAR:
+1. √[(4-1)² + (6-2)²] = √[9 + 16] = √25 = 5
+2. √[2² + (-1)²] = √[4 + 1] = √5 ≈ 2.236
+3. G( (2+5+1)/3, (3+7+4)/3 ) = G(8/3, 14/3) ≈ G(2.67, 4.67)
+4. 3×(-1) + 2×4 = -3 + 8 = 5
+5. x² + y² = 25
+6. y = 3x - 2
+7. 2×1 + 1×(-2) = 2 - 2 = 0 → Bəli, perpendikulyardır
+8. Sahə = 3 × 4 = 12 vahid²
+
+QISA İZAHATLAR:
+• Məsafə düsturu Pifaqor teoremindən gəlir
+• Vektorun modulu həmişə müsbətdir
+• Skalyar hasil sıfırdırsa, vektorlar perpendikulyardır
+• Paralel doğruların bucaq əmsalları bərabərdir
+• Perpendikulyar doğruların bucaq əmsallarının hasili -1-dir
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'koordinat-vektor-numuneleri.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Koordinat və Vektor nümunələri uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistika - Bütün Qaydalar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black ;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        .cedvel{
+            border: 3px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .cedvel th, .cedvel td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        
+        /* Yeni üslublar */
+        .download-btn {
+            display: block;
+            width: 400px;
+            margin: 30px auto;
+            padding: 15px 25px;
+            background: linear-gradient(45deg, #FF9800, #F57C00);
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            background: linear-gradient(45deg, #F57C00, #E65100);
+        }
+        .formula-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .example-box {
+            background-color: #f3e5f5;
+            border-left: 4px solid #9C27B0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .note-box {
+            background-color: #e8f5e8;
+            border: 2px dashed #4CAF50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .warning-box {
+            background-color: #ffebee;
+            border: 2px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .definition {
+            color: #FF5722;
+            font-weight: bold;
+        }
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .section-title {
+            background: linear-gradient(to right, #FF9800, #FFB74D);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 25px 0 15px 0;
+            font-size: 22px;
+        }
+        .chart-container {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px dashed #FF9800;
+            padding: 20px;
+            background-color: #fff9c4;
+            border-radius: 10px;
+        }
+        .chart-placeholder {
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #ffecb3;
+            border: 2px solid #FFB74D;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #5d4037;
+            font-weight: bold;
+        }
+        .two-charts {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .chart-with-caption {
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+        }
+        .chart-title {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #5d4037;
+        }
+        .data-table {
+            background-color: white;
+            border: 2px solid #795548;
+        }
+        .stat-term {
+            background-color: #e1f5fe;
+            border-left: 3px solid #0288d1;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 3px;
+        }
+        .calculation-box {
+            background-color: #fce4ec;
+            border: 1px solid #f48fb1;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .step {
+            counter-increment: step-counter;
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .step::before {
+            content: counter(step-counter) ". ";
+            position: absolute;
+            left: 0;
+            color: #FF9800;
+            font-weight: bold;
+        }
+        .important {
+            background-color: #fff9c4;
+            border-left: 4px solid #FFD600;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Statistika - Bütün Qaydalar</p>
+    <h6 style="color: grey;">
+        Statistikanın bütün anlayışları, düsturları, qrafikləri və hesablama üsulları.
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <!-- Şəkil yeri 1: Statistikanın əsas diaqramları -->
+    <div class="chart-container">
+        <p><strong>Şəkil 1: Statistikanın əsas diaqram növləri</strong></p>
+        <div class="two-charts">
+            <div class="chart-with-caption">
+                <div class="chart-placeholder" style="width: 200px; height: 150px;">
+                    SÜTUN DİAQRAMI
+                </div>
+                <p class="chart-title">Sütun diaqramı</p>
+            </div>
+            <div class="chart-with-caption">
+                <div class="chart-placeholder" style="width: 200px; height: 150px;">
+                    PAY DİAQRAMI
+                </div>
+                <p class="chart-title">Pay diaqramı (pasta)</p>
+            </div>
+            <div class="chart-with-caption">
+                <div class="chart-placeholder" style="width: 200px; height: 150px;">
+                    XƏTT DİAQRAMI
+                </div>
+                <p class="chart-title">Xətt diaqramı</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">1. STATİSTİKANIN ƏSAS ANLAYIŞLARI</div>
+    
+    <p><span class="definition">Statistika:</span> Verilənlərin toplanması, təhlili, təfsiri və təqdim edilməsi elmidir.</p>
+    
+    <div class="formula-box">
+        <p><strong>Statistikanın əsas komponentləri:</strong></p>
+        
+        <div class="stat-term">
+            <strong>1. Populyasiya:</strong> Araşdırılan bütün obyektlərin çoxluğu
+        </div>
+        
+        <div class="stat-term">
+            <strong>2. Nümunə:</strong> Populyasiyadan seçilmiş hissə
+        </div>
+        
+        <div class="stat-term">
+            <strong>3. Vahid:</strong> Araşdırılan fərdi obyekt
+        </div>
+        
+        <div class="stat-term">
+            <strong>4. Dəyişən:</strong> Müxtəlif vahidlər üzrə dəyişən xarakteristika
+        </div>
+        
+        <div class="stat-term">
+            <strong>5. Məlumat (verilən):</strong> Dəyişənin qiyməti
+        </div>
+    </div>
+
+    <div class="section-title">2. VERİLƏNLƏRİN NÖVLƏRİ</div>
+    
+    <div class="table-container">
+        <table class="cedvel">
+            <tr>
+                <th>Verilən növü</th>
+                <th>Tərifi</th>
+                <th>Nümunə</th>
+                <th>Hesablama</th>
+            </tr>
+            <tr>
+                <td>Kəmiyyət (Kvantitativ)</td>
+                <td>Rəqəmlə ifadə olunan verilənlər</td>
+                <td>Yaş, çəki, qiymət</td>
+                <td>Riyazi əməllər mümkün</td>
+            </tr>
+            <tr>
+                <td>Davamlı</td>
+                <td>İstənilən qiyməti ala bilər</td>
+                <td>Boy, çəki, zaman</td>
+                <td>Ölçülə bilər</td>
+            </tr>
+            <tr>
+                <td>Diskret</td>
+                <td>Müəyyən qiymətləri alır</td>
+                <td>Uşaq sayı, sinif sayı</td>
+                <td>Sayıla bilər</td>
+            </tr>
+            <tr>
+                <td>Keyfiyyət (Kvalitativ)</td>
+                <td>Sifətlə ifadə olunan</td>
+                <td>Cins, rəng, peşə</td>
+                <td>Qruplaşdırıla bilər</td>
+            </tr>
+            <tr>
+                <td>Nominal</td>
+                <td>Sırası olmayan</td>
+                <td>Şəhər, qan qrupu</td>
+                <td>Tezlik sayıla bilər</td>
+            </tr>
+            <tr>
+                <td>Sıralı (Ordinal)</td>
+                <td>Sırası olan</td>
+                <td>Təhsil səviyyəsi, reytinq</td>
+                <td>Median istifadə oluna bilər</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-title">3. VERİLƏNLƏRİN YIĞILMASI VƏ TƏŞKİLİ</div>
+    
+    <div class="formula-box">
+        <p><strong>Verilən yığma üsulları:</strong></p>
+        
+        <div class="step">Müşahidə</div>
+        <div class="step">Anket sorğusu</div>
+        <div class="step">Eksperiment</div>
+        <div class="step">Müsahibə</div>
+        <div class="step">Mövcud verilənlərdən istifadə</div>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>Tezlik paylanması cədvəli:</strong></p>
+        
+        <div class="table-container">
+            <table class="cedvel">
+                <tr>
+                    <th>Qiymət (xᵢ)</th>
+                    <th>Tezlik (fᵢ)</th>
+                    <th>Nisbi tezlik</th>
+                    <th>Faiz tezlik</th>
+                    <th>Yığılmış tezlik</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>5</td>
+                    <td>5/20 = 0.25</td>
+                    <td>25%</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>8</td>
+                    <td>8/20 = 0.40</td>
+                    <td>40%</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>7</td>
+                    <td>7/20 = 0.35</td>
+                    <td>35%</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td><strong>Cəmi</strong></td>
+                    <td><strong>20</strong></td>
+                    <td><strong>1.00</strong></td>
+                    <td><strong>100%</strong></td>
+                    <td>-</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Şəkil yeri 2: Tezlik paylanması -->
+    <div class="chart-container">
+        <p><strong>Şəkil 2: Tezlik paylanması diaqramı</strong></p>
+        <div class="chart-placeholder">
+            TEZLİK PAYLANMASI<br>Sütun diaqramı ilə təsvir
+        </div>
+    </div>
+
+    <div class="section-title">4. MƏRKƏZİ MEYLLƏNME ÖLÇÜLƏRİ</div>
+    
+    <div class="formula-box">
+        <p><strong>1. ARİFMETİK ORTA (Mean):</strong></p>
+        <p class="marginp highlight">x̄ = (x₁ + x₂ + ... + xₙ) / n = Σxᵢ / n</p>
+        
+        <p><strong>Tezlik cədvəli üçün:</strong></p>
+        <p class="marginp highlight">x̄ = Σ(fᵢ × xᵢ) / Σfᵢ</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Nümunə:</strong> 5, 8, 12, 15, 20 ədədlərinin ortası:</p>
+        <p class="marginp">x̄ = (5 + 8 + 12 + 15 + 20) / 5 = 60 / 5 = 12</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. MEDİANA (Median):</strong></p>
+        <p class="marginp">Verilənləri kiçikdən böyüyə sıraladıqda ortada olan qiymət</p>
+        
+        <div class="important">
+            <p><strong>Hesablama qaydası:</strong></p>
+            <p>1. Verilənləri sırala</p>
+            <p>2. n təkdirsə: M = x<sub>(n+1)/2</sub></p>
+            <p>3. n cütdürsə: M = (x<sub>n/2</sub> + x<sub>(n/2)+1</sub>) / 2</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Nümunə:</strong> 3, 5, 7, 9, 11 (n=5, tək)</p>
+        <p class="marginp">M = x<sub>(5+1)/2</sub> = x<sub>3</sub> = 7</p>
+        
+        <p><strong>Nümunə:</strong> 2, 4, 6, 8, 10, 12 (n=6, cüt)</p>
+        <p class="marginp">M = (x<sub>3</sub> + x<sub>4</sub>) / 2 = (6 + 8) / 2 = 7</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>3. MODA (Mode):</strong></p>
+        <p class="marginp">Ən çox təkrarlanan qiymət</p>
+        
+        <div class="important">
+            <p><strong>Növləri:</strong></p>
+            <p>• Unimodal: 1 moda</p>
+            <p>• Bimodal: 2 moda</p>
+            <p>• Multimodal: 2-dən çox moda</p>
+            <p>• Modasız: Bütün qiymətlər eyni sayda</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Nümunə:</strong> 2, 3, 4, 4, 5, 6, 4, 7</p>
+        <p class="marginp">Moda = 4 (3 dəfə təkrarlanıb)</p>
+    </div>
+
+    <!-- Şəkil yeri 3: Mərkəzi meyllənmə ölçüləri -->
+    <div class="chart-container">
+        <p><strong>Şəkil 3: Orta, median və modanın müqayisəsi</strong></p>
+        <div class="chart-placeholder">
+            MƏRKƏZİ MEYLLƏNMƏ<br>Orta, median, modanın yeri
+        </div>
+    </div>
+
+    <div class="section-title">5. YAYILMA (DAĞILMA) ÖLÇÜLƏRİ</div>
+    
+    <div class="formula-box">
+        <p><strong>1. DİAPAZON (Range):</strong></p>
+        <p class="marginp highlight">R = maksimum - minimum</p>
+        <p class="marginp">• Ən sadə yayılma ölçüsü</p>
+        <p class="marginp">• Extremum qiymətlərdən çox təsirlənir</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. KVARTİLLƏR (Quartiles):</strong></p>
+        
+        <div class="important">
+            <p><strong>Q₁ (Birinci kvartil):</strong> 25%-ci persentil</p>
+            <p><strong>Q₂ (İkinci kvartil):</strong> 50%-ci persentil = Median</p>
+            <p><strong>Q₃ (Üçüncü kvartil):</strong> 75%-ci persentil</p>
+        </div>
+        
+        <p class="marginp highlight">• Kvartillər arası diapazon (IQR): Q₃ - Q₁</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>3. VARYANS (Variance):</strong></p>
+        
+        <p><strong>Populyasiya varyansı:</strong></p>
+        <p class="marginp highlight">σ² = Σ(xᵢ - μ)² / N</p>
+        
+        <p><strong>Nümunə varyansı:</strong></p>
+        <p class="marginp highlight">s² = Σ(xᵢ - x̄)² / (n - 1)</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>4. STANDART SAPMA (Standard Deviation):</strong></p>
+        
+        <p><strong>Populyasiya standart sapması:</strong></p>
+        <p class="marginp highlight">σ = √σ² = √[Σ(xᵢ - μ)² / N]</p>
+        
+        <p><strong>Nümunə standart sapması:</strong></p>
+        <p class="marginp highlight">s = √s² = √[Σ(xᵢ - x̄)² / (n - 1)]</p>
+    </div>
+
+    <div class="calculation-box">
+        <p><strong>Standart sapmanın hesablanması nümunəsi:</strong></p>
+        <p>Verilənlər: 2, 4, 6, 8, 10</p>
+        <p>1. Orta: x̄ = (2+4+6+8+10)/5 = 6</p>
+        <p>2. Fərqlər: (2-6)²=16, (4-6)²=4, (6-6)²=0, (8-6)²=4, (10-6)²=16</p>
+        <p>3. Kvadratlar cəmi: 16+4+0+4+16 = 40</p>
+        <p>4. Varyans: s² = 40/(5-1) = 10</p>
+        <p>5. Standart sapma: s = √10 ≈ 3.16</p>
+    </div>
+
+    <!-- Şəkil yeri 4: Standart sapma qrafiki -->
+    <div class="chart-container">
+        <p><strong>Şəkil 4: Standart sapmanın vizuallaşdırılması</strong></p>
+        <div class="chart-placeholder">
+            STANDART SAPMA<br>Normal paylanmada ±1σ, ±2σ, ±3σ intervalları
+        </div>
+    </div>
+
+    <div class="section-title">6. STATİSTİKİ QRAFİKLƏR VƏ DİAQRAQLAR</div>
+    
+    <div class="formula-box">
+        <p><strong>1. SÜTUN DİAQRAMI (Bar Chart):</strong></p>
+        <p class="marginp">• Kəmiyyət verilənləri müqayisə etmək üçün</p>
+        <p class="marginp">• Şaquli və ya üfüqi ola bilər</p>
+        <p class="marginp">• Kateqoriyalar arasında boşluq olur</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. PAY DİAQRAMI (Pie Chart):</strong></p>
+        <p class="marginp">• Bütünün hissələrini göstərmək üçün</p>
+        <p class="marginp">• Faizlə ifadə olunur</p>
+        <p class="marginp">• Hissələrin cəmi 100% olmalıdır</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>3. XƏTT DİAQRAMI (Line Chart):</strong></p>
+        <p class="marginp">• Zamanla dəyişməni göstərmək üçün</p>
+        <p class="marginp">• Trendləri analiz etməyə kömək edir</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>4. SƏPİLMƏ DİAQRAMI (Scatter Plot):</strong></p>
+        <p class="marginp">• İki dəyişən arasındakı əlaqəni göstərmək üçün</p>
+        <p class="marginp">• Korrelyasiyanı vizuallaşdırır</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>5. HİSTOQRAM (Histogram):</strong></p>
+        <p class="marginp">• Davamlı verilənlərin paylanmasını göstərmək üçün</p>
+        <p class="marginp">• Sütunlar bir-birinə bitişikdir</p>
+        <p class="marginp">• Tezlikləri əks etdirir</p>
+    </div>
+
+    <!-- Şəkil yeri 5: Müxtəlif diaqram növləri -->
+    <div class="chart-container">
+        <p><strong>Şəkil 5: Müxtəlif statistik diaqramlar</strong></p>
+        <div class="two-charts">
+            <div class="chart-with-caption">
+                <div class="chart-placeholder" style="width: 180px; height: 120px;">
+                    SƏPİLMƏ DİAQRAMI
+                </div>
+                <p class="chart-title">Səpilmə diaqramı</p>
+            </div>
+            <div class="chart-with-caption">
+                <div class="chart-placeholder" style="width: 180px; height: 120px;">
+                    HİSTOQRAM
+                </div>
+                <p class="chart-title">Histoqram</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">7. EHTİMAL VƏ PAYLANMALAR</div>
+    
+    <div class="formula-box">
+        <p><strong>1. EHTİMALIN TƏRİFİ:</strong></p>
+        
+        <p><strong>Klasik tərif:</strong></p>
+        <p class="marginp highlight">P(A) = n(A) / n(S)</p>
+        <p class="marginp">n(A) - əlverişli hallar sayı</p>
+        <p class="marginp">n(S) - bütün hallar sayı</p>
+        
+        <p><strong>Ehtimalın xassələri:</strong></p>
+        <p class="marginp">1. 0 ≤ P(A) ≤ 1</p>
+        <p class="marginp">2. P(S) = 1</p>
+        <p class="marginp">3. P(∅) = 0</p>
+        <p class="marginp">4. P(A') = 1 - P(A)</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. NORMAL PAYLANMA (Normal Distribution):</strong></p>
+        
+        <p class="marginp">• "Zəng əyrisi" forması</p>
+        <p class="marginp">• Parametrlər: orta (μ), standart sapma (σ)</p>
+        <p class="marginp">• Xassələri: Simmetrik, unimodal, asimptotik</p>
+        
+        <div class="important">
+            <p><strong>Empirik qayda (68-95-99.7):</strong></p>
+            <p>• 68% verilən μ ± 1σ daxilində</p>
+            <p>• 95% verilən μ ± 2σ daxilində</p>
+            <p>• 99.7% verilən μ ± 3σ daxilində</p>
+        </div>
+    </div>
+
+    <!-- Şəkil yeri 6: Normal paylanma əyrisi -->
+    <div class="chart-container">
+        <p><strong>Şəkil 6: Normal paylanma əyrisi</strong></p>
+        <div class="chart-placeholder">
+            NORMAL PAYLANMA<br>Zəng əyrisi forması, 68-95-99.7 qaydası
+        </div>
+    </div>
+
+    <div class="section-title">8. KORRELYASİYA VƏ REQRESSİYA</div>
+    
+    <div class="formula-box">
+        <p><strong>1. KORRELYASİYA ƏMSALI (Correlation Coefficient):</strong></p>
+        
+        <p class="marginp highlight">r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / √[Σ(xᵢ - x̄)² Σ(yᵢ - ȳ)²]</p>
+        
+        <div class="important">
+            <p><strong>r qiymətlərinin şərhi:</strong></p>
+            <p>• r = +1: Mükəmməl müsbət korrelyasiya</p>
+            <p>• r = -1: Mükəmməl mənfi korrelyasiya</p>
+            <p>• r = 0: Korrelyasiya yoxdur</p>
+            <p>• 0.7 < |r| ≤ 1: Güclü korrelyasiya</p>
+            <p>• 0.3 < |r| ≤ 0.7: Orta korrelyasiya</p>
+            <p>• 0 < |r| ≤ 0.3: Zəif korrelyasiya</p>
+        </div>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. XƏTTİ REGRESSİYA (Linear Regression):</strong></p>
+        
+        <p class="marginp highlight">y = a + bx</p>
+        
+        <p><strong>Əmsallar:</strong></p>
+        <p class="marginp highlight">b = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / Σ(xᵢ - x̄)²</p>
+        <p class="marginp highlight">a = ȳ - b x̄</p>
+    </div>
+
+    <!-- Şəkil yeri 7: Korrelyasiya və reqressiya -->
+    <div class="chart-container">
+        <p><strong>Şəkil 7: Korrelyasiya və reqressiya xətti</strong></p>
+        <div class="chart-placeholder">
+            KORRELYASİYA VƏ REGRESSİYA<br>Səpilmə diaqramı və reqressiya xətti
+        </div>
+    </div>
+
+    <div class="section-title">9. İNDEKSLƏR VƏ NİSBƏTLƏR</div>
+    
+    <div class="formula-box">
+        <p><strong>1. FAİZ DƏYİŞMƏ (Percent Change):</strong></p>
+        <p class="marginp highlight">% dəyişmə = [(Yeni - Köhnə) / Köhnə] × 100%</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. NİSBƏT (Ratio):</strong></p>
+        <p class="marginp highlight">Nisbət = A / B</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>3. TEZLİK NİSBƏTİ (Rate):</strong></p>
+        <p class="marginp highlight">Tezlik = Hadisələr sayı / Vaxt (və ya əhali)</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>4. ORTA SÜRƏT (Average Rate):</strong></p>
+        <p class="marginp highlight">Orta sürət = Ümumi məsafə / Ümumi zaman</p>
+    </div>
+
+    <div class="section-title">10. SEÇMƏ ÜSULLARI</div>
+    
+    <div class="formula-box">
+        <p><strong>1. TƏSADÜFİ SEÇMƏ (Random Sampling):</strong></p>
+        <p class="marginp">• Hər vahidin seçilmə ehtimalı eynidir</p>
+        <p class="marginp">• Ən obyektiv üsul</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. SİSTEMATİK SEÇMƏ (Systematic Sampling):</strong></p>
+        <p class="marginp">• Müəyyən intervala görə seçmə</p>
+        <p class="marginp">• Nümunə: Hər 10-cu şəxs</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>3. QRUPLAŞDIRILMIŞ SEÇMƏ (Stratified Sampling):</strong></p>
+        <p class="marginp">• Populyasiya qruplara bölünür</p>
+        <p class="marginp">• Hər qrupdan nisbətli seçmə</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>4. KÖMƏKÇİ SEÇMƏ (Convenience Sampling):</strong></p>
+        <p class="marginp">• Əlçatan olan vahidlər</p>
+        <p class="marginp">• Ən az dəqiq üsul</p>
+    </div>
+
+    <div class="section-title">11. STATİSTİKİ FƏRZLƏR (HİPOTEZLƏR)</div>
+    
+    <div class="formula-box">
+        <p><strong>1. NULL FƏRZ (H₀):</strong></p>
+        <p class="marginp">• Test edilən əsas fərziyyə</p>
+        <p class="marginp">• Adətən "fərq yoxdur" və ya "əlaqə yoxdur" formasında</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. ALTERNATİV FƏRZ (H₁):</strong></p>
+        <p class="marginp">• Null fərziyyənin əksi</p>
+        <p class="marginp">• Araşdırılan fərziyyə</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>3. ƏHƏMİYYƏT SƏVİYYƏSİ (α):</strong></p>
+        <p class="marginp">• I tip xətanın ehtimalı</p>
+        <p class="marginp">• Adətən 0.05, 0.01 və ya 0.10</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>4. P-QİYMƏTİ (p-value):</strong></p>
+        <p class="marginp">• Null fərziyyənin doğru olduğu fərziyyəsi ilə</p>
+        <p class="marginp">• Müşahidə olunan və ya daha ekstrem nəticələrin ehtimalı</p>
+    </div>
+
+    <div class="section-title">12. PRAKTİK HESABLAMA NÜMUNƏSİ</div>
+    
+    <div class="calculation-box">
+        <p><strong>TAM NÜMUNƏ: 10 şagirdin imtahan qiymətləri</strong></p>
+        
+        <p><strong>Verilənlər:</strong> 65, 70, 75, 80, 85, 85, 90, 90, 95, 100</p>
+        
+        <p><strong>1. Sıralanmış verilənlər:</strong> 65, 70, 75, 80, 85, 85, 90, 90, 95, 100</p>
+        
+        <p><strong>2. Orta:</strong> x̄ = (65+70+75+80+85+85+90+90+95+100)/10 = 835/10 = 83.5</p>
+        
+        <p><strong>3. Median:</strong> n=10 (cüt), M = (x₅ + x₆)/2 = (85 + 85)/2 = 85</p>
+        
+        <p><strong>4. Moda:</strong> 85 və 90 (hər biri 2 dəfə) → Bimodal</p>
+        
+        <p><strong>5. Diapazon:</strong> R = 100 - 65 = 35</p>
+        
+        <p><strong>6. Standart sapma:</strong></p>
+        <p>• Kvadratlar cəmi: (65-83.5)² + ... + (100-83.5)² = 342.25 + ... + 272.25 = 1312.5</p>
+        <p>• s² = 1312.5/(10-1) = 145.83</p>
+        <p>• s = √145.83 ≈ 12.08</p>
+    </div>
+
+    <div class="section-title">13. STATİSTİKADA SƏHVLƏR VƏ TƏLƏBLƏR</div>
+    
+    <div class="warning-box">
+        <p><strong>ÜMUMİ SƏHVLƏR:</strong></p>
+        <p>1. <strong>Seçmə səhvi:</strong> Nümunə populyasiyanı təmsil etmir</p>
+        <p>2. <strong>Ölçmə səhvi:</strong> Alətin qeyri-dəqiqliyi</p>
+        <p>3. <strong>Təsadüfi səhvlər:</strong> Təbii dəyişkənlik</p>
+        <p>4. <strong>Sistemli səhvlər:</strong> Bir istiqamətə meyl</p>
+        <p>5. <strong>İnsan səhvləri:</strong> Hesablama və ya qeyd səhvləri</p>
+    </div>
+
+    <div class="note-box">
+        <p><strong>YAXŞI STATİSTİKANIN TƏLƏBLƏRİ:</strong></p>
+        <p>1. <strong>Dəqiqlik:</strong> Doğru hesablamalar</p>
+        <p>2. <strong>Etibarlılıq:</strong> Təkrarlandıqda eyni nəticələr</p>
+        <p>3. <strong>Obyektivlik:</strong> Qərəzsiz təhlil</p>
+        <p>4. <strong>Aydınlıq:</strong> Anlaşılan təqdimat</p>
+        <p>5. <strong>Məqsədəuyğunluq:</strong> Problemlə əlaqəli</p>
+        <p>6. <strong>Vaxtında:</strong> Aktual məlumat</p>
+    </div>
+
+    <!-- Qaydaları yükləmək üçün düymə -->
+    <button class="download-btn" onclick="downloadStatistikaQaydalari()">
+        📥 STATİSTİKANIN BÜTÜN QAYDALARINI YÜKLƏ (TXT)
+    </button>
+
+    <p style="margin-left: auto; margin-right: auto; text-align: center;">
+        <i>Hazırlayan: Riyaziyyat Müəllimi | Mənbələr: Azərbaycan məktəb proqramı | Statistika dərslikləri | Praktik nümunələr</i>
+    </p>
+
+    <p class="p1">Hazırsınızsa testə başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='statistics-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Bizimlə öyrən, bizimlə inkişaf et.
+    </p>
+</footer>
+
+<script>
+    function downloadStatistikaQaydalari() {
+        const rulesContent = `STATİSTİKA - BÜTÜN QAYDALAR, DÜSTURLAR VƏ ÜSULLAR
+
+1. ƏSAS ANLAYIŞLAR:
+   • Statistika: Verilənlərin toplanması, təhlili, təfsiri və təqdim edilməsi
+   • Populyasiya: Araşdırılan bütün obyektlər
+   • Nümunə: Populyasiyadan seçilmiş hissə
+   • Vahid: Araşdırılan fərdi obyekt
+   • Dəyişən: Müxtəlif vahidlər üzrə dəyişən xarakteristika
+   • Məlumat: Dəyişənin qiyməti
+
+2. VERİLƏNLƏRİN NÖVLƏRİ:
+   A) Kəmiyyət (Kvantitativ):
+      • Davamlı: İstənilən qiymət ala bilər (boy, çəki)
+      • Diskret: Müəyyən qiymətləri alır (uşaq sayı)
+   B) Keyfiyyət (Kvalitativ):
+      • Nominal: Sırası olmayan (şəhər, qan qrupu)
+      • Sıralı: Sırası olan (təhsil səviyyəsi)
+
+3. MƏRKƏZİ MEYLLƏNME ÖLÇÜLƏRİ:
+   A) Arifmetik Orta (Mean):
+      x̄ = Σxᵢ / n
+      Tezlik cədvəli üçün: x̄ = Σ(fᵢ × xᵢ) / Σfᵢ
+   
+   B) Median (M):
+      • Verilənləri sırala
+      • n tək: M = x₍ₙ₊₁₎/₂
+      • n cüt: M = (xₙ/₂ + x₍ₙ/₂₎₊₁) / 2
+   
+   C) Moda (Mode):
+      • Ən çox təkrarlanan qiymət
+      • Növləri: Unimodal, bimodal, multimodal
+
+4. YAYILMA (DAĞILMA) ÖLÇÜLƏRİ:
+   A) Diapazon (Range):
+      R = maksimum - minimum
+   
+   B) Kvartillər (Quartiles):
+      • Q₁: 25%-ci persentil
+      • Q₂: 50%-ci persentil (Median)
+      • Q₃: 75%-ci persentil
+      • Kvartillər arası diapazon: IQR = Q₃ - Q₁
+   
+   C) Varyans (Variance):
+      • Populyasiya: σ² = Σ(xᵢ - μ)² / N
+      • Nümunə: s² = Σ(xᵢ - x̄)² / (n - 1)
+   
+   D) Standart Sapma (Standard Deviation):
+      • Populyasiya: σ = √σ²
+      • Nümunə: s = √s²
+
+5. STATİSTİKİ QRAFİKLƏR:
+   A) Sütun diaqramı: Kəmiyyət verilənləri müqayisə
+   B) Pay diaqramı (Pasta): Bütünün hissələrini göstərmək
+   C) Xətt diaqramı: Zamanla dəyişmə
+   D) Səpilmə diaqramı: İki dəyişən arasındakı əlaqə
+   E) Histoqram: Davamlı verilənlərin paylanması
+
+6. TEZLİK PAYLANMASI CƏDVƏLİ:
+   • Qiymət (xᵢ)
+   • Tezlik (fᵢ) - hər qiymətin sayı
+   • Nisbi tezlik - fᵢ / Σfᵢ
+   • Faiz tezlik - (fᵢ / Σfᵢ) × 100%
+   • Yığılmış tezlik - tezliklərin cəmi
+
+7. EHTİMAL:
+   A) Klasik tərif:
+      P(A) = n(A) / n(S)
+      n(A) - əlverişli hallar, n(S) - bütün hallar
+   
+   B) Ehtimalın xassələri:
+      1. 0 ≤ P(A) ≤ 1
+      2. P(S) = 1
+      3. P(∅) = 0
+      4. P(A') = 1 - P(A)
+
+8. NORMAL PAYLANMA:
+   • "Zəng əyrisi" forması
+   • Parametrlər: orta (μ), standart sapma (σ)
+   • Xassələri: Simmetrik, unimodal, asimptotik
+   
+   Empirik qayda (68-95-99.7):
+   • 68% verilən μ ± 1σ daxilində
+   • 95% verilən μ ± 2σ daxilində
+   • 99.7% verilən μ ± 3σ daxilində
+
+9. KORRELYASİYA VƏ REGRESSİYA:
+   A) Korrelyasiya əmsalı (r):
+      r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / √[Σ(xᵢ - x̄)² Σ(yᵢ - ȳ)²]
+      
+      Şərhi:
+      • r = +1: Mükəmməl müsbət korrelyasiya
+      • r = -1: Mükəmməl mənfi korrelyasiya
+      • r = 0: Korrelyasiya yoxdur
+      • |r| > 0.7: Güclü korrelyasiya
+   
+   B) Xətti reqressiya:
+      y = a + bx
+      b = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / Σ(xᵢ - x̄)²
+      a = ȳ - b x̄
+
+10. İNDEKSLƏR VƏ NİSBƏTLƏR:
+    • Faiz dəyişmə: % dəyişmə = [(Yeni-Köhnə)/Köhnə] × 100%
+    • Nisbət: A / B
+    • Tezlik nisbəti: Hadisələr sayı / Vaxt (və ya əhali)
+    • Orta sürət: Ümumi məsafə / Ümumi zaman
+
+11. SEÇMƏ ÜSULLARI:
+    • Təsadüfi seçmə: Hər vahidin eyni ehtimalı
+    • Sistematik seçmə: Müəyyən interval (hər 10-cu)
+    • Qruplaşdırılmış seçmə: Qruplardan nisbətli seçmə
+    • Köməkçi seçmə: Əlçatan olan vahidlər (ən az dəqiq)
+
+12. STATİSTİKİ FƏRZLƏR:
+    • Null fərz (H₀): Test edilən əsas fərziyyə
+    • Alternativ fərz (H₁): Null fərziyyənin əksi
+    • Əhəmiyyət səviyyəsi (α): I tip xətanın ehtimalı (adətən 0.05)
+    • P-qiyməti: Null fərziyyə doğru olanda ekstrem nəticə ehtimalı
+
+13. PRAKTİK QAYDALAR:
+    • Verilənləri həmişə sırala
+    • Orta, median və modanı müqayisə et
+    • Standart sapmanı hesablayarkən n-1-ə böl
+    • Qrafik qurarkən aydın başlıq və etiketlər istifadə et
+    • Faizləri hesablayarkən həmişə 100-ə vur
+    • Nəticələri real kontekstdə şərh et
+
+14. SƏHVLƏR VƏ TƏLƏBLƏR:
+    Ümumi səhvlər:
+    1. Seçmə səhvi
+    2. Ölçmə səhvi
+    3. Təsadüfi səhvlər
+    4. Sistemli səhvlər
+    5. İnsan səhvləri
+    
+    Yaxşı statistanın tələbləri:
+    1. Dəqiqlik
+    2. Etibarlılıq
+    3. Obyektivlik
+    4. Aydınlıq
+    5. Məqsədəuyğunluq
+    6. Vaxtında
+
+15. XATIRLAMA ÜSULLARI:
+    • Orta: "Hər kəsin payı"
+    • Median: "Ortadakı şəxs"
+    • Moda: "Ən məşhur"
+    • Standart sapma: "Nə qədər yayılıb"
+    • Korrelyasiya: "Birgə dəyişmə"
+    • Normal paylanma: "Zəng əyrisi"
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'statistika-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Statistika qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

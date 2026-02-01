@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ehtimal Nəzəriyyəsi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        .cedvel{
+            border:  3px solid black;
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .ustuxet{
+            text-decoration: overline;
+            margin-left: 30px;
+        }
+        .m2arginp{
+            margin-left: 60px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        .highlight-box {
+            background-color: #fffacd;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #ff9900;
+            margin: 20px 0;
+        }
+        .formula {
+            background-color: #f0f8ff;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: "Courier New", monospace;
+            margin: 10px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        .download-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .download-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            border: 2px dashed #999;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            color: #666;
+            font-weight: bold;
+        }
+        .figure-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .figure-box {
+            width: 45%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .probability-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .probability-item {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .tree-diagram {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>EHTİMAL NƏZƏRİYYƏSİ</p>
+    <h6 style="color: grey;">
+        Ehtimal nəzəriyyəsinə aid bütün qaydalar, düsturlar, xassələr və nümunələr səhifəmizdə yer alır.
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <p><strong>1. EHTİMAL NƏDİR?</strong></p>
+    <p class="marginp">Ehtimal - təsadüfi hadisənin baş vermə imkanının ölçüsüdür. 0 ilə 1 arasında dəyişir.</p>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 1: Ehtimal şkalası - 0-dan 1-ə qədər]
+    </div>
+    
+    <p><strong>2. ƏSAS TERMİNLƏR:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel" style="width: 100%;">
+            <tr class="cedvel">
+                <th class="cedvel">Termin</th>
+                <th class="cedvel">Tərifi</th>
+                <th class="cedvel">Nümunə</th>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Təcrübə</td>
+                <td class="cedvel">Müşahidə və ya ölçmə prosesi</td>
+                <td class="cedvel">Zər atmaq</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Nəticə</td>
+                <td class="cedvel">Təcrübənin mümkün nəticələri</td>
+                <td class="cedvel">1, 2, 3, 4, 5, 6</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Hadisə</td>
+                <td class="cedvel">Nəticələrin alt çoxluğu</td>
+                <td class="cedvel">Cüt ədəd</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Elementar hadisə</td>
+                <td class="cedvel">Tək nəticə</td>
+                <td class="cedvel">"5" almaq</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 2: Təcrübə, nəticə və hadisə münasibəti]
+    </div>
+    
+    <p><strong>3. HADİSƏ NÖVLƏRİ:</strong></p>
+    <div class="probability-grid">
+        <div class="probability-item">
+            <div class="image-placeholder" style="height: 80px;">
+                [Mümkün hadisə]
+            </div>
+            <p><strong>Mümkün</strong><br>P(A) > 0</p>
+        </div>
+        <div class="probability-item">
+            <div class="image-placeholder" style="height: 80px;">
+                [Müstəqil hadisə]
+            </div>
+            <p><strong>Müstəqil</strong><br>P(A∩B)=P(A)P(B)</p>
+        </div>
+        <div class="probability-item">
+            <div class="image-placeholder" style="height: 80px;">
+                [Birgə hadisə]
+            </div>
+            <p><strong>Birgə</strong><br>A∩B ≠ ∅</p>
+        </div>
+        <div class="probability-item">
+            <div class="image-placeholder" style="height: 80px;">
+                [Qarşılıqlı hadisə]
+            </div>
+            <p><strong>Qarşılıqlı</strong><br>A∩B = ∅</p>
+        </div>
+        <div class="probability-item">
+            <div class="image-placeholder" style="height: 80px;">
+                [Əks hadisə]
+            </div>
+            <p><strong>Əks hadisə</strong><br>Ā = Ω\A</p>
+        </div>
+        <div class="probability-item">
+            <div class="image-placeholder" style="height: 80px;">
+                [Müəyyən hadisə]
+            </div>
+            <p><strong>Müəyyən</strong><br>P(Ω) = 1</p>
+        </div>
+    </div>
+    
+    <p><strong>4. KLASİK EHTİMAL DÜSTURU (LAPLAS):</strong></p>
+    <div class="formula">
+        P(A) = n(A) / n(Ω)
+        <br>Burada:
+        <br>P(A) - A hadisəsinin ehtimalı
+        <br>n(A) - A hadisəsinə əlverişli halların sayı
+        <br>n(Ω) - bütün bərabər ehtimallı halların sayı
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 3: Klasik ehtimalın vizual təsviri]
+    </div>
+    
+    <p><strong>5. EHTİMALIN XASSƏLƏRİ:</strong></p>
+    <div class="highlight-box">
+        <p><strong>1. Qeyri-mənfilik:</strong> 0 ≤ P(A) ≤ 1</p>
+        <p><strong>2. Normallaşma:</strong> P(Ω) = 1</p>
+        <p><strong>3. Əlavəlik:</strong> Əgər A və B qarşılıqlı hadisələrdirsə, onda P(A∪B) = P(A) + P(B)</p>
+        <p><strong>4. Tam qrup qaydası:</strong> Əgər A₁, A₂, ..., Aₙ hadisələri tam qrup təşkil edirsə, onda P(A₁) + P(A₂) + ... + P(Aₙ) = 1</p>
+        <p><strong>5. Əks hadisə:</strong> P(Ā) = 1 - P(A)</p>
+    </div>
+    
+    <p><strong>6. EHTİMALLARIN TOPLANMASI QAYDASI:</strong></p>
+    <p class="marginp"><strong>A. Qarşılıqlı hadisələr üçün:</strong></p>
+    <div class="formula">
+        P(A∪B) = P(A) + P(B)
+    </div>
+    
+    <p class="marginp"><strong>B. İstənilən hadisələr üçün:</strong></p>
+    <div class="formula">
+        P(A∪B) = P(A) + P(B) - P(A∩B)
+    </div>
+    
+    <p class="marginp"><strong>C. Üç hadisə üçün:</strong></p>
+    <div class="formula">
+        P(A∪B∪C) = P(A) + P(B) + P(C) - P(A∩B) - P(A∩C) - P(B∩C) + P(A∩B∩C)
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 4: Venn diaqramları ilə ehtimalların toplanması]
+    </div>
+    
+    <p><strong>7. EHTİMALLARIN VURULMASI QAYDASI:</strong></p>
+    <p class="marginp"><strong>A. Müstəqil hadisələr üçün:</strong></p>
+    <div class="formula">
+        P(A∩B) = P(A) × P(B)
+    </div>
+    
+    <p class="marginp"><strong>B. Asılı hadisələr üçün:</strong></p>
+    <div class="formula">
+        P(A∩B) = P(A) × P(B|A)
+        <br>Burada P(B|A) - A hadisəsi baş verdikdən sonra B hadisəsinin ehtimalı
+    </div>
+    
+    <div class="tree-diagram">
+        <div class="image-placeholder" style="height: 150px;">
+            [ŞƏKİL 5: Ehtimal ağacı diaqramı]
+        </div>
+        <p>Ehtimal ağacı - ardıcıl hadisələrin ehtimallarını göstərmək üçün</p>
+    </div>
+    
+    <p><strong>8. ŞƏRTİ EHTİMAL:</strong></p>
+    <p class="marginp">B hadisəsi baş verdikdə A hadisəsinin baş vermə ehtimalı:</p>
+    <div class="formula">
+        P(A|B) = P(A∩B) / P(B),   P(B) > 0
+    </div>
+    
+    <p class="marginp"><strong>Şərti ehtimalın xassələri:</strong></p>
+    <p class="m2arginp">1. 0 ≤ P(A|B) ≤ 1</p>
+    <p class="m2arginp">2. P(Ω|B) = 1</p>
+    <p class="m2arginp">3. P(A₁∪A₂|B) = P(A₁|B) + P(A₂|B) - P(A₁∩A₂|B)</p>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 6: Şərti ehtimalın həndəsi izahı]
+    </div>
+    
+    <p><strong>9. BAYES DÜSTURU:</strong></p>
+    <p class="marginp">Səbəb və nəticə arasındakı əlaqəni təyin etmək üçün:</p>
+    <div class="formula">
+        P(Aᵢ|B) = [P(Aᵢ) × P(B|Aᵢ)] / Σ[P(Aⱼ) × P(B|Aⱼ)]
+        <br>j = 1-dən n-ə qədər
+    </div>
+    
+    <p><strong>10. KOMBİNATORİKANIN EHTİMALDA İSTİFADƏSİ:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel" style="width: 100%;">
+            <tr class="cedvel">
+                <th class="cedvel">Kombinatorika</th>
+                <th class="cedvel">Düstur</th>
+                <th class="cedvel">Ehtimalda istifadəsi</th>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Permutasiya</td>
+                <td class="cedvel">Pₙ = n!</td>
+                <td class="cedvel">Sıralama ehtimalı</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Varia siya</td>
+                <td class="cedvel">Aₙᵏ = n!/(n-k)!</td>
+                <td class="cedvel">Seçib sıralama</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Kombinasiya</td>
+                <td class="cedvel">Cₙᵏ = n!/[k!(n-k)!]</td>
+                <td class="cedvel">Seçmə ehtimalı</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 7: Kombinatorika elementlərinin ehtimalda tətbiqi]
+    </div>
+    
+    <p><strong>11. EHTİMAL PAYLANMASI:</strong></p>
+    <p class="marginp"><strong>A. Binom paylanması:</strong> n müstəqil sınaqda uğurların sayı</p>
+    <div class="formula">
+        P(X=k) = Cₙᵏ × pᵏ × (1-p)ⁿ⁻ᵏ
+        <br>p - uğur ehtimalı, n - sınaq sayı, k - uğur sayı
+    </div>
+    
+    <p class="marginp"><strong>B. Puasson paylanması:</strong> Nadir hadisələrin sayı</p>
+    <div class="formula">
+        P(X=k) = (λᵏ × e⁻λ) / k!
+        <br>λ - orta hadisə sayı
+    </div>
+    
+    <div class="figure-container">
+        <div class="figure-box">
+            <div class="image-placeholder" style="height: 120px;">
+                [Binom paylanma qrafiki]
+            </div>
+            <p>Binom paylanma</p>
+        </div>
+        <div class="figure-box">
+            <div class="image-placeholder" style="height: 120px;">
+                [Puasson paylanma qrafiki]
+            </div>
+            <p>Puasson paylanma</p>
+        </div>
+    </div>
+    
+    <p><strong>12. RİYAZİ ÜMID (GÖZLƏNİLƏN DƏYƏR):</strong></p>
+    <div class="formula">
+        E(X) = Σ [xᵢ × P(xᵢ)]
+        <br>i = 1-dən n-ə qədər
+    </div>
+    
+    <p><strong>13. DISPERSİYA (DAĞILMA):</strong></p>
+    <div class="formula">
+        D(X) = E[(X - E(X))²] = E(X²) - [E(X)]²
+    </div>
+    
+    <p><strong>14. STANDART SAPMA:</strong></p>
+    <div class="formula">
+        σ = √D(X)
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 8: Riyazi ümid və dispersiyanın vizual təsviri]
+    </div>
+    
+    <p><strong>15. ÇOXLUQ EHTİMALLARI:</strong></p>
+    <p class="marginp"><strong>A. Orta hesabla:</strong> n sayda müstəqil sınaqda hadisənin baş vermə tezliyi p-ə yaxınlaşır.</p>
+    
+    <p class="marginp"><strong>B. Mərkəzi limit teoremi:</strong> Kifayət qədər çox müstəqil təsadüfi kəmiyyətin cəmi normal paylanmaya yaxınlaşır.</p>
+    
+    <p><strong>16. PRAKTİK MƏSƏLƏ NÜMUNƏLƏRİ:</strong></p>
+    <div class="highlight-box">
+        <p><strong>Məsələ 1:</strong> Bir zər atılır. Cüt ədəd alınma ehtimalını tapın.</p>
+        <p><strong>Həll:</strong></p>
+        <p>1. Bütün hallar: n(Ω) = 6</p>
+        <p>2. Əlverişli hallar: A = {2, 4, 6} → n(A) = 3</p>
+        <p>3. P(A) = 3/6 = 1/2 = 0.5</p>
+        <p><strong>Cavab:</strong> 0.5</p>
+        
+        <p><strong>Məsələ 2:</strong> Torbada 3 ağ, 4 qara top var. Təsadüfi 2 top götürülür. Hər ikisinin ağ olma ehtimalı?</p>
+        <p><strong>Həll:</strong></p>
+        <p>1. C(7,2) = 21 (bütün hallar)</p>
+        <p>2. C(3,2) = 3 (əlverişli hallar)</p>
+        <p>3. P = 3/21 = 1/7 ≈ 0.1429</p>
+        <p><strong>Cavab:</strong> 1/7</p>
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 9: Kart oyunları və top seçmə problemləri]
+    </div>
+    
+    <p><strong>17. XÜSUSİ EHTİMAL HESABLAMALARI:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel" style="width: 100%;">
+            <tr class="cedvel">
+                <th class="cedvel">Vəziyyət</th>
+                <th class="cedvel">Düstur</th>
+                <th class="cedvel">Qeyd</th>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Ən azı bir</td>
+                <td class="cedvel">P(ən azı 1) = 1 - P(heç biri)</td>
+                <td class="cedvel">Əks hadisədən istifadə</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Tamamilə qarşılıqlı</td>
+                <td class="cedvel">P(A∪B) = P(A) + P(B)</td>
+                <td class="cedvel">A∩B = ∅</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Müstəqil və birgə</td>
+                <td class="cedvel">P(A∩B) = P(A)P(B)</td>
+                <td class="cedvel">A və B müstəqil</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 10: Ehtimal cədvəlləri və matrisləri]
+    </div>
+    
+    <p><strong>18. XATIRLAMA ÜSULLARI:</strong></p>
+    <div class="highlight-box">
+        <p>• Ehtimal həmişə 0 ilə 1 arasındadır: 0 ≤ P ≤ 1</p>
+        <p>• "Ən azı bir" = 1 - "Heç biri"</p>
+        <p>• "Ya A, ya B" = P(A) + P(B) - P(A və B)</p>
+        <p>• "A və B" = P(A) × P(B|A)</p>
+        <p>• Qarşılıqlı hadisələr: "ya/ya da"</p>
+        <p>• Birgə hadisələr: "həm/həm də"</p>
+    </div>
+
+    <p style="margin-left: auto;margin-right: auto; text-align: center; margin-top: 30px;">
+        <i>Hazırlayan: Amin Xudizade | Mənbələr: Azərbaycan məktəb proqramı | Güven nəşriyyatı | DIM proqramı</i>
+    </p>
+
+    <p class="p1">Hazırsınızsa, quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='naturalquiz.html'">Başla</button>
+    </div>
+    
+    <!-- Fayl yükləmə bölməsi -->
+    <div class="download-section">
+        <h3>Qaydaları Yüklə</h3>
+        <p>Ehtimal nəzəriyyəsinə aid bütün qaydaları və düsturları yükləyin:</p>
+        <button class="download-btn" onclick="downloadEhtimalQaydalari()">
+            📥 Qaydaları Yüklə (TXT)
+        </button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Bizimlə öyrən, bizimlə inkişaf et.
+    </p>
+</footer>
+
+<script>
+    function downloadEhtimalQaydalari() {
+        const rulesContent = `EHTİMAL NƏZƏRİYYƏSİ - BÜTÜN QAYDALAR VƏ DÜSTURLAR
+
+1. EHTİMAL NƏDİR?
+   • Tərif: Təsadüfi hadisənin baş vermə imkanının ölçüsü
+   • Qiymət aralığı: 0 ≤ P(A) ≤ 1
+   • 0: mümkün olmayan hadisə
+   • 1: müəyyən hadisə
+
+2. ƏSAS TERMİNLƏR:
+   • Təcrübə: Müşahidə və ya ölçmə prosesi
+   • Nəticə: Təcrübənin mümkün nəticələri
+   • Hadisə: Nəticələrin alt çoxluğu
+   • Elementar hadisə: Tək nəticə
+   • Nümunə fəzası (Ω): Bütün mümkün nəticələrin çoxluğu
+
+3. HADİSƏ NÖVLƏRİ:
+   • Mümkün hadisə: P(A) > 0
+   • Müstəqil hadisə: P(A∩B) = P(A)P(B)
+   • Asılı hadisə: P(A∩B) ≠ P(A)P(B)
+   • Birgə hadisə: A∩B ≠ ∅
+   • Qarşılıqlı hadisə: A∩B = ∅
+   • Əks hadisə: Ā = Ω\A
+   • Müəyyən hadisə: P(Ω) = 1
+   • Mümkün olmayan: P(∅) = 0
+
+4. KLASİK EHTİMAL DÜSTURU (LAPLAS):
+   • P(A) = n(A) / n(Ω)
+   • n(A) - A hadisəsinə əlverişli hallar
+   • n(Ω) - bütün bərabər ehtimallı hallar
+   • Şərt: Bütün nəticələr bərabər ehtimallı olmalıdır
+
+5. EHTİMALIN ƏSAS XASSƏLƏRİ:
+   1. Qeyri-mənfilik: 0 ≤ P(A) ≤ 1
+   2. Normallaşma: P(Ω) = 1
+   3. Əlavəlik: A∩B = ∅ olduqda, P(A∪B) = P(A) + P(B)
+   4. Tam qrup qaydası: A₁∪A₂∪...∪Aₙ = Ω olduqda, ΣP(Aᵢ) = 1
+   5. Əks hadisə: P(Ā) = 1 - P(A)
+
+6. EHTİMALLARIN TOPLANMASI QAYDASI:
+   • Qarşılıqlı hadisələr: P(A∪B) = P(A) + P(B)
+   • İstənilən hadisələr: P(A∪B) = P(A) + P(B) - P(A∩B)
+   • Üç hadisə: P(A∪B∪C) = P(A)+P(B)+P(C)-P(A∩B)-P(A∩C)-P(B∩C)+P(A∩B∩C)
+   • "Ən azı bir": P(ən azı 1) = 1 - P(heç biri)
+
+7. EHTİMALLARIN VURULMASI QAYDASI:
+   • Müstəqil hadisələr: P(A∩B) = P(A) × P(B)
+   • Asılı hadisələr: P(A∩B) = P(A) × P(B|A)
+   • Üç hadisə: P(A∩B∩C) = P(A) × P(B|A) × P(C|A∩B)
+
+8. ŞƏRTİ EHTİMAL:
+   • P(A|B) = P(A∩B) / P(B), P(B) > 0
+   • Xassələri:
+     1. 0 ≤ P(A|B) ≤ 1
+     2. P(Ω|B) = 1
+     3. P(A₁∪A₂|B) = P(A₁|B) + P(A₂|B) - P(A₁∩A₂|B)
+
+9. BAYES TEOREMİ:
+   • P(Aᵢ|B) = [P(Aᵢ) × P(B|Aᵢ)] / Σ[P(Aⱼ) × P(B|Aⱼ)]
+   • j = 1-dən n-ə qədər
+   • Səbəb-nəticə əlaqəsi üçün
+
+10. KOMBİNATORİKA DÜSTURLARI:
+    • Permutasiya: Pₙ = n! = n×(n-1)×...×2×1
+    • Varia siya: Aₙᵏ = n!/(n-k)!
+    • Kombinasiya: Cₙᵏ = n!/[k!(n-k)!] = (n k)
+    • Qeyd: n! = 1×2×3×...×n, 0! = 1
+
+11. EHTİMAL PAYLANMALARI:
+    A. BİNOM PAYLANMASI:
+       • P(X=k) = Cₙᵏ × pᵏ × (1-p)ⁿ⁻ᵏ
+       • n - sınaq sayı, p - uğur ehtimalı, k - uğur sayı
+       • Riyazi ümid: E(X) = np
+       • Dispersiya: D(X) = np(1-p)
+    
+    B. PUASSON PAYLANMASI:
+       • P(X=k) = (λᵏ × e⁻λ) / k!
+       • λ - orta hadisə sayı
+       • Riyazi ümid: E(X) = λ
+       • Dispersiya: D(X) = λ
+
+12. STATİSTİKİ XARAKTERİSTİKALAR:
+    • Riyazi ümid (Gözlənilən dəyər): E(X) = Σ[xᵢ × P(xᵢ)]
+    • Dispersiya (Dağılma): D(X) = E[(X - E(X))²] = E(X²) - [E(X)]²
+    • Standart sapma: σ = √D(X)
+    • Variasiya: V(X) = D(X)
+
+13. ÇOXLUQ EHTİMALLARI:
+    • Orta hesabla: n→∞ olduqda, tezlik → ehtimal
+    • Mərkəzi limit teoremi: Çoxlu müstəqil kəmiyyətin cəmi normal paylanır
+
+14. XÜSUSİ DÜSTURLAR:
+    • Tam ehtimal düsturu: P(B) = ΣP(Aᵢ)P(B|Aᵢ)
+    • "Ən azı bir" problemi: P = 1 - (1-p)ⁿ
+    • Ardıcıl müstəqil sınaqlar: P = p₁ × p₂ × ... × pₙ
+
+15. PRAKTİK MƏSƏLƏ NÜMUNƏLƏRİ:
+    Məsələ 1: Zər atılır. 5 və ya 6 alınma ehtimalı:
+    Həll: P = 2/6 = 1/3 ≈ 0.333
+    
+    Məsələ 2: Torbada 5 ağ, 3 qara top. 2 top təsadüfi seçilir:
+    a) Hər ikisi ağ: P = C(5,2)/C(8,2) = 10/28 = 5/14
+    b) Ən azı biri qara: P = 1 - P(hər ikisi ağ) = 1 - 5/14 = 9/14
+    
+    Məsələ 3: 3 zər eyni anda atılır. Ümumi cəmin 10 olma ehtimalı:
+    Həll: Bütün hallar: 6³ = 216
+    Əlverişli hallar: 27
+    P = 27/216 = 1/8 = 0.125
+
+16. XATIRLAMA ÜSULLARI:
+    • Ehtimal həmişə 0-1 arası: "0% ilə 100% arası"
+    • "Və" = vurma (×), "və ya" = toplama (+)
+    • Qarşılıqlı hadisələr: "Ya A, ya B" = P(A) + P(B)
+    • Birgə hadisələr: "Həm A, həm də B" = P(A)P(B) [müstəqilsə]
+    • Şərti ehtimal: "A olduqda B" = P(B|A) = P(A∩B)/P(A)
+    • Ən azı bir: "1 minus heç biri"
+
+ƏHƏMİYYƏTLİ QEYDLƏR:
+1. Bütün halların bərabər ehtimallı olması şərti
+2. Vurma qaydası: "və" üçün, toplama qaydası: "və ya" üçün
+3. Müstəqillik yoxlanılmalıdır, fərz edilməməlidir
+4. Kombinatorikadan düzgün istifadə
+5. Vahidlərin uyğunluğu
+6. Nəticələrin tamlığı (bütün mümkün hallar)
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'ehtimal-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Ehtimal nəzəriyyəsi qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

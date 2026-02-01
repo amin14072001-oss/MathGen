@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funksiya və Qrafiklər - Bütün Qaydalar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black ;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        .cedvel{
+            border: 3px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .cedvel th, .cedvel td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        
+        /* Yeni üslublar */
+        .download-btn {
+            display: block;
+            width: 400px;
+            margin: 30px auto;
+            padding: 15px 25px;
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            background: linear-gradient(45deg, #2E7D32, #1B5E20);
+        }
+        .formula-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .example-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .note-box {
+            background-color: #e8f5e8;
+            border: 2px dashed #4CAF50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .warning-box {
+            background-color: #ffebee;
+            border: 2px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .definition {
+            color: #1565c0;
+            font-weight: bold;
+        }
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .section-title {
+            background: linear-gradient(to right, #9C27B0, #673AB7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 25px 0 15px 0;
+            font-size: 22px;
+        }
+        .graph-container {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px dashed #9C27B0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        .graph-placeholder {
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #e0e0e0;
+            border: 2px solid #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-weight: bold;
+        }
+        .two-graphs {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .graph-with-caption {
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+        }
+        .graph-title {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+        .coordinate-system {
+            background-color: white;
+            border: 2px solid #333;
+        }
+        .function-example {
+            background-color: #f3e5f5;
+            border-left: 4px solid #9C27B0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .code {
+            font-family: 'Courier New', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Funksiya və Qrafiklər</p>
+    <h6 style="color: grey;">
+        Funksiyaların bütün növləri, xassələri, qrafikləri və qaydaları səhifəmizdə yer alır.
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <!-- Şəkil yeri 1: Koordinat sistemi -->
+    <div class="graph-container">
+        <p><strong>Şəkil 1: Dekart koordinat sistemi</strong></p>
+        <div class="graph-placeholder">
+            KOORDİNAT SİSTEMİ<br>X oxu, Y oxu, başlanğıc nöqtəsi (0,0)
+        </div>
+        <p class="graph-title">X oxu üfüqi, Y oxu şaquli, (0,0) başlanğıc nöqtəsidir</p>
+    </div>
+
+    <div class="section-title">1. FUNKSİYANIN TƏRİFİ VƏ ƏSAS ANLAYIŞLAR</div>
+    
+    <p><span class="definition">Tərif:</span> Bir çoxluqdan (təyinetmə oblastı) digər çoxluğa (qiymətlər çoxluğu) hər bir elementə yalnız bir element uyğun gətirən əlaqə.</p>
+    
+    <div class="formula-box">
+        <p><strong>Funksiyanın komponentləri:</strong></p>
+        <p class="marginp">• Təyinetmə oblastı (D(f)): Müstəqil dəyişənin ala biləcəyi qiymətlər</p>
+        <p class="marginp">• Qiymətlər çoxluğu (E(f)): Asılı dəyişənin ala biləcəyi qiymətlər</p>
+        <p class="marginp">• Müstəqil dəyişən (x): Arqument</p>
+        <p class="marginp">• Asılı dəyişən (y): Funksiya qiyməti</p>
+        <p class="marginp">• Qrafik: Koordinat müstəvisində (x, f(x)) nöqtələrinin çoxluğu</p>
+    </div>
+
+    <div class="function-example">
+        <p><strong>Nümunə:</strong> f(x) = 2x + 3</p>
+        <p class="marginp">• x = 1 → f(1) = 2(1) + 3 = 5</p>
+        <p class="marginp">• x = 2 → f(2) = 2(2) + 3 = 7</p>
+        <p class="marginp">• (1,5) və (2,7) nöqtələri qrafik üzərindədir</p>
+    </div>
+
+    <div class="section-title">2. FUNKSİYA YAZILIŞ FORMLARI</div>
+    
+    <div class="table-container">
+        <table class="cedvel">
+            <tr>
+                <th>Yazılış forması</th>
+                <th>Nümunə</th>
+                <th>İzahı</th>
+            </tr>
+            <tr>
+                <td>Analitik</td>
+                <td>f(x) = x² + 2x - 3</td>
+                <td>Düsturla verilir</td>
+            </tr>
+            <tr>
+                <td>Cədvəl</td>
+                <td>x: 1, 2, 3<br>f(x): 4, 7, 10</td>
+                <td>Qiymətlər cədvəli</td>
+            </tr>
+            <tr>
+                <td>Qrafik</td>
+                <td>Koordinat müstəvisində əyri</td>
+                <td>Qrafik şəklində</td>
+            </tr>
+            <tr>
+                <td>Şərtli</td>
+                <td>f(x) = {x², x≥0; -x, x<0}</td>
+                <td>Şərtlərlə verilir</td>
+            </tr>
+            <tr>
+                <td>Sözlə</td>
+                <td>"Hər ədədin kvadratı"</td>
+                <td>Sözlə ifadə</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-title">3. FUNKSİYANIN XASSƏLƏRİ</div>
+    
+    <div class="formula-box">
+        <p><strong>1. Cüt və tək funksiyalar:</strong></p>
+        <p class="marginp highlight">• Cüt funksiya: f(-x) = f(x) (Qrafik Y oxuna görə simmetrik)</p>
+        <p class="marginp highlight">• Tək funksiya: f(-x) = -f(x) (Qrafik başlanğıca görə simmetrik)</p>
+        
+        <p><strong>2. Artan və azalan funksiyalar:</strong></p>
+        <p class="marginp highlight">• Artan: x₁ < x₂ → f(x₁) < f(x₂)</p>
+        <p class="marginp highlight">• Azalan: x₁ < x₂ → f(x₁) > f(x₂)</p>
+        
+        <p><strong>3. Məhdud funksiyalar:</strong></p>
+        <p class="marginp">• Yuxarıdan məhdud: ∃M: f(x) ≤ M</p>
+        <p class="marginp">• Aşağıdan məhdud: ∃m: f(x) ≥ m</p>
+        <p class="marginp">• Məhdud: Hər ikisi eyni vaxtda</p>
+        
+        <p><strong>4. Periodik funksiyalar:</strong></p>
+        <p class="marginp highlight">• f(x + T) = f(x) (T - period)</p>
+    </div>
+
+    <!-- Şəkil yeri 2: Cüt və tək funksiyalar -->
+    <div class="graph-container">
+        <p><strong>Şəkil 2: Cüt və tək funksiyaların qrafikləri</strong></p>
+        <div class="two-graphs">
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 220px; height: 180px;">
+                    CÜT FUNKSİYA<br>(Y oxuna görə simmetrik)
+                </div>
+                <p class="graph-title">f(x) = x² (parabola)</p>
+            </div>
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 220px; height: 180px;">
+                    TƏK FUNKSİYA<br>(Başlanğıca görə simmetrik)
+                </div>
+                <p class="graph-title">f(x) = x³ (kub parabola)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">4. ƏSAS ELEMENTAR FUNKSİYALAR</div>
+
+    <div class="formula-box">
+        <p><strong>1. Xətti funksiya:</strong></p>
+        <p class="marginp highlight">f(x) = kx + b</p>
+        <p class="marginp">• k - bucaq əmsalı, b - sərbəst hədd</p>
+        <p class="marginp">• Qrafik: Düz xətt</p>
+        <p class="marginp">• k > 0: Artan, k < 0: Azalan</p>
+    </div>
+
+    <!-- Şəkil yeri 3: Xətti funksiyalar -->
+    <div class="graph-container">
+        <p><strong>Şəkil 3: Xətti funksiyaların qrafikləri</strong></p>
+        <div class="graph-placeholder">
+            XƏTTİ FUNKSİYALAR<br>f(x) = kx + b<br>k müxtəlif qiymətləri üçün
+        </div>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. Kvadrat funksiya:</strong></p>
+        <p class="marginp highlight">f(x) = ax² + bx + c (a ≠ 0)</p>
+        <p class="marginp">• Qrafik: Parabola</p>
+        <p class="marginp">• a > 0: Budaqları yuxarı, a < 0: Budaqları aşağı</p>
+        <p class="marginp">• Təpə nöqtəsi: x₀ = -b/(2a), y₀ = f(x₀)</p>
+        <p class="marginp">• Diskriminant: D = b² - 4ac</p>
+    </div>
+
+    <!-- Şəkil yeri 4: Kvadrat funksiyalar -->
+    <div class="graph-container">
+        <p><strong>Şəkil 4: Kvadrat funksiyalar (parabollar)</strong></p>
+        <div class="two-graphs">
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 220px; height: 180px;">
+                    a > 0<br>Budaqları yuxarı
+                </div>
+                <p class="graph-title">f(x) = x²</p>
+            </div>
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 220px; height: 180px;">
+                    a < 0<br>Budaqları aşağı
+                </div>
+                <p class="graph-title">f(x) = -x²</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>3. Güc funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = xⁿ</p>
+        <p class="marginp">• n cüt: Cüt funksiya, qrafik Y oxuna görə simmetrik</p>
+        <p class="marginp">• n tək: Tək funksiya, qrafik başlanğıca görə simmetrik</p>
+        <p class="marginp">• n > 0: Artan, n < 0: Azalan</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>4. Kök funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = √x</p>
+        <p class="marginp">• Təyinetmə oblastı: x ≥ 0</p>
+        <p class="marginp">• Qiymətlər çoxluğu: y ≥ 0</p>
+        <p class="marginp">• Artan funksiya</p>
+    </div>
+
+    <!-- Şəkil yeri 5: Kök funksiyası -->
+    <div class="graph-container">
+        <p><strong>Şəkil 5: Kök funksiyasının qrafiki</strong></p>
+        <div class="graph-placeholder">
+            KÖK FUNKSİYASI<br>f(x) = √x<br>Təyinetmə: x ≥ 0
+        </div>
+    </div>
+
+    <div class="section-title">5. TRİQONOMETRİK FUNKSİYALAR</div>
+
+    <div class="formula-box">
+        <p><strong>1. Sinus funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = sin x</p>
+        <p class="marginp">• Təyinetmə oblastı: R (bütün həqiqi ədədlər)</p>
+        <p class="marginp">• Qiymətlər çoxluğu: [-1, 1]</p>
+        <p class="marginp">• Period: 2π</p>
+        <p class="marginp">• Tək funksiya: sin(-x) = -sin x</p>
+    </div>
+
+    <!-- Şəkil yeri 6: Sinus funksiyası -->
+    <div class="graph-container">
+        <p><strong>Şəkil 6: Sinus funksiyasının qrafiki</strong></p>
+        <div class="graph-placeholder">
+            SİNUS FUNKSİYASI<br>f(x) = sin x<br>Period: 2π, Qiymətlər: [-1, 1]
+        </div>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. Kosinus funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = cos x</p>
+        <p class="marginp">• Təyinetmə oblastı: R</p>
+        <p class="marginp">• Qiymətlər çoxluğu: [-1, 1]</p>
+        <p class="marginp">• Period: 2π</p>
+        <p class="marginp">• Cüt funksiya: cos(-x) = cos x</p>
+    </div>
+
+    <!-- Şəkil yeri 7: Kosinus funksiyası -->
+    <div class="graph-container">
+        <p><strong>Şəkil 7: Kosinus funksiyasının qrafiki</strong></p>
+        <div class="graph-placeholder">
+            KOSİNUS FUNKSİYASI<br>f(x) = cos x<br>Period: 2π, Cüt funksiya
+        </div>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>3. Tangens funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = tan x = sin x / cos x</p>
+        <p class="marginp">• Təyinetmə: x ≠ π/2 + πk, k∈Z</p>
+        <p class="marginp">• Qiymətlər: R</p>
+        <p class="marginp">• Period: π</p>
+        <p class="marginp">• Tək funksiya</p>
+    </div>
+
+    <!-- Şəkil yeri 8: Tangens funksiyası -->
+    <div class="graph-container">
+        <p><strong>Şəkil 8: Tangens funksiyasının qrafiki</strong></p>
+        <div class="graph-placeholder">
+            TANGENS FUNKSİYASI<br>f(x) = tan x<br>Asimptotları olan funksiya
+        </div>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>4. Kotangens funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = cot x = cos x / sin x</p>
+        <p class="marginp">• Təyinetmə: x ≠ πk, k∈Z</p>
+        <p class="marginp">• Qiymətlər: R</p>
+        <p class="marginp">• Period: π</p>
+        <p class="marginp">• Tək funksiya</p>
+    </div>
+
+    <div class="section-title">6. GÖSTƏRİCİ VƏ LOQARİFMİK FUNKSİYALAR</div>
+
+    <div class="formula-box">
+        <p><strong>1. Göstərici funksiya:</strong></p>
+        <p class="marginp highlight">f(x) = aˣ (a > 0, a ≠ 1)</p>
+        <p class="marginp">• Təyinetmə: R</p>
+        <p class="marginp">• Qiymətlər: (0, ∞)</p>
+        <p class="marginp">• a > 1: Artan</p>
+        <p class="marginp">• 0 < a < 1: Azalan</p>
+        <p class="marginp">• Qrafik həmişə (0,1) nöqtəsindən keçir</p>
+    </div>
+
+    <!-- Şəkil yeri 9: Göstərici funksiyalar -->
+    <div class="graph-container">
+        <p><strong>Şəkil 9: Göstərici funksiyaların qrafikləri</strong></p>
+        <div class="two-graphs">
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 220px; height: 180px;">
+                    a > 1<br>Artan funksiya
+                </div>
+                <p class="graph-title">f(x) = 2ˣ</p>
+            </div>
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 220px; height: 180px;">
+                    0 < a < 1<br>Azalan funksiya
+                </div>
+                <p class="graph-title">f(x) = (1/2)ˣ</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>2. Loqarifmik funksiya:</strong></p>
+        <p class="marginp highlight">f(x) = logₐ x (a > 0, a ≠ 1)</p>
+        <p class="marginp">• Təyinetmə: (0, ∞)</p>
+        <p class="marginp">• Qiymətlər: R</p>
+        <p class="marginp">• a > 1: Artan</p>
+        <p class="marginp">• 0 < a < 1: Azalan</p>
+        <p class="marginp">• Qrafik həmişə (1,0) nöqtəsindən keçir</p>
+    </div>
+
+    <!-- Şəkil yeri 10: Loqarifmik funksiyalar -->
+    <div class="graph-container">
+        <p><strong>Şəkil 10: Loqarifmik funksiyaların qrafikləri</strong></p>
+        <div class="two-graphs">
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 220px; height: 180px;">
+                    a > 1<br>Artan funksiya
+                </div>
+                <p class="graph-title">f(x) = log₂ x</p>
+            </div>
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 220px; height: 180px;">
+                    0 < a < 1<br>Azalan funksiya
+                </div>
+                <p class="graph-title">f(x) = log₁/₂ x</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">7. QRAFİKLƏRİN ÇEVİLMƏLƏRİ</div>
+
+    <div class="formula-box">
+        <p><strong>1. Paralel köçürmə:</strong></p>
+        <p class="marginp highlight">• Sağa: f(x) → f(x - a)</p>
+        <p class="marginp highlight">• Sola: f(x) → f(x + a)</p>
+        <p class="marginp highlight">• Yuxarı: f(x) → f(x) + b</p>
+        <p class="marginp highlight">• Aşağı: f(x) → f(x) - b</p>
+        
+        <p><strong>2. Simmetriya:</strong></p>
+        <p class="marginp highlight">• X oxuna: f(x) → -f(x)</p>
+        <p class="marginp highlight">• Y oxuna: f(x) → f(-x)</p>
+        <p class="marginp highlight">• Başlanğıca: f(x) → -f(-x)</p>
+        
+        <p><strong>3. Uzatma-sıxılma:</strong></p>
+        <p class="marginp highlight">• Üfüqi: f(x) → f(kx)</p>
+        <p class="marginp">k > 1: Sıxılma, 0 < k < 1: Uzatma</p>
+        <p class="marginp highlight">• Şaquli: f(x) → k·f(x)</p>
+        <p class="marginp">k > 1: Uzatma, 0 < k < 1: Sıxılma</p>
+    </div>
+
+    <!-- Şəkil yeri 11: Qrafik çevrilmələri -->
+    <div class="graph-container">
+        <p><strong>Şəkil 11: Qrafik çevrilmələrinin nümunələri</strong></p>
+        <div class="graph-placeholder">
+            QRAFİK ÇEVİLMƏLƏRİ<br>Paralel köçürmə, simmetriya, uzatma-sıxılma
+        </div>
+    </div>
+
+    <div class="section-title">8. FUNKSİYALAR ÜZRƏ ƏMƏLLƏR</div>
+
+    <div class="formula-box">
+        <p><strong>1. Cəm və fərq:</strong></p>
+        <p class="marginp highlight">(f ± g)(x) = f(x) ± g(x)</p>
+        
+        <p><strong>2. Hasil:</strong></p>
+        <p class="marginp highlight">(f·g)(x) = f(x)·g(x)</p>
+        
+        <p><strong>3. Nisbət:</strong></p>
+        <p class="marginp highlight">(f/g)(x) = f(x)/g(x) (g(x) ≠ 0)</p>
+        
+        <p><strong>4. Mürəkkəb funksiya:</strong></p>
+        <p class="marginp highlight">(f∘g)(x) = f(g(x))</p>
+        
+        <p><strong>5. Tərs funksiya:</strong></p>
+        <p class="marginp highlight">f⁻¹(f(x)) = x, f(f⁻¹(y)) = y</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Nümunə: Mürəkkəb funksiya</strong></p>
+        <p class="marginp">f(x) = x², g(x) = x + 1</p>
+        <p class="marginp">(f∘g)(x) = f(g(x)) = f(x+1) = (x+1)² = x² + 2x + 1</p>
+        <p class="marginp">(g∘f)(x) = g(f(x)) = g(x²) = x² + 1</p>
+    </div>
+
+    <div class="section-title">9. QRAFİKLƏRİN XÜSUSİYYƏTLƏRİ</div>
+
+    <div class="formula-box">
+        <p><strong>1. Kəsişmə nöqtələri:</strong></p>
+        <p class="marginp">• X oxu ilə: f(x) = 0 tənliyinin həlli</p>
+        <p class="marginp">• Y oxu ilə: f(0) qiyməti</p>
+        
+        <p><strong>2. Asimptotlar:</strong></p>
+        <p class="marginp">• Şaquli asimptot: x = a (f(x) → ∞, x → a)</p>
+        <p class="marginp">• Üfüqi asimptot: y = b (f(x) → b, x → ∞)</p>
+        <p class="marginp">• Əyri asimptot: y = kx + b</p>
+        
+        <p><strong>3. Ekstremum nöqtələri:</strong></p>
+        <p class="marginp">• Maksimum: Ən böyük qiymət</p>
+        <p class="marginp">• Minimum: Ən kiçik qiymət</p>
+        
+        <p><strong>4. Qabarıqlıq-çöküklük:</strong></p>
+        <p class="marginp">• Qabarıq: Əyri aşağıya doğru</p>
+        <p class="marginp">• Çökük: Əyri yuxarıya doğru</p>
+    </div>
+
+    <!-- Şəkil yeri 12: Qrafik xüsusiyyətləri -->
+    <div class="graph-container">
+        <p><strong>Şəkil 12: Qrafiklərin xüsusiyyətləri</strong></p>
+        <div class="graph-placeholder">
+            QRAFİK XÜSUSİYYƏTLƏRİ<br>Kəsişmə nöqtələri, asimptotlar, ekstremumlar
+        </div>
+    </div>
+
+    <div class="section-title">10. FUNKSİYANIN TƏDQİQİ (ARAŞDIRILMASI)</div>
+
+    <div class="formula-box">
+        <p><strong>Funksiyanın araşdırılması addımları:</strong></p>
+        <p class="marginp">1. Təyinetmə oblastını tap</p>
+        <p class="marginp">2. Cüt-təkliyini yoxla</p>
+        <p class="marginp">3. Periodikliyini yoxla</p>
+        <p class="marginp">4. Kəsişmə nöqtələrini tap</p>
+        <p class="marginp">5. Asimptotları tap</p>
+        <p class="marginp">6. Artma-azalma intervallarını tap</p>
+        <p class="marginp">7. Ekstremum nöqtələrini tap</p>
+        <p class="marginp">8. Qabarıqlıq-çöküklük intervallarını tap</p>
+        <p class="marginp">9. Qiymətlər çoxluğunu tap</p>
+        <p class="marginp">10. Qrafiki qur</p>
+    </div>
+
+    <div class="section-title">11. XÜSUSİ FUNKSİYALAR</div>
+
+    <div class="formula-box">
+        <p><strong>1. Modul funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = |x|</p>
+        <p class="marginp">• Təyinetmə: R</p>
+        <p class="marginp">• Qiymətlər: [0, ∞)</p>
+        <p class="marginp">• Cüt funksiya</p>
+        
+        <p><strong>2. İşarə funksiyası (signum):</strong></p>
+        <p class="marginp highlight">sgn(x) = {1, x>0; 0, x=0; -1, x<0}</p>
+        
+        <p><strong>3. Tam hissə funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = [x]</p>
+        <p class="marginp">• x-dən böyük olmayan ən böyük tam</p>
+        
+        <p><strong>4. Kəsr hissə funksiyası:</strong></p>
+        <p class="marginp highlight">f(x) = {x} = x - [x]</p>
+    </div>
+
+    <!-- Şəkil yeri 13: Xüsusi funksiyalar -->
+    <div class="graph-container">
+        <p><strong>Şəkil 13: Xüsusi funksiyaların qrafikləri</strong></p>
+        <div class="two-graphs">
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 200px; height: 150px;">
+                    MODUL FUNKSİYASI
+                </div>
+                <p class="graph-title">f(x) = |x|</p>
+            </div>
+            <div class="graph-with-caption">
+                <div class="graph-placeholder" style="width: 200px; height: 150px;">
+                    TAM HİSSƏ FUNKSİYASI
+                </div>
+                <p class="graph-title">f(x) = [x]</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">12. PRAKTİK MƏSƏLƏ HƏLLİ QAYDALARI</div>
+
+    <div class="note-box">
+        <p><strong>Qrafik qurarkən:</strong></p>
+        <p>1. Koordinat sistemini qur</p>
+        <p>2. Təyinetmə oblastını müəyyənləşdir</p>
+        <p>3. Kəsişmə nöqtələrini tap</p>
+        <p>4. Asimptotları qeyd et</p>
+        <p>5. Artma-azalma intervallarını tap</p>
+        <p>6. Ekstremum nöqtələrini tap</p>
+        <p>7. Bir neçə nöqtəni hesabla</p>
+        <p>8. Nöqtələri birləşdir</p>
+    </div>
+
+    <div class="warning-box">
+        <p><strong>DİQQƏT:</strong></p>
+        <p>• Funksiyanın təyin oblastına diqqət et</p>
+        <p>• Asimptotları unutma</p>
+        <p>• Qrafik qurarkən kifayət qədər nöqtə seç</p>
+        <p>• Simmetriyadan istifadə et</p>
+        <p>• Dəqiq ölçülər istifadə et</p>
+    </div>
+
+    <!-- Qaydaları yükləmək üçün düymə -->
+    <button class="download-btn" onclick="downloadFunksiyaQrafikQaydalari()">
+        📥 FUNKSİYA VƏ QRAFİKLƏRİN BÜTÜN QAYDALARINI YÜKLƏ (TXT)
+    </button>
+
+    <p style="margin-left: auto; margin-right: auto; text-align: center;">
+        <i>Hazırlayan: Riyaziyyat Müəllimi | Mənbələr: Azərbaycan məktəb proqramı | Riyaziyyat dərslikləri | Ali riyaziyyat kursu</i>
+    </p>
+
+    <p class="p1">Hazırsınızsa testə başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='function-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Bizimlə öyrən, bizimlə inkişaf et.
+    </p>
+</footer>
+
+<script>
+    function downloadFunksiyaQrafikQaydalari() {
+        const rulesContent = `FUNKSİYA VƏ QRAFİKLƏR - BÜTÜN QAYDALAR VƏ DÜSTURLAR
+
+1. FUNKSİYANIN TƏRİFİ:
+   • Tərif: D→E çoxluqları arasında hər x∈D üçün yeganə y∈E uyğun gələn əlaqə
+   • Komponentlər: Təyinetmə oblastı (D(f)), Qiymətlər çoxluğu (E(f))
+   • Yazılış: y = f(x), burada x müstəqil, y asılı dəyişən
+
+2. FUNKSİYA YAZILIŞ FORMLARI:
+   1. Analitik: f(x) = x² + 2x - 3
+   2. Cədvəl: x və f(x) qiymətləri cədvəli
+   3. Qrafik: Koordinat müstəvisində nöqtələr çoxluğu
+   4. Şərtli: f(x) = {x², x≥0; -x, x<0}
+   5. Sözlə: "Hər ədədin kvadratı"
+
+3. FUNKSİYANIN XASSƏLƏRİ:
+   • Cüt funksiya: f(-x) = f(x) (Y oxuna görə simmetrik)
+   • Tək funksiya: f(-x) = -f(x) (Başlanğıca görə simmetrik)
+   • Artan funksiya: x₁ < x₂ → f(x₁) < f(x₂)
+   • Azalan funksiya: x₁ < x₂ → f(x₁) > f(x₂)
+   • Məhdud funksiya: ∃M,m: m ≤ f(x) ≤ M
+   • Periodik funksiya: f(x+T) = f(x)
+
+4. ƏSAS ELEMENTAR FUNKSİYALAR:
+   
+   A) Xətti funksiya: f(x) = kx + b
+      • Qrafik: Düz xətt
+      • k - bucaq əmsalı, b - sərbəst hədd
+      • k > 0: Artan, k < 0: Azalan
+   
+   B) Kvadrat funksiya: f(x) = ax² + bx + c (a≠0)
+      • Qrafik: Parabola
+      • a > 0: Budaqları yuxarı, a < 0: Budaqları aşağı
+      • Təpə nöqtəsi: x₀ = -b/(2a), y₀ = f(x₀)
+      • Diskriminant: D = b² - 4ac
+   
+   C) Güc funksiyası: f(x) = xⁿ
+      • n cüt: Cüt funksiya
+      • n tək: Tək funksiya
+      • n > 0: Artan, n < 0: Azalan
+   
+   D) Kök funksiyası: f(x) = √x
+      • Təyinetmə: x ≥ 0, Qiymətlər: y ≥ 0
+
+5. TRİQONOMETRİK FUNKSİYALAR:
+   
+   A) Sinus: f(x) = sin x
+      • Təyinetmə: R, Qiymətlər: [-1, 1]
+      • Period: 2π, Tək funksiya
+   
+   B) Kosinus: f(x) = cos x
+      • Təyinetmə: R, Qiymətlər: [-1, 1]
+      • Period: 2π, Cüt funksiya
+   
+   C) Tangens: f(x) = tan x = sin x/cos x
+      • Təyinetmə: x ≠ π/2 + πk
+      • Period: π, Tək funksiya
+   
+   D) Kotangens: f(x) = cot x = cos x/sin x
+      • Təyinetmə: x ≠ πk
+      • Period: π, Tək funksiya
+
+6. GÖSTƏRİCİ VƏ LOQARİFMİK FUNKSİYALAR:
+   
+   A) Göstərici: f(x) = aˣ (a>0, a≠1)
+      • Təyinetmə: R, Qiymətlər: (0, ∞)
+      • a > 1: Artan, 0 < a < 1: Azalan
+      • (0,1) nöqtəsindən keçir
+   
+   B) Loqarifmik: f(x) = logₐ x (a>0, a≠1)
+      • Təyinetmə: (0, ∞), Qiymətlər: R
+      • a > 1: Artan, 0 < a < 1: Azalan
+      • (1,0) nöqtəsindən keçir
+
+7. QRAFİKLƏRİN ÇEVİLMƏLƏRİ:
+   
+   A) Paralel köçürmə:
+      • Sağa: f(x) → f(x-a)
+      • Sola: f(x) → f(x+a)
+      • Yuxarı: f(x) → f(x)+b
+      • Aşağı: f(x) → f(x)-b
+   
+   B) Simmetriya:
+      • X oxuna: f(x) → -f(x)
+      • Y oxuna: f(x) → f(-x)
+      • Başlanğıca: f(x) → -f(-x)
+   
+   C) Uzatma-sıxılma:
+      • Üfüqi: f(x) → f(kx)
+      • Şaquli: f(x) → k·f(x)
+
+8. FUNKSİYALAR ÜZRƏ ƏMƏLLƏR:
+   • Cəm: (f+g)(x) = f(x)+g(x)
+   • Fərq: (f-g)(x) = f(x)-g(x)
+   • Hasil: (f·g)(x) = f(x)·g(x)
+   • Nisbət: (f/g)(x) = f(x)/g(x) (g(x)≠0)
+   • Mürəkkəb: (f∘g)(x) = f(g(x))
+   • Tərs: f⁻¹(f(x)) = x
+
+9. QRAFİKLƏRİN XÜSUSİYYƏTLƏRİ:
+   • Kəsişmə nöqtələri:
+      - X oxu ilə: f(x)=0
+      - Y oxu ilə: f(0)
+   • Asimptotlar:
+      - Şaquli: x=a (f(x)→∞, x→a)
+      - Üfüqi: y=b (f(x)→b, x→∞)
+   • Ekstremumlar:
+      - Maksimum: Ən böyük qiymət
+      - Minimum: Ən kiçik qiymət
+   • Qabarıqlıq-çöküklük
+
+10. FUNKSİYANIN TƏDQİQİ ADDIMLARI:
+    1. Təyinetmə oblastı
+    2. Cüt-təkliyinin yoxlanması
+    3. Periodikliyin yoxlanması
+    4. Kəsişmə nöqtələrinin tapılması
+    5. Asimptotların tapılması
+    6. Artma-azalma intervalları
+    7. Ekstremum nöqtələri
+    8. Qabarıqlıq-çöküklük intervalları
+    9. Qiymətlər çoxluğu
+    10. Qrafikin qurulması
+
+11. XÜSUSİ FUNKSİYALAR:
+    • Modul: f(x) = |x|
+    • İşarə: sgn(x) = {1, x>0; 0, x=0; -1, x<0}
+    • Tam hissə: f(x) = [x]
+    • Kəsr hissə: f(x) = {x} = x - [x]
+
+12. PRAKTİK QAYDALAR:
+    • Qrafik qurarkən əvvəlcə koordinat sistemini qur
+    • Təyinetmə oblastını müəyyənləşdir
+    • Kəsişmə nöqtələrini tap
+    • Asimptotları qeyd et
+    • Artma-azalma intervallarını tap
+    • Ekstremum nöqtələrini tap
+    • Kifayət qədər nöqtə hesabla
+    • Nöqtələri birləşdir
+    • Simmetriyadan istifadə et
+
+13. XATIRLAMA ÜSULLARI:
+    • Xətti: "Düz xətt"
+    • Kvadrat: "Parabola"
+    • Sinus/Kosinus: "Dalğa"
+    • Göstərici: "Sürətlə artan/azalan"
+    • Loqarifmik: "Yavaş-yavaş artan"
+    • Modul: "V şəkilli"
+    • Tam hissə: "Addımlı"
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'funksiya-qrafik-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Funksiya və Qrafiklər qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Həqiqi Ədədlər - 9-cu sinif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .download-button {
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: 20px auto;
+            display: block;
+            font-weight: bold;
+        }
+        
+        .download-button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+            background-color: #45a049;
+        }
+        
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        
+        .marginp{
+            margin-left: 30px;
+        }
+        
+        .m2arginp{
+            margin-left: 60px;
+        }
+        
+        .sualdiv{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+            line-height: 1.6;
+        }
+        
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .formula-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #2ecc71;
+        }
+        
+        .definition {
+            background-color: #fffde7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .example {
+            background-color: #e8f6f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #16a085;
+            font-style: italic;
+        }
+        
+        .important {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .symbol {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border: 2px dashed #4CAF50;
+        }
+        
+        .number-line {
+            width: 90%;
+            height: 50px;
+            margin: 20px auto;
+            position: relative;
+            background: linear-gradient(to right, #e74c3c, #f39c12, #2ecc71, #3498db);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .number-set {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="naturedivbasliq">
+    <p>Həqiqi Ədədlər - 9-cu sinif</p>
+    <h6 style="color: grey;">
+        9-cu sinif üçün həqiqi ədədlərə aid bütün qaydalar və anlayışlar
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <h2 class="section-title">1. ƏDƏD ÇOXLUQLARI</h2>
+    
+    <div class="definition">
+        <p><strong>1. Natural Ədədlər (N):</strong></p>
+        <p class="marginp">• Sayma ədədləri: 1, 2, 3, 4, 5, ...</p>
+        <p class="marginp">• N = {1, 2, 3, 4, 5, ...}</p>
+        <p class="marginp">• Ən kiçik natural ədəd: 1</p>
+        <p class="marginp">• 0 natural ədəd deyil!</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Tam Ədədlər (Z):</strong></p>
+        <p class="marginp">• Natural ədədlər, onların mənfisi və 0</p>
+        <p class="marginp">• Z = {..., -3, -2, -1, 0, 1, 2, 3, ...}</p>
+        <p class="marginp">• Mənfi tam ədədlər: -1, -2, -3, ...</p>
+        <p class="marginp">• Müsbət tam ədədlər: 1, 2, 3, ...</p>
+        <p class="marginp">• 0 nə mənfi, nə də müsbətdir</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>3. Rasional Ədədlər (Q):</strong></p>
+        <p class="marginp">• a/b şəklində yazıla bilən ədədlər (b ≠ 0)</p>
+        <p class="marginp">• Q = {a/b | a, b ∈ Z, b ≠ 0}</p>
+        <p class="marginp">• Nümunələr: 1/2, 3/4, -5/7, 2 (2 = 2/1), 0.25 (0.25 = 1/4)</p>
+        <p class="marginp">• Sonlu və sonsuz dövrü onluq kəsr şəklində yazılır</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>4. İrrasional Ədədlər (I):</strong></p>
+        <p class="marginp">• a/b şəklində yazıla bilməyən ədədlər</p>
+        <p class="marginp">• Sonsuz və dövri olmayan onluq kəsr şəklində yazılır</p>
+        <p class="marginp">• Nümunələr: √2, √3, π (pi), e (Eyler ədədi)</p>
+        <p class="marginp">• √2 ≈ 1.41421356... (dövrü yoxdur)</p>
+        <p class="marginp">• π ≈ 3.14159265... (dövrü yoxdur)</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>5. Həqiqi Ədədlər (R):</strong></p>
+        <p class="marginp">• Rasional və irrasional ədədlərin hamısı</p>
+        <p class="marginp">• R = Q ∪ I</p>
+        <p class="marginp">• Bütün ədəd oxu üzərindəki nöqtələr</p>
+    </div>
+    
+    <div class="diagram">
+        <h3>Ədəd Çoxluqlarının Qrafiki</h3>
+        <div class="number-line"></div>
+        <div class="number-set">
+            <span>İrrasional</span>
+            <span>Rasional</span>
+            <span>Tam</span>
+            <span>Natural</span>
+        </div>
+        <p>Natural ⊂ Tam ⊂ Rasional ⊂ Həqiqi</p>
+        <p>İrrasional ⊂ Həqiqi</p>
+    </div>
+    
+    <h2 class="section-title">2. ƏDƏD OXU</h2>
+    
+    <div class="definition">
+        <p>Həqiqi ədədləri göstərmək üçün istifadə olunan düz xəttə ədəd oxu deyilir.</p>
+        <div class="diagram">
+            <p style="font-family: monospace; font-size: 18px;">
+                ←---|----|----|----|----|----|----|----|----|----|----|----→
+                -5  -4  -3  -2  -1   0   1   2   3   4   5   6
+            </p>
+        </div>
+        <p class="marginp"><strong>Xüsusiyyətləri:</strong></p>
+        <p class="m2arginp">• Hər bir həqiqi ədədə ox üzərində bir nöqtə uyğun gəlir</p>
+        <p class="m2arginp">• Hər bir nöqtəyə bir həqiqi ədəd uyğun gəlir</p>
+        <p class="m2arginp">• 0 başlanğıc nöqtəsidir</p>
+        <p class="m2arginp">• Sağa doğru ədədlər artır, sola doğru azalır</p>
+    </div>
+    
+    <h2 class="section-title">3. MÜQAYİSƏ QAYDALARI</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Müsbət ədədlər:</strong> Ədəd oxunda sağda olan daha böyükdür</p>
+        <p class="marginp">• 5 > 3 (5, 3-dən böyükdür)</p>
+        <p class="marginp">• 2.5 > 1.7</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Mənfi ədədlər:</strong> Mütləq qiyməti böyük olan mənfi ədəd daha kiçikdir</p>
+        <p class="marginp">• -5 < -3 (çünki |-5| = 5, |-3| = 3 və 5 > 3)</p>
+        <p class="marginp">• -2.5 < -1.7</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>3. Qarışıq müqayisə:</strong> Hər hansı müsbət ədəd hər hansı mənfi ədəddən böyükdür</p>
+        <p class="marginp">• 1 > -100</p>
+        <p class="marginp">• 0.001 > -1000</p>
+        <p class="marginp">• 0 > -1 (0 mənfi ədədlərdən böyükdür)</p>
+    </div>
+    
+    <div class="important">
+        <p><strong>XÜLASƏ:</strong></p>
+        <p class="marginp">• Mənfi < 0 < Müsbət</p>
+        <p class="marginp">• Mənfilərdə: -10 < -5 < -1</p>
+        <p class="marginp">• Müsbətlərdə: 1 < 5 < 10</p>
+    </div>
+    
+    <h2 class="section-title">4. MÜTLƏQ QİYMƏT (MODUL)</h2>
+    
+    <div class="definition">
+        <p><strong>Tərif:</strong> Ədədin ədəd oxundakı başlanğıc nöqtəsindən (0-dan) olan məsafəsinə onun mütləq qiyməti deyilir.</p>
+        <div class="formula-box">
+            <p style="text-align: center; font-size: 20px; font-weight: bold;">
+                |a| = { a, əgər a ≥ 0
+                      { -a, əgər a < 0
+            </p>
+        </div>
+    </div>
+    
+    <div class="example">
+        <p><strong>Nümunələr:</strong></p>
+        <p class="marginp">• |5| = 5</p>
+        <p class="marginp">• |-5| = 5</p>
+        <p class="marginp">• |0| = 0</p>
+        <p class="marginp">• |3.14| = 3.14</p>
+        <p class="marginp">• |-2.5| = 2.5</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>Mütləq qiymətin xassələri:</strong></p>
+        <p class="marginp">1. |a| ≥ 0 (həmişə mənfi olmayan)</p>
+        <p class="marginp">2. |a| = |-a|</p>
+        <p class="marginp">3. |a·b| = |a|·|b|</p>
+        <p class="marginp">4. |a/b| = |a|/|b| (b ≠ 0)</p>
+        <p class="marginp">5. |a + b| ≤ |a| + |b| (üçbucaq bərabərsizliyi)</p>
+    </div>
+    
+    <h2 class="section-title">5. HƏQİQİ ƏDƏDLƏRLƏ ƏMƏLLƏR</h2>
+    
+    <div class="definition">
+        <p><strong>1. Toplama və vurmanın xassələri:</strong></p>
+        
+        <div class="formula-box">
+            <p><strong>a) Yerdəyişmə (kommutativlik) qanunu:</strong></p>
+            <p class="marginp">• a + b = b + a</p>
+            <p class="marginp">• a · b = b · a</p>
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>b) Qruplaşdırma (assosiativlik) qanunu:</strong></p>
+            <p class="marginp">• (a + b) + c = a + (b + c)</p>
+            <p class="marginp">• (a · b) · c = a · (b · c)</p>
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>c) Paylama (distributivlik) qanunu:</strong></p>
+            <p class="marginp">• a · (b + c) = a·b + a·c</p>
+            <p class="marginp">• (a + b) · c = a·c + b·c</p>
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>d) Eynilik (identiklik) elementi:</strong></p>
+            <p class="marginp">• Toplamada: a + 0 = a (0 eynilik elementidir)</p>
+            <p class="marginp">• Vurmada: a · 1 = a (1 eynilik elementidir)</p>
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>e) Tərs (əks) element:</strong></p>
+            <p class="marginp">• Toplamada: a + (-a) = 0 (-a əks elementdir)</p>
+            <p class="marginp">• Vurmada: a · (1/a) = 1 (a ≠ 0) (1/a tərs elementdir)</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">6. KÖKALMA VƏ QÜVVƏT</h2>
+    
+    <div class="definition">
+        <p><strong>1. Kvadrat kök:</strong></p>
+        <p class="marginp">√a = b o deməkdir ki, b² = a və b ≥ 0</p>
+        <div class="example">
+            <p><strong>Nümunələr:</strong></p>
+            <p class="marginp">• √9 = 3 (çünki 3² = 9)</p>
+            <p class="marginp">• √16 = 4 (çünki 4² = 16)</p>
+            <p class="marginp">• √0 = 0</p>
+            <p class="marginp">• √25 = 5</p>
+        </div>
+        <div class="important">
+            <p><strong>QEYD:</strong> Mənfi ədədlərin kvadrat kökü həqiqi ədədlər çoxluğunda yoxdur!</p>
+            <p class="marginp">√(-4) ∉ R (həqiqi ədəd deyil)</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Kub kök:</strong></p>
+        <p class="marginp">∛a = b o deməkdir ki, b³ = a</p>
+        <div class="example">
+            <p><strong>Nümunələr:</strong></p>
+            <p class="marginp">• ∛8 = 2 (çünki 2³ = 8)</p>
+            <p class="marginp">• ∛(-27) = -3 (çünki (-3)³ = -27)</p>
+            <p class="marginp">• ∛0 = 0</p>
+            <p class="marginp">• ∛1 = 1</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>3. Qüvvət (Üst):</strong></p>
+        <p class="marginp">aⁿ = a · a · a · ... · a (n dəfə)</p>
+        <div class="example">
+            <p><strong>Nümunələr:</strong></p>
+            <p class="marginp">• 2³ = 2 × 2 × 2 = 8</p>
+            <p class="marginp">• 5² = 5 × 5 = 25</p>
+            <p class="marginp">• 10⁰ = 1 (istənilən ədədin 0-cı qüvvəti 1-dir)</p>
+            <p class="marginp">• 3¹ = 3</p>
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>Qüvvətlərin xassələri:</strong></p>
+        <p class="marginp">1. aᵐ · aⁿ = aᵐ⁺ⁿ</p>
+        <p class="marginp">2. aᵐ / aⁿ = aᵐ⁻ⁿ (a ≠ 0)</p>
+        <p class="marginp">3. (aᵐ)ⁿ = aᵐ·ⁿ</p>
+        <p class="marginp">4. (a·b)ⁿ = aⁿ·bⁿ</p>
+        <p class="marginp">5. (a/b)ⁿ = aⁿ/bⁿ (b ≠ 0)</p>
+        <p class="marginp">6. a⁻ⁿ = 1/aⁿ (a ≠ 0)</p>
+    </div>
+    
+    <h2 class="section-title">7. İRRASİONAL ƏDƏDLƏRİN YAXINLAŞMASI</h2>
+    
+    <div class="definition">
+        <p><strong>1. Kvadrat köklərin təxmini qiyməti:</strong></p>
+        <div class="example">
+            <p>√2 ≈ 1.414</p>
+            <p>√3 ≈ 1.732</p>
+            <p>√5 ≈ 2.236</p>
+            <p>√10 ≈ 3.162</p>
+        </div>
+        
+        <p><strong>2. π (pi) ədədi:</strong></p>
+        <p class="marginp">• Dairənin uzunluğunun diametrinə nisbəti</p>
+        <p class="marginp">• π ≈ 3.14159</p>
+        <p class="marginp">• Çox vaxt 3.14 və ya 22/7 kimi istifadə olunur</p>
+    </div>
+    
+    <h2 class="section-title">8. HƏQİQİ ƏDƏDLƏRİN ÇEVİRMƏSİ</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Adi kəsri onluq kəsrə çevirmə:</strong></p>
+        <p class="marginp">• Payı məxrəcə bölmək lazımdır</p>
+        <p class="marginp">• 3/4 = 0.75</p>
+        <p class="marginp">• 1/3 = 0.333... (dövri)</p>
+        <p class="marginp">• 2/5 = 0.4</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Onluq kəsri adi kəsrə çevirmə:</strong></p>
+        <p class="marginp">• 0.5 = 5/10 = 1/2</p>
+        <p class="marginp">• 0.75 = 75/100 = 3/4</p>
+        <p class="marginp">• 0.125 = 125/1000 = 1/8</p>
+    </div>
+    
+    <h2 class="section-title">9. 9-CU SİNİF ÜÇÜN ƏHƏMİYYƏTLİ NÜMUNƏLƏR</h2>
+    
+    <div class="example">
+        <p><strong>Nümunə 1:</strong> Hansı ədəd çoxluqlarına aiddir?</p>
+        <p class="marginp">a) 5: Natural, Tam, Rasional, Həqiqi</p>
+        <p class="marginp">b) -3: Tam, Rasional, Həqiqi</p>
+        <p class="marginp">c) 2/3: Rasional, Həqiqi</p>
+        <p class="marginp">d) √4: Natural (2), Tam, Rasional, Həqiqi</p>
+        <p class="marginp">e) √2: İrrasional, Həqiqi</p>
+        <p class="marginp">f) 0: Tam, Rasional, Həqiqi</p>
+    </div>
+    
+    <div class="example">
+        <p><strong>Nümunə 2:</strong> Müqayisə edin:</p>
+        <p class="marginp">a) -5 və -3 → -5 < -3</p>
+        <p class="marginp">b) 0.333... və 1/3 → 0.333... = 1/3</p>
+        <p class="marginp">c) √9 və 3 → √9 = 3</p>
+        <p class="marginp">d) |-7| və |7| → |-7| = |7|</p>
+    </div>
+    
+    <div class="important">
+        <p><strong>YADDA SAXLAYIN:</strong></p>
+        <p class="marginp">1. Hər rasional ədəd həqiqi ədəddir</p>
+        <p class="marginp">2. Hər irrasional ədəd həqiqi ədəddir</p>
+        <p class="marginp">3. Natural ədədlər tam ədədlərin içindədir</p>
+        <p class="marginp">4. Tam ədədlər rasional ədədlərin içindədir</p>
+        <p class="marginp">5. √(mənfi ədəd) həqiqi ədəd deyil!</p>
+        <p class="marginp">6. |a| həmişə mənfi olmayandır</p>
+    </div>
+    
+    <!-- DOWNLOAD SECTION -->
+    <div class="download-section">
+        <h3>📥 Həqiqi Ədədlər Qaydalarını Yükləyin</h3>
+        <p>9-cu sinif üçün həqiqi ədədlərin bütün qaydalarını kompüterinizə yükləyin.</p>
+        <button class="download-button" onclick="downloadRealNumbersRules()">
+            ⬇️ Qaydaları Yüklə (TXT)
+        </button>
+        <p><small>Fayl .txt formatında yüklənəcək</small></p>
+    </div>
+    
+    <p style="margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px;">
+        <i>Hazırlayan: Amin Xudizade | Mənbələr: 9-cu sinif dərslikləri | Azərbaycan məktəb proqramı</i>
+    </p>
+    
+    <p class="p1">Hazırsınızsa, quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='heqiqiededler-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        9-cu sinif: Həqiqi Ədədlər
+    </p>
+</footer>
+
+<script>
+    function downloadRealNumbersRules() {
+        const rulesContent = `HƏQİQİ ƏDƏDLƏR - 9-CU SİNİF
+===============================
+
+1. ƏDƏD ÇOXLUQLARI:
+
+1.1 NATURAL ƏDƏDLƏR (N):
+• Sayma ədədləri: 1, 2, 3, 4, 5, ...
+• N = {1, 2, 3, 4, 5, ...}
+• Ən kiçik natural ədəd: 1
+• 0 natural ədəd deyil!
+
+1.2 TAM ƏDƏDLƏR (Z):
+• Natural ədədlər + mənfiləri + 0
+• Z = {..., -3, -2, -1, 0, 1, 2, 3, ...}
+• Mənfi tam ədədlər: -1, -2, -3, ...
+• Müsbət tam ədədlər: 1, 2, 3, ...
+• 0 nə mənfi, nə də müsbətdir
+
+1.3 RASIONAL ƏDƏDLƏR (Q):
+• a/b şəklində yazıla bilən ədədlər (b ≠ 0)
+• Q = {a/b | a, b ∈ Z, b ≠ 0}
+• Nümunələr: 1/2, 3/4, -5/7, 2, 0.25
+• Sonlu və sonsuz dövrü onluq kəsr şəklində yazılır
+
+1.4 İRRASIONAL ƏDƏDLƏR (I):
+• a/b şəklində yazıla BİLMƏYƏN ədədlər
+• Sonsuz və dövri OLMAYAN onluq kəsr
+• Nümunələr: √2, √3, π (pi)
+• √2 ≈ 1.41421356... (dövrü yoxdur)
+• π ≈ 3.14159265... (dövrü yoxdur)
+
+1.5 HƏQİQİ ƏDƏDLƏR (R):
+• Rasional + İrrasional ədədlər
+• R = Q ∪ I
+• Bütün ədəd oxu üzərindəki nöqtələr
+
+ƏLAQƏLƏR:
+Natural ⊂ Tam ⊂ Rasional ⊂ Həqiqi
+İrrasional ⊂ Həqiqi
+
+2. MÜQAYİSƏ QAYDALARI:
+
+2.1 MÜSBƏT ƏDƏDLƏR:
+• Ədəd oxunda sağda olan daha böyükdür
+• 5 > 3
+• 2.5 > 1.7
+
+2.2 MƏNFİ ƏDƏDLƏR:
+• Mütləq qiyməti böyük olan mənfi daha kiçikdir
+• -5 < -3 (çünki |-5| = 5, |-3| = 3)
+• -2.5 < -1.7
+
+2.3 QARIŞIQ MÜQAYİSƏ:
+• Hər hansı müsbət > hər hansı mənfi
+• 1 > -100
+• 0 > -1
+• 0.001 > -1000
+
+XÜLASƏ:
+Mənfi < 0 < Müsbət
+Mənfilərdə: -10 < -5 < -1
+Müsbətlərdə: 1 < 5 < 10
+
+3. MÜTLƏQ QİYMƏT (MODUL):
+
+TƏRİF: Ədədin 0-dan olan məsafəsi
+
+FORMULA:
+|a| = { a, əgər a ≥ 0
+      { -a, əgər a < 0
+
+NÜMUNƏLƏR:
+|5| = 5
+|-5| = 5
+|0| = 0
+|3.14| = 3.14
+|-2.5| = 2.5
+
+XASSƏLƏRİ:
+1. |a| ≥ 0 (həmişə mənfi olmayan)
+2. |a| = |-a|
+3. |a·b| = |a|·|b|
+4. |a/b| = |a|/|b| (b ≠ 0)
+5. |a + b| ≤ |a| + |b|
+
+4. HƏQİQİ ƏDƏDLƏRLƏ ƏMƏLLƏR:
+
+4.1 TOPLAMA VƏ VURMANIN XASSƏLƏRİ:
+
+a) YERDƏYİŞMƏ QANUNU:
+• a + b = b + a
+• a · b = b · a
+
+b) QRUPLAŞDIRMA QANUNU:
+• (a + b) + c = a + (b + c)
+• (a · b) · c = a · (b · c)
+
+c) PAYLAMA QANUNU:
+• a · (b + c) = a·b + a·c
+• (a + b) · c = a·c + b·c
+
+d) EYNİLİK ELEMENTİ:
+• Toplamada: a + 0 = a
+• Vurmada: a · 1 = a
+
+e) TƏRS ELEMENT:
+• Toplamada: a + (-a) = 0
+• Vurmada: a · (1/a) = 1 (a ≠ 0)
+
+5. KÖKALMA VƏ QÜVVƏT:
+
+5.1 KVADRAT KÖK:
+√a = b → b² = a və b ≥ 0
+
+NÜMUNƏLƏR:
+√9 = 3 (3² = 9)
+√16 = 4 (4² = 16)
+√0 = 0
+√25 = 5
+
+QEYD: √(mənfi ədəd) ∉ R (həqiqi ədəd deyil!)
+
+5.2 KUB KÖK:
+∛a = b → b³ = a
+
+NÜMUNƏLƏR:
+∛8 = 2 (2³ = 8)
+∛(-27) = -3 ((-3)³ = -27)
+∛0 = 0
+∛1 = 1
+
+5.3 QÜVVƏT (ÜST):
+aⁿ = a × a × a × ... × a (n dəfə)
+
+NÜMUNƏLƏR:
+2³ = 2 × 2 × 2 = 8
+5² = 5 × 5 = 25
+10⁰ = 1 (hər hansı ədədin 0-cı qüvvəti 1-dir)
+3¹ = 3
+
+QÜVVƏTLƏRİN XASSƏLƏRİ:
+1. aᵐ · aⁿ = aᵐ⁺ⁿ
+2. aᵐ / aⁿ = aᵐ⁻ⁿ (a ≠ 0)
+3. (aᵐ)ⁿ = aᵐ·ⁿ
+4. (a·b)ⁿ = aⁿ·bⁿ
+5. (a/b)ⁿ = aⁿ/bⁿ (b ≠ 0)
+6. a⁻ⁿ = 1/aⁿ (a ≠ 0)
+
+6. İRRASIONAL ƏDƏDLƏRİN YAXINLAŞMASI:
+
+6.1 KVADRAT KÖKLƏR:
+√2 ≈ 1.414
+√3 ≈ 1.732
+√5 ≈ 2.236
+√10 ≈ 3.162
+
+6.2 π (Pİ) ƏDƏDİ:
+• Dairənin uzunluğu / diametr
+• π ≈ 3.14159
+• Çox vaxt: 3.14 və ya 22/7
+
+7. ÇEVİRMƏLƏR:
+
+7.1 ADİ KƏSR → ONLUQ KƏSR:
+• Payı məxrəcə böl
+• 3/4 = 0.75
+• 1/3 = 0.333... (dövri)
+• 2/5 = 0.4
+
+7.2 ONLUQ KƏSR → ADİ KƏSR:
+• 0.5 = 5/10 = 1/2
+• 0.75 = 75/100 = 3/4
+• 0.125 = 125/1000 = 1/8
+
+8. NÜMUNƏ SUAL VƏ CAVABLAR:
+
+1. 5 hansı çoxluqlara aiddir?
+   Cavab: Natural, Tam, Rasional, Həqiqi
+
+2. -3 hansı çoxluqlara aiddir?
+   Cavab: Tam, Rasional, Həqiqi
+
+3. 2/3 hansı çoxluqlara aiddir?
+   Cavab: Rasional, Həqiqi
+
+4. √4 hansı çoxluqlara aiddir?
+   Cavab: 2-yə bərabərdir → Natural, Tam, Rasional, Həqiqi
+
+5. √2 hansı çoxluqlara aiddir?
+   Cavab: İrrasional, Həqiqi
+
+6. |-7| və |7| müqayisə edin.
+   Cavab: |-7| = |7| = 7
+
+9. YADDA SAXLAYIN:
+
+1. Hər rasional ədəd həqiqi ədəddir ✓
+2. Hər irrasional ədəd həqiqi ədəddir ✓
+3. Natural ⊂ Tam ⊂ Rasional ⊂ Həqiqi ✓
+4. √(mənfi ədəd) həqiqi ədəd deyil! ✗
+5. |a| həmişə ≥ 0 ✓
+6. 0 nə mənfi, nə də müsbət ✓
+7. π irrasional ədəddir ✓
+8. Sonlu onluq kəsr rasionaldır ✓
+
+===============================
+© 2024 MathGen - Riyaziyyat Platforması
+9-cu sinif üçün həqiqi ədədlər
+Hazırlayan: Amin Xudizade`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'heqiqi-ededler-9-sinif.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('9-cu sinif həqiqi ədədlər qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

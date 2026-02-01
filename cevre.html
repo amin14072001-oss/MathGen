@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çevrə və Dairə - 9-cu sinif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .download-button {
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: 20px auto;
+            display: block;
+            font-weight: bold;
+        }
+        
+        .download-button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+            background-color: #45a049;
+        }
+        
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        
+        .marginp{
+            margin-left: 30px;
+        }
+        
+        .m2arginp{
+            margin-left: 60px;
+        }
+        
+        .sualdiv{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+            line-height: 1.6;
+        }
+        
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            min-height: 200px;
+        }
+        
+        .formula-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #2ecc71;
+        }
+        
+        .definition {
+            background-color: #fffde7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .example {
+            background-color: #e8f6f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #16a085;
+            font-style: italic;
+        }
+        
+        .important {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .symbol {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border: 2px dashed #4CAF50;
+        }
+        
+        .image-placeholder {
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #e0e0e0;
+            border: 2px dashed #666;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .formula-large {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .theorem-box {
+            background-color: #e6f3ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #0066cc;
+            border: 2px solid #0066cc;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Qeydiyyat Modalı -->
+    <div class="modal-overlay" id="kayitModal">
+        <div class="kayit-modal">
+            <div class="modal-baslik">
+                <h2>👤 Qeydiyyat</h2>
+                <p>MathGen-də öyrənməyə başla!</p>
+            </div>
+
+            <form id="kayitFormu">
+                <div class="form-grubu">
+                    <label for="kullaniciAdi">Ad və Soyad:</label>
+                    <input type="text" id="kullaniciAdi" class="form-kontrol" placeholder="Adınızı və soyadınızı daxil edin" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitEmail">E-poçt:</label>
+                    <input type="email" id="kayitEmail" class="form-kontrol" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitSifre">Şifrə:</label>
+                    <input type="password" id="kayitSifre" class="form-kontrol" placeholder="Ən az 6 simvol" required minlength="6">
+                </div>
+
+                <div class="form-grubu">
+                    <label for="sifreTekrar">Şifrəni təsdiqlə:</label>
+                    <input type="password" id="sifreTekrar" class="form-kontrol" placeholder="Şifrəni yenidən daxil edin" required>
+                    <div id="kayitSifreHatasi" class="sifre-hatasi"></div>
+                </div>
+
+                <div class="form-aksiyonlari">
+                    <button type="submit" class="dugme dugme-primer">Qeydiyyatdan Keç</button>
+                    <button type="button" class="dugme dugme-sekonder" onclick="kapatKayitModal()">Bağla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Çevrə və Dairə - 9-cu sinif</p>
+    <h6 style="color: grey;">
+        9-cu sinif üçün çevrə və dairəyə aid bütün qaydalar və düsturlar
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <h2 class="section-title">1. ƏSAS ANLAYIŞLAR VƏ TƏRİFLƏR</h2>
+    
+    <div class="definition">
+        <p><strong>1. Çevrə:</strong> Müstəvidə verilmiş nöqtədən bərabər məsafədə olan bütün nöqtələrin çoxluğuna deyilir.</p>
+        
+        <!-- ŞƏKİL YERİ 1: Çevrənin əsas elementləri -->
+        <div class="image-placeholder">
+            ÇEVRƏNİN ƏSAS ELEMENTLƏRİ<br>
+            (Mərkəz O, radius r, diametr d, çevrə xətti)
+        </div>
+        
+        <p><strong>2. Dairə:</strong> Çevrə ilə onun daxilində qalan hissənin birləşməsinə deyilir.</p>
+        
+        <p><strong>3. Əsas elementlər:</strong></p>
+        <p class="marginp">• <strong>Mərkəz (O):</strong> Çevrənin bütün nöqtələrindən bərabər məsafədə olan nöqtə</p>
+        <p class="marginp">• <strong>Radius (r):</strong> Mərkəzdən çevrəyə qədər olan məsafə</p>
+        <p class="marginp">• <strong>Diametr (d):</strong> Çevrənin iki nöqtəsini birləşdirən və mərkəzdən keçən ən uzun parça</p>
+        <p class="marginp">• <strong>Qövs:</strong> Çevrənin iki nöqtəsi arasında qalan hissəsi</p>
+        <p class="marginp">• <strong>Vətər:</strong> Çevrənin iki nöqtəsini birləşdirən parça</p>
+        <p class="marginp">• <strong>Diametr ən uzun vətərdir:</strong> d = 2r</p>
+    </div>
+    
+    <h2 class="section-title">2. ÇEVRƏNİN UZUNLUĞU VƏ DAİRƏNİN SAHƏSİ</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Çevrənin uzunluğu (Perimetri):</strong></p>
+        <div class="formula-large">
+            L = 2πr = πd
+        </div>
+        <p class="marginp">• L - çevrənin uzunluğu</p>
+        <p class="marginp">• r - radius</p>
+        <p class="marginp">• d - diametr (d = 2r)</p>
+        <p class="marginp">• π (pi) ≈ 3.14 (dəqiq: 3.1415926535...)</p>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> Radiusu 7 sm olan çevrənin uzunluğu:</p>
+            <p class="marginp">L = 2 × π × 7 = 14π ≈ 14 × 3.14 = 43.96 sm</p>
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Dairənin sahəsi:</strong></p>
+        <div class="formula-large">
+            S = πr²
+        </div>
+        <p class="marginp">• S - dairənin sahəsi</p>
+        <p class="marginp">• r - radius</p>
+        
+        <!-- ŞƏKİL YERİ 2: Dairənin sahəsinin göstərilməsi -->
+        <div class="image-placeholder">
+            DAİRƏNİN SAHƏSİ<br>
+            (S = πr² - radius kvadratının π qədəri)
+        </div>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> Radiusu 5 sm olan dairənin sahəsi:</p>
+            <p class="marginp">S = π × 5² = 25π ≈ 25 × 3.14 = 78.5 sm²</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">3. DAİRƏVİ SEKTOR VƏ SEQMENT</h2>
+    
+    <div class="definition">
+        <p><strong>1. Dairəvi sektor:</strong> İki radius və onların arasında qalan qövsün əhatə etdiyi dairə hissəsinə deyilir.</p>
+        
+        <!-- ŞƏKİL YERİ 3: Dairəvi sektor -->
+        <div class="image-placeholder">
+            DAİRƏVİ SEKTOR<br>
+            (İki radius və qövs arasındakı hissə)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Sektorun sahəsi:</strong></p>
+            <div class="formula-large">
+                S<sub>sektor</sub> = (α/360°) × πr²
+            </div>
+            <p class="marginp">• α - sektorun mərkəzi bucağı (dərəcə ilə)</p>
+            <p class="marginp">• r - radius</p>
+            
+            <p><strong>Alternativ formula (radianla):</strong></p>
+            <div class="formula-large">
+                S<sub>sektor</sub> = (α/2) × r²
+            </div>
+            <p class="marginp">• α - mərkəzi bucaq (radianla)</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Dairəvi seqment:</strong> Vətər və qövsün əhatə etdiyi dairə hissəsinə deyilir.</p>
+        
+        <!-- ŞƏKİL YERİ 4: Dairəvi seqment -->
+        <div class="image-placeholder">
+            DAİRƏVİ SEQMENT<br>
+            (Vətər və qövs arasındakı hissə)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Seqmentin sahəsi:</strong></p>
+            <div class="formula-large">
+                S<sub>seqment</subsub> = S<sub>sektor</sub> - S<sub>üçbucaq</sub>
+            </div>
+            <p class="marginp">• Seqmentin sahəsi = uyğun sektorun sahəsi - üçbucağın sahəsi</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">4. ÇEVRƏ VƏ BUCАQLАR</h2>
+    
+    <div class="definition">
+        <p><strong>1. Mərkəzi bucaq:</strong> Təpəsi çevrənin mərkəzində olan bucaq.</p>
+        
+        <!-- ŞƏKİL YERİ 5: Mərkəzi bucaq -->
+        <div class="image-placeholder">
+            MƏRKƏZİ BUCAQ<br>
+            (Təpəsi O mərkəzində, tərəfləri radiuslar)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Xassə:</strong> Mərkəzi bucağın ölçüsü qarşısındakı qövsün ölçüsünə bərabərdir.</p>
+            <div class="formula-large">
+                ∠AOB = ︵AB
+            </div>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Yazılı bucaq:</strong> Təpəsi çevrə üzərində olan və tərəfləri çevrəni kəsən bucaq.</p>
+        
+        <!-- ŞƏKİL YERİ 6: Yazılı bucaq -->
+        <div class="image-placeholder">
+            YAZILI BUCAQ<br>
+            (Təpəsi çevrə üzərində, tərəfləri vətər)
+        </div>
+        
+        <div class="theorem-box">
+            <p><strong>Teorem:</strong> Yazılı bucağın ölçüsü qarşısındakı qövsün ölçüsünün yarısına bərabərdir.</p>
+            <div class="formula-large">
+                ∠ACB = ½ × ︵AB
+            </div>
+        </div>
+        
+        <div class="important">
+            <p><strong>NƏTİCƏ:</strong> Eyni qövsə söykənən bütün yazılı bucaqlar bərabərdir.</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>3. Xüsusi yazılı bucaqlar:</strong></p>
+        
+        <p class="marginp"><strong>a) Diametrə söykənən yazılı bucaq:</strong></p>
+        <div class="formula-large">
+            ∠ACB = 90° (düzbucaq)
+        </div>
+        <p class="marginp">• Diametrə söykənən yazılı bucaq həmişə düzbucaqdır (90°)</p>
+        
+        <!-- ŞƏKİL YERİ 7: Diametrə söykənən yazılı bucaq -->
+        <div class="image-placeholder">
+            DİAMETRƏ SÖYKƏNƏN YAZILI BUCAQ<br>
+            (Həmişə 90° olur)
+        </div>
+        
+        <p class="marginp"><strong>b) Dairəvi seqment bucağı:</strong> Eyni vətərə söykənən yazılı bucaqlar bərabərdir.</p>
+    </div>
+    
+    <h2 class="section-title">5. ÇEVRƏYƏ VƏTƏRLƏR, TOXUNANLAR VƏ KƏSƏNLƏR</h2>
+    
+    <div class="definition">
+        <p><strong>1. Vətər:</strong> Çevrənin iki nöqtəsini birləşdirən parça.</p>
+        
+        <div class="theorem-box">
+            <p><strong>Teorem:</strong> Mərkəzdən vətərə endirilən perpendikulyar həmin vətəri yarı bölür.</p>
+        </div>
+        
+        <!-- ŞƏKİL YERİ 8: Vətər və onun xassələri -->
+        <div class="image-placeholder">
+            VƏTƏR VƏ XASSƏLƏRİ<br>
+            (Mərkəzdən vətərə perpendikulyar)
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Toxunan:</strong> Çevrə ilə yalnız bir ortaq nöqtəsi olan düz xətt.</p>
+        
+        <!-- ŞƏKİL YERİ 9: Toxunan xətt -->
+        <div class="image-placeholder">
+            TOXUNAN XƏTT<br>
+            (Çevrəyə yalnız bir nöqtədə toxunan)
+        </div>
+        
+        <div class="theorem-box">
+            <p><strong>Teorem:</strong> Toxunan nöqtəyə çəkilmiş radius toxunana perpendikulyardır.</p>
+            <div class="formula-large">
+                OA ⟂ AT
+            </div>
+            <p class="marginp">• O - mərkəz</p>
+            <p class="marginp">• A - toxunma nöqtəsi</p>
+            <p class="marginp">• T - toxunan xətt</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>3. Kəsən:</strong> Çevrəni iki nöqtədə kəsən düz xətt.</p>
+        
+        <!-- ŞƏKİL YERİ 10: Kəsən xətt -->
+        <div class="image-placeholder">
+            KƏSƏN XƏTT<br>
+            (Çevrəni iki nöqtədə kəsən)
+        </div>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>4. Toxunan və kəsənin uzunluqları:</strong></p>
+        
+        <p class="marginp"><strong>a) Toxunan parçasının uzunluğu:</strong></p>
+        <div class="formula-large">
+            AT² = AM × AN
+        </div>
+        <p class="marginp">• A - çevrədən kənar nöqtə</p>
+        <p class="marginp">• AT - toxunan parçası</p>
+        <p class="marginp">• AM və AN - kəsən parçaları</p>
+        
+        <p class="marginp"><strong>b) Kəsən parçaları:</strong></p>
+        <div class="formula-large">
+            AM × AN = AP × AQ
+        </div>
+        <p class="marginp">• Eyni nöqtədən çəkilmiş iki kəsən üçün</p>
+    </div>
+    
+    <h2 class="section-title">6. ÇEVRƏYƏ DAXİL VƏ ÇEVRƏ ƏTƏFİNDƏ ÇEVRƏLƏNMİŞ ÇOXBUCАQLILАR</h2>
+    
+    <div class="definition">
+        <p><strong>1. Daxilə çəkilmiş çevrə:</strong> Çoxbucaqlının bütün tərəflərinə toxunan çevrə.</p>
+        
+        <!-- ŞƏKİL YERİ 11: Daxilə çəkilmiş çevrə -->
+        <div class="image-placeholder">
+            DAXİLƏ ÇƏKİLMİŞ ÇEVRƏ<br>
+            (Çoxbucaqlının içinə çəkilmiş çevrə)
+        </div>
+        
+        <p class="marginp"><strong>Xassə:</strong> Daxilə çəkilmiş çevrənin mərkəzi çoxbucaqlının tənbölənlərinin kəsişmə nöqtəsidir.</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Ətəfinə çəkilmiş çevrə:</strong> Çoxbucaqlının bütün təpələrindən keçən çevrə.</p>
+        
+        <!-- ŞƏKİL YERİ 12: Ətəfinə çəkilmiş çevrə -->
+        <div class="image-placeholder">
+            ƏTƏFİNƏ ÇƏKİLMİŞ ÇEVRƏ<br>
+            (Çoxbucaqlının ətrafına çəkilmiş çevrə)
+        </div>
+        
+        <p class="marginp"><strong>Xassə:</strong> Ətəfinə çəkilmiş çevrənin mərkəzi çoxbucaqlının tərəflərinin orta perpendikulyarlarının kəsişmə nöqtəsidir.</p>
+    </div>
+    
+    <div class="important">
+        <p><strong>QEYD:</strong> Hər çoxbucaqlıya daxilə çevrə çəkmək olmaz, lakin hər üçbucağa daxilə çevrə çəkmək olar.</p>
+        <p class="marginp">Hər çoxbucaqlıya ətəfinə çevrə çəkmək olmaz, lakin hər üçbucağa ətəfinə çevrə çəkmək olar.</p>
+    </div>
+    
+    <h2 class="section-title">7. XÜSUSİ VƏZİYYƏTLƏR</h2>
+    
+    <div class="definition">
+        <p><strong>1. İki çevrənin qarşılıqlı vəziyyəti:</strong></p>
+        
+        <!-- ŞƏKİL YERİ 13: İki çevrənin qarşılıqlı vəziyyəti -->
+        <div class="image-placeholder">
+            İKİ ÇEVRƏNİN VƏZİYYƏTİ<br>
+            (Ayrı, toxunan, kəsişən, içinə daxil)
+        </div>
+        
+        <p class="marginp"><strong>a) Ayrı çevrələr:</strong> Ümumi nöqtələri yoxdur</p>
+        <p class="marginp"><strong>b) Xarici toxunan:</strong> Bir ortaq nöqtəsi var, mərkəzlər müxtəlif tərəflərdə</p>
+        <p class="marginp"><strong>c) Daxili toxunan:</strong> Bir ortaq nöqtəsi var, mərkəzlər eyni tərəfdə</p>
+        <p class="marginp"><strong>d) Kəsişən çevrələr:</strong> İki ortaq nöqtəsi var</p>
+        <p class="marginp"><strong>e) Koncentrik çevrələr:</strong> Eyni mərkəzli, lakin müxtəlif radiuslu</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Dairəvi qövsün uzunluğu:</strong></p>
+        <div class="formula-large">
+            l = (α/360°) × 2πr
+        </div>
+        <p class="marginp">• l - qövsün uzunluğu</p>
+        <p class="marginp">• α - mərkəzi bucaq (dərəcə ilə)</p>
+        <p class="marginp">• r - radius</p>
+        
+        <div class="example">
+            <p><strong>Nümunə:</strong> Radiusu 10 sm, mərkəzi bucağı 60° olan qövsün uzunluğu:</p>
+            <p class="marginp">l = (60/360) × 2π × 10 = (1/6) × 20π = (10π/3) ≈ 10.47 sm</p>
+        </div>
+    </div>
+    
+    <h2 class="section-title">8. RADİAN ÖLÇÜSÜ</h2>
+    
+    <div class="definition">
+        <p><strong>Radian:</strong> Uzunluğu radiusa bərabər olan qövsə söykənən mərkəzi bucağın ölçüsünə deyilir.</p>
+        
+        <!-- ŞƏKİL YERİ 14: Radian ölçüsü -->
+        <div class="image-placeholder">
+            RADİAN ÖLÇÜSÜ<br>
+            (Uzunluğu radiusa bərabər qövs)
+        </div>
+        
+        <div class="formula-box">
+            <p><strong>Çevirmə düsturları:</strong></p>
+            <div class="formula-large">
+                180° = π radian
+            </div>
+            <p class="marginp">1 radian = 180°/π ≈ 57.3°</p>
+            <p class="marginp">1° = π/180 radian ≈ 0.01745 radian</p>
+            
+            <p><strong>Çevirmə qaydası:</strong></p>
+            <div class="formula-large">
+                α (radian) = [α (°) × π] / 180
+                α (°) = [α (radian) × 180] / π
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">9. 9-CU SİNİF ÜÇÜN ƏSAS DÜSTURLAR</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Çevrə ilə bağlı:</strong></p>
+        <p class="marginp">• Çevrənin uzunluğu: L = 2πr = πd</p>
+        <p class="marginp">• Dairənin sahəsi: S = πr²</p>
+        <p class="marginp">• Diametr: d = 2r</p>
+        <p class="marginp">• Radius: r = d/2</p>
+        <p class="marginp">• π ≈ 3.14, dəqiq: 3.1415926535...</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Sektor və seqment:</strong></p>
+        <p class="marginp">• Sektorun sahəsi: S = (α/360°) × πr²</p>
+        <p class="marginp">• Qövsün uzunluğu: l = (α/360°) × 2πr</p>
+        <p class="marginp">• Radianla: S = (α/2) × r², l = α × r</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>3. Bucaq ölçüləri:</strong></p>
+        <p class="marginp">• Mərkəzi bucaq = qarşısındakı qövs</p>
+        <p class="marginp">• Yazılı bucaq = ½ × qarşısındakı qövs</p>
+        <p class="marginp">• Diametrə söykənən yazılı bucaq = 90°</p>
+        <p class="marginp">• 180° = π radian</p>
+    </div>
+    
+    <div class="important">
+        <p><strong>YADDA SAXLAYIN:</strong></p>
+        <p class="marginp">1. Çevrə xətt, dairə isə səthdir</p>
+        <p class="marginp">2. Diametr ən uzun vətərdir (d = 2r)</p>
+        <p class="marginp">3. Toxunan həmişə radiusa perpendikulyardır</p>
+        <p class="marginp">4. Yazılı bucaq həmişə eyni qövsə söykənən mərkəzi bucağın yarısıdır</p>
+        <p class="marginp">5. π irrasional ədəddir (təxmini 3.14)</p>
+        <p class="marginp">6. Hər üçbucağa həm daxilə, həm də ətəfinə çevrə çəkmək olar</p>
+        <p class="marginp">7. Radian ölçüsü riyaziyyatda daha çox istifadə olunur</p>
+        <p class="marginp">8. Çevrənin uzunluğu və sahəsi düsturlarını qarışdırmayın!</p>
+    </div>
+    
+    <div class="example">
+        <p><strong>TİPİK MƏSƏLƏLƏR:</strong></p>
+        
+        <p class="marginp"><strong>Məsələ 1:</strong> Radiusu 14 sm olan çevrənin uzunluğu və sahəsi:</p>
+        <p class="m2arginp">L = 2π × 14 = 28π ≈ 87.92 sm</p>
+        <p class="m2arginp">S = π × 14² = 196π ≈ 615.44 sm²</p>
+        
+        <p class="marginp"><strong>Məsələ 2:</strong> Uzunluğu 31.4 sm olan çevrənin radiusu:</p>
+        <p class="m2arginp">L = 2πr = 31.4 → r = 31.4/(2π) ≈ 31.4/6.28 ≈ 5 sm</p>
+        
+        <p class="marginp"><strong>Məsələ 3:</strong> Mərkəzi bucağı 120°, radiusu 9 sm olan sektorun sahəsi:</p>
+        <p class="m2arginp">S = (120/360) × π × 9² = (1/3) × π × 81 = 27π ≈ 84.78 sm²</p>
+    </div>
+    
+    <!-- DOWNLOAD SECTION -->
+    <div class="download-section">
+        <h3>📥 Çevrə və Dairə Qaydalarını Yükləyin</h3>
+        <p>9-cu sinif üçün çevrə və dairəyə aid bütün qaydaları kompüterinizə yükləyin.</p>
+        <button class="download-button" onclick="downloadCircleRules()">
+            ⬇️ Qaydaları Yüklə (TXT)
+        </button>
+        <p><small>Fayl .txt formatında yüklənəcək</small></p>
+    </div>
+    
+    <p style="margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px;">
+        <i>Hazırlayan: Amin Xudizade | Mənbələr: 9-cu sinif dərslikləri | Azərbaycan məktəb proqramı</i>
+    </p>
+    
+    <p class="p1">Hazırsınızsa, quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='cevre-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        9-cu sinif: Çevrə və Dairə
+    </p>
+</footer>
+
+<script>
+    function downloadCircleRules() {
+        const rulesContent = `ÇEVRƏ VƏ DAİRƏ - 9-CU SİNİF
+=================================
+
+1. ƏSAS ANLAYIŞLAR VƏ TƏRİFLƏR:
+
+1.1 ÇEVRƏ:
+• Müstəvidə verilmiş nöqtədən bərabər məsafədə olan bütün nöqtələr çoxluğu
+
+1.2 DAİRƏ:
+• Çevrə ilə onun daxilində qalan hissənin birləşməsi
+
+1.3 ƏSAS ELEMENTLƏR:
+• Mərkəz (O): Çevrənin bütün nöqtələrindən bərabər məsafədə
+• Radius (r): Mərkəzdən çevrəyə qədər məsafə
+• Diametr (d): Çevrənin iki nöqtəsini birləşdirən və mərkəzdən keçən ən uzun parça
+• Qövs: Çevrənin iki nöqtəsi arasında qalan hissə
+• Vətər: Çevrənin iki nöqtəsini birləşdirən parça
+• Diametr ən uzun vətərdir: d = 2r
+
+2. ÇEVRƏNİN UZUNLUĞU VƏ DAİRƏNİN SAHƏSİ:
+
+2.1 ÇEVRƏNİN UZUNLUĞU (Perimetri):
+L = 2πr = πd
+• L - çevrənin uzunluğu
+• r - radius
+• d - diametr (d = 2r)
+• π (pi) ≈ 3.14 (dəqiq: 3.1415926535...)
+
+NÜMUNƏ: Radiusu 7 sm → L = 2 × π × 7 = 14π ≈ 43.96 sm
+
+2.2 DAİRƏNİN SAHƏSİ:
+S = πr²
+• S - dairənin sahəsi
+• r - radius
+
+NÜMUNƏ: Radiusu 5 sm → S = π × 5² = 25π ≈ 78.5 sm²
+
+3. DAİRƏVİ SEKTOR VƏ SEQMENT:
+
+3.1 DAİRƏVİ SEKTOR:
+• İki radius və onların arasında qalan qövsün əhatə etdiyi hissə
+
+Sektorun sahəsi:
+S_sektor = (α/360°) × πr²
+• α - sektorun mərkəzi bucağı (dərəcə ilə)
+
+Radianla: S_sektor = (α/2) × r²
+• α - mərkəzi bucaq (radianla)
+
+3.2 DAİRƏVİ SEQMENT:
+• Vətər və qövsün əhatə etdiyi hissə
+
+Seqmentin sahəsi:
+S_seqment = S_sektor - S_üçbucaq
+
+4. ÇEVRƏ VƏ BUCAQLAR:
+
+4.1 MƏRKƏZİ BUCAQ:
+• Təpəsi çevrənin mərkəzində olan bucaq
+• Xassə: Mərkəzi bucağın ölçüsü = qarşısındakı qövsün ölçüsü
+• ∠AOB = ︵AB
+
+4.2 YAZILI BUCAQ:
+• Təpəsi çevrə üzərində, tərəfləri vətər olan bucaq
+
+TEOREM: Yazılı bucağın ölçüsü qarşısındakı qövsün ölçüsünün yarısına bərabərdir.
+• ∠ACB = ½ × ︵AB
+
+NƏTİCƏ: Eyni qövsə söykənən bütün yazılı bucaqlar bərabərdir.
+
+4.3 XÜSUSİ YAZILI BUCAQLAR:
+
+a) Diametrə söykənən yazılı bucaq:
+• Həmişə düzbucaqdır (90°)
+• ∠ACB = 90°
+
+b) Dairəvi seqment bucağı:
+• Eyni vətərə söykənən yazılı bucaqlar bərabərdir
+
+5. ÇEVRƏYƏ VƏTƏRLƏR, TOXUNANLAR VƏ KƏSƏNLƏR:
+
+5.1 VƏTƏR:
+• Çevrənin iki nöqtəsini birləşdirən parça
+
+TEOREM: Mərkəzdən vətərə endirilən perpendikulyar həmin vətəri yarı bölür.
+
+5.2 TOXUNAN:
+• Çevrə ilə yalnız bir ortaq nöqtəsi olan düz xətt
+
+TEOREM: Toxunan nöqtəyə çəkilmiş radius toxunana perpendikulyardır.
+• OA ⟂ AT
+• O - mərkəz, A - toxunma nöqtəsi, T - toxunan
+
+5.3 KƏSƏN:
+• Çevrəni iki nöqtədə kəsən düz xətt
+
+5.4 UZUNLUQ DÜSTURLARI:
+
+a) Toxunan parçasının uzunluğu:
+AT² = AM × AN
+• A - çevrədən kənar nöqtə
+• AT - toxunan parçası
+• AM, AN - kəsən parçaları
+
+b) Kəsən parçaları:
+AM × AN = AP × AQ
+• Eyni nöqtədən çəkilmiş iki kəsən üçün
+
+6. ÇEVRƏYƏ DAXİL VƏ ÇEVRƏ ƏTƏFİNDƏ ÇEVRƏLƏNMİŞ ÇOXBUCAQLILAR:
+
+6.1 DAXİLƏ ÇƏKİLMİŞ ÇEVRƏ:
+• Çoxbucaqlının bütün tərəflərinə toxunan çevrə
+• Mərkəzi: çoxbucaqlının tənbölənlərinin kəsişmə nöqtəsi
+
+6.2 ƏTƏFİNƏ ÇƏKİLMİŞ ÇEVRƏ:
+• Çoxbucaqlının bütün təpələrindən keçən çevrə
+• Mərkəzi: çoxbucaqlının tərəflərinin orta perpendikulyarlarının kəsişmə nöqtəsi
+
+QEYD:
+• Hər üçbucağa həm daxilə, həm də ətəfinə çevrə çəkmək olar
+• Hər çoxbucaqlıya daxilə/ətəfinə çevrə çəkmək OLMAZ
+
+7. XÜSUSİ VƏZİYYƏTLƏR:
+
+7.1 İKİ ÇEVRƏNİN QARŞILIQLI VƏZİYYƏTİ:
+a) Ayrı çevrələr: Ümumi nöqtə yox
+b) Xarici toxunan: 1 ortaq nöqtə, mərkəzlər müxtəlif tərəflərdə
+c) Daxili toxunan: 1 ortaq nöqtə, mərkəzlər eyni tərəfdə
+d) Kəsişən çevrələr: 2 ortaq nöqtə
+e) Koncentrik çevrələr: Eyni mərkəzli, müxtəlif radiuslu
+
+7.2 DAİRƏVİ QÖVSÜN UZUNLUĞU:
+l = (α/360°) × 2πr
+• l - qövsün uzunluğu
+• α - mərkəzi bucaq (dərəcə ilə)
+• r - radius
+
+NÜMUNƏ: r = 10 sm, α = 60° → l = (60/360) × 2π × 10 = (10π/3) ≈ 10.47 sm
+
+8. RADİAN ÖLÇÜSÜ:
+
+8.1 RADİAN:
+• Uzunluğu radiusa bərabər olan qövsə söykənən mərkəzi bucağın ölçüsü
+
+8.2 ÇEVİRMƏ DÜSTURLARI:
+180° = π radian
+1 radian = 180°/π ≈ 57.3°
+1° = π/180 radian ≈ 0.01745 radian
+
+Çevirmə qaydası:
+α (radian) = [α (°) × π] / 180
+α (°) = [α (radian) × 180] / π
+
+9. ƏSAS DÜSTURLAR:
+
+9.1 ÇEVRƏ İLƏ BAĞLI:
+• Çevrənin uzunluğu: L = 2πr = πd
+• Dairənin sahəsi: S = πr²
+• Diametr: d = 2r
+• Radius: r = d/2
+• π ≈ 3.14
+
+9.2 SEKTOR VƏ SEQMENT:
+• Sektorun sahəsi: S = (α/360°) × πr²
+• Qövsün uzunluğu: l = (α/360°) × 2πr
+• Radianla: S = (α/2) × r², l = α × r
+
+9.3 BUCAQ ÖLÇÜLƏRİ:
+• Mərkəzi bucaq = qarşısındakı qövs
+• Yazılı bucaq = ½ × qarşısındakı qövs
+• Diametrə söykənən yazılı bucaq = 90°
+• 180° = π radian
+
+10. ƏHƏMİYYƏTLİ QAYDALAR:
+
+1. Çevrə XƏTT, dairə SƏTH-dir
+2. Diametr ən uzun vətərdir (d = 2r)
+3. Toxunan həmişə radiusa perpendikulyardır
+4. Yazılı bucaq = eyni qövsə söykənən mərkəzi bucağın yarısı
+5. π irrasional ədəddir (təxmini 3.14)
+6. Hər üçbucağa həm daxilə, həm də ətəfinə çevrə çəkmək olar
+7. Radian ölçüsü riyaziyyatda daha çox istifadə olunur
+8. L = 2πr (uzunluq), S = πr² (sahə) - QARIŞDIRMAMALI!
+
+11. TİPİK MƏSƏLƏLƏR:
+
+MƏSƏLƏ 1: r = 14 sm
+L = 2π × 14 = 28π ≈ 87.92 sm
+S = π × 14² = 196π ≈ 615.44 sm²
+
+MƏSƏLƏ 2: L = 31.4 sm
+r = 31.4/(2π) ≈ 31.4/6.28 ≈ 5 sm
+
+MƏSƏLƏ 3: α = 120°, r = 9 sm
+S_sektor = (120/360) × π × 9² = 27π ≈ 84.78 sm²
+
+MƏSƏLƏ 4: Yazılı bucaq 40° olarsa, mərkəzi bucaq?
+Mərkəzi bucaq = 2 × yazılı bucaq = 2 × 40° = 80°
+
+=================================
+© 2024 MathGen - Riyaziyyat Platforması
+9-cu sinif üçün Çevrə və Dairə
+Hazırlayan: Amin Xudizade`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'cevre-ve-daire-9-sinif.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('9-cu sinif çevrə və dairə qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

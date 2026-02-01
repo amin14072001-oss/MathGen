@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üçbucaqlar - 9-cu sinif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .download-button {
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: 20px auto;
+            display: block;
+            font-weight: bold;
+        }
+        
+        .download-button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+            background-color: #45a049;
+        }
+        
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        
+        .marginp{
+            margin-left: 30px;
+        }
+        
+        .m2arginp{
+            margin-left: 60px;
+        }
+        
+        .sualdiv{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+            line-height: 1.6;
+        }
+        
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            min-height: 200px;
+        }
+        
+        .formula-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #2ecc71;
+        }
+        
+        .definition {
+            background-color: #fffde7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .example {
+            background-color: #e8f6f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #16a085;
+            font-style: italic;
+        }
+        
+        .important {
+            background-color: #ffebee;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .symbol {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border: 2px dashed #4CAF50;
+        }
+        
+        .image-placeholder {
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #e0e0e0;
+            border: 2px dashed #666;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Üçbucaqlar - 9-cu sinif</p>
+    <h6 style="color: grey;">
+        9-cu sinif üçün üçbucaqlara aid bütün qaydalar və teoremlər
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <h2 class="section-title">1. ÜÇBUCAĞIN TƏRİFİ VƏ ƏSAS ELEMENTLƏRİ</h2>
+    
+    <div class="definition">
+        <p><strong>1. Üçbucağın tərifi:</strong> Eyni düz xətt üzərində olmayan üç nöqtəni ardıcıl birləşdirən üç parçanın əmələ gətirdiyi fiqura üçbucaq deyilir.</p>
+        
+        <!-- ŞƏKİL YERİ 1: Üçbucağın əsas elementləri -->
+        <div class="image-placeholder">
+            ÜÇBUCAQ ŞƏKLİ BURADA OLACAQ<br>
+            (Təpələr: A, B, C; Tərəflər: a, b, c; Bucaqlar: α, β, γ)
+        </div>
+        
+        <p><strong>2. Üçbucağın elementləri:</strong></p>
+        <p class="marginp">• <strong>Təpələr:</strong> A, B, C</p>
+        <p class="marginp">• <strong>Tərəflər:</strong> a = BC, b = AC, c = AB</p>
+        <p class="marginp">• <strong>Bucaqlar:</strong> ∠A = α, ∠B = β, ∠C = γ</p>
+        <p class="marginp">• <strong>Daxili bucaqlar:</strong> Üçbucağın içərisində yerləşən bucaqlar</p>
+        <p class="marginp">• <strong>Xarici bucaqlar:</strong> Daxili bucağa qonşu və onunla 180° əmələ gətirən bucaq</p>
+    </div>
+    
+    <h2 class="section-title">2. ÜÇBUCAĞIN XASSƏLƏRİ</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Üçbucağın bucaqlarının cəmi:</strong></p>
+        <p style="text-align: center; font-size: 20px; font-weight: bold;">
+            α + β + γ = 180°
+        </p>
+        <p class="marginp">• İstənilən üçbucağın daxili bucaqlarının cəmi 180°-yə bərabərdir</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Xarici bucağın xassəsi:</strong></p>
+        <p style="text-align: center; font-size: 20px; font-weight: bold;">
+            Xarici bucaq = qonşu olmayan iki daxili bucağın cəmi
+        </p>
+        
+        <!-- ŞƏKİL YERİ 2: Xarici bucaq -->
+        <div class="image-placeholder">
+            XARİCİ BUCAQ ŞƏKLİ BURADA OLACAQ<br>
+            (∠BCD xarici bucaq, ∠A və ∠B qonşu olmayan bucaqlar)
+        </div>
+        
+        <p class="marginp">• Üçbucağın hər bir xarici bucağı ona qonşu olmayan iki daxili bucağın cəminə bərabərdir</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>3. Üçbucaq bərabərsizliyi:</strong></p>
+        <p style="text-align: center; font-size: 20px; font-weight: bold;">
+            a < b + c<br>
+            b < a + c<br>
+            c < a + b
+        </p>
+        <p class="marginp">• Üçbucağın hər bir tərəfi digər iki tərəfin cəmindən kiçikdir</p>
+        <p class="marginp">• Üç parçanın üçbucaq əmələ gətirməsi üçün: ən böyük tərəf < digər iki tərəfin cəmi</p>
+    </div>
+    
+    <h2 class="section-title">3. ÜÇBUCAĞIN NÖVLƏRİ</h2>
+    
+    <div class="definition">
+        <p><strong>1. Bucaqlarına görə:</strong></p>
+        
+        <!-- ŞƏKİL YERİ 3: Bucaqlarına görə üçbucaqlar -->
+        <div class="image-placeholder">
+            İTİBUCAQLI, DÜZBUCAQLI, KORBUCAQLI ÜÇBUCAQLAR<br>
+            (3 növ üçbucaq şəkli)
+        </div>
+        
+        <p class="marginp"><strong>a) İtibucaqlı üçbucaq:</strong> Bütün bucaqları 90°-dən kiçik olan üçbucaq</p>
+        <p class="m2arginp">• α < 90°, β < 90°, γ < 90°</p>
+        
+        <p class="marginp"><strong>b) Düzbucaqlı üçbucaq:</strong> Bir bucağı 90° olan üçbucaq</p>
+        <p class="m2arginp">• α = 90° (və ya β = 90°, və ya γ = 90°)</p>
+        <p class="m2arginp">• 90°-li bucağın qarşısındakı tərəfə <strong>hipotenuz</strong> deyilir</p>
+        <p class="m2arginp">• Digər tərəflərə <strong>katetlər</strong> deyilir</p>
+        
+        <p class="marginp"><strong>c) Korbucaqlı üçbucaq:</strong> Bir bucağı 90°-dən böyük olan üçbucaq</p>
+        <p class="m2arginp">• α > 90° (və ya β > 90°, və ya γ > 90°)</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Tərəflərinə görə:</strong></p>
+        
+        <!-- ŞƏKİL YERİ 4: Tərəflərinə görə üçbucaqlar -->
+        <div class="image-placeholder">
+            MÜXTƏLİFTƏRƏFLİ, BƏRABƏRYANLI, BƏRABƏRTƏRƏFLİ ÜÇBUCAQLAR<br>
+            (3 növ üçbucaq şəkli)
+        </div>
+        
+        <p class="marginp"><strong>a) Müxtəliftərəfli üçbucaq:</strong> Bütün tərəfləri müxtəlif olan üçbucaq</p>
+        <p class="m2arginp">• a ≠ b ≠ c</p>
+        
+        <p class="marginp"><strong>b) Bərabəryanlı üçbucaq:</strong> İki tərəfi bərabər olan üçbucaq</p>
+        <p class="m2arginp">• a = b ≠ c (və ya digər bərabərlik)</p>
+        <p class="m2arginp">• Bərabər tərəflərə <strong>yan tərəflər</strong> deyilir</p>
+        <p class="m2arginp">• Üçüncü tərəfə <strong>əsas</strong> deyilir</p>
+        <p class="m2arginp">• Əsasın qarşısındakı bucağa <strong>təpə bucağı</strong> deyilir</p>
+        <p class="m2arginp">• Bərabər tərəflərin qarşısındakı bucaqlar bərabərdir</p>
+        
+        <p class="marginp"><strong>c) Bərabərtərəfli üçbucaq:</strong> Bütün tərəfləri bərabər olan üçbucaq</p>
+        <p class="m2arginp">• a = b = c</p>
+        <p class="m2arginp">• Bütün bucaqları 60°-yə bərabərdir</p>
+        <p class="m2arginp">• α = β = γ = 60°</p>
+    </div>
+    
+    <h2 class="section-title">4. DÜZBUCAQLI ÜÇBUCAQ</h2>
+    
+    <div class="definition">
+        <p><strong>1. Pifaqor teoremi:</strong></p>
+        
+        <!-- ŞƏKİL YERİ 5: Pifaqor teoremi -->
+        <div class="image-placeholder">
+            PİFAQOR TEOREMİ ŞƏKLİ<br>
+            (a, b katetlər, c hipotenuz; kvadratların şəkli)
+        </div>
+        
+        <div class="formula-box">
+            <p style="text-align: center; font-size: 24px; font-weight: bold;">
+                c² = a² + b²
+            </p>
+            <p class="marginp">• Düzbucaqlı üçbucaqda hipotenuzun kvadratı katetlərin kvadratları cəminə bərabərdir</p>
+            <p class="marginp">• burada: c - hipotenuz, a və b - katetlər</p>
+        </div>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Düzbucaqlı üçbucağın xüsusi nisbətləri:</strong></p>
+        
+        <!-- ŞƏKİL YERİ 6: Xüsusi düzbucaqlı üçbucaqlar -->
+        <div class="image-placeholder">
+            30-60-90 VƏ 45-45-90 ÜÇBUCAQLARI<br>
+            (Xüsusi nisbətlərlə üçbucaqlar)
+        </div>
+        
+        <p class="marginp"><strong>a) 30°-60°-90° üçbucağı:</strong></p>
+        <p class="m2arginp">• 30°-li bucağın qarşısındakı tərəf = hipotenuzun yarısı</p>
+        <p class="m2arginp">• 60°-li bucağın qarşısındakı tərəf = (hipotenuz × √3)/2</p>
+        
+        <p class="marginp"><strong>b) 45°-45°-90° üçbucağı (ikibucaqlı düzbucaqlı):</strong></p>
+        <p class="m2arginp">• Katetlər bərabərdir</p>
+        <p class="m2arginp">• Hipotenuz = katet × √2</p>
+    </div>
+    
+    <h2 class="section-title">5. ÜÇBUCAĞIN XƏTTLƏRİ</h2>
+    
+    <div class="definition">
+        <p><strong>1. Median:</strong> Üçbucağın təpəsini qarşı tərəfin orta nöqtəsi ilə birləşdirən parçadır.</p>
+        
+        <!-- ŞƏKİL YERİ 7: Median -->
+        <div class="image-placeholder">
+            MEDIAN ŞƏKLİ<br>
+            (A təpəsindən BC tərəfinin orta nöqtəsinə parça)
+        </div>
+        
+        <p class="marginp">• Üçbucağın 3 medianı var</p>
+        <p class="marginp">• Medianlar bir nöqtədə (ağırlıq mərkəzində) kəsişir</p>
+        <p class="marginp">• Ağırlıq mərkəzi hər medianı 2:1 nisbətində bölür (təpədən 2 hissə, tərəfdən 1 hissə)</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>2. Tənbölən:</strong> Üçbucağın bucağını yarı bölən şüanın, qarşı tərəflə kəsişməsindən əmələ gələn parçadır.</p>
+        
+        <!-- ŞƏKİL YERİ 8: Tənbölən -->
+        <div class="image-placeholder">
+            TƏNBÖLƏN ŞƏKLİ<br>
+            (∠A bucağını yarı bölən şüa)
+        </div>
+        
+        <p class="marginp">• Üçbucağın 3 tənböləni var</p>
+        <p class="marginp">• Tənbölənlər bir nöqtədə (daxilə çəkilmiş çevrənin mərkəzində) kəsişir</p>
+        <p class="marginp">• Tənbölən qarşı tərəfi bitişik tərəflərlə mütənasib hissələrə bölür</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>3. Hündürlük:</strong> Üçbucağın təpəsindən qarşı tərəfə (və ya onun uzantısına) endirilən perpendikulyardır.</p>
+        
+        <!-- ŞƏKİL YERİ 9: Hündürlük -->
+        <div class="image-placeholder">
+            HÜNDÜRLÜK ŞƏKLİ<br>
+            (A təpəsindən BC tərəfinə perpendikulyar)
+        </div>
+        
+        <p class="marginp">• Üçbucağın 3 hündürlüyü var</p>
+        <p class="marginp">• Hündürlüklər bir nöqtədə (diklik mərkəzində) kəsişir</p>
+        <p class="marginp">• Düzbucaqlı üçbucaqda diklik mərkəzi düz bucağın təpəsidir</p>
+    </div>
+    
+    <div class="definition">
+        <p><strong>4. Orta perpendikulyar:</strong> Üçbucağın tərəfinin orta nöqtəsindən həmin tərəfə perpendikulyar çəkilən düz xəttdir.</p>
+        
+        <!-- ŞƏKİL YERİ 10: Orta perpendikulyar -->
+        <div class="image-placeholder">
+            ORTA PERPENDİKULYAR ŞƏKLİ<br>
+            (BC tərəfinin orta nöqtəsindən ona perpendikulyar xətt)
+        </div>
+        
+        <p class="marginp">• Üçbucağın 3 orta perpendikulyarı var</p>
+        <p class="marginp">• Orta perpendikulyarlar bir nöqtədə (xaricə çəkilmiş çevrənin mərkəzində) kəsişir</p>
+    </div>
+    
+    <h2 class="section-title">6. ÜÇBUCAQLARIN BƏRABƏRLİYİ</h2>
+    
+    <div class="definition">
+        <p><strong>1. Bərabərlik meyarları:</strong></p>
+        
+        <p class="marginp"><strong>a) Birinci meyar (iki tərəf və onların arasındakı bucaq):</strong></p>
+        <p class="m2arginp">• Bir üçbucağın iki tərəfi və onların arasındakı bucağı digərinin uyğun iki tərəfi və onların arasındakı bucağına bərabərdirsə, üçbucaqlar bərabərdir</p>
+        
+        <!-- ŞƏKİL YERİ 11: Birinci bərabərlik meyarı -->
+        <div class="image-placeholder">
+            BİRİNCİ BƏRABƏRLİK MEYARI<br>
+            (AB = A'B', AC = A'C', ∠A = ∠A')
+        </div>
+        
+        <p class="marginp"><strong>b) İkinci meyar (bir tərəf və ona bitişik iki bucaq):</strong></p>
+        <p class="m2arginp">• Bir üçbucağın bir tərəfi və ona bitişik iki bucağı digərinin uyğun tərəfinə və ona bitişik iki bucağına bərabərdirsə, üçbucaqlar bərabərdir</p>
+        
+        <!-- ŞƏKİL YERİ 12: İkinci bərabərlik meyarı -->
+        <div class="image-placeholder">
+            İKİNCİ BƏRABƏRLİK MEYARI<br>
+            (BC = B'C', ∠B = ∠B', ∠C = ∠C')
+        </div>
+        
+        <p class="marginp"><strong>c) Üçüncü meyar (üç tərəf):</strong></p>
+        <p class="m2arginp">• Bir üçbucağın üç tərəfi digərinin üç tərəfinə bərabərdirsə, üçbucaqlar bərabərdir</p>
+        
+        <!-- ŞƏKİL YERİ 13: Üçüncü bərabərlik meyarı -->
+        <div class="image-placeholder">
+            ÜÇÜNCÜ BƏRABƏRLİK MEYARI<br>
+            (AB = A'B', BC = B'C', AC = A'C')
+        </div>
+        
+        <p class="marginp"><strong>d) Düzbucaqlı üçbucaqlar üçün xüsusi meyar (hipotenuz və katet):</strong></p>
+        <p class="m2arginp">• Bir düzbucaqlı üçbucağın hipotenuzu və kateti digər düzbucaqlı üçbucağın hipotenuzu və katetinə bərabərdirsə, üçbucaqlar bərabərdir</p>
+    </div>
+    
+    <h2 class="section-title">7. ÜÇBUCAQLARIN OXŞARLIĞI</h2>
+    
+    <div class="definition">
+        <p><strong>1. Oxşarlıq meyarları:</strong></p>
+        
+        <p class="marginp"><strong>a) Birinci meyar (iki bucaq):</strong></p>
+        <p class="m2arginp">• Bir üçbucağın iki bucağı digər üçbucağın iki bucağına bərabərdirsə, üçbucaqlar oxşardır</p>
+        
+        <p class="marginp"><strong>b) İkinci meyar (iki tərəf və onların arasındakı bucaq):</strong></p>
+        <p class="m2arginp">• Bir üçbucağın iki tərəfi digərinin iki tərəfi ilə mütənasibdirsə və bu tərəflərin arasındakı bucaqlar bərabərdirsə, üçbucaqlar oxşardır</p>
+        
+        <p class="marginp"><strong>c) Üçüncü meyar (üç tərəf):</strong></p>
+        <p class="m2arginp">• Bir üçbucağın üç tərəfi digərinin üç tərəfi ilə mütənasibdirsə, üçbucaqlar oxşardır</p>
+        
+        <!-- ŞƏKİL YERİ 14: Oxşar üçbucaqlar -->
+        <div class="image-placeholder">
+            OXŞAR ÜÇBUCAQLAR ŞƏKLİ<br>
+            (ABC və A'B'C' oxşar üçbucaqlar)
+        </div>
+    </div>
+    
+    <h2 class="section-title">8. ÜÇBUCAĞIN SAHESİ</h2>
+    
+    <div class="formula-box">
+        <p><strong>1. Ümumi sahə düsturları:</strong></p>
+        
+        <p style="text-align: center; font-size: 20px; font-weight: bold;">
+            S = (1/2) × a × hₐ
+        </p>
+        <p class="marginp">• burada: a - tərəf, hₐ - həmin tərəfə çəkilmiş hündürlük</p>
+        
+        <p style="text-align: center; font-size: 20px; font-weight: bold;">
+            S = (1/2) × a × b × sinγ
+        </p>
+        <p class="marginp">• burada: a və b - tərəflər, γ - onların arasındakı bucaq</p>
+        
+        <p style="text-align: center; font-size: 20px; font-weight: bold;">
+            S = √[p(p-a)(p-b)(p-c)] (Heron düsturu)
+        </p>
+        <p class="marginp">• burada: p = (a+b+c)/2 (yarımperimetr)</p>
+    </div>
+    
+    <div class="formula-box">
+        <p><strong>2. Xüsusi üçbucaqların sahəsi:</strong></p>
+        
+        <p class="marginp"><strong>a) Düzbucaqlı üçbucaq:</strong></p>
+        <p class="m2arginp">S = (1/2) × a × b (a və b katetlər)</p>
+        
+        <p class="marginp"><strong>b) Bərabərtərəfli üçbucaq:</strong></p>
+        <p class="m2arginp">S = (a²√3)/4 (a - tərəf)</p>
+        
+        <!-- ŞƏKİL YERİ 15: Sahə hesablanması -->
+        <div class="image-placeholder">
+            ÜÇBUCAĞIN SAHESİNİN HESABLANMASI<br>
+            (Hündürlüklə və ya tərəflərlə sahə şəkli)
+        </div>
+    </div>
+    
+    <h2 class="section-title">9. 9-CU SİNİF ÜÇÜN ƏHƏMİYYƏTLİ QAYDALAR</h2>
+    
+    <div class="important">
+        <p><strong>YADDA SAXLAYIN:</strong></p>
+        <p class="marginp">1. Üçbucağın daxili bucaqlarının cəmi həmişə 180°-dir</p>
+        <p class="marginp">2. Üçbucaq bərabərsizliyi: hər tərəf digər iki tərəfin cəmindən kiçikdir</p>
+        <p class="marginp">3. Bərabəryanlı üçbucaqda əsasın qarşısındakı bucaqlar bərabərdir</p>
+        <p class="marginp">4. Bərabərtərəfli üçbucaqda bütün bucaqlar 60°-dir</p>
+        <p class="marginp">5. Pifaqor teoremi yalnız düzbucaqlı üçbucaqda doğrudur</p>
+        <p class="marginp">6. Medianlar ağırlıq mərkəzində, tənbölənlər daxilə çəkilmiş çevrənin mərkəzində kəsişir</p>
+        <p class="marginp">7. Üçbucaqların bərabərliyi üçün 3 meyar var</p>
+        <p class="marginp">8. Sahəni hesablamaq üçün ən sadə yol: (tərəf × həmin tərəfə hündürlük)/2</p>
+    </div>
+    
+    <!-- DOWNLOAD SECTION -->
+    <div class="download-section">
+        <h3>📥 Üçbucaqlar Qaydalarını Yükləyin</h3>
+        <p>9-cu sinif üçün üçbucaqların bütün qaydalarını kompüterinizə yükləyin.</p>
+        <button class="download-button" onclick="downloadTriangleRules()">
+            ⬇️ Qaydaları Yüklə (TXT)
+        </button>
+        <p><small>Fayl .txt formatında yüklənəcək</small></p>
+    </div>
+    
+    <p style="margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px;">
+        <i>Hazırlayan: Amin Xudizade | Mənbələr: 9-cu sinif dərslikləri | Azərbaycan məktəb proqramı</i>
+    </p>
+    
+    <p class="p1">Hazırsınızsa, quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='ucbucaq-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        9-cu sinif: Üçbucaqlar
+    </p>
+</footer>
+
+<script>
+    function downloadTriangleRules() {
+        const rulesContent = `ÜÇBUCAQLAR - 9-CU SİNİF
+==============================
+
+1. ÜÇBUCAĞIN TƏRİFİ VƏ ƏSAS ELEMENTLƏRİ:
+
+1.1 TƏRİF:
+• Eyni düz xətt üzərində olmayan 3 nöqtəni birləşdirən 3 parçanın əmələ gətirdiyi fiqur
+
+1.2 ELEMENTLƏRİ:
+• Təpələr: A, B, C
+• Tərəflər: a = BC, b = AC, c = AB
+• Bucaqlar: ∠A = α, ∠B = β, ∠C = γ
+• Daxili bucaqlar: Üçbucağın içindəki bucaqlar
+• Xarici bucaqlar: Daxili bucağa qonşu və onunla 180° əmələ gətirən bucaq
+
+2. ÜÇBUCAĞIN XASSƏLƏRİ:
+
+2.1 BUCAQLARIN CƏMİ:
+α + β + γ = 180°
+• İstənilən üçbucağın daxili bucaqları cəmi 180°-dir
+
+2.2 XARİCİ BUCAQ XASSƏSİ:
+• Xarici bucaq = qonşu olmayan iki daxili bucağın cəmi
+• ∠BCD (xarici) = ∠A + ∠B
+
+2.3 ÜÇBUCAQ BƏRABƏRSİZLİYİ:
+a < b + c
+b < a + c
+c < a + b
+• Hər tərəf digər iki tərəfin cəmindən kiçikdir
+• Üçbucaq əmələ gəlməsi üçün: ən böyük tərəf < digər iki tərəfin cəmi
+
+3. ÜÇBUCAĞIN NÖVLƏRİ:
+
+3.1 BUCAQLARINA GÖRƏ:
+
+a) İTİBUCAQLI ÜÇBUCAQ:
+• Bütün bucaqları 90°-dən kiçik
+• α < 90°, β < 90°, γ < 90°
+
+b) DÜZBUCAQLI ÜÇBUCAQ:
+• Bir bucağı 90° olan üçbucaq
+• α = 90° (və ya β = 90°, və ya γ = 90°)
+• 90°-li bucağın qarşısındakı tərəf = HİPOTENUZ
+• Digər tərəflər = KATETLƏR
+
+c) KORBUCAQLI ÜÇBUCAQ:
+• Bir bucağı 90°-dən böyük
+• α > 90° (və ya β > 90°, və ya γ > 90°)
+
+3.2 TƏRƏFLƏRİNƏ GÖRƏ:
+
+a) MÜXTƏLİFTƏRƏFLİ ÜÇBUCAQ:
+• a ≠ b ≠ c (bütün tərəflər fərqli)
+
+b) BƏRABƏRYANLI ÜÇBUCAQ:
+• İki tərəfi bərabər: a = b ≠ c
+• Bərabər tərəflər = YAN TƏRƏFLƏR
+• Üçüncü tərəf = ƏSAS
+• Əsasın qarşısındakı bucaq = TƏPƏ BUCAĞI
+• Bərabər tərəflərin qarşısındakı bucaqlar bərabərdir
+
+c) BƏRABƏRTƏRƏFLİ ÜÇBUCAQ:
+• a = b = c (bütün tərəflər bərabər)
+• α = β = γ = 60°
+
+4. DÜZBUCAQLI ÜÇBUCAQ:
+
+4.1 PİFAQOR TEOREMİ:
+c² = a² + b²
+• c - hipotenuz, a və b - katetlər
+• Hipotenuzun kvadratı = katetlərin kvadratları cəmi
+
+4.2 XÜSUSİ NİSBƏTLƏR:
+
+a) 30°-60°-90° ÜÇBUCAĞI:
+• 30°-li bucağın qarşısındakı tərəf = hipotenuzun yarısı
+• 60°-li bucağın qarşısındakı tərəf = (hipotenuz × √3)/2
+
+b) 45°-45°-90° ÜÇBUCAĞI:
+• Katetlər bərabərdir
+• Hipotenuz = katet × √2
+
+5. ÜÇBUCAĞIN XƏTTLƏRİ:
+
+5.1 MEDIAN:
+• Təpəni qarşı tərəfin orta nöqtəsi ilə birləşdirən parça
+• 3 median var
+• Medianlar AĞIRLIQ MƏRKƏZİNDƏ kəsişir
+• Ağırlıq mərkəzi medianı 2:1 nisbətində bölür (təpədən 2, tərəfdən 1)
+
+5.2 TƏNBÖLƏN:
+• Bucağı yarı bölən şüanın qarşı tərəflə kəsişməsindən parça
+• 3 tənbölən var
+• Tənbölənlər DAXİLƏ ÇƏKİLMİŞ ÇEVRƏNİN MƏRKƏZİNDƏ kəsişir
+• Tənbölən qarşı tərəfi bitişik tərəflərlə mütənasib bölür
+
+5.3 HÜNDÜRLÜK:
+• Təpədən qarşı tərəfə (və ya uzantısına) endirilən perpendikulyar
+• 3 hündürlük var
+• Hündürlüklər DİKLİK MƏRKƏZİNDƏ kəsişir
+• Düzbucaqlı üçbucaqda diklik mərkəzi düz bucağın təpəsidir
+
+5.4 ORTA PERPENDİKULYAR:
+• Tərəfin orta nöqtəsindən həmin tərəfə perpendikulyar
+• 3 orta perpendikulyar var
+• XARİCƏ ÇƏKİLMİŞ ÇEVRƏNİN MƏRKƏZİNDƏ kəsişir
+
+6. ÜÇBUCAQLARIN BƏRABƏRLİYİ:
+
+6.1 BƏRABƏRLİK MEYARLARI:
+
+a) Birinci meyar (2 tərəf və aralarındakı bucaq):
+• AB = A'B', AC = A'C', ∠A = ∠A' → üçbucaqlar bərabər
+
+b) İkinci meyar (1 tərəf və ona bitişik 2 bucaq):
+• BC = B'C', ∠B = ∠B', ∠C = ∠C' → üçbucaqlar bərabər
+
+c) Üçüncü meyar (3 tərəf):
+• AB = A'B', BC = B'C', AC = A'C' → üçbucaqlar bərabər
+
+d) Xüsusi meyar (düzbucaqlı üçbucaq):
+• Hipotenuz və bir katet bərabərdirsə → üçbucaqlar bərabər
+
+7. ÜÇBUCAQLARIN OXŞARLIĞI:
+
+7.1 OXŞARLIQ MEYARLARI:
+
+a) Birinci meyar (2 bucaq):
+• İki bucaq bərabərdirsə → üçbucaqlar oxşardır
+
+b) İkinci meyar (2 tərəf və aralarındakı bucaq):
+• İki tərəf mütənasib və aralarındakı bucaq bərabərdirsə → üçbucaqlar oxşardır
+
+c) Üçüncü meyar (3 tərəf):
+• Üç tərəf mütənasibdirsə → üçbucaqlar oxşardır
+
+8. ÜÇBUCAĞIN SAHESİ:
+
+8.1 SAHƏ DÜSTURLARI:
+
+1) S = (1/2) × a × hₐ
+   • a - tərəf, hₐ - həmin tərəfə hündürlük
+
+2) S = (1/2) × a × b × sinγ
+   • a, b - tərəflər, γ - onların arasındakı bucaq
+
+3) S = √[p(p-a)(p-b)(p-c)] (Heron düsturu)
+   • p = (a+b+c)/2 (yarımperimetr)
+
+8.2 XÜSUSİ ÜÇBUCAQLARIN SAHESİ:
+
+a) Düzbucaqlı üçbucaq: S = (1/2) × a × b
+   • a və b - katetlər
+
+b) Bərabərtərəfli üçbucaq: S = (a²√3)/4
+   • a - tərəf
+
+9. ƏHƏMİYYƏTLİ QAYDALAR:
+
+1. Üçbucağın daxili bucaqları cəmi = 180° ✓
+2. Üçbucaq bərabərsizliyi: a < b + c ✓
+3. Bərabəryanlı üçbucaqda təpə bucağının qarşısındakı tərəf əsasdır ✓
+4. Bərabərtərəfli üçbucaqda bütün bucaqlar 60° ✓
+5. Pifaqor teoremi YALNIZ düzbucaqlı üçbucaqda ✓
+6. Medianlar ağırlıq mərkəzində kəsişir ✓
+7. Tənbölənlər daxilə çəkilmiş çevrənin mərkəzində kəsişir ✓
+8. Hündürlüklər diklik mərkəzində kəsişir ✓
+9. Üçbucaqların bərabərliyi üçün 3 meyar var ✓
+10. Sahə = (tərəf × həmin tərəfə hündürlük) / 2 ✓
+
+10. MÜXTƏLİF FORMULLAR:
+
+• Yarımperimetr: p = (a+b+c)/2
+• Daxilə çəkilmiş çevrənin radiusu: r = S/p
+• Xaricə çəkilmiş çevrənin radiusu: R = abc/(4S)
+• Median düsturu: mₐ = (1/2)√(2b²+2c²-a²)
+
+==============================
+© 2024 MathGen - Riyaziyyat Platforması
+9-cu sinif üçün Üçbucaqlar
+Hazırlayan: Amin Xudizade`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'ucbucaq-qaydalari-9-sinif.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('9-cu sinif üçbucaqlar qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

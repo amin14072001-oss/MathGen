@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permutasiya və Kombinezon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        
+        .marginp{
+            margin-left: 30px;
+        }
+        
+        .m2arginp{
+            margin-left: 60px;
+        }
+        
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        
+        .download-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            width: 1000px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .download-button:hover {
+            background-color: #3e8e41;
+            color: white;
+        }
+        
+        .formula {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-left: 4px solid #2196F3;
+            margin: 10px 0;
+            font-family: "Courier New", monospace;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #f0f0f0;
+            border: 3px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            color: #666;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .image-box {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            border: 2px dashed #999;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-weight: bold;
+        }
+        
+        .diagram-container {
+            width: 100%;
+            height: 300px;
+            background-color: #f5f5f5;
+            border: 3px dotted #888;
+            border-radius: 10px;
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .col {
+            width: 48%;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .definition-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .example-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>Permutasiya və Kombinezon</p>
+    <h6 style="color: grey;">
+        Kombinatorikanın əsasları, faktorial, permutasiya, kombinezon və ehtimal nəzəriyyəsi
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <!-- BÖLMƏ 1: FAKTORİAL -->
+    <h2>I HİSSƏ: FAKTORİAL VƏ KOMBİNATORİKANIN ƏSASLARI</h2>
+    
+    <div class="definition-box">
+        <p><strong>1. Faktorial:</strong></p>
+        <p class="marginp">n natural ədədinin faktorialı 1-dən n-ə qədər bütün natural ədədlərin hasilidir.</p>
+        <p class="m2arginp formula">n! = 1 × 2 × 3 × ... × n</p>
+        <p class="m2arginp">Xüsusi hallar:</p>
+        <p class="m2arginp">• 0! = 1 (tərifə görə)</p>
+        <p class="m2arginp">• 1! = 1</p>
+        <p class="m2arginp">• 5! = 1×2×3×4×5 = 120</p>
+    </div>
+    
+    <div class="image-placeholder">
+        FAKTORİAL VƏ ONUN ARTIMI - ŞƏKİL QOYULACAQ<br>
+        (Faktorialın artım qrafiki və nümunələr)
+    </div>
+    
+    <p><strong>2. Faktorialın Xassələri:</strong></p>
+    <p class="marginp">• n! = n × (n-1)!</p>
+    <p class="marginp">• (n+1)! = (n+1) × n!</p>
+    <p class="marginp">• n! / (n-1)! = n</p>
+    <p class="marginp">• (n!)^2 ≥ n^n (n ≥ 1)</p>
+    
+    <div class="example-box">
+        <p><strong>Misal:</strong> 7! hesablayın</p>
+        <p class="marginp">7! = 1×2×3×4×5×6×7 = 5040</p>
+        <p><strong>Misal:</strong> 8! / 6! hesablayın</p>
+        <p class="marginp">8! / 6! = (8×7×6!) / 6! = 8×7 = 56</p>
+    </div>
+    
+    <!-- BÖLMƏ 2: PERMUTASİYA -->
+    <h2 style="margin-top: 40px;">II HİSSƏ: PERMUTASİYA</h2>
+    
+    <div class="definition-box">
+        <p><strong>3. Permutasiya (Yer dəyişmə):</strong></p>
+        <p class="marginp">Verilmiş n elementin hamısının müəyyən ardıcıllıqla düzülüşüdür.</p>
+        <p class="m2arginp formula">P(n) = n! = 1 × 2 × 3 × ... × n</p>
+    </div>
+    
+    <div class="image-container">
+        <div class="image-box">
+            PERMUTASİYA NÜMUNƏSİ<br>ŞƏKİL QOYULACAQ<br>
+            (3 elementin bütün düzülüşləri)
+        </div>
+        <div class="image-box">
+            PERMUTASİYA AĞACI<br>ŞƏKİL QOYULACAQ<br>
+            (Düzülüşlərin ağac diaqramı)
+        </div>
+    </div>
+    
+    <p><strong>4. Təkrarlı Permutasiya:</strong></p>
+    <p class="marginp">n element arasında k₁ birinci növdən, k₂ ikinci növdən, ..., kₘ m-ci növdən element varsa:</p>
+    <p class="m2arginp formula">P(n; k₁, k₂, ..., kₘ) = n! / (k₁! × k₂! × ... × kₘ!)</p>
+    
+    <div class="example-box">
+        <p><strong>Misal:</strong> "MISSISSIPPI" sözündə neçə müxtəlif düzülüş var?</p>
+        <p class="marginp">M=1, I=4, S=4, P=2 → Toplam: 11 hərf</p>
+        <p class="marginp">P(11; 1,4,4,2) = 11! / (1! × 4! × 4! × 2!)</p>
+        <p class="marginp">= 39916800 / (1 × 24 × 24 × 2) = 39916800 / 1152 = 34650</p>
+    </div>
+    
+    <p><strong>5. Dairəvi Permutasiya:</strong></p>
+    <p class="marginp">n element dairə üzərində düzüldükdə:</p>
+    <p class="m2arginp formula">P_dairəvi(n) = (n-1)!</p>
+    
+    <div class="image-placeholder">
+        DAİRƏVİ PERMUTASİYA - ŞƏKİL QOYULACAQ<br>
+        (5 nəfərin dairəvi masa ətrafında oturma yolları)
+    </div>
+    
+    <!-- BÖLMƏ 3: KOMBİNEZON -->
+    <h2 style="margin-top: 40px;">III HİSSƏ: KOMBİNEZON</h2>
+    
+    <div class="definition-box">
+        <p><strong>6. Kombinezon (Seçmə):</strong></p>
+        <p class="marginp">n elementdən k elementin seçilməsi (sıra əhəmiyyəti yoxdur)</p>
+        <p class="m2arginp formula">C(n,k) = n! / [k! × (n-k)!]</p>
+        <p class="m2arginp">Digər işarələr: C(n,k), Cₖⁿ, C(n,k), (n k)</p>
+    </div>
+    
+    <div class="image-container">
+        <div class="image-box">
+            KOMBİNEZON NÜMUNƏSİ<br>ŞƏKİL QOYULACAQ<br>
+            (5 elementdən 2-sinin seçilməsi)
+        </div>
+        <div class="image-box">
+            KOMBİNEZON ÜÇBUCASI<br>ŞƏKİL QOYULACAQ<br>
+            (Paskal üçbucağı)
+        </div>
+    </div>
+    
+    <p><strong>7. Kombinezonun Xassələri:</strong></p>
+    <div class="two-col">
+        <div class="col">
+            <p class="marginp formula">1. C(n,k) = C(n, n-k)</p>
+            <p class="marginp formula">2. C(n,0) = C(n,n) = 1</p>
+            <p class="marginp formula">3. C(n,1) = C(n, n-1) = n</p>
+            <p class="marginp formula">4. C(n,k) = C(n-1,k-1) + C(n-1,k)</p>
+        </div>
+        <div class="col">
+            <p class="marginp formula">5. C(n,k) = C(n-1,k-1) × n/k</p>
+            <p class="marginp formula">6. Σ C(n,k) = 2ⁿ (k=0-dan n-ə)</p>
+            <p class="marginp formula">7. C(n,k) = C(n-1,k) + C(n-1,k-1)</p>
+        </div>
+    </div>
+    
+    <div class="example-box">
+        <p><strong>Misal:</strong> 10 şagirddən 3 nəfərlik komanda neçə yolla seçilə bilər?</p>
+        <p class="marginp">C(10,3) = 10! / (3! × 7!) = (10×9×8) / (3×2×1) = 720 / 6 = 120</p>
+    </div>
+    
+    <!-- BÖLMƏ 4: VARIASİYA -->
+    <h2 style="margin-top: 40px;">IV HİSSƏ: VARIASİYA (YERLƏŞMƏ)</h2>
+    
+    <div class="definition-box">
+        <p><strong>8. Variasiya (Yerləşmə):</strong></p>
+        <p class="marginp">n elementdən k elementin seçilib düzülməsi (sıra əhəmiyyətlidir)</p>
+        <p class="m2arginp formula">A(n,k) = n! / (n-k)!</p>
+    </div>
+    
+    <div class="image-placeholder">
+        VARIASİYA NÜMUNƏSİ - ŞƏKİL QOYULACAQ<br>
+        (4 idmançıdan 3-ünün medal sıralanması)
+    </div>
+    
+    <p><strong>9. Variasiyanın Xassələri:</strong></p>
+    <p class="marginp">• A(n,n) = n! (permutasiya)</p>
+    <p class="marginp">• A(n,1) = n</p>
+    <p class="marginp">• A(n,k) = n × (n-1) × ... × (n-k+1)</p>
+    <p class="marginp">• A(n,k) = C(n,k) × k!</p>
+    
+    <div class="example-box">
+        <p><strong>Misal:</strong> 5 kitabdan 3-ünü rəfdə neçə yolla düzmək olar?</p>
+        <p class="marginp">A(5,3) = 5! / (5-3)! = 5! / 2! = 120 / 2 = 60</p>
+    </div>
+    
+    <!-- BÖLMƏ 5: PAKAL ÜÇBUCAĞI -->
+    <h2 style="margin-top: 40px;">V HİSSƏ: PASKAL ÜÇBUCAĞI VƏ BİNOM</h2>
+    
+    <div class="diagram-container">
+        PASKAL ÜÇBUCAĞI - ŞƏKİL QOYULACAQ<br>
+        (Binom əmsallarının üçbucaq şəklində göstərilməsi)
+    </div>
+    
+    <p><strong>10. Paskal Üçbucağı:</strong></p>
+    <table>
+        <tr>
+            <th>n</th>
+            <th>C(n,0)</th>
+            <th>C(n,1)</th>
+            <th>C(n,2)</th>
+            <th>C(n,3)</th>
+            <th>C(n,4)</th>
+            <th>C(n,5)</th>
+        </tr>
+        <tr><td>0</td><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td>1</td><td>2</td><td>1</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td>1</td><td>3</td><td>3</td><td>1</td><td></td><td></td></tr>
+        <tr><td>4</td><td>1</td><td>4</td><td>6</td><td>4</td><td>1</td><td></td></tr>
+        <tr><td>5</td><td>1</td><td>5</td><td>10</td><td>10</td><td>5</td><td>1</td></tr>
+    </table>
+    
+    <p><strong>11. Nyuton Binomu:</strong></p>
+    <p class="marginp formula">(a + b)ⁿ = Σ C(n,k) × aⁿ⁻ᵏ × bᵏ (k=0-dan n-ə)</p>
+    
+    <div class="example-box">
+        <p><strong>Misal:</strong> (x + y)³ = ?</p>
+        <p class="marginp">(x + y)³ = C(3,0)x³y⁰ + C(3,1)x²y¹ + C(3,2)x¹y² + C(3,3)x⁰y³</p>
+        <p class="marginp">= 1·x³ + 3·x²y + 3·xy² + 1·y³</p>
+    </div>
+    
+    <!-- BÖLMƏ 6: EHTİMAL NƏZƏRİYYƏSİ -->
+    <h2 style="margin-top: 40px;">VI HİSSƏ: EHTİMAL NƏZƏRİYYƏSİ</h2>
+    
+    <div class="definition-box">
+        <p><strong>12. Ehtimal (Probability):</strong></p>
+        <p class="marginp">Hadisənin baş vermə şansının ölçüsü</p>
+        <p class="m2arginp formula">P(A) = n(A) / n(S)</p>
+        <p class="m2arginp">n(A) - əlverişli hallar</p>
+        <p class="m2arginp">n(S) - bütün mümkün hallar</p>
+    </div>
+    
+    <div class="image-placeholder">
+        EHTİMAL NÜMUNƏLƏRİ - ŞƏKİL QOYULACAQ<br>
+        (Zər atma, qumba atma, kart çəkmə)
+    </div>
+    
+    <p><strong>13. Ehtimalın Xassələri:</strong></p>
+    <p class="marginp">• 0 ≤ P(A) ≤ 1</p>
+    <p class="marginp">• P(imkansız) = 0</p>
+    <p class="marginp">• P(qəti) = 1</p>
+    <p class="marginp">• P(A') = 1 - P(A) (tamamlayıcı hadisə)</p>
+    <p class="marginp">• P(A∪B) = P(A) + P(B) - P(A∩B)</p>
+    
+    <div class="example-box">
+        <p><strong>Misal:</strong> Zar atdıqda cüt ədəd gəlmə ehtimalı?</p>
+        <p class="marginp">n(S) = 6 (bütün hallar)</p>
+        <p class="marginp">n(A) = 3 (2, 4, 6)</p>
+        <p class="marginp">P(A) = 3/6 = 1/2 = 0.5 = 50%</p>
+    </div>
+    
+    <!-- BÖLMƏ 7: XÜSUSİ HALLAR VƏ DÜSTURLAR -->
+    <h2 style="margin-top: 40px;">VII HİSSƏ: XÜSUSİ HALLAR VƏ DÜSTURLAR</h2>
+    
+    <p><strong>14. Kombinatorik Düsturlar Cədvəli:</strong></p>
+    <table>
+        <tr>
+            <th>Ad</th>
+            <th>İşarə</th>
+            <th>Düstur</th>
+            <th>Şərt</th>
+            <th>Nümunə</th>
+        </tr>
+        <tr>
+            <td>Permutasiya</td>
+            <td>P(n)</td>
+            <td>n!</td>
+            <td>Hamısı fərqli</td>
+            <td>3! = 6</td>
+        </tr>
+        <tr>
+            <td>Təkrarlı Permutasiya</td>
+            <td>P(n;k₁,k₂,...)</td>
+            <td>n!/(k₁!k₂!...)</td>
+            <td>Bəziləri eyni</td>
+            <td>"ANA" = 3</td>
+        </tr>
+        <tr>
+            <td>Variasiya</td>
+            <td>A(n,k)</td>
+            <td>n!/(n-k)!</td>
+            <td>Sıra əhəmiyyətli</td>
+            <td>A(5,2)=20</td>
+        </tr>
+        <tr>
+            <td>Kombinezon</td>
+            <td>C(n,k)</td>
+            <td>n!/[k!(n-k)!]</td>
+            <td>Sıra əhəmiyyətsiz</td>
+            <td>C(5,2)=10</td>
+        </tr>
+        <tr>
+            <td>Dairəvi Permutasiya</td>
+            <td>P_d(n)</td>
+            <td>(n-1)!</td>
+            <td>Dairə üzrə</td>
+            <td>P_d(4)=6</td>
+        </tr>
+    </table>
+    
+    <p><strong>15. Ümumi Sayma Prinsipi:</strong></p>
+    <div class="two-col">
+        <div class="col">
+            <p><strong>a) Toplama Qaydası:</strong></p>
+            <p class="marginp">A və ya B hadisəsi:</p>
+            <p class="marginp formula">n(A∪B) = n(A) + n(B) - n(A∩B)</p>
+        </div>
+        <div class="col">
+            <p><strong>b) Vurma Qaydası:</strong></p>
+            <p class="marginp">A və B hadisəsi:</p>
+            <p class="marginp formula">n(A×B) = n(A) × n(B)</p>
+        </div>
+    </div>
+    
+    <div class="image-placeholder">
+        ÜMUMİ SAYMA PRİNSİPLƏRİ - ŞƏKİL QOYULACAQ<br>
+        (Ağac diaqramı və şəbəkə nümunələri)
+    </div>
+    
+    <p><strong>16. Stirling Formulu (Böyük n üçün):</strong></p>
+    <p class="marginp formula">n! ≈ √(2πn) × (n/e)ⁿ</p>
+    <p class="marginp">e ≈ 2.71828 (Eyler ədədi)</p>
+    
+    <!-- YÜKLƏMƏ BÖLMƏSİ -->
+    <div class="download-section">
+        <h3>Qaydaları Yüklə</h3>
+        <p>Aşağıdakı düymələrə klikləyərək permutasiya və kombinezona aid qaydaları yükləyə bilərsiniz:</p>
+        <button class="download-button" onclick="downloadPermutasiyaKombinezonQaydalari()">
+            Bütün Qaydaları Yüklə (TXT)
+        </button>
+        <button class="download-button" onclick="downloadPermutasiyaFormullari()">
+            Permutasiya Düsturları (TXT)
+        </button>
+        <button class="download-button" onclick="downloadKombinezonFormullari()">
+            Kombinezon Düsturları (TXT)
+        </button>
+        <button class="download-button" onclick="downloadEhtimalNazariyyesi()">
+            Ehtimal Nəzəriyyəsi (TXT)
+        </button>
+        <button class="download-button" onclick="downloadKombinatorikaNumuneleri()">
+            Nümunələr və Məsələlər (TXT)
+        </button>
+    </div>
+    
+    <p style="margin-left: auto;margin-right: auto; text-align: center;">
+        <i>Hazırlayan: Amin Xudizadə | Mənbələr: Azərbaycan məktəb proqramı | Güvən nəşriyyatı | DIM proqramı</i>
+    </p>
+
+    <p class="p1">Hazırsınızsa quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='permutasiya-quiz.html'">Başla</button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Bizimlə öyrən, bizimlə inkişaf et.
+    </p>
+</footer>
+
+<script>
+    function downloadPermutasiyaKombinezonQaydalari() {
+        const content = `PERMUTASİYA VƏ KOMBİNEZON - BÜTÜN QAYDALAR
+
+I HİSSƏ: FAKTORİAL VƏ ƏSASLAR
+
+1. FAKTORİAL:
+   • Tərif: n! = 1 × 2 × 3 × ... × n
+   • Xüsusi hallar: 0! = 1, 1! = 1
+   • Xassələr:
+     1. n! = n × (n-1)!
+     2. (n+1)! = (n+1) × n!
+     3. n!/(n-1)! = n
+     4. n!/(n-2)! = n×(n-1)
+
+2. FAKTORİAL HESABLAMALARI:
+   • 5! = 1×2×3×4×5 = 120
+   • 6! = 720
+   • 7! = 5040
+   • 8! = 40320
+   • 9! = 362880
+   • 10! = 3628800
+
+II HİSSƏ: PERMUTASİYA (YER DƏYİŞMƏ)
+
+3. ADİ PERMUTASİYA:
+   • Tərif: n fərqli elementin bütün mümkün düzülüşləri
+   • Düstur: P(n) = n!
+   • Nümunə: 3 element: P(3) = 3! = 6
+     ABC, ACB, BAC, BCA, CAB, CBA
+
+4. TƏKRARLI PERMUTASİYA:
+   • Tərif: Bəzi elementlərin təkrarlandığı düzülüşlər
+   • Düstur: P(n; k₁, k₂, ..., kₘ) = n!/(k₁! × k₂! × ... × kₘ!)
+   • Nümunə: "MAMA" sözü: 4!/(2!×2!) = 24/(2×2) = 6
+
+5. DAİRƏVİ PERMUTASİYA:
+   • Tərif: Elementlərin dairə üzərində düzülüşü
+   • Düstur: P_d(n) = (n-1)!
+   • Nümunə: 5 nəfər dairəvi masa: (5-1)! = 4! = 24
+
+III HİSSƏ: VARIASİYA (YERLƏŞMƏ)
+
+6. VARIASİYA:
+   • Tərif: n elementdən k elementin seçilib düzülməsi
+   • Sıra ƏHƏMİYYƏTLİDİR
+   • Düstur: A(n,k) = n!/(n-k)!
+   • Digər formada: A(n,k) = n × (n-1) × ... × (n-k+1)
+   • Nümunə: A(5,3) = 5×4×3 = 60
+
+7. VARIASİYANIN XASSƏLƏRİ:
+   1. A(n,n) = n! (permutasiya ilə eyni)
+   2. A(n,1) = n
+   3. A(n,k) = C(n,k) × k!
+   4. A(n,k) = n × A(n-1, k-1)
+
+IV HİSSƏ: KOMBİNEZON (SEÇMƏ)
+
+8. KOMBİNEZON:
+   • Tərif: n elementdən k elementin seçilməsi
+   • Sıra ƏHƏMİYYƏTSİZDİR
+   • Düstur: C(n,k) = n!/[k! × (n-k)!]
+   • Digər işarələr: Cₖⁿ, C(n,k), (n k)
+
+9. KOMBİNEZONUN ƏSAS XASSƏLƏRİ:
+   1. Simmetriya: C(n,k) = C(n, n-k)
+   2. Sərhəd şərtləri: C(n,0) = C(n,n) = 1
+   3. C(n,1) = C(n, n-1) = n
+   4. Paskal üçbucağı: C(n,k) = C(n-1,k-1) + C(n-1,k)
+   5. C(n,k) = C(n-1,k-1) × n/k
+
+10. XÜSUSİ KOMBİNEZONLAR:
+    • C(n,2) = n(n-1)/2
+    • C(n,3) = n(n-1)(n-2)/6
+    • C(2n,n) - ən böyük orta kombinezon
+    • C(n,k) maksimum k = n/2-də
+
+V HİSSƏ: PASKAL ÜÇBUCAĞI VƏ BİNOM
+
+11. PASKAL ÜÇBUCAĞI:
+    Satır 0: 1
+    Satır 1: 1 1
+    Satır 2: 1 2 1
+    Satır 3: 1 3 3 1
+    Satır 4: 1 4 6 4 1
+    Satır 5: 1 5 10 10 5 1
+    Satır 6: 1 6 15 20 15 6 1
+
+12. BİNOM TEOREMİ:
+    • (a + b)ⁿ = Σ C(n,k) × aⁿ⁻ᵏ × bᵏ (k=0..n)
+    • (a + b)² = a² + 2ab + b²
+    • (a + b)³ = a³ + 3a²b + 3ab² + b³
+    • (a + b)⁴ = a⁴ + 4a³b + 6a²b² + 4ab³ + b⁴
+
+13. BİNOM XASSƏLƏRİ:
+    1. Binom əmsallarının cəmi: Σ C(n,k) = 2ⁿ
+    2. Alternativ cəm: Σ (-1)ᵏC(n,k) = 0 (n>0)
+    3. Tək cəm: Σ C(2n+1,k) = 4ⁿ (k=0..n)
+
+VI HİSSƏ: EHTİMAL NƏZƏRİYYƏSİ
+
+14. KLASİK EHTİMAL:
+    • P(A) = n(A)/n(S)
+    • n(A) - əlverişli hallar
+    • n(S) - bütün mümkün hallar
+    • 0 ≤ P(A) ≤ 1
+
+15. EHTİMALIN XASSƏLƏRİ:
+    1. P(imkansız) = 0
+    2. P(qəti) = 1
+    3. P(A') = 1 - P(A)
+    4. P(A∪B) = P(A) + P(B) - P(A∩B)
+    5. A və B müstəqil: P(A∩B) = P(A)×P(B)
+
+16. ŞƏRTİ EHTİMAL:
+    • P(A|B) = P(A∩B)/P(B)
+    • Bayes düsturu: P(A|B) = [P(B|A)×P(A)]/P(B)
+
+VII HİSSƏ: XÜSUSİ DÜSTURLAR VƏ QAYDALAR
+
+17. ÜMUMİ SAYMA PRİNSİPLƏRİ:
+    a) Toplama Qaydası: A VƏ YA B
+       n(A∪B) = n(A) + n(B) - n(A∩B)
+    
+    b) Vurma Qaydası: A VƏ B
+       n(A×B) = n(A) × n(B)
+    
+    c) Çıxma Qaydası:
+       n(A') = n(S) - n(A)
+
+18. KOMBİNATORİK EYNİLİKLƏR:
+    1. Σ C(n,k) = 2ⁿ
+    2. Σ kC(n,k) = n2ⁿ⁻¹
+    3. Σ k²C(n,k) = n(n+1)2ⁿ⁻²
+    4. C(n,k) = C(n-1,k-1) × n/k
+
+19. QEYD-RİYAZİYYAT İŞARƏLƏRİ:
+    • n! - faktorial
+    • P(n) - permutasiya
+    • A(n,k) və ya P(n,k) - variasiya
+    • C(n,k) - kombinezon
+    • Σ - cəm işarəsi
+    • Π - hasil işarəsi
+    • |A| - çoxluğun sayı
+
+20. STİRLİNG FORMULU (Böyük n üçün):
+    • n! ≈ √(2πn) × (n/e)ⁿ
+    • e ≈ 2.71828
+    • π ≈ 3.14159
+
+ƏHƏMİYYƏTLİ FƏRQLƏR:
+1. Permutasiya: Hamısı, sıra əhəmiyyətli
+2. Variasiya: Bəzisi, sıra əhəmiyyətli  
+3. Kombinezon: Bəzisi, sıra əhəmiyyətsiz
+
+PRATİK TƏTBİQLƏR:
+1. Şifrə və kod yaradılması
+2. İdman turnirlərinin təşkili
+3. Genetik kodların analizi
+4. Ehtimal hesablamaları
+5. Statistika və data analizi
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'permutasiya-kombinezon-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Permutasiya və Kombinezon qaydaları uğurla yükləndi! 📥');
+    }
+
+    function downloadPermutasiyaFormullari() {
+        const content = `PERMUTASİYA - BÜTÜN DÜSTURLAR VƏ NÜMUNƏLƏR
+
+1. FAKTORİAL DÜSTURLARI:
+   • n! = 1 × 2 × 3 × ... × n
+   • 0! = 1 (tərif)
+   • 1! = 1
+   • n! = n × (n-1)!
+   • (n+1)! = (n+1) × n!
+
+2. FAKTORİAL CƏDVƏLİ:
+   n   n!       n   n!
+   0   1        6   720
+   1   1        7   5040
+   2   2        8   40320
+   3   6        9   362880
+   4   24       10  3628800
+   5   120      11  39916800
+
+3. ADİ PERMUTASİYA:
+   • P(n) = n!
+   • n elementin bütün düzülüşləri
+   • Sıra ƏHƏMİYYƏTLİDİR
+   
+   Nümunə: P(3) = 3! = 6
+   ABC, ACB, BAC, BCA, CAB, CBA
+
+4. TƏKRARLI PERMUTASİYA:
+   • P(n; k₁, k₂, ..., kₘ) = n!/(k₁! × k₂! × ... × kₘ!)
+   • k₁ + k₂ + ... + kₘ = n
+   
+   Nümunələr:
+   1. "MAMA": P(4; 2,2) = 4!/(2!×2!) = 24/4 = 6
+   2. "KABAB": P(5; 2,2,1) = 5!/(2!×2!×1!) = 120/4 = 30
+   3. "MISSISSIPPI": P(11; 1,4,4,2) = 11!/(1!×4!×4!×2!) = 34650
+
+5. DAİRƏVİ PERMUTASİYA:
+   • P_d(n) = (n-1)!
+   • Fərqli formada: P_d(n) = n!/n = (n-1)!
+   
+   Nümunələr:
+   1. 4 nəfər dairəvi masa: P_d(4) = (4-1)! = 3! = 6
+   2. 5 adda qızıl medal: P_d(5) = 4! = 24
+   3. 6 element dairədə: 5! = 120
+
+6. QEYD-RİYAZİYYAT İŞARƏLƏRİ:
+   • P(n) - adi permutasiya
+   • P(n; k₁,k₂,...) - təkrarlı permutasiya
+   • P_d(n) - dairəvi permutasiya
+   • n! - faktorial
+
+7. PERMUTASİYA XASSƏLƏRİ:
+   1. P(n) = n × P(n-1)
+   2. P(n)/P(n-1) = n
+   3. P(n) = Π(k=1..n) k
+   4. P(n) = Γ(n+1) (Qamma funksiyası)
+
+8. ÇOXDƏYİŞƏNLİ PERMUTASİYA:
+   • P(n; r₁, r₂, ..., rₖ) = n!/(r₁! × r₂! × ... × rₖ!)
+   • Burada r₁ + r₂ + ... + rₖ = n
+   
+   Ümumi halda:
+   P(n; n₁, n₂, ..., nₖ) = n!/(n₁! × n₂! × ... × nₖ!)
+
+9. PERMUTASİYANIN TƏTBİQLƏRİ:
+   a) Şifrələr: n rəqəmli şifrə: P(n) = n! yol
+   b) Oturma yerləri: n nəfər n stul: n! yol
+   c) Kitablar: n kitab rəfdə: n! düzülüş
+   d) Yarışlar: n iştirakçının sıralanması: n! yol
+
+10. PERMUTASİYA SADƏLƏŞDİRMƏLƏRİ:
+    • n!/(n-1)! = n
+    • n!/(n-2)! = n×(n-1)
+    • n!/(n-3)! = n×(n-1)×(n-2)
+    • (n+1)!/n! = n+1
+    • (2n)!/(n!×n!) = C(2n,n)
+
+11. BÖYÜK n ÜÇÜN YAXINLAŞMALAR:
+    • Stirling formulu: n! ≈ √(2πn) × (n/e)ⁿ
+    • 10! ≈ √(20π) × (10/e)¹⁰ ≈ 3.6 × 10⁶
+    • 20! ≈ √(40π) × (20/e)²⁰ ≈ 2.4 × 10¹⁸
+
+12. PERMUTASİYA ALQORİTMİ:
+    Leksikoqrafik sıra ilə:
+    1. Ən böyük i tap ki, a[i] < a[i+1]
+    2. Ən böyük j tap ki, j > i və a[j] > a[i]
+    3. a[i] və a[j] yerini dəyiş
+    4. a[i+1..n] hissəsini tərsinə çevir
+
+13. XÜSUSİ PERMUTASİYALAR:
+    a) Dəyişmə (Transpozisiya): İki elementin yeri dəyişir
+    b) Dövr (Cycle): Elementlərin dövri yerdəyişməsi
+    c) Tərs (Inverse): İki elementin tərs qaydası
+
+14. PERMUTASİYA QRUPLARI:
+    • S_n - n elementli simmetrik qrup
+    • |S_n| = n!
+    • A_n - alternativ qrup, |A_n| = n!/2
+
+15. PROQRAMLAŞDIRMA ÜÇÜN:
+    Python: math.factorial(n)
+    C++: tgamma(n+1) # <cmath>
+    Java: BigInteger.ONE şəklində
+    JavaScript: rekursiv hesablama
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'permutasiya-dusturlari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Permutasiya düsturları uğurla yükləndi! 📥');
+    }
+
+    function downloadKombinezonFormullari() {
+        const content = `KOMBİNEZON - BÜTÜN DÜSTURLAR VƏ NÜMUNƏLƏR
+
+1. KOMBİNEZON DÜSTURU:
+   • C(n,k) = n!/[k! × (n-k)!]
+   • Digər işarələr: Cₖⁿ, C(n,k), (n k), nCk
+   • Oxunuş: "n-dən k seç"
+
+2. KOMBİNEZONUN ƏSAS XASSƏLƏRİ:
+   1. Simmetriya: C(n,k) = C(n, n-k)
+   2. Sərhəd: C(n,0) = C(n,n) = 1
+   3. C(n,1) = C(n, n-1) = n
+   4. Paskal üçbucağı: C(n,k) = C(n-1,k-1) + C(n-1,k)
+   5. Rekursiv: C(n,k) = C(n-1,k-1) × n/k
+
+3. KOMBİNEZON CƏDVƏLİ (PASKAL ÜÇBUCAĞI):
+   n/k  0   1   2   3   4   5   6
+   0    1
+   1    1   1
+   2    1   2   1
+   3    1   3   3   1
+   4    1   4   6   4   1
+   5    1   5   10  10  5   1
+   6    1   6   15  20  15  6   1
+   7    1   7   21  35  35  21  7   1
+
+4. XÜSUSİ KOMBİNEZON DÜSTURLARI:
+   • C(n,2) = n(n-1)/2
+   • C(n,3) = n(n-1)(n-2)/6
+   • C(n,4) = n(n-1)(n-2)(n-3)/24
+   • C(2n,n) = (2n)!/(n!×n!)
+   • C(n,k) = C(n-1,k-1) × n/k
+
+5. KOMBİNEZON İDARƏTLƏRİ:
+   1. C(n,k) = C(n, n-k)
+   2. C(n,k) = C(n-1,k) + C(n-1,k-1)
+   3. C(n,k) = C(n-1,k-1) × n/k
+   4. C(n,k) = C(n, k-1) × (n-k+1)/k
+
+6. ÇOKLU KOMBİNEZON:
+   • n elementdən k₁ birinci, k₂ ikinci, ...
+   • C(n; k₁,k₂,...,kₘ) = n!/(k₁! × k₂! × ... × kₘ!)
+   • k₁ + k₂ + ... + kₘ = n
+
+7. KOMBİNEZON ÜÇÜN ÜMUMİ DÜSTURLAR:
+   1. Vandermonde eyniliyi:
+      Σ C(m,i) × C(n, k-i) = C(m+n, k) (i=0..k)
+   
+   2. Binom teoremi:
+      (1+x)ⁿ = Σ C(n,k) × xᵏ (k=0..n)
+   
+   3. Kombinezon cəmləri:
+      a) Σ C(n,k) = 2ⁿ
+      b) Σ (-1)ᵏC(n,k) = 0 (n>0)
+      c) Σ kC(n,k) = n2ⁿ⁻¹
+
+8. KOMBİNEZON TƏTBİQLƏRİ:
+   a) Komanda seçimi: n şagirddən k nəfər
+   b) Lotereya: n ədəddən k ədəd seçmək
+   c) Kombinasiyalar: Kart oyunlarında
+   d) Qraf nəzəriyyəsi: Təpələrin birləşdirilməsi
+
+9. KOMBİNEZON VƏ EHTİMAL:
+   • Hadisənin ehtimalı: P(A) = C(əlverişli, k)/C(ümumi, k)
+   • Nümunə: Lotereyada udma ehtimalı
+   
+   Misal: 49 ədəddən 6 seçilir, 6 udan ədəd var:
+   P(qalib) = C(6,6)/C(49,6) = 1/13983816
+
+10. QEYD-RİYAZİYYAT ƏLAQƏLƏRİ:
+    • C(n,k) = A(n,k)/k!
+    • C(n,k) = P(n,k)/k!
+    • C(n,k) = binom(n,k)
+    • C(n,k) = nᵏ/k! (təxmini, böyük n üçün)
+
+11. KOMBİNEZON HESABLAMA ÜSULLARI:
+    Metod 1: Birbaşa düstur: n!/[k!(n-k)!]
+    Metod 2: Rekursiv: C(n,k) = C(n-1,k-1) + C(n-1,k)
+    Metod 3: Vurmadan: C(n,k) = Π(i=1..k) (n-k+i)/i
+    Metod 4: DP (Dinamik Proqramlaşdırma)
+
+12. BÖYÜK ƏDƏDLƏR ÜÇÜN:
+    • C(n,k) maksimum k = ⌊n/2⌋ və ya ⌈n/2⌉-də
+    • C(100,50) ≈ 1.0089×10²⁹
+    • C(1000,500) ≈ 2.7029×10²⁹⁹
+
+13. KOMBİNEZON SADƏLƏŞDİRMƏLƏRİ:
+    • C(n,k)/C(n,k-1) = (n-k+1)/k
+    • C(n,k)/C(n-1,k) = n/(n-k)
+    • C(n,k)×C(k,m) = C(n,m)×C(n-m, k-m)
+
+14. ÇOKLU İNDEKS KOMBİNEZONU:
+    • Multinomial əmsal: C(n; k₁,k₂,...,kₘ)
+    • (x₁+x₂+...+xₘ)ⁿ açılışında əmsal
+    • Nümunə: C(5; 2,2,1) = 5!/(2!×2!×1!) = 30
+
+15. PROQRAMLAŞDIRMA ÜÇÜN:
+    Python: math.comb(n, k) # Python 3.8+
+    C++: tgamma(n+1)/(tgamma(k+1)*tgamma(n-k+1))
+    Java: BigInteger kombinasiya
+    JavaScript: rekursiv və ya DP
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'kombinezon-dusturlari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Kombinezon düsturları uğurla yükləndi! 📥');
+    }
+
+    function downloadEhtimalNazariyyesi() {
+        const content = `EHTİMAL NƏZƏRİYYƏSİ - BÜTÜN QAYDALAR VƏ DÜSTURLAR
+
+1. KLASİK EHTİMAL:
+   • P(A) = n(A)/n(S)
+   • n(A) - əlverişli hallar
+   • n(S) - bütün mümkün hallar
+   • 0 ≤ P(A) ≤ 1
+
+2. EHTİMALIN ƏSAS XASSƏLƏRİ:
+   1. Qeyri-mənfilik: P(A) ≥ 0
+   2. Normalizasiya: P(S) = 1
+   3. Sonlu additivlik: A∩B=∅ → P(A∪B) = P(A) + P(B)
+   4. Tamamlayıcı: P(A') = 1 - P(A)
+
+3. EHTİMAL NÖVLƏRİ:
+   a) Klasik ehtimal: Bütün hallar eyni ehtimal
+   b) Statistiki ehtimal: Nisbi tezliklə
+   c) Subyektiv ehtimal: Şəxsi qiymətləndirmə
+   d) Aksimatik ehtimal: Kolmoqorov aksiomları
+
+4. HADİSƏ NÖVLƏRİ:
+   • Elementar hadisə: Tək nəticə
+   • Mürəkkəb hadisə: Bir neçə elementar hadisə
+   • Müstəqil hadisələr: Birinin baş verməsi digərinə təsir etmir
+   • Asılı hadisələr: Birinin baş verməsi digərinə təsir edir
+   • Tam qrup: Hadisələrin birləşməsi bütün fəzanı əhatə edir
+
+5. BİRLƏŞMİŞ EHTİMALLAR:
+   a) Birləşmə: P(A∪B) = P(A) + P(B) - P(A∩B)
+   b) Kəsişmə: P(A∩B) = P(A) × P(B|A) = P(B) × P(A|B)
+   c) Fərq: P(A-B) = P(A) - P(A∩B)
+
+6. ŞƏRTİ EHTİMAL:
+   • P(A|B) = P(A∩B)/P(B), P(B) ≠ 0
+   • "B baş verdikdə A-nın ehtimalı"
+   • Xassələr: 0 ≤ P(A|B) ≤ 1
+   
+   Misal: Zar atılıb, cüt olduğu bilindikdə, 4 olma ehtimalı:
+   P(4|cüt) = P(4∩cüt)/P(cüt) = (1/6)/(3/6) = 1/3
+
+7. BAYES TEOREMİ:
+   • P(A|B) = [P(B|A) × P(A)]/P(B)
+   • P(B) = P(B|A)P(A) + P(B|A')P(A')
+   
+   Təcrübədə: Diaqnostik testlər, filtrasiya
+
+8. MÜSTƏQİL HADİSƏLƏR:
+   • P(A∩B) = P(A) × P(B)
+   • P(A|B) = P(A)
+   • P(B|A) = P(B)
+   
+   Misal: İki zar atılıb, hər ikisinin 6 olması:
+   P(6 və 6) = (1/6) × (1/6) = 1/36
+
+9. TAM EHTİMAL QANUNU:
+   • B₁, B₂, ..., Bₙ tam qrup yaradırsa:
+   • P(A) = Σ P(A|Bᵢ) × P(Bᵢ) (i=1..n)
+
+10. EHTİMAL PAYLANMALARI:
+    a) Bernoulli: P(k uğur n cəhddə) = C(n,k)pᵏ(1-p)ⁿ⁻ᵏ
+    b) Binom: B(n,p) - n müstəqil Bernoulli sınağı
+    c) Puasson: λ orta sayda hadisə
+    d) Normal (Qauss): Çan əyrisi
+
+11. GÖZLƏNİLƏN QİYMƏT (Mean):
+    • E(X) = Σ xᵢ × P(xᵢ)
+    • Xassələr: E(aX+b) = aE(X)+b
+    • E(X+Y) = E(X) + E(Y)
+
+12. VARIANS VƏ STANDART SAPMA:
+    • Var(X) = E[(X-μ)²] = E(X²) - [E(X)]²
+    • σ = √Var(X) - standart sapma
+    • Xassələr: Var(aX+b) = a²Var(X)
+
+13. KOVARİANS VƏ KORRELYASİYA:
+    • Cov(X,Y) = E[(X-μₓ)(Y-μᵧ)]
+    • ρ = Cov(X,Y)/(σₓσᵧ) [-1,1]
+    • ρ=1: Mükəmməl müsbət korrelyasiya
+    • ρ=-1: Mükəmməl mənfi korrelyasiya
+    • ρ=0: Korrelyasiya yoxdur
+
+14. BÖYÜK ƏDƏDLƏR QANUNU:
+    • Nümunə ortası əhalinin ortasına yaxınlaşır
+    • Təcrübə sayı artdıqca ehtimal dəqiqləşir
+    • Statistikanın əsas prinsipi
+
+15. MƏRKƏZİ LİMİT TEOREMİ:
+    • Çoxlu müstəqil təsadüfi dəyişənlərin cəmi
+    • Normal paylanmaya yaxınlaşır
+    • Statistikanın əsas teoremi
+
+16. EHTİMAL SIXLIQ FUNKSİYALARI:
+    a) Diskret: P(X=xᵢ) = pᵢ
+    b) Davamlı: f(x) ≥ 0, ∫f(x)dx = 1
+    c) Paylanma funksiyası: F(x) = P(X ≤ x)
+
+17. NÜMUNƏ FƏZALARI:
+    a) Zar atma: S = {1,2,3,4,5,6}
+    b) Sikke atma: S = {Yaz, Tura}
+    c) Kart çəkmə: S = 52 kart
+    d) Doğum günü: S = {1,2,...,365}
+
+18. EHTİMAL HESABLAMA ÜSULLARI:
+    1. Ağac diaqramı
+    2. Ven diaqramı
+    3. Cədvəl metodu
+    4. Kombinatorik metodu
+    5. Simulyasiya
+
+19. TƏTBİQ SAHƏLƏRİ:
+    • Statistika və data analizi
+    • Risk qiymətləndirməsi
+    • Oyun nəzəriyyəsi
+    • Maşın öyrənmə
+    • Sığorta və maliyyə
+    • Tibbi diaqnostika
+
+20. MƏŞHUR EHTİMAL MƏSƏLƏLƏRİ:
+    a) Monty Hall problemi
+    b) Doğum günü paradoksu
+    c) Kart oyunları ehtimalları
+    d) Lotereya udma şansı
+    e) Sınaq müddətində sıradan çıxma
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'ehtimal-nazariyyesi.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Ehtimal nəzəriyyəsi qaydaları uğurla yükləndi! 📥');
+    }
+
+    function downloadKombinatorikaNumuneleri() {
+        const content = `PERMUTASİYA VƏ KOMBİNEZON - NÜMUNƏLƏR VƏ MƏSƏLƏLƏR
+
+NÜMUNƏ 1: Faktorial hesablanması
+Məsələ: 6! hesablayın.
+Həll: 6! = 1×2×3×4×5×6 = 720
+Cavab: 720
+
+NÜMUNƏ 2: Permutasiya sayı
+Məsələ: 4 kitab rəfdə neçə yolla düzülə bilər?
+Həll: P(4) = 4! = 24
+Cavab: 24 yol
+
+NÜMUNƏ 3: Təkrarlı permutasiya
+Məsələ: "KABAB" sözündə neçə müxtəlif düzülüş var?
+Həll: K=1, A=2, B=2 → Toplam 5 hərf
+P(5; 1,2,2) = 5!/(1!×2!×2!) = 120/(1×2×2) = 120/4 = 30
+Cavab: 30 düzülüş
+
+NÜMUNƏ 4: Dairəvi permutasiya
+Məsələ: 5 nəfər dairəvi masa ətrafında neçə yolla otura bilər?
+Həll: P_d(5) = (5-1)! = 4! = 24
+Cavab: 24 yol
+
+NÜMUNƏ 5: Variasiya (Yerləşmə)
+Məsələ: 5 idmançı arasından 1-ci, 2-ci, 3-cü yerləri neçə yolla paylamaq olar?
+Həll: A(5,3) = 5!/(5-3)! = 5!/2! = 120/2 = 60
+Cavab: 60 yol
+
+NÜMUNƏ 6: Kombinezon (Seçmə)
+Məsələ: 10 şagirddən 3 nəfərlik komanda neçə yolla seçilə bilər?
+Həll: C(10,3) = 10!/(3!×7!) = (10×9×8)/(3×2×1) = 720/6 = 120
+Cavab: 120 yol
+
+NÜMUNƏ 7: Kombinezon xassəsi
+Məsələ: C(8,3) = C(8,k) olduqda k neçədir?
+Həll: Simmetriya xassəsinə görə: C(8,3) = C(8,8-3) = C(8,5)
+Cavab: k = 5
+
+NÜMUNƏ 8: Paskal üçbucağı
+Məsələ: C(6,2) + C(6,3) = C(7,k) olduqda k neçədir?
+Həll: Paskal üçbucağına görə: C(6,2) + C(6,3) = C(7,3)
+Cavab: k = 3
+
+NÜMUNƏ 9: Binom açılışı
+Məsələ: (x+2)³ ifadəsini açın.
+Həll: (x+2)³ = C(3,0)x³2⁰ + C(3,1)x²2¹ + C(3,2)x¹2² + C(3,3)x⁰2³
+= 1·x³ + 3·2x² + 3·4x + 1·8 = x³ + 6x² + 12x + 8
+Cavab: x³ + 6x² + 12x + 8
+
+NÜMUNƏ 10: Ehtimal hesablanması
+Məsələ: Zar atdıqda 5 və ya 6 gəlmə ehtimalı?
+Həll: n(S) = 6, n(A) = 2 (5,6)
+P(A) = 2/6 = 1/3 ≈ 0.3333
+Cavab: 1/3
+
+NÜMUNƏ 11: Müstəqil hadisələr
+Məsələ: İki sikke atılıb, hər ikisinin yaz gəlmə ehtimalı?
+Həll: P(YY) = P(Y)×P(Y) = (1/2)×(1/2) = 1/4
+Cavab: 1/4
+
+NÜMUNƏ 12: Şərti ehtimal
+Məsələ: Zar atılıb, cüt ədəd olduğu bilindikdə, 2 olma ehtimalı?
+Həll: P(2|cüt) = P(2∩cüt)/P(cüt) = (1/6)/(3/6) = 1/3
+Cavab: 1/3
+
+NÜMUNƏ 13: Toplama qaydası
+Məsələ: 30 şagirddən 18-i riyaziyyat, 20-si fizika bilir, 12-i hər ikisini bilir. 
+Ən azı birini bilən şagirdlərin sayı?
+Həll: n(M∪F) = n(M) + n(F) - n(M∩F) = 18 + 20 - 12 = 26
+Cavab: 26 şagird
+
+NÜMUNƏ 14: Vurma qaydası
+Məsələ: 3 fərqli köynək və 4 fərqli pantolon neçə yolla geyinilə bilər?
+Həll: 3 × 4 = 12 yol
+Cavab: 12 kombinasiya
+
+NÜMUNƏ 15: Kompleks kombinatorik
+Məsələ: 3 qadın və 4 kişi düz xəttdə, qadınlar yan-yana olmaq şərti ilə neçə yolla düzülə bilər?
+Həll: 3 qadını 1 vahid kimi qəbul edək: 1+4=5 vahid
+5 vahidin düzülüşü: 5! = 120
+Qadınların öz aralarında düzülüşü: 3! = 6
+Ümumi: 120 × 6 = 720
+Cavab: 720 yol
+
+TƏLİM ÜÇÜN MƏSƏLƏLƏR:
+
+1. 7! hesablayın.
+2. "MATEMATİK" sözündə neçə düzülüş var?
+3. 6 nəfər dairəvi masa ətrafında neçə yolla otura bilər?
+4. 8 idmançı arasından qızıl, gümüş, bürünc medallarını neçə yolla paylamaq olar?
+5. 12 şagirddən 5 nəfərlik komanda neçə yolla seçilə bilər?
+6. C(9,4) hesablayın.
+7. (2x-1)⁴ ifadəsini açın.
+8. İki zar atılıb, cəmi 7 olma ehtimalı?
+9. Bir qutuda 4 ağ, 3 qırmızı top var. Təsadüfi 2 top götürülür, hər ikisinin ağ olma ehtimalı?
+10. 5 kişi və 4 qadın arasından 3 nəfərlik komanda seçilir. Komandada ən azı 1 qadın olma ehtimalı?
+
+CAVABLAR:
+1. 5040
+2. M=2, A=2, T=2, E=1, İ=1, K=1 → 9!/(2!×2!×2!) = 362880/8 = 45360
+3. (6-1)! = 5! = 120
+4. A(8,3) = 8×7×6 = 336
+5. C(12,5) = 792
+6. C(9,4) = 126
+7. 16x⁴ - 32x³ + 24x² - 8x + 1
+8. n(S)=36, n(A)=6 → P=6/36=1/6
+9. C(4,2)/C(7,2) = 6/21 = 2/7
+10. 1 - [C(5,3)/C(9,3)] = 1 - (10/84) = 1 - 5/42 = 37/42 ≈ 0.881
+
+HƏLL ÜSULLARI:
+1. Faktorial: Ardıcıl vurma
+2. Permutasiya: n! və ya n!/(təkrar faktorialları)
+3. Kombinezon: C(n,k) = n!/[k!(n-k)!]
+4. Ehtimal: Əlverişli hallar / Ümumi hallar
+5. Kompleks: Vurma və toplama qaydalarını birləşdir
+
+© 2024 MathGen - Riyaziyyat Platforması`;
+
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'kombinatorika-numuneleri.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Kombinatorika nümunələri uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

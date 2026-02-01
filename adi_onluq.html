@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adi və Onluq Kəsr</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+
+        }
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black ;
+            padding: 10px;
+
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+
+
+        }
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        .cedvel{
+            border:  3px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .cedvel th, .cedvel td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .ustuxet{
+            text-decoration: overline;
+            margin-left: 30px;
+        }
+        .m2arginp{
+            margin-left: 60px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Cambria Math', serif;
+            font-size: 18px;
+        }
+        .example-box {
+            background: #e8f4f8;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .important-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .definition-box {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .kinds-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .conversion-box {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        .kesr-yazisi {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .kesr-line {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+        .kesr-numerator {
+            display: block;
+            border-bottom: 1px solid black;
+            padding: 0 10px;
+        }
+        .kesr-denominator {
+            display: block;
+            padding: 0 10px;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Qeydiyyat Modalı -->
+    <div class="modal-overlay" id="kayitModal">
+        <div class="kayit-modal">
+            <div class="modal-baslik">
+                <h2>👤 Qeydiyyat</h2>
+                <p>MathGen-də öyrənməyə başla!</p>
+            </div>
+
+            <form id="kayitFormu">
+                <div class="form-grubu">
+                    <label for="kullaniciAdi">Ad və Soyad:</label>
+                    <input type="text" id="kullaniciAdi" class="form-kontrol" placeholder="Adınızı və soyadınızı daxil edin" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitEmail">E-poçt:</label>
+                    <input type="email" id="kayitEmail" class="form-kontrol" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="form-grubu">
+                    <label for="kayitSifre">Şifrə:</label>
+                    <input type="password" id="kayitSifre" class="form-kontrol" placeholder="Ən az 6 simvol" required minlength="6">
+                </div>
+
+                <div class="form-grubu">
+                    <label for="sifreTekrar">Şifrəni təsdiqlə:</label>
+                    <input type="password" id="sifreTekrar" class="form-kontrol" placeholder="Şifrəni yenidən daxil edin" required>
+                    <div id="kayitSifreHatasi" class="sifre-hatasi"></div>
+                </div>
+
+                <div class="form-aksiyonlari">
+                    <button type="submit" class="dugme dugme-primer">Qeydiyyatdan Keç</button>
+                    <button type="button" class="dugme dugme-sekonder" onclick="kapatKayitModal()">Bağla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="naturedivbasliq">
+        <p>Adi və Onluq Kəsrlər</p>
+        <h6 style="color: grey;">
+        Adi və onluq kəsrlərə aid bütün qaydalar, düsturlar və əməllər
+        </h6>
+    </div>
+<div class="sualdiv">
+
+<div class="definition-box">
+<p><strong>1. Kəsrin Tərifi:</strong></p>
+    <p class="marginp"><strong>Kəsr</strong> — bir və ya bir neçə bərabər hissələrə bölünmüş vahidin bir və ya bir neçə hissəsini göstərən ədədə deyilir.</p>
+    <div class="formula-box">
+        <p style="text-align: center; font-size: 24px;">
+            <span class="kesr-yazisi">
+                <span class="kesr-line">
+                    <span class="kesr-numerator">SURƏT (Pay)</span>
+                    <span class="kesr-denominator">MƏXRƏC (Məxrəc)</span>
+                </span>
+            </span>
+        </p>
+    </div>
+    <p class="marginp">• Surət (Pay) — kəsrin xəttinin üstündə yazılan ədəd</p>
+    <p class="marginp">• Məxrəc (Məxrəc) — kəsrin xəttinin altında yazılan ədəd (sıfırdan fərqli)</p>
+    <p class="marginp">• Kəsr xətti — surəti məxrəcdən ayıran üfüqi xətt</p>
+</div>
+
+<div class="kinds-box">
+<p><strong>2. Adi Kəsrlərin Növləri:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel">
+            <tr>
+                <th>Kəsrin növü</th>
+                <th>Tərifi</th>
+                <th>Nümunə</th>
+            </tr>
+            <tr>
+                <td>Düzgün kəsr</td>
+                <td>Surəti məxrəcdən kiçik olan kəsr</td>
+                <td><span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span>, <span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">7</span></span></td>
+            </tr>
+            <tr>
+                <td>Düzgün olmayan kəsr</td>
+                <td>Surəti məxrəcdən böyük və ya bərabər olan kəsr</td>
+                <td><span class="kesr-line"><span class="kesr-numerator">7</span><span class="kesr-denominator">5</span></span>, <span class="kesr-line"><span class="kesr-numerator">4</span><span class="kesr-denominator">4</span></span></td>
+            </tr>
+            <tr>
+                <td>Qarışıq ədəd</td>
+                <td>Tam hissə + düzgün kəsr</td>
+                <td>2<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span>, 3<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">2</span><span class="kesr-denominator">5</span></span></td>
+            </tr>
+            <tr>
+                <td>Tam ədəd</td>
+                <td>Məxrəci 1 olan kəsr</td>
+                <td><span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">1</span></span> = 5, <span class="kesr-line"><span class="kesr-numerator">8</span><span class="kesr-denominator">1</span></span> = 8</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<p><strong>3. Onluq Kəsrin Tərifi:</strong></p>
+<p class="marginp">Məxrəci 10, 100, 1000 və s. olan kəsrə <strong>onluq kəsr</strong> deyilir. Vergüllə yazılır.</p>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">10</span></span> = 0.3 (onluqda bir yer)</p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">25</span><span class="kesr-denominator">100</span></span> = 0.25 (onluqda iki yer)</p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">7</span><span class="kesr-denominator">1000</span></span> = 0.007 (onluqda üç yer)</p>
+</div>
+
+<div class="important-note">
+<p><strong>4. Əsas Kəsr Qaydaları:</strong></p>
+<p class="marginp">1. Kəsrin qiyməti onun surəti və məxrəcinin nisbətinə bərabərdir.</p>
+<p class="marginp">2. Məxrəc sıfır ola bilməz: <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">0</span></span> → müəyyən deyil!</p>
+<p class="marginp">3. Kəsrin surəti və məxrəci eyni ədədə vurularsa və ya bölünərsə, kəsrin qiyməti dəyişmir.</p>
+<p class="marginp">4. Kəsrin surəti və məxrəcinin işarələrini eyni vaxtda dəyişsək, kəsrin qiyməti dəyişmir.</p>
+</div>
+
+<p style="color: red"><strong>5. Kəsrlərin İxtisar Edilməsi:</strong></p>
+<div class="formula-box">
+<p><strong>Düstur:</strong> <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> = <span class="kesr-line"><span class="kesr-numerator">a ÷ c</span><span class="kesr-denominator">b ÷ c</span></span> (c ≠ 0)</p>
+</div>
+<p class="marginp">Surəti və məxrəci eyni ədədə (sıfırdan fərqli) bölmək.</p>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">6</span><span class="kesr-denominator">8</span></span> = <span class="kesr-line"><span class="kesr-numerator">6 ÷ 2</span><span class="kesr-denominator">8 ÷ 2</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">4</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">15</span><span class="kesr-denominator">25</span></span> = <span class="kesr-line"><span class="kesr-numerator">15 ÷ 5</span><span class="kesr-denominator">25 ÷ 5</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">5</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">100</span><span class="kesr-denominator">50</span></span> = <span class="kesr-line"><span class="kesr-numerator">100 ÷ 50</span><span class="kesr-denominator">50 ÷ 50</span></span> = <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">1</span></span> = 2</p>
+</div>
+
+<p style="color: red"><strong>6. Kəsrlərin Ümumi Məxrəcə Gətirilməsi:</strong></p>
+<p class="marginp">1. Məxrəclərin ən kiçik ortaq qatını (ƏKOB) tapın.</p>
+<p class="marginp">2. Hər kəsri məxrəcini ƏKOB-a bərabərləşdirin.</p>
+<div class="formula-box">
+<p><strong>Düstur:</strong> <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> = <span class="kesr-line"><span class="kesr-numerator">a × k</span><span class="kesr-denominator">b × k</span></span> (k = ƏKOB ÷ b)</p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong> <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span> və <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">4</span></span> kəsrlərini ümumi məxrəcə gətirin:</p>
+<p class="marginp">ƏKOB(3,4) = 12</p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span> = <span class="kesr-line"><span class="kesr-numerator">1 × 4</span><span class="kesr-denominator">3 × 4</span></span> = <span class="kesr-line"><span class="kesr-numerator">4</span><span class="kesr-denominator">12</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">4</span></span> = <span class="kesr-line"><span class="kesr-numerator">1 × 3</span><span class="kesr-denominator">4 × 3</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">12</span></span></p>
+</div>
+
+<div class="conversion-box">
+<p><strong>7. Adi Kəsrin Onluq Kəsrə Çevrilməsi:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel">
+            <tr>
+                <th>Metod</th>
+                <th>Təsvir</th>
+                <th>Nümunə</th>
+            </tr>
+            <tr>
+                <td>Məxrəci 10,100,1000 edərək</td>
+                <td>Surəti və məxrəci uyğun ədədə vur</td>
+                <td><span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">5</span></span> = <span class="kesr-line"><span class="kesr-numerator">3 × 2</span><span class="kesr-denominator">5 × 2</span></span> = <span class="kesr-line"><span class="kesr-numerator">6</span><span class="kesr-denominator">10</span></span> = 0.6</td>
+            </tr>
+            <tr>
+                <td>Bölmə ilə</td>
+                <td>Surəti məxrəcə böl</td>
+                <td><span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">8</span></span> = 5 ÷ 8 = 0.625</td>
+            </tr>
+            <tr>
+                <td>Dövri kəsrlər</td>
+                <td>Bölmə sonsuz dövri olur</td>
+                <td><span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span> = 0.333... = 0.3̅</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<p style="color: red"><strong>8. Onluq Kəsrin Adi Kəsrə Çevrilməsi:</strong></p>
+<div class="formula-box">
+<p><strong>Düstur:</strong> 0.abc = <span class="kesr-line"><span class="kesr-numerator">abc</span><span class="kesr-denominator">1000</span></span>, 0.ab = <span class="kesr-line"><span class="kesr-numerator">ab</span><span class="kesr-denominator">100</span></span>, 0.a = <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">10</span></span></p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp">0.7 = <span class="kesr-line"><span class="kesr-numerator">7</span><span class="kesr-denominator">10</span></span></p>
+<p class="marginp">0.25 = <span class="kesr-line"><span class="kesr-numerator">25</span><span class="kesr-denominator">100</span></span> = <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">4</span></span></p>
+<p class="marginp">0.125 = <span class="kesr-line"><span class="kesr-numerator">125</span><span class="kesr-denominator">1000</span></span> = <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">8</span></span></p>
+<p class="marginp">3.75 = 3<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">75</span><span class="kesr-denominator">100</span></span> = 3<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">3</span><span class="kesr-denominator">4</span></span></p>
+</div>
+
+<p style="color: red"><strong>9. Kəsrlərin Toplanması:</strong></p>
+<div class="formula-box">
+<p><strong>Düstur:</strong></p>
+<p>Məxrəclər eyni: <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> + <span class="kesr-line"><span class="kesr-numerator">c</span><span class="kesr-denominator">b</span></span> = <span class="kesr-line"><span class="kesr-numerator">a + c</span><span class="kesr-denominator">b</span></span></p>
+<p>Məxrəclər fərqli: <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> + <span class="kesr-line"><span class="kesr-numerator">c</span><span class="kesr-denominator">d</span></span> = <span class="kesr-line"><span class="kesr-numerator">ad + bc</span><span class="kesr-denominator">bd</span></span></p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">4</span></span> + <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">4</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">4</span></span> (eyni məxrəc)</p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span> + <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">6</span></span> = <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">6</span></span> + <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">6</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">6</span></span> = <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">5</span></span> + <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">4</span></span> = <span class="kesr-line"><span class="kesr-numerator">8</span><span class="kesr-denominator">20</span></span> + <span class="kesr-line"><span class="kesr-numerator">15</span><span class="kesr-denominator">20</span></span> = <span class="kesr-line"><span class="kesr-numerator">23</span><span class="kesr-denominator">20</span></span> = 1<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">3</span><span class="kesr-denominator">20</span></span></p>
+</div>
+
+<p style="color: red"><strong>10. Kəsrlərin Çıxılması:</strong></p>
+<div class="formula-box">
+<p><strong>Düstur:</strong></p>
+<p>Məxrəclər eyni: <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> - <span class="kesr-line"><span class="kesr-numerator">c</span><span class="kesr-denominator">b</span></span> = <span class="kesr-line"><span class="kesr-numerator">a - c</span><span class="kesr-denominator">b</span></span></p>
+<p>Məxrəclər fərqli: <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> - <span class="kesr-line"><span class="kesr-numerator">c</span><span class="kesr-denominator">d</span></span> = <span class="kesr-line"><span class="kesr-numerator">ad - bc</span><span class="kesr-denominator">bd</span></span></p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">4</span></span> - <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">4</span></span> = <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">4</span></span> = <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">6</span></span> - <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span> = <span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">6</span></span> - <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">6</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">6</span></span> = <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">7</span><span class="kesr-denominator">8</span></span> - <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span> = <span class="kesr-line"><span class="kesr-numerator">7</span><span class="kesr-denominator">8</span></span> - <span class="kesr-line"><span class="kesr-numerator">4</span><span class="kesr-denominator">8</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">8</span></span></p>
+</div>
+
+<p style="color: red"><strong>11. Kəsrlərin Vurulması:</strong></p>
+<div class="formula-box">
+<p><strong>Düstur:</strong> <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> × <span class="kesr-line"><span class="kesr-numerator">c</span><span class="kesr-denominator">d</span></span> = <span class="kesr-line"><span class="kesr-numerator">a × c</span><span class="kesr-denominator">b × d</span></span></p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> × <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">4</span></span> = <span class="kesr-line"><span class="kesr-numerator">6</span><span class="kesr-denominator">12</span></span> = <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span> × <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">5</span></span> = <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">10</span></span> = <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">5</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">7</span></span> × <span class="kesr-line"><span class="kesr-numerator">7</span><span class="kesr-denominator">3</span></span> = <span class="kesr-line"><span class="kesr-numerator">21</span><span class="kesr-denominator">21</span></span> = 1</p>
+</div>
+<p class="marginp"><strong>Qarışıq ədədlərin vurulması:</strong> Əvvəlcə düzgün olmayan kəsrə çevirin.</p>
+<div class="example-box">
+<p class="marginp">2<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span> × 1<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span> = <span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">2</span></span> × <span class="kesr-line"><span class="kesr-numerator">4</span><span class="kesr-denominator">3</span></span> = <span class="kesr-line"><span class="kesr-numerator">20</span><span class="kesr-denominator">6</span></span> = <span class="kesr-line"><span class="kesr-numerator">10</span><span class="kesr-denominator">3</span></span> = 3<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span></p>
+</div>
+
+<p style="color: red"><strong>12. Kəsrlərin Bölünməsi:</strong></p>
+<div class="formula-box">
+<p><strong>Düstur:</strong> <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> ÷ <span class="kesr-line"><span class="kesr-numerator">c</span><span class="kesr-denominator">d</span></span> = <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> × <span class="kesr-line"><span class="kesr-numerator">d</span><span class="kesr-denominator">c</span></span></p>
+<p>İkinci kəsri tərsinə çevirib vurma əməlini yerinə yetirin.</p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> ÷ <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">4</span></span> = <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> × <span class="kesr-line"><span class="kesr-numerator">4</span><span class="kesr-denominator">1</span></span> = <span class="kesr-line"><span class="kesr-numerator">8</span><span class="kesr-denominator">3</span></span> = 2<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">6</span></span> ÷ <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> = <span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">6</span></span> × <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">2</span></span> = <span class="kesr-line"><span class="kesr-numerator">15</span><span class="kesr-denominator">12</span></span> = <span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">4</span></span> = 1<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">1</span><span class="kesr-denominator">4</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">4</span></span> ÷ <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">4</span></span> × <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">1</span></span> = <span class="kesr-line"><span class="kesr-numerator">6</span><span class="kesr-denominator">4</span></span> = <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">2</span></span> = 1<span class="kesr-line" style="margin-left: 2px;"><span class="kesr-numerator">1</span><span class="kesr-denominator">2</span></span></p>
+</div>
+
+<div class="important-note">
+<p><strong>13. Onluq Kəsrlərlə Əməllər:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel">
+            <tr>
+                <th>Əməl</th>
+                <th>Qayda</th>
+                <th>Nümunə</th>
+            </tr>
+            <tr>
+                <td>Toplama</td>
+                <td>Vergülləri alt-alta düz, vergül altına vergül</td>
+                <td>3.25 + 1.75 = 5.00</td>
+            </tr>
+            <tr>
+                <td>Çıxma</td>
+                <td>Vergülləri alt-alta düz, vergül altına vergül</td>
+                <td>5.40 - 2.15 = 3.25</td>
+            </tr>
+            <tr>
+                <td>Vurma</td>
+                <td>Vergüllərə məhəl qoymadan vur, nəticədə vergülü sağdan sola amillərdəki onluq rəqəmlərin cəmi qədər yer köçür</td>
+                <td>1.5 × 2.3 = 3.45</td>
+            </tr>
+            <tr>
+                <td>Bölmə</td>
+                <td>Bölən tam ədəd olana qədər vergülləri sağa köçür, sonra normal böl</td>
+                <td>4.5 ÷ 1.5 = 45 ÷ 15 = 3</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<p style="color: red"><strong>14. Kəsrlərin Müqayisəsi:</strong></p>
+<div class="formula-box">
+<p><strong>Üsullar:</strong></p>
+<p>1. Ümumi məxrəcə gətir, surətləri müqayisə et</p>
+<p>2. Onluq kəsrə çevir, müqayisə et</p>
+<p>3. Vahid kəsrdən istifadə et</p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong> <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> və <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">5</span></span>-i müqayisə edin:</p>
+<p class="marginp">Ümumi məxrəc: <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> = <span class="kesr-line"><span class="kesr-numerator">10</span><span class="kesr-denominator">15</span></span>, <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">5</span></span> = <span class="kesr-line"><span class="kesr-numerator">9</span><span class="kesr-denominator">15</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">10</span><span class="kesr-denominator">15</span></span> > <span class="kesr-line"><span class="kesr-numerator">9</span><span class="kesr-denominator">15</span></span> → <span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> > <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">5</span></span></p>
+</div>
+
+<p style="color: red"><strong>15. Kəsrlərin Faizə Çevrilməsi:</strong></p>
+<div class="formula-box">
+<p><strong>Düstur:</strong> <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> × 100% = faiz</p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">4</span></span> = 0.25 = 25%</p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">5</span></span> = 0.6 = 60%</p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> ≈ 0.666... ≈ 66.67%</p>
+</div>
+
+<p style="color: red"><strong>16. Kəsrlərin Tərsləri:</strong></p>
+<div class="formula-box">
+<p><strong>Tərs kəsr:</strong> <span class="kesr-line"><span class="kesr-numerator">a</span><span class="kesr-denominator">b</span></span> kəsrinin tərsi <span class="kesr-line"><span class="kesr-numerator">b</span><span class="kesr-denominator">a</span></span> olur (a ≠ 0, b ≠ 0)</p>
+</div>
+<div class="example-box">
+<p><strong>Misal:</strong></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">2</span><span class="kesr-denominator">3</span></span> kəsrinin tərsi: <span class="kesr-line"><span class="kesr-numerator">3</span><span class="kesr-denominator">2</span></span></p>
+<p class="marginp"><span class="kesr-line"><span class="kesr-numerator">5</span><span class="kesr-denominator">7</span></span> kəsrinin tərsi: <span class="kesr-line"><span class="kesr-numerator">7</span><span class="kesr-denominator">5</span></span></p>
+<p class="marginp">3 tam ədədinin tərsi: <span class="kesr-line"><span class="kesr-numerator">1</span><span class="kesr-denominator">3</span></span></p>
+</div>
+
+<div class="important-note">
+<p><strong>17. ƏHƏMİYYƏTLİ QEYDLƏR:</strong></p>
+<p class="marginp">1. Kəsrin məxrəci heç vaxt sıfır ola bilməz.</p>
+<p class="marginp">2. Kəsrin qiyməti onun surətinin məxrəcə nisbətidir.</p>
+<p class="marginp">3. Kəsrin surəti və məxrəcini eyni ədədə vurduqda və ya böldükdə kəsrin qiyməti dəyişmir.</p>
+<p class="marginp">4. Kəsrləri toplayarkən və çıxarkən məxrəcləri eyniləşdirmək lazımdır.</p>
+<p class="marginp">5. Kəsrləri vurarkən sadələşdirməni əməliyyatdan əvvəl edə bilərsiniz.</p>
+<p class="marginp">6. Kəsrləri bölərkən ikinci kəsri tərsinə çevirib vurmaq lazımdır.</p>
+<p class="marginp">7. Onluq kəsrləri toplayarkən və çıxarkən vergülləri alt-alta düzmək vacibdir.</p>
+</div>
+
+<button class="download-btn" onclick="downloadKesrler()">
+    📥 Adi və Onluq Kəsrlər Qaydalarını Yüklə
+</button>
+
+<p style="margin-left: auto;margin-right: auto; text-align: center; margin-top: 40px;">
+    <i>Hazırlayan: MathGen Komandası | Mənbələr: Riyaziyyat Dərslikləri | Milli Təhsil Nazirliyi Proqramı</i>
+</p>
+
+    <p class="p1">Kəsrlərlə bağlı biliklərinizi sınayın!</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='kesrler_quiz.html'">Testə Başla</button>
+    </div>
+</div>
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Kəsrlər — riyaziyyatın əsas anlayışlarından biri
+    </p>
+</footer>
+
+<script>
+    function downloadKesrler() {
+        const rulesContent = `ADİ VƏ ONLUQ KƏSRLƏR - BÜTÜN QAYDALAR VƏ DÜSTURLAR
+
+1. KƏSRİN TƏRİFİ:
+   Kəsr = Surət / Məxrəc
+   • Surət (Pay): Kəsrin xəttinin üstündə
+   • Məxrəc: Kəsrin xəttinin altında (sıfırdan fərqli)
+
+2. ADİ KƏSRLƏRİN NÖVLƏRİ:
+   • Düzgün kəsr: Surət < Məxrəc (Məs: 2/3, 5/7)
+   • Düzgün olmayan kəsr: Surət ≥ Məxrəc (Məs: 7/5, 4/4)
+   • Qarışıq ədəd: Tam hissə + Düzgün kəsr (Məs: 2¹/₃, 3²/₅)
+   • Tam ədəd: Məxrəci 1 olan kəsr (Məs: 5/1 = 5)
+
+3. ONLUQ KƏSR:
+   Məxrəci 10, 100, 1000 və s. olan kəsr
+   • 3/10 = 0.3
+   • 25/100 = 0.25
+   • 7/1000 = 0.007
+
+4. ƏSAS QAYDALAR:
+   • Məxrəc sıfır ola bilməz
+   • Surət və məxrəci eyni ədədə vur/böl → qiymət dəyişmir
+   • İşarələri eyni vaxtda dəyiş → qiymət dəyişmir
+
+5. İXTİSAR EDİLMƏSİ:
+   a/b = (a÷c)/(b÷c) (c ≠ 0)
+   Nümunə: 6/8 = (6÷2)/(8÷2) = 3/4
+
+6. ÜMUMİ MƏXRƏCƏ GƏTİRİLMƏSİ:
+   a/b = (a×k)/(b×k) (k = ƏKOB ÷ b)
+   Nümunə: 1/3 və 1/4 → ƏKOB(3,4)=12
+   1/3 = 4/12, 1/4 = 3/12
+
+7. ADİ KƏSR → ONLUQ KƏSR:
+   • Metod 1: Məxrəci 10,100,1000 et
+     3/5 = (3×2)/(5×2) = 6/10 = 0.6
+   • Metod 2: Surəti məxrəcə böl
+     5/8 = 5 ÷ 8 = 0.625
+
+8. ONLUQ KƏSR → ADİ KƏSR:
+   0.abc = abc/1000
+   0.ab = ab/100
+   0.a = a/10
+   Nümunə: 0.25 = 25/100 = 1/4
+
+9. TOPLAMA:
+   • Eyni məxrəc: a/b + c/b = (a+c)/b
+   • Fərqli məxrəc: a/b + c/d = (ad+bc)/(bd)
+   Nümunə: 1/3 + 1/6 = 2/6 + 1/6 = 3/6 = 1/2
+
+10. ÇIXMA:
+    • Eyni məxrəc: a/b - c/b = (a-c)/b
+    • Fərqli məxrəc: a/b - c/d = (ad-bc)/(bd)
+    Nümunə: 5/6 - 1/3 = 5/6 - 2/6 = 3/6 = 1/2
+
+11. VURMA:
+    a/b × c/d = (a×c)/(b×d)
+    Nümunə: 2/3 × 3/4 = 6/12 = 1/2
+    Qarışıq ədədlər: 2¹/₂ × 1¹/₃ = 5/2 × 4/3 = 20/6 = 10/3 = 3¹/₃
+
+12. BÖLMƏ:
+    a/b ÷ c/d = a/b × d/c (ikinci kəsri tərsinə çevir)
+    Nümunə: 2/3 ÷ 1/4 = 2/3 × 4/1 = 8/3 = 2²/₃
+
+13. ONLUQ KƏSRLƏRLƏ ƏMƏLLƏR:
+    • Toplama/Çıxma: Vergülləri alt-alta düz
+    • Vurma: Vergüllərə məhəl qoymadan vur, nəticədə vergülü sağdan sola amillərdəki onluq rəqəmlərin cəmi qədər yer köçür
+    • Bölmə: Bölən tam olana qədər vergülləri sağa köçür
+
+14. MÜQAYİSƏ:
+    • Üsul 1: Ümumi məxrəcə gətir, surətləri müqayisə et
+    • Üsul 2: Onluq kəsrə çevir, müqayisə et
+    • Üsul 3: Vahid kəsrdən istifadə et
+
+15. FAİZƏ ÇEVİRMƏ:
+    a/b × 100% = faiz
+    Nümunə: 1/4 = 0.25 = 25%
+
+16. TƏRS KƏSR:
+    a/b kəsrinin tərsi: b/a (a ≠ 0, b ≠ 0)
+    Nümunə: 2/3 tərsi → 3/2
+
+17. ƏHƏMİYYƏTLİ QEYDLƏR:
+    1. Məxrəc sıfır ola bilməz
+    2. Kəsrləri toplayıb çıxarkən məxrəcləri eyniləşdir
+    3. Vurarkən sadələşdirməni əvvəlcədən edə bilərsən
+    4. Bölərkən ikinci kəsri tərsinə çevir
+    5. Onluq kəsrlərdə vergüllərə diqqət et
+
+QARŞIQ ƏDƏDLƏR:
+   • Qarışıq → Düzgün olmayan: a b/c = [(a×c)+b]/c
+   • Düzgün olmayan → Qarışıq: Tam hissə = surəti məxrəcə bölünən qismət
+   
+   Nümunə: 2¹/₃ = (2×3+1)/3 = 7/3
+           7/3 = 2 qalıq 1 → 2¹/₃
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'adi-ve-onluq-kesrler-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Adi və onluq kəsrlər qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hərəkət və Fiqların Oxşarlığı</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: linear-gradient(blue,rgb(36, 36, 240),rgb(95, 95, 233),rgb(111, 111, 197),rgb(88, 88, 141),rgb(119, 119, 152),rgb(119, 119, 141),rgb(105, 105, 115));
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,rgb(31, 134, 31),rgb(61, 128, 61),rgb(70, 118, 70),rgb(76, 112, 76),rgb(81, 100, 81));
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 60px;
+        }
+        .header1 {
+            display: flex;
+            cursor: pointer;
+        }
+        nav {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            background-color: black;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+        .p1{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .button{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+        .button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .buttonn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .naturedivbasliq{
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 1000px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        .cedvel{
+            border:  3px solid black;
+        }
+        .marginp{
+            margin-left: 30px;
+        }
+        .tablediv{
+            margin-left: 30px;
+            border-radius: 10px;
+            border-left: #00D2FA solid 5px;
+            padding: 10px;
+            width: 500px;
+        }
+        .ustuxet{
+            text-decoration: overline;
+            margin-left: 30px;
+        }
+        .m2arginp{
+            margin-left: 60px;
+        }
+        .sualdiv{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 1000px;
+            margin: auto;
+        }
+        .highlight-box {
+            background-color: #fffacd;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #ff9900;
+            margin: 20px 0;
+        }
+        .formula {
+            background-color: #f0f8ff;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: "Courier New", monospace;
+            margin: 10px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        .download-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .download-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            border: 2px dashed #999;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            color: #666;
+            font-weight: bold;
+        }
+        .figure-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .figure-box {
+            width: 45%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .ana-ust {
+            display: flex;
+            background-color: black;
+        }
+
+        .logo-alani {
+            display: flex;
+            align-items: center;
+        }
+
+        .ust-menu {
+            padding: 10px 0;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: black;
+        }
+
+        .menu {
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: space-around;
+            transition: 0.6s;
+            flex-direction: row-reverse;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transition: 0.6s;
+            color: yellow;
+        }
+
+        /* Profil Bölümü Stilleri */
+        .profil-konteyneri {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .profil-ikonu {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .profil-ikonu:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .profil-ikonu span {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .profil-acilir-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            border: 1px solid #444;
+        }
+
+        .profil-acilir-menu.aktif {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profil-baslik {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .profil-resim {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .profil-bilgi h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profil-bilgi p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .profil-istatistikleri {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .istatistik-oge {
+            text-align: center;
+            flex: 1;
+        }
+
+        .istatistik-deger {
+            color: yellow;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .istatistik-etiket {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .seviye-cubugu {
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .seviye-ilerleme {
+            height: 100%;
+            background: linear-gradient(to right, #00cc00, #99ff33);
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .seviye-bilgi {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Qeydiyyat bağlantısı */
+        .kayit-linki {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kayit-linki:hover {
+            background-color: #ffcc00;
+            color: black !important;
+        }
+
+        /* Dərs linklərinin qeydiyyatdan keçilməmiş halları üçün */
+        .ders-linki {
+            position: relative;
+        }
+        
+        .ders-linki::after {
+            content: "Qeydiyyat tələb olunur";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .ders-linki:hover::after {
+            opacity: 1;
+        }
+
+        /* Qeydiyyat Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.aktif {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .kayit-modal {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #444;
+        }
+
+        .modal-baslik {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-baslik h2 {
+            color: yellow;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .modal-baslik p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .form-grubu {
+            margin-bottom: 20px;
+        }
+
+        .form-grubu label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .form-kontrol {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #555;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-kontrol:focus {
+            outline: none;
+            border-color: yellow;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .form-aksiyonlari {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dugme {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .dugme-primer {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: black;
+        }
+
+        .dugme-primer:hover {
+            background: linear-gradient(135deg, #ff9900, #cc6600);
+            transform: translateY(-2px);
+        }
+
+        .dugme-sekonder {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+        }
+
+        .dugme-sekonder:hover {
+            background: linear-gradient(135deg, #555, #333);
+            transform: translateY(-2px);
+        }
+
+        /* Şifre hatası mesajı */
+        .sifre-hatasi {
+            color: #ff6666;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Mesaj bildirişi */
+        .bildiri {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bildiri.basarili {
+            background: linear-gradient(135deg, #00cc00, #009900);
+            color: white;
+        }
+
+        .bildiri.hata {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+        }
+
+        .bildiri.bilgi {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-ust">
+        <div class="logo-alani">
+            <div style="padding: 15px 20px;">
+                <span style="cursor: pointer" onclick="sayfayaYonlendir('bas1.html')" >
+                    <h2 ><span style="color: white">Math</span><span style="color: yellow">Gen</span></h2>
+                </span>
+            </div>
+        </div>
+        
+        <div class="ust-menu">
+            <nav class="menu">
+                <a href="haqq.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Quiz')">Haqqimizda</a>
+                <a href="form1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Müraciət')">Müraciət</a>
+                <a href="naturalquiz.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Sınaqlar')">Sınaqlar</a>
+                <a href="bas1.html" class="ders-linki" onclick="qeydiyyatTələbEdir('Ana Səhifə')">Ana Səhifə</a>
+
+                <!-- Qeydiyyat bağlantısı -->
+                <a href="#" class="kayit-linki" id="kayitLinki" onclick="acKayitModal()">Qeydiyyat</a>
+            </nav>
+
+            <!-- Profil Bölümü -->
+            <div class="profil-konteyneri" id="profilKonteyneri" style="display: none;">
+                <div class="profil-ikonu" id="profilIkonu">
+                    <span id="profilBasHarfler">?</span>
+                </div>
+                <div class="profil-acilir-menu" id="profilAcilirMenu">
+                    <div class="profil-baslik">
+                        <div class="profil-resim" id="profilMenuResim">?</div>
+                        <div class="profil-bilgi">
+                            <h3 id="profilMenuAdi"></h3>
+                            <p id="profilMenuEmail"></p>
+                        </div>
+                    </div>
+
+                    <div class="profil-istatistikleri">
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciPuan">0</span>
+                            <span class="istatistik-etiket">Xal</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciSeviye">1</span>
+                            <span class="istatistik-etiket">Səviyyə</span>
+                        </div>
+                        <div class="istatistik-oge">
+                            <span class="istatistik-deger" id="kullaniciReytinq">-</span>
+                            <span class="istatistik-etiket">Reytinq</span>
+                        </div>
+                    </div>
+
+                    <div class="seviye-bilgi">
+                        <span>Səviyyə</span>
+                        <span id="seviyeIlerleme">0%</span>
+                    </div>
+                    <div class="seviye-cubugu">
+                        <div class="seviye-ilerleme" id="seviyeIlerlemeCubugu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="naturedivbasliq">
+    <p>HƏRƏKƏT VƏ FİQLARIN OXŞARLIĞI</p>
+    <h6 style="color: grey;">
+        Hərəkət və fiqların oxşarlığına aid bütün qaydalar, düsturlar və nümunələr səhifəmizdə yer alır.
+    </h6>
+</div>
+
+<div class="sualdiv">
+    <p><strong>1. HƏRƏKƏT NƏDİR?</strong></p>
+    <p class="marginp">Hərəkət - müstəvi və ya fəzada nöqtələrin yerini dəyişmə prosesidir. Fiqların ölçüləri, forması və bucaq ölçüləri dəyişmədən yerini dəyişməsinə deyilir.</p>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 1: Paralel köçürmə nümunəsi]
+    </div>
+    
+    <p><strong>2. HƏRƏKƏT NÖVLƏRİ:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel" style="width: 100%;">
+            <tr class="cedvel">
+                <th class="cedvel">Hərəkət növü</th>
+                <th class="cedvel">Xüsusiyyətləri</th>
+                <th class="cedvel">Nümunə</th>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Paralel köçürmə</td>
+                <td class="cedvel">Bütün nöqtələr eyni istiqamətdə eyni məsafəyə köçürülür</td>
+                <td class="cedvel">Sürüşdürmə</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Fırlanma</td>
+                <td class="cedvel">Bir nöqtə ətrafında müəyyən bucaq qədər dönmə</td>
+                <td class="cedvel">Rəqəmin fırlanması</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Simmetriya</td>
+                <td class="cedvel">Xəttə və ya nöqtəyə görə əks olunma</td>
+                <td class="cedvel">Güzgü əksi</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 2: Hərəkət növlərinin sxematik təsviri]
+    </div>
+    
+    <p><strong>3. PARALEL KÖÇÜRMƏ (SÜRÜŞDÜRMƏ):</strong></p>
+    <p class="marginp">Fiqurun bütün nöqtələrinin eyni istiqamətdə eyni məsafəyə köçürülməsi.</p>
+    <div class="formula">
+        A(x, y) → A'(x+a, y+b)
+        <br>a - üfüqi köçürmə
+        <br>b - şaquli köçürmə
+    </div>
+    
+    <p class="marginp"><strong>Xassələri:</strong></p>
+    <p class="m2arginp">1. Uzunluqlar dəyişmir</p>
+    <p class="m2arginp">2. Bucaq ölçüləri dəyişmir</p>
+    <p class="m2arginp">3. Paralellik qorunur</p>
+    <p class="m2arginp">4. Perimetr və sahə dəyişmir</p>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 3: Üçbucağın paralel köçürülməsi]
+    </div>
+    
+    <p><strong>4. FIRLANMA:</strong></p>
+    <p class="marginp">Bir nöqtə ətrafında müəyyən bucaq qədər dönmə.</p>
+    <div class="formula">
+        90° fırlanma: A(x, y) → A'(-y, x)
+        <br>180° fırlanma: A(x, y) → A'(-x, -y)
+        <br>270° fırlanma: A(x, y) → A'(y, -x)
+    </div>
+    
+    <div class="figure-container">
+        <div class="figure-box">
+            <div class="image-placeholder" style="height: 100px;">
+                [90° fırlanma]
+            </div>
+        </div>
+        <div class="figure-box">
+            <div class="image-placeholder" style="height: 100px;">
+                [180° fırlanma]
+            </div>
+        </div>
+    </div>
+    
+    <p><strong>5. SİMMETRİYA:</strong></p>
+    <p class="marginp"><strong>A. Oxa görə simmetriya:</strong></p>
+    <div class="formula">
+        A(x, y) → A'(x, -y)  (x oxuna görə)
+        <br>A(x, y) → A'(-x, y)  (y oxuna görə)
+    </div>
+    
+    <p class="marginp"><strong>B. Nöqtəyə görə simmetriya:</strong></p>
+    <div class="formula">
+        A(x, y) → A'(2a-x, 2b-y)
+        <br>(a, b) - simmetriya mərkəzi
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 4: Müxtəlif simmetriya nümunələri]
+    </div>
+    
+    <p><strong>6. OXŞAR FIQLAR NƏDİR?</strong></p>
+    <p class="marginp">Uyğun bucaqları bərabər, uyğun tərəfləri mütənasib olan fiqlara oxşar fiqlar deyilir.</p>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 5: Oxşar üçbucaqlar]
+    </div>
+    
+    <p><strong>7. OXŞARLIQ ƏLAMƏTLƏRİ:</strong></p>
+    <div class="highlight-box">
+        <p><strong>I. İki bucağı bərabər olan üçbucaqlar oxşardır:</strong></p>
+        <p>∠A = ∠A' və ∠B = ∠B' → ΔABC ∼ ΔA'B'C'</p>
+        
+        <p><strong>II. Tərəfləri mütənasib olan üçbucaqlar oxşardır:</strong></p>
+        <p>AB/A'B' = BC/B'C' = AC/A'C' → ΔABC ∼ ΔA'B'C'</p>
+        
+        <p><strong>III. Bir bucağı bərabər, həmin bucağı əmələ gətirən tərəfləri mütənasib olan üçbucaqlar oxşardır:</strong></p>
+        <p>∠A = ∠A' və AB/A'B' = AC/A'C' → ΔABC ∼ ΔA'B'C'</p>
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 6: Oxşarlıq əlamətlərinin təsviri]
+    </div>
+    
+    <p><strong>8. OXŞARLIQ DÜSTURLARI:</strong></p>
+    <div class="formula">
+        Oxşarlıq əmsalı: k = AB/A'B' = BC/B'C' = AC/A'C'
+        <br>Perimetrlər nisbəti: P/P' = k
+        <br>Sahələr nisbəti: S/S' = k²
+        <br>Həcmlər nisbəti: V/V' = k³
+    </div>
+    
+    <p><strong>9. ÜÇBUCALARIN OXŞARLIĞI:</strong></p>
+    <p class="marginp"><strong>A. Düzbucaqlı üçbucaqların oxşarlığı:</strong></p>
+    <p class="m2arginp">• İki düzbucaqlı üçbucaqda bir iti bucaq bərabərdirsə, onlar oxşardır</p>
+    <p class="m2arginp">• Hündürlüyə görə oxşarlıq: Düzbucaqlı üçbucaqda hündürlük hipotenuzu iki oxşar üçbucağa ayırır</p>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 7: Düzbucaqlı üçbucaqların oxşarlığı]
+    </div>
+    
+    <p><strong>10. OXŞAR ÇOXBUCAGLILAR:</strong></p>
+    <p class="marginp">Uyğun bucaqları bərabər, uyğun tərəfləri mütənasib olan çoxbucaqlılar oxşardır.</p>
+    
+    <div class="figure-container">
+        <div class="figure-box">
+            <div class="image-placeholder" style="height: 120px;">
+                [Oxşar dördbucaqlılar]
+            </div>
+        </div>
+        <div class="figure-box">
+            <div class="image-placeholder" style="height: 120px;">
+                [Oxşar beşbucaqlılar]
+            </div>
+        </div>
+    </div>
+    
+    <p><strong>11. OXŞARLIQ PROBLEMLƏRİNİN HƏLLİ:</strong></p>
+    <div class="highlight-box">
+        <p><strong>Addımlar:</strong></p>
+        <p>1. Oxşar fiqları müəyyən et</p>
+        <p>2. Uyğunluqları qur</p>
+        <p>3. Oxşarlıq əmsalını tap (k)</p>
+        <p>4. Mütənasiblik tənliyi qur</p>
+        <p>5. Naməlum tərəfi tap</p>
+        <p>6. Perimetr və sahəni hesabla</p>
+    </div>
+    
+    <p><strong>12. FALES TEOREMİ:</strong></p>
+    <p class="marginp">Paralel xətlər bucağın tərəflərini kəsirsə, onlar üzərində mütənasib parçalar ayırır.</p>
+    <div class="formula">
+        ABC bucağı, DE ∥ BC
+        <br>AD/DB = AE/EC
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 8: Fales teoreminin təsviri]
+    </div>
+    
+    <p><strong>13. OXŞAR FIQLARIN XASSƏLƏRİ:</strong></p>
+    <div class="tablediv">
+        <table class="cedvel" style="width: 100%;">
+            <tr class="cedvel">
+                <th class="cedvel">Xassə</th>
+                <th class="cedvel">Təsviri</th>
+                <th class="cedvel">Nisbət</th>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Xətti ölçülər</td>
+                <td class="cedvel">Tərəflər, hündürlüklər, diaqonallar</td>
+                <td class="cedvel">k</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Perimetrlər</td>
+                <td class="cedvel">Fiqların perimetrləri</td>
+                <td class="cedvel">k</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Sahələr</td>
+                <td class="cedvel">Fiqların sahələri</td>
+                <td class="cedvel">k²</td>
+            </tr>
+            <tr class="cedvel">
+                <td class="cedvel">Həcmlər</td>
+                <td class="cedvel">Üçölçülü fiqların həcmləri</td>
+                <td class="cedvel">k³</td>
+            </tr>
+        </table>
+    </div>
+    
+    <p><strong>14. PRAKTİK MƏSƏLƏ NÜMUNƏSİ:</strong></p>
+    <div class="highlight-box">
+        <p><strong>Məsələ:</strong> İki oxşar üçbucağın tərəfləri 6 sm, 8 sm, 10 sm və 9 sm, 12 sm, 15 sm-dir. Oxşarlıq əmsalını, perimetrlər nisbətini və sahələr nisbətini tapın.</p>
+        <p><strong>Həll:</strong></p>
+        <p>1. Oxşarlıq əmsalı: k = 6/9 = 8/12 = 10/15 = 2/3</p>
+        <p>2. Perimetrlər: P₁ = 6+8+10 = 24 sm, P₂ = 9+12+15 = 36 sm</p>
+        <p>3. Perimetrlər nisbəti: P₁/P₂ = 24/36 = 2/3 = k</p>
+        <p>4. Sahələr nisbəti: S₁/S₂ = k² = (2/3)² = 4/9</p>
+        <p><strong>Cavab:</strong> k = 2/3, P₁/P₂ = 2/3, S₁/S₂ = 4/9</p>
+    </div>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 9: Məsələnin qrafik həlli]
+    </div>
+    
+    <p><strong>15. HƏRƏKƏT VƏ OXŞARLIQ ƏLAQƏSİ:</strong></p>
+    <p class="marginp">Bəzi hərəkət növləri fiqları oxşar fiqlara çevirir:</p>
+    <p class="m2arginp">• Homotetiya (oxşarlıq çevrilməsi) - bütün nöqtələr mərkəzdən eyni nisbətdə uzaqlaşır/yaxınlaşır</p>
+    <p class="m2arginp">• Mərkəzi oxşarlıq - homotetiyanın xüsusi halı</p>
+    
+    <div class="image-placeholder">
+        [ŞƏKİL 10: Homotetiya nümunəsi]
+    </div>
+
+    <p style="margin-left: auto;margin-right: auto; text-align: center; margin-top: 30px;">
+        <i>Hazırlayan: Amin Xudizade | Mənbələr: Azərbaycan məktəb proqramı | Güven nəşriyyatı | DIM proqramı</i>
+    </p>
+
+    <p class="p1">Hazırsınızsa, quize başlayın.</p>
+    <div class="buttonn">
+        <button class="button" onclick="window.document.location.href='naturalquiz.html'">Başla</button>
+    </div>
+    
+    <!-- Fayl yükləmə bölməsi -->
+    <div class="download-section">
+        <h3>Qaydaları Yüklə</h3>
+        <p>Hərəkət və fiqların oxşarlığına aid bütün qaydaları və düsturları yükləyin:</p>
+        <button class="download-btn" onclick="downloadHereketVeOxsharliq()">
+            📥 Qaydaları Yüklə (TXT)
+        </button>
+    </div>
+</div>
+
+<footer style="
+    width: 100%;
+    background: linear-gradient(blue, rgb(40,40,210));
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    ">
+    <p style="text-align: center; color: white; font-size: 20px; font-weight: bold;">
+        © 2026 MathGen — Riyaziyyatı asan öyrən!
+    </p>
+    <p style="text-align: center; color: yellow; margin-top: 5px; font-size: 15px;">
+        Bizimlə öyrən, bizimlə inkişaf et.
+    </p>
+</footer>
+
+<script>
+    function downloadHereketVeOxsharliq() {
+        const rulesContent = `HƏRƏKƏT VƏ FİQLARIN OXŞARLIĞI - BÜTÜN QAYDALAR VƏ DÜSTURLAR
+
+1. HƏRƏKƏT NƏDİR?
+   • Tərif: Fiqların ölçüləri, forması və bucaq ölçüləri dəyişmədən yerini dəyişməsi
+   • Nəticə: Perimetr və sahə dəyişmir
+
+2. HƏRƏKƏT NÖVLƏRİ:
+   • Paralel köçürmə (Sürüşdürmə)
+   • Fırlanma
+   • Simmetriya (Oxa və ya nöqtəyə görə)
+
+3. PARALEL KÖÇÜRMƏ:
+   • Düstur: A(x, y) → A'(x+a, y+b)
+   • Xassələri:
+     1. Uzunluqlar dəyişmir
+     2. Bucaq ölçüləri dəyişmir
+     3. Paralellik qorunur
+     4. Perimetr və sahə dəyişmir
+
+4. FIRLANMA:
+   • 90°: A(x, y) → A'(-y, x)
+   • 180°: A(x, y) → A'(-x, -y)
+   • 270°: A(x, y) → A'(y, -x)
+   • Xassə: Məsafələr və bucaqlar dəyişmir
+
+5. SİMMETRİYA:
+   A. Oxa görə simmetriya:
+      • x oxu: A(x, y) → A'(x, -y)
+      • y oxu: A(x, y) → A'(-x, y)
+   
+   B. Nöqtəyə görə simmetriya:
+      • A(x, y) → A'(2a-x, 2b-y)
+      • (a, b) - simmetriya mərkəzi
+
+6. OXŞAR FIQLAR:
+   • Tərif: Uyğun bucaqları bərabər, uyğun tərəfləri mütənasib olan fiqlar
+   • İşarəsi: ∼ (oxşardır)
+
+7. OXŞARLIQ ƏLAMƏTLƏRİ (Üçbucaqlar üçün):
+   I. İKİ BUCAQ ƏLAMƏTİ:
+      ∠A = ∠A' və ∠B = ∠B' → ΔABC ∼ ΔA'B'C'
+   
+   II. ÜÇ TƏRƏF ƏLAMƏTİ:
+      AB/A'B' = BC/B'C' = AC/A'C' → ΔABC ∼ ΔA'B'C'
+   
+   III. İKİ TƏRƏF VƏ BUCAQ ƏLAMƏTİ:
+      ∠A = ∠A' və AB/A'B' = AC/A'C' → ΔABC ∼ ΔA'B'C'
+
+8. OXŞARLIQ DÜSTURLARI:
+   • Oxşarlıq əmsalı: k = AB/A'B' = BC/B'C' = AC/A'C'
+   • Perimetrlər nisbəti: P₁/P₂ = k
+   • Sahələr nisbəti: S₁/S₂ = k²
+   • Həcmlər nisbəti: V₁/V₂ = k³
+
+9. ÜÇBUCAQLARIN OXŞARLIĞI:
+   • Düzbucaqlı üçbucaqlar: Bir iti bucaq bərabərdirsə, oxşardır
+   • Hündürlük teoremi: Düzbucaqlı üçbucaqda hündürlük hipotenuzu iki oxşar üçbucağa ayırır
+
+10. OXŞAR ÇOXBUCAQLILAR:
+    • Tərif: Uyğun bucaqları bərabər, uyğun tərəfləri mütənasib
+    • Xassə: Diaqonalların nisbəti də k-ya bərabərdir
+
+11. FALES TEOREMİ:
+    • Paralel xətlər bucağın tərəflərini kəsirsə, mütənasib parçalar ayırır
+    • Düstur: AD/DB = AE/EC (DE ∥ BC)
+
+12. OXŞARLIQ ƏMSALININ (k) XASSƏLƏRİ:
+    • k > 1: Böyük fiqur
+    • k = 1: Konqruent fiqurlar
+    • 0 < k < 1: Kiçik fiqur
+    • k < 0: Tərs fiqur (simmetrik)
+
+13. PRAKTİK HƏLL ADDIMLARI:
+    1. Oxşar fiqları müəyyən et
+    2. Uyğunluqları qur
+    3. Oxşarlıq əmsalını tap (k)
+    4. Mütənasiblik tənliyi qur
+    5. Naməlum tərəfi tap
+    6. Perimetr və sahəni hesabla
+
+14. XÜSUSİ HALLAR:
+    • Bərabəryanlı üçbucaqlar: Təpə bucağı bərabərdirsə, oxşardır
+    • Bərabərtərəfli üçbucaqlar: Həmişə oxşardır
+    • Kvadratlar: Həmişə oxşardır
+    • Dairələr: Həmişə oxşardır
+
+15. MƏSƏLƏ NÜMUNƏSİ:
+    Məsələ: İki oxşar üçbucağın tərəfləri 4,6,8 və 6,9,12 sm-dir.
+    Həll:
+    1. k = 4/6 = 6/9 = 8/12 = 2/3
+    2. P₁ = 4+6+8 = 18 sm, P₂ = 6+9+12 = 27 sm
+    3. P₁/P₂ = 18/27 = 2/3 = k
+    4. S₁/S₂ = k² = (2/3)² = 4/9
+
+ƏHƏMİYYƏTLİ QEYDLƏR:
+1. Oxşar fiqlarda bucaqlar bərabərdir
+2. Tərəflər mütənasibdir
+3. Perimetrlər nisbəti = k
+4. Sahələr nisbəti = k²
+5. Həcmlər nisbəti = k³
+6. Hərəkətlərdə sahə və perimetr dəyişmir
+7. Oxşarlıqda sahə dəyişir
+
+XATIRLAMA ÜSULLARI:
+• Oxşarlıq: "Bucaqlar bərabər, tərəflər mütənasib"
+• k: "Tərəflər nisbəti"
+• Sahə: "k kvadrat" (k²)
+• Həcm: "k kub" (k³)
+• Fales: "Paralellər mütənasib parçalar ayırır"
+
+© 2024 MathGen - Riyaziyyat Platforması
+Bütün hüquqlar qorunur.`;
+
+        const element = document.createElement('a');
+        const file = new Blob([rulesContent], {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = 'hereket-ve-oxsharliq-qaydalari.txt';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        
+        alert('Hərəkət və fiqların oxşarlığı qaydaları uğurla yükləndi! 📥');
+    }
+</script>
+    <script>
+        // Kullanıcı verilerini yönetme
+        let kullaniciVerisi = null;
+
+        // Sayfa yüklendiğinde kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            kullaniciDurumunuKontrolEt();
+            qeydiyyatFormunuBaslat();
+        });
+
+        // Kullanıcı durumunu kontrol et
+        function kullaniciDurumunuKontrolEt() {
+            const kayitliKullanici = localStorage.getItem('mathgenKullanici');
+
+            if (kayitliKullanici) {
+                try {
+                    kullaniciVerisi = JSON.parse(kayitliKullanici);
+
+                    // Profili göster
+                    document.getElementById('profilKonteyneri').style.display = 'block';
+                    
+                    // Profili güncelle
+                    profiliGuncelle();
+
+                    // Qeydiyyat bağlantısını gizle
+                    document.getElementById('kayitLinki').style.display = 'none';
+                    
+                    // Dərs linklerini aktif et
+                    aktiflestirDersLinklerini();
+                    
+                    console.log('Kullanıcı giriş yapmış:', kullaniciVerisi.kullaniciAdi);
+                } catch (error) {
+                    console.error('Kullanıcı verisi okuma hatası:', error);
+                    localStorage.removeItem('mathgenKullanici');
+                    kullaniciVerisi = null;
+                }
+            } else {
+                // Kullanıcı giriş yapmamış
+                kullaniciVerisi = null;
+
+                // Profili gizle
+                document.getElementById('profilKonteyneri').style.display = 'none';
+
+                // Qeydiyyat bağlantısını göster
+                document.getElementById('kayitLinki').style.display = 'inline-block';
+                
+                console.log('Kullanıcı giriş yapmamış');
+            }
+        }
+
+        // Profil açma/kapama işlevi
+        const profilIkonu = document.getElementById('profilIkonu');
+        const profilAcilirMenu = document.getElementById('profilAcilirMenu');
+
+        if (profilIkonu) {
+            profilIkonu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profilAcilirMenu.classList.toggle('aktif');
+            });
+        }
+
+        // Sayfanın başka bir yerine tıklanınca profili kapat
+        document.addEventListener('click', function(e) {
+            if (profilAcilirMenu && profilIkonu) {
+                if (!profilAcilirMenu.contains(e.target) && !profilIkonu.contains(e.target)) {
+                    profilAcilirMenu.classList.remove('aktif');
+                }
+            }
+        });
+
+        // Qeydiyyat modalını aç
+        const kayitModal = document.getElementById('kayitModal');
+        
+        function acKayitModal() {
+            kayitModal.classList.add('aktif');
+            if (profilAcilirMenu) {
+                profilAcilirMenu.classList.remove('aktif');
+            }
+            console.log('Qeydiyyat modalı açıldı');
+        }
+
+        function kapatKayitModal() {
+            kayitModal.classList.remove('aktif');
+            document.getElementById('kayitFormu').reset();
+            // Hata mesajlarını temizle
+            document.getElementById('kayitSifreHatasi').style.display = 'none';
+            console.log('Qeydiyyat modalı bağlandı');
+        }
+
+        // Modal dışına tıklanınca kapat
+        kayitModal.addEventListener('click', function(e) {
+            if (e.target === kayitModal) {
+                kapatKayitModal();
+            }
+        });
+
+        // Qeydiyyat formunu başlat
+        function qeydiyyatFormunuBaslat() {
+            const form = document.getElementById('kayitFormu');
+            if (form) {
+                form.addEventListener('submit', qeydiyyatFormuIsle);
+                console.log('Qeydiyyat formu başlatıldı');
+            }
+            
+            // Şifre kontrolü için input event listener'ları
+            document.getElementById('kayitSifre').addEventListener('input', sifreKontrolEt);
+            document.getElementById('sifreTekrar').addEventListener('input', sifreKontrolEt);
+        }
+
+        // Qeydiyyat formu işleme
+        function qeydiyyatFormuIsle(e) {
+            e.preventDefault();
+            console.log('Qeydiyyat formu gönderildi');
+
+            const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+            const email = document.getElementById('kayitEmail').value.trim();
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+
+            // Doğrulamalar
+            if (kullaniciAdi.length < 3) {
+                bildiriGoster('Adınız ən az 3 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (!emailDogrula(email)) {
+                bildiriGoster('Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!', 'hata');
+                return;
+            }
+
+            if (sifre.length < 6) {
+                bildiriGoster('Şifrə ən az 6 simvol olmalıdır!', 'hata');
+                return;
+            }
+
+            if (sifre !== sifreTekrar) {
+                bildiriGoster('Şifrələr uyğun gəlmir!', 'hata');
+                return;
+            }
+
+            // Qeydiyyat işlemi
+            qeydiyyatYap(kullaniciAdi, email, sifre);
+        }
+
+        // Şifre kontrolü
+        function sifreKontrolEt() {
+            const sifre = document.getElementById('kayitSifre').value;
+            const sifreTekrar = document.getElementById('sifreTekrar').value;
+            const hataDiv = document.getElementById('kayitSifreHatasi');
+
+            if (sifre && sifreTekrar && sifre !== sifreTekrar) {
+                hataDiv.textContent = 'Şifrələr uyğun gəlmir!';
+                hataDiv.style.display = 'block';
+                return false;
+            } else {
+                hataDiv.style.display = 'none';
+            }
+            return true;
+        }
+
+        // Email doğrulama
+        function emailDogrula(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Qeydiyyat yap
+        function qeydiyyatYap(ad, email, sifre) {
+            try {
+                bildiriGoster('Qeydiyyat işlənir...', 'bilgi');
+
+                // Kullanıcı verilerini oluştur
+                kullaniciVerisi = {
+                    kullaniciAdi: ad,
+                    email: email,
+                    sifre: sifre,
+                    puan: 0,
+                    seviye: 1,
+                    reytinq: 'Yeni',
+                    ilerleme: 0,
+                    kayitTarihi: new Date().toISOString()
+                };
+
+                // localStorage'a kaydet
+                localStorage.setItem('mathgenKullanici', JSON.stringify(kullaniciVerisi));
+
+                // Başarı mesajı
+                bildiriGoster('Qeydiyyat uğurla tamamlandı! Xoş gəldiniz, ' + ad + '!', 'basarili');
+
+                // Modalı kapat
+                kapatKayitModal();
+
+                // Profili güncelle
+                kullaniciDurumunuKontrolEt();
+
+                console.log('Yeni qeydiyyat:', kullaniciVerisi);
+
+            } catch (error) {
+                console.error('Qeydiyyat xətası:', error);
+                bildiriGoster('Qeydiyyat zamanı xəta baş verdi. Yenidən cəhd edin.', 'hata');
+            }
+        }
+
+        // Qeydiyyat tələb edən funksiya
+        function qeydiyyatTələbEdir(sebep = 'Bu xüsusiyyət') {
+            if (!kullaniciVerisi) {
+                bildiriGoster(sebep + ' üçün qeydiyyatdan keçməlisiniz!', 'hata');
+                acKayitModal();
+                return false;
+            }
+            return true;
+        }
+
+        // Sayfaya yönləndir (qeydiyyat kontrolu ilə)
+        function sayfayaYonlendir(sayfa) {
+            if (!kullaniciVerisi) {
+                qeydiyyatTələbEdir('Bu səhifə');
+                return false;
+            }
+            window.location.href = sayfa;
+            return true;
+        }
+
+        // Profil bilgilerini güncelle
+        function profiliGuncelle() {
+            if (!kullaniciVerisi) return;
+
+            // Baş harfleri al
+            const basHarfler = basHarfleriAl(kullaniciVerisi.kullaniciAdi);
+
+            // Profil ikonunu güncelle
+            document.getElementById('profilBasHarfler').textContent = basHarfler;
+            document.getElementById('profilMenuResim').textContent = basHarfler;
+
+            // Profil bilgilerini güncelle
+            document.getElementById('profilMenuAdi').textContent = kullaniciVerisi.kullaniciAdi;
+            document.getElementById('profilMenuEmail').textContent = kullaniciVerisi.email;
+            document.getElementById('kullaniciPuan').textContent = kullaniciVerisi.puan;
+            document.getElementById('kullaniciSeviye').textContent = kullaniciVerisi.seviye;
+            document.getElementById('kullaniciReytinq').textContent = kullaniciVerisi.reytinq;
+            document.getElementById('seviyeIlerleme').textContent = kullaniciVerisi.ilerleme + '%';
+            document.getElementById('seviyeIlerlemeCubugu').style.width = kullaniciVerisi.ilerleme + '%';
+        }
+
+        // İsimden baş harfleri al
+        function basHarfleriAl(isim) {
+            const kelimeler = isim.split(' ');
+            if (kelimeler.length >= 2) {
+                return (kelimeler[0].charAt(0) + kelimeler[1].charAt(0)).toUpperCase();
+            }
+            return isim.charAt(0).toUpperCase();
+        }
+
+        // Dərs linklerini aktif et (qeydiyyatdan sonra)
+        function aktiflestirDersLinklerini() {
+            const dersLinkleri = document.querySelectorAll('.ders-linki');
+            dersLinkleri.forEach(link => {
+                link.classList.remove('ders-linki');
+                link.removeAttribute('onclick');
+                
+                // Gerçək linkleri əlavə et
+                const linkMetni = link.textContent;
+                let targetPage = '';
+                
+                switch(linkMetni) {
+                    case 'Quiz':
+                        targetPage = 'quiz.html';
+                        break;
+                    case 'Müraciət':
+                        targetPage = 'form1.html';
+                        break;
+                    case 'Sınaqlar':
+                        targetPage = 'naturalquiz.html';
+                        break;
+                    case 'Ana Səhifə':
+                        targetPage = 'bas1.html';
+                        break;
+                    default:
+                        targetPage = '#';
+                }
+                
+                link.href = targetPage;
+                link.onclick = function(e) { 
+                    if (targetPage !== '#') {
+                        e.preventDefault(); 
+                        sayfayaYonlendir(targetPage); 
+                    }
+                };
+            });
+            
+            console.log('Dərs linkləri aktivləşdirildi');
+        }
+
+        // Bildiri göstər
+        function bildiriGoster(metin, tip) {
+            // Köhnə bildiriləri sil
+            const eskiBildiriler = document.querySelectorAll('.bildiri');
+            eskiBildiriler.forEach(b => b.remove());
+
+            // Yeni bildiri yarat
+            const bildiriDiv = document.createElement('div');
+            bildiriDiv.className = `bildiri ${tip}`;
+            bildiriDiv.textContent = metin;
+            
+            document.body.appendChild(bildiriDiv);
+
+            // 3 saniyə sonra sil
+            setTimeout(() => {
+                if (document.body.contains(bildiriDiv)) {
+                    document.body.removeChild(bildiriDiv);
+                }
+            }, 3000);
+            
+            console.log(`Bildiri: ${metin}`);
+        }
+
+
+    </script>
+</body>
+</html>
